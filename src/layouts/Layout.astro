@@ -1,0 +1,144 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = "Toile Blanche | Suites & Restaurant",
+  description = "Book your stay at Toile Blanche Hotel in Saint-Paul de Vence and experience luxury suites surrounded by art and joie de vivre. Book your unforgettable vacation today.",
+  ogImage = "https://cdn.prod.website-files.com/639af6c370637a9be3e3b0b0/63dbc14a7fa59e1233dd4d93_Neutral%20Beige%20Minimalist%20Photo%20Collage%20Facebook%20Cover%20(1).jpg",
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+
+const GTM_ID = "GTM-52R8BBP";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Canonical -->
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Favicon — update with your own favicon file -->
+  <link rel="shortcut icon" href="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Site Stylesheet -->
+  <link rel="stylesheet" href="/css/toile-blanche.min.css" />
+  <link rel="stylesheet" href="/css/site-overrides.css" />
+
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="ybV56V__njW0TIX5AEH_299IVdVUSQYtEk-I8KSaeQQ" />
+
+  <!-- Consent Mode V2 — must load before GTM -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 500
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script define:vars={{ GTM_ID }}>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer', GTM_ID);
+  </script>
+
+  <!-- Mews Booking Engine -->
+  <script src="https://api.mews.com/distributor/distributor.min.js"></script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Toile Blanche",
+      "image": "/assets/images/63f733ffcf0bd21e93406b39_Toile%20Blanche%20Logos%202023.png",
+      "@id": "https://www.toileblanche.com#organisation",
+      "url": "https://www.toileblanche.com",
+      "telephone": "+33493327421",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "826, chemin de la Pounchounière",
+        "addressLocality": "Saint-Paul de Vence",
+        "postalCode": "06570",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.6874494,
+        "longitude": 7.1285941
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "08:00",
+        "closes": "22:00"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  <slot />
+
+  <!-- Site JS -->
+  <script src="/js/site.js" defer></script>
+
+  <!-- Mews Booking Engine Init -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof Mews !== 'undefined') {
+        Mews.Distributor({
+          configurationIds: ['150bd326-7c63-4a24-b668-abcf00c6bb22'],
+          openElements: '.distributor-open',
+        });
+      }
+    });
+  </script>
+</body>
+</html>

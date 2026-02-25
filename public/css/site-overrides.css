@@ -1,0 +1,118 @@
+/**
+ * Toile Blanche – Site Overrides & Enhancements
+ * Custom styles that supplement the main Webflow stylesheet
+ */
+
+/* ─── Scroll animations ──────────────────────────────────────────────────── */
+.tb-fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.tb-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Page Loader ────────────────────────────────────────────────────────── */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Navigation Menu Icon ───────────────────────────────────────────────── */
+.menu-icon-wrap {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.js-menu-toggle.is-open .menu-bar.top {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.js-menu-toggle.is-open .menu-bar.middle {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.js-menu-toggle.is-open .menu-bar.bottom {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ─── Suite Slider ───────────────────────────────────────────────────────── */
+.home-room-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.js-slider-track {
+  display: flex;
+  will-change: transform;
+}
+
+.js-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+.room-slider-left-arrow,
+.room-slider-right-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ─── Nav links container default hidden state ───────────────────────────── */
+.js-nav-links[hidden] {
+  display: none !important;
+}
+
+/* ─── Hero reveal animation ──────────────────────────────────────────────── */
+#hero-content {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+#hero-arrow {
+  transform: translateY(24px);
+}
+
+/* ─── Responsive video ───────────────────────────────────────────────────── */
+.hero-bg-video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ─── Print styles ───────────────────────────────────────────────────────── */
+@media print {
+  #page-loader,
+  .hero-bg-video,
+  .hero-bg-overlay {
+    display: none !important;
+  }
+}
