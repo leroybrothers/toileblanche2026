@@ -63,9 +63,10 @@
         navLinks.forEach(function (nav) {
           if (newState) {
             nav.removeAttribute('hidden');
-            nav.style.display = '';
+            nav.style.display = 'grid';
           } else {
             nav.setAttribute('hidden', '');
+            nav.style.display = '';
           }
         });
 
@@ -83,6 +84,7 @@
         });
         navLinks.forEach(function (nav) {
           nav.setAttribute('hidden', '');
+          nav.style.display = '';
         });
         document.body.style.overflow = '';
       }
@@ -97,6 +99,7 @@
         });
         navLinks.forEach(function (nav) {
           nav.setAttribute('hidden', '');
+          nav.style.display = '';
         });
         document.body.style.overflow = '';
       });

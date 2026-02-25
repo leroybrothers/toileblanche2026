@@ -88,6 +88,127 @@
   display: none !important;
 }
 
+/* ─── Full-page menu (Badrutt-style split layout) ─────────────────────────── */
+.tb-fullpage-menu.js-nav-links {
+  inset: 0;
+  min-height: 100vh;
+  padding: 60px 5vw 5vw;
+  background-color: var(--light-cream, #f5f2ed);
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 1fr;
+  align-content: start;
+  overflow-y: auto;
+}
+
+.tb-menu-inner {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 1px minmax(280px, 1.2fr);
+  gap: 0 4vw;
+  width: 100%;
+  max-width: 1200px;
+  align-items: start;
+}
+
+.tb-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.tb-menu-link {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: var(--dark-cream, #2c2a26);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.tb-menu-link::before {
+  content: "→ ";
+  opacity: 0.6;
+}
+
+.tb-menu-link:hover,
+.tb-menu-link.tb-current {
+  opacity: 0.85;
+}
+
+.tb-menu-link-last {
+  margin-top: 1em;
+}
+
+.tb-menu-divider {
+  width: 1px;
+  min-height: 200px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.tb-menu-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 1.5rem 2rem;
+}
+
+.tb-menu-info-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.tb-menu-info-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0 0 0.25em;
+}
+
+.tb-menu-info-link {
+  font-size: 0.95rem;
+  color: var(--dark-cream, #2c2a26);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.tb-menu-info-link:hover {
+  opacity: 0.7;
+}
+
+.tb-menu-info-footer {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+.tb-menu-info-footer .tb-menu-info-link {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 767px) {
+  .tb-fullpage-menu.js-nav-links {
+    padding: 80px 5vw 5vw;
+  }
+
+  .tb-menu-inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .tb-menu-divider {
+    min-height: 1px;
+    width: 100%;
+  }
+
+  .tb-menu-info {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ─── Hero reveal animation ──────────────────────────────────────────────── */
 #hero-content {
   opacity: 0;

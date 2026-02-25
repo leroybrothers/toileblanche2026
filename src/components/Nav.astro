@@ -1,4 +1,5 @@
 ---
+import NavMenu from './NavMenu.astro';
 export interface Props {
   theme?: 'dark' | 'light' | 'both';
 }
@@ -31,46 +32,8 @@ const currentPath = Astro.url.pathname;
       </div>
     </div>
 
-    <div class="nav-links-container dark js-nav-links" hidden>
-      <div class="nav-primary-wrapper">
-        <div class="nav-primary-links-wrapper">
-          <a href="/suites" class={`nav-link _2${currentPath.startsWith('/suites') ? ' w--current' : ''}`}>Suites</a>
-          <a href="/restaurants" class={`nav-link _4${currentPath.startsWith('/restaurants') ? ' w--current' : ''}`}>Restaurants</a>
-          <a href="/art" class={`nav-link _3${currentPath.startsWith('/art') ? ' w--current' : ''}`}>Art</a>
-          <a href="/experiences" class={`nav-link _5${currentPath.startsWith('/experiences') ? ' w--current' : ''}`}>Experiences</a>
-        </div>
-        <div class="nav-image-wrapper medium-height">
-          <img src="/assets/images/6654a38bf74cefd0d4a2347e_IMG_3266.avif" loading="eager" alt="" class="secondary-nav-image _1" />
-          <img src="/assets/images/665605cccb91a684b40edb4c_C3FE4BEC-32FE-4CD3-AD01-3E657C5A96C4.avif" loading="eager" alt="" class="secondary-nav-image _2" />
-          <img src="/assets/images/6655f0dce1c6723af455590c_IMG_3788.avif" loading="eager" alt="" class="secondary-nav-image _3" />
-          <img src="/assets/images/6655f0efc9cd82a63b8e450f_IMG_3802.avif" loading="eager" alt="" class="secondary-nav-image _4" />
-          <img src="/assets/images/6655f1053a4a95d70f7e8c1b_IMG_4374.avif" loading="eager" alt="" class="secondary-nav-image _5" />
-          <img src="/assets/images/6655f11dee7a2b5af77d6497_IMG_2723.avif" loading="eager" alt="" class="secondary-nav-image _6" />
-          <img src="/assets/images/6655f0c46baff810a44ff64d_IMG_2673.avif" loading="eager" alt="" class="main-nav-image" />
-        </div>
-      </div>
-      <div class="nav-secondary-wrapper">
-        <div class="nav-secondary-links-wrapper">
-          <a href="/about" class="nav-secondary-link">About</a>
-          <a href="/art" class="nav-secondary-link">The Collection</a>
-          <a href="/shop" class="nav-secondary-link">Shop</a>
-          <a href="/press" class="nav-secondary-link">Press</a>
-          <a href="/careers" class="nav-secondary-link">Careers</a>
-          <a href="/environmental-and-social-strategy" class="nav-secondary-link">Environmental Strategy</a>
-          <a href="/gift-vouchers" class="nav-secondary-link">Gift Vouchers</a>
-          <a href="/blog" class="nav-secondary-link">Blog</a>
-          <a href="/contact" class="nav-secondary-link last">Contact</a>
-        </div>
-        <div class="nav-social-wrapper">
-          <p class="faq-question-title">Follow Us</p>
-          <a href="https://www.instagram.com/toileblanche/" target="_blank" rel="noopener noreferrer" class="nav-social-link first w-inline-block">
-            <img src="/assets/images/639af6c370637ac85ee3b0e7_Instagram_icon_48px.svg" loading="lazy" alt="Instagram" />
-          </a>
-          <a href="https://www.facebook.com/toileblanche" target="_blank" rel="noopener noreferrer" class="nav-social-link w-inline-block">
-            <img src="/assets/images/639af6c370637a0167e3b0e8_Facebook_icon_48px.svg" loading="lazy" alt="Facebook" />
-          </a>
-        </div>
-      </div>
+    <div class="nav-links-container tb-fullpage-menu dark js-nav-links" hidden>
+      <NavMenu currentPath={currentPath} />
     </div>
   </nav>
 )}
@@ -100,46 +63,8 @@ const currentPath = Astro.url.pathname;
       </div>
     </div>
 
-    <div class="nav-links-container light js-nav-links" hidden>
-      <div class="nav-primary-wrapper">
-        <div class="nav-primary-links-wrapper">
-          <a href="/suites" class={`nav-link _2${currentPath.startsWith('/suites') ? ' w--current' : ''}`}>Suites</a>
-          <a href="/restaurants" class={`nav-link _4${currentPath.startsWith('/restaurants') ? ' w--current' : ''}`}>Restaurants</a>
-          <a href="/art" class={`nav-link _3${currentPath.startsWith('/art') ? ' w--current' : ''}`}>Art</a>
-          <a href="/experiences" class={`nav-link _5${currentPath.startsWith('/experiences') ? ' w--current' : ''}`}>Experiences</a>
-        </div>
-        <div class="nav-image-wrapper medium-height">
-          <img src="/assets/images/6654a38bf74cefd0d4a2347e_IMG_3266.avif" loading="eager" alt="" class="secondary-nav-image _1" />
-          <img src="/assets/images/665605cccb91a684b40edb4c_C3FE4BEC-32FE-4CD3-AD01-3E657C5A96C4.avif" loading="eager" alt="" class="secondary-nav-image _2" />
-          <img src="/assets/images/6655f0dce1c6723af455590c_IMG_3788.avif" loading="eager" alt="" class="secondary-nav-image _3" />
-          <img src="/assets/images/6655f0efc9cd82a63b8e450f_IMG_3802.avif" loading="eager" alt="" class="secondary-nav-image _4" />
-          <img src="/assets/images/6655f1053a4a95d70f7e8c1b_IMG_4374.avif" loading="eager" alt="" class="secondary-nav-image _5" />
-          <img src="/assets/images/6655f11dee7a2b5af77d6497_IMG_2723.avif" loading="eager" alt="" class="secondary-nav-image _6" />
-          <img src="/assets/images/6655f0c46baff810a44ff64d_IMG_2673.avif" loading="eager" alt="" class="main-nav-image" />
-        </div>
-      </div>
-      <div class="nav-secondary-wrapper">
-        <div class="nav-secondary-links-wrapper">
-          <a href="/about" class="nav-secondary-link">About</a>
-          <a href="/art" class="nav-secondary-link">The Collection</a>
-          <a href="/shop" class="nav-secondary-link">Shop</a>
-          <a href="/press" class="nav-secondary-link">Press</a>
-          <a href="/careers" class="nav-secondary-link">Careers</a>
-          <a href="/environmental-and-social-strategy" class="nav-secondary-link">Environmental Strategy</a>
-          <a href="/gift-vouchers" class="nav-secondary-link">Gift Vouchers</a>
-          <a href="/blog" class="nav-secondary-link">Blog</a>
-          <a href="/contact" class="nav-secondary-link last">Contact</a>
-        </div>
-        <div class="nav-social-wrapper">
-          <p class="faq-question-title">Follow Us</p>
-          <a href="https://www.instagram.com/toileblanche/" target="_blank" rel="noopener noreferrer" class="nav-social-link first w-inline-block">
-            <img src="/assets/images/639af6c370637ac85ee3b0e7_Instagram_icon_48px.svg" loading="lazy" alt="Instagram" />
-          </a>
-          <a href="https://www.facebook.com/toileblanche" target="_blank" rel="noopener noreferrer" class="nav-social-link w-inline-block">
-            <img src="/assets/images/639af6c370637a0167e3b0e8_Facebook_icon_48px.svg" loading="lazy" alt="Facebook" />
-          </a>
-        </div>
-      </div>
+    <div class="nav-links-container tb-fullpage-menu light js-nav-links" hidden>
+      <NavMenu currentPath={currentPath} />
     </div>
   </nav>
 )}

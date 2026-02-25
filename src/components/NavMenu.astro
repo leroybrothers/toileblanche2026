@@ -1,0 +1,49 @@
+---
+export interface Props {
+  currentPath: string;
+}
+const { currentPath } = Astro.props;
+const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current' : '';
+---
+
+<div class="tb-menu-inner">
+  <!-- Left: Main navigation -->
+  <nav class="tb-menu-nav" aria-label="Main menu">
+    <a href="/suites" class={`tb-menu-link${linkClass('/suites')}`}>Suites</a>
+    <a href="/restaurants" class={`tb-menu-link${linkClass('/restaurants')}`}>Restaurants</a>
+    <a href="/art" class={`tb-menu-link${linkClass('/art')}`}>Art</a>
+    <a href="/experiences" class={`tb-menu-link${linkClass('/experiences')}`}>Experiences</a>
+    <a href="/about" class={`tb-menu-link${linkClass('/about')}`}>About</a>
+    <a href="/shop" class={`tb-menu-link${linkClass('/shop')}`}>Shop</a>
+    <a href="/gift-vouchers" class={`tb-menu-link${linkClass('/gift-vouchers')}`}>Gift Vouchers</a>
+    <a href="/blog" class={`tb-menu-link${linkClass('/blog')}`}>Blog</a>
+    <a href="/contact" class={`tb-menu-link tb-menu-link-last${linkClass('/contact')}`}>Contact</a>
+  </nav>
+
+  <div class="tb-menu-divider" aria-hidden="true"></div>
+
+  <!-- Right: Info grid -->
+  <div class="tb-menu-info">
+    <div class="tb-menu-info-cell">
+      <p class="tb-menu-info-title">Contact</p>
+      <a href="tel:+33493327421" class="tb-menu-info-link">+33 4 93 32 74 21</a>
+      <a href="mailto:info@toileblanche.com" class="tb-menu-info-link">info@toileblanche.com</a>
+    </div>
+    <div class="tb-menu-info-cell">
+      <p class="tb-menu-info-title">Gift vouchers</p>
+      <a href="/gift-vouchers" class="tb-menu-info-link">Give a gift of luxury</a>
+    </div>
+    <div class="tb-menu-info-cell">
+      <p class="tb-menu-info-title">Find us</p>
+      <a href="https://goo.gl/maps/VoKrme28X62qbvTk7" target="_blank" rel="noopener noreferrer" class="tb-menu-info-link">
+        826, chemin de la Pounchounière<br />06570 Saint-Paul de Vence
+      </a>
+    </div>
+    <div class="tb-menu-info-cell tb-menu-info-footer">
+      <a href="/about" class="tb-menu-info-link">About</a>
+      <a href="/press" class="tb-menu-info-link">Press</a>
+      <a href="/careers" class="tb-menu-info-link">Careers</a>
+      <a href="/#newsletter-form" class="tb-menu-info-link">Newsletter</a>
+    </div>
+  </div>
+</div>
