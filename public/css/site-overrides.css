@@ -111,7 +111,7 @@
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   font-weight: 500;
   margin: 0 0 1rem;
-  color: var(--dark-cream, #2c2a26);
+  color: #2c2a26 !important;
 }
 
 .tb-intro-block p {
@@ -120,7 +120,7 @@
   font-weight: 300;
   line-height: 1.7;
   margin: 0 0 1rem;
-  color: var(--dark-cream, #2c2a26);
+  color: #2c2a26 !important;
 }
 
 .tb-intro-block p:last-child {
@@ -168,7 +168,7 @@
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 500;
   margin: 0 0 1rem;
-  color: var(--dark-cream, #2c2a26);
+  color: #2c2a26 !important;
 }
 
 .tb-feature-block-content p {
@@ -177,7 +177,7 @@
   font-weight: 300;
   line-height: 1.6;
   margin: 0 0 1.5rem;
-  color: var(--dark-cream, #2c2a26);
+  color: #2c2a26 !important;
 }
 
 .tb-feature-closing {
@@ -186,7 +186,7 @@
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   text-align: center;
   margin: 2rem 0 0;
-  color: var(--dark-cream, #2c2a26);
+  color: #2c2a26 !important;
 }
 
 @media (max-width: 767px) {
@@ -344,15 +344,6 @@
   font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1.15;
   margin: 0 0 0.5em;
-}
-
-.hero-subtext {
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
-  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
-  letter-spacing: 0.02em;
-  margin: 0 0 0.75em;
-  opacity: 0.95;
 }
 
 .hero-body {
