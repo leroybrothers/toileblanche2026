@@ -62,18 +62,13 @@ const suites = [
   <header class="hero1" id="hero" style="opacity:0">
     <div class="hero-bg-wrapper">
       <div class="hero-bg-image">
-        <div class="hero-bg-video w-background-video w-background-video-atom">
-          <video
-            autoplay
-            loop
-            muted
-            playsinline
-            poster="/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg"
-            style="object-fit:cover; width:100%; height:100%;"
-          >
-            <source src="/assets/video/63c833490a337a19059088b6_Toile Blanche video 2020 (1)-transcode.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <img
+          src="/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg"
+          alt="Toile Blanche, Saint-Paul de Vence"
+          class="hero-bg-img"
+          loading="eager"
+          fetchpriority="high"
+        />
       </div>
     </div>
     <div class="hero-bg-overlay"></div>
