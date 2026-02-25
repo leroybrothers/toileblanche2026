@@ -35,6 +35,12 @@
   background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
+/* ─── Keep logo and Book my Stay black in header (no white/light variant) ─── */
+.navigation-dark .nav-link-dark,
+.navigation-light .nav-link-light {
+  color: #2c2a26 !important;
+}
+
 /* ─── Navigation Menu Icon ───────────────────────────────────────────────── */
 .menu-icon-wrap {
   width: 24px;
@@ -98,12 +104,25 @@
   padding: 2rem 0 3rem;
 }
 
+.suites-view-all-link .button,
+.suites-view-all-link .w-button {
+  color: #fff !important;
+  border-color: #fff !important;
+  background-color: transparent !important;
+}
+
+.suites-view-all-link .button:hover,
+.suites-view-all-link .w-button:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
 /* ─── Intro blocks: The Story, The Feeling ────────────────────────────────── */
 .tb-intro-blocks {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem 4rem;
-  margin-bottom: 3rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 .tb-intro-block-title {
@@ -433,9 +452,14 @@
 }
 
 .tb-newsletter-form {
+  width: 100%;
+}
+
+.tb-newsletter-row {
   display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem;
   width: 100%;
 }
 
@@ -443,6 +467,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  flex: 1;
+  min-width: 120px;
 }
 
 .tb-newsletter-field label {
@@ -455,19 +481,20 @@
 .tb-newsletter-field input {
   width: 100%;
   max-width: 100%;
-  padding: 0.5rem 0;
+  padding: 0.6rem 0.75rem;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid rgba(44, 42, 38, 0.3);
-  color: var(--dark-cream, #2c2a26);
+  background: #fff !important;
+  border: 1px solid rgba(44, 42, 38, 0.2);
+  color: #2c2a26 !important;
   transition: border-color 0.2s ease;
   box-sizing: border-box;
+  -webkit-text-fill-color: #2c2a26 !important;
 }
 
 .tb-newsletter-field input::placeholder {
-  color: rgba(44, 42, 38, 0.5);
+  color: rgba(44, 42, 38, 0.5) !important;
+  opacity: 1;
 }
 
 .tb-newsletter-field input:focus {
@@ -476,9 +503,8 @@
 }
 
 .tb-newsletter-submit {
-  align-self: flex-start;
-  margin-top: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  flex-shrink: 0;
+  padding: 0.6rem 1.5rem;
   font-family: "Inter", sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
@@ -511,6 +537,15 @@
   .tb-newsletter {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .tb-newsletter-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tb-newsletter-field {
+    min-width: 0;
   }
 }
 

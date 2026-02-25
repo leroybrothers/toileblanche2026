@@ -171,7 +171,7 @@ const suites = [
       </div>
     </div>
     <div class="suites-view-all-link">
-      <a href="/suites" class="button secondary w-button light">View all suites →</a>
+      <a href="/suites" class="button secondary w-button light">View all suites</a>
     </div>
   </div>
 
@@ -193,7 +193,7 @@ const suites = [
           <div class="tb-feature-block-content">
             <h3>The Collection</h3>
             <p>The works at Toile Blanche are chosen, not accumulated. Each piece was selected by the Leroy Brothers — who are themselves artists — in conversation with the people who made them. The collection spans painting, sculpture, photography and installation. It changes. New works arrive each season.</p>
-            <a href="/art" class="button secondary w-button">Discover the collection →</a>
+            <a href="/art" class="button secondary w-button">Discover the collection</a>
           </div>
         </div>
 
@@ -201,7 +201,7 @@ const suites = [
         <div class="tb-feature-block tb-feature-block--reverse">
           <div class="tb-feature-block-image">
             <img
-              src="/assets/images/6655f39e9f566028eff7ffa7_IMG_3986-p-1080.avif"
+              src="/assets/images/6655f39e9f566028eff7ffa7_IMG_3986-p-1600.avif"
               loading="lazy"
               width="524"
               sizes="(max-width: 767px) 100vw, 524px"
@@ -211,7 +211,7 @@ const suites = [
           <div class="tb-feature-block-content">
             <h3>Two Tables Worth Travelling For</h3>
             <p>La Guinguette is lunch under the plane trees — rosé, grilled fish, the specific joy of eating outside in Provence. Le Restaurant is the evening version: more considered, more intimate, the kitchen at full attention. Both menus are built around what is in season, what is local, what is honest.</p>
-            <a href="/restaurants" class="button secondary w-button">Reserve a table →</a>
+            <a href="/restaurants" class="button secondary w-button">Reserve a table</a>
           </div>
         </div>
 
@@ -229,7 +229,7 @@ const suites = [
           <div class="tb-feature-block-content">
             <h3>Experiences</h3>
             <p>From the most relaxed spirits, to those who want a more cultural offering — we help you experience what we love the most about this part of France. Treatments, studio visits, the Art Route, bike rentals, and of course our two pools.</p>
-            <a href="/experiences" class="button secondary w-button">Explore experiences →</a>
+            <a href="/experiences" class="button secondary w-button">Explore experiences</a>
           </div>
         </div>
 
@@ -262,21 +262,27 @@ const suites = [
     <div class="container">
       <div class="tb-newsletter">
         <div class="tb-newsletter-content">
-          <h3 class="tb-newsletter-title">The Toile Blanche Journal</h3>
+          <h3 class="tb-newsletter-title">A home away from home — for people who have exceptional homes. Stay in touch.</h3>
           <p class="tb-newsletter-desc">Not too often. Just enough. The occasional note from Saint-Paul de Vence — new arrivals in the collection, what is on the table this season, and the things worth knowing before you visit.</p>
           <p class="tb-newsletter-cta">Join 2,000 people who already know.</p>
         </div>
         <div class="tb-newsletter-form-wrap">
           <form id="newsletter-form" name="newsletter-form" method="POST" class="tb-newsletter-form" action="/api/newsletter">
-            <div class="tb-newsletter-field">
-              <label for="Full-Name">Name</label>
-              <input id="Full-Name" name="Full-Name" type="text" placeholder="John Doe" maxlength="256" required />
+            <div class="tb-newsletter-row">
+              <div class="tb-newsletter-field">
+                <label for="First-Name">First name</label>
+                <input id="First-Name" name="First-Name" type="text" placeholder="First name" maxlength="256" required />
+              </div>
+              <div class="tb-newsletter-field">
+                <label for="Last-Name">Last name</label>
+                <input id="Last-Name" name="Last-Name" type="text" placeholder="Last name" maxlength="256" required />
+              </div>
+              <div class="tb-newsletter-field">
+                <label for="Email">Email address</label>
+                <input id="Email" name="Email" type="email" placeholder="Email address" maxlength="256" required />
+              </div>
+              <button type="submit" class="tb-newsletter-submit">Join Now!</button>
             </div>
-            <div class="tb-newsletter-field">
-              <label for="Email">Email Address</label>
-              <input id="Email" name="Email" type="email" placeholder="john.doe@myemail.com" maxlength="256" required />
-            </div>
-            <button type="submit" class="tb-newsletter-submit">Subscribe now!</button>
           </form>
           <p class="tb-newsletter-legal">By subscribing to The Toile Blanche Journal you agree to our <a href="/privacy-policy">privacy policy</a></p>
         </div>
