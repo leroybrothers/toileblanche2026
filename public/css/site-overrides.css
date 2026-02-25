@@ -92,6 +92,78 @@
   padding: 0;
 }
 
+.suites-view-all-link {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 3rem;
+}
+
+/* ─── Three blocks: Art, Restaurants, Experiences ─────────────────────────── */
+.tb-three-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.tb-feature-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.tb-feature-block--reverse .tb-feature-block-image {
+  order: 2;
+}
+
+.tb-feature-block--reverse .tb-feature-block-content {
+  order: 1;
+}
+
+.tb-feature-block-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.tb-feature-block-content h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+  margin: 0 0 1rem;
+  color: var(--dark-cream, #2c2a26);
+}
+
+.tb-feature-block-content p {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+  color: var(--dark-cream, #2c2a26);
+}
+
+.tb-feature-closing {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  text-align: center;
+  margin: 2rem 0 0;
+  color: var(--dark-cream, #2c2a26);
+}
+
+@media (max-width: 767px) {
+  .tb-feature-block {
+    grid-template-columns: 1fr;
+  }
+
+  .tb-feature-block--reverse .tb-feature-block-image,
+  .tb-feature-block--reverse .tb-feature-block-content {
+    order: unset;
+  }
+}
+
 /* ─── Nav links container default hidden state ───────────────────────────── */
 .js-nav-links[hidden],
 .tb-fullpage-menu.js-nav-links[hidden] {
@@ -241,17 +313,18 @@
 .hero-subtext {
   font-family: "Inter", sans-serif;
   font-weight: 300;
-  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
   letter-spacing: 0.02em;
-  margin: 0 0 1em;
+  margin: 0 0 0.75em;
   opacity: 0.95;
 }
 
 .hero-body {
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  line-height: 1.5;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  line-height: 1.4;
   margin: 0 0 1.5em;
   opacity: 0.95;
 }
@@ -277,42 +350,147 @@
   inset: 0;
 }
 
-/* ─── Hero background image (static fallback) ─────────────────────────────── */
-.hero1 .hero-bg-img {
-  position: absolute;
-  inset: 0;
+/* ─── Hero background with parallax ───────────────────────────────────────── */
+.hero-bg-parallax .hero-bg-image {
+  background-image: url("/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-parallax .hero-bg-image {
+    background-attachment: scroll;
+  }
+}
+
+/* ─── Newsletter section ──────────────────────────────────────────────────── */
+.tb-newsletter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: 1000px;
+  margin: 0 auto;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
-/* ─── Newsletter section fixes ────────────────────────────────────────────── */
-#w-node-newsletter-title,
-#w-node-newsletter-text,
-#w-node-newsletter-form {
-  overflow: visible !important;
+.tb-newsletter-form-wrap {
+  width: 100%;
+  min-width: 0;
 }
 
-.newsletter-form {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: stretch !important;
-  gap: 1.5rem !important;
+.tb-newsletter-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 500;
+  margin: 0 0 1rem;
+  color: var(--dark-cream, #2c2a26);
 }
 
-.newsletter-input {
-  width: 100% !important;
+.tb-newsletter-desc {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+  color: var(--dark-cream, #2c2a26);
 }
 
-.newsletter-form .submit-button {
+.tb-newsletter-cta {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  margin: 0;
+  color: var(--dark-cream, #2c2a26);
+}
+
+.tb-newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.tb-newsletter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.tb-newsletter-field label {
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--dark-cream, #2c2a26);
+}
+
+.tb-newsletter-field input {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.5rem 0;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(44, 42, 38, 0.3);
+  color: var(--dark-cream, #2c2a26);
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.tb-newsletter-field input::placeholder {
+  color: rgba(44, 42, 38, 0.5);
+}
+
+.tb-newsletter-field input:focus {
+  outline: none;
+  border-bottom-color: var(--dark-cream, #2c2a26);
+}
+
+.tb-newsletter-submit {
   align-self: flex-start;
   margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: var(--dark-cream, #2c2a26);
+  color: var(--light-cream, #f5f2ed);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.tb-newsletter-submit:hover {
+  opacity: 0.9;
+}
+
+.tb-newsletter-legal {
+  margin: 1rem 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgba(44, 42, 38, 0.7);
+}
+
+.tb-newsletter-legal a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: inherit;
+}
+
+@media (max-width: 767px) {
+  .tb-newsletter {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 /* ─── Print styles ───────────────────────────────────────────────────────── */
 @media print {
   #page-loader,
-  .hero-bg-img,
+  .hero-bg-image,
   .hero-bg-overlay {
     display: none !important;
   }

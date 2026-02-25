@@ -60,16 +60,8 @@ const suites = [
 
   <!-- Hero Section -->
   <header class="hero1" id="hero" style="opacity:0">
-    <div class="hero-bg-wrapper">
-      <div class="hero-bg-image">
-        <img
-          src="/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg"
-          alt="Toile Blanche, Saint-Paul de Vence"
-          class="hero-bg-img"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </div>
+    <div class="hero-bg-wrapper hero-bg-parallax">
+      <div class="hero-bg-image" role="img" aria-label="Toile Blanche, Saint-Paul de Vence"></div>
     </div>
     <div class="hero-bg-overlay"></div>
 
@@ -77,7 +69,7 @@ const suites = [
 
     <div class="hero1-content-wrapper">
       <div class="hero1-content" id="hero-content">
-        <h1 class="hero-headline light">The Côte d'Azur, without the spectacle.</h1>
+        <h1 class="hero-headline light">The Côte d'Azur,<br />without the spectacle.</h1>
         <div class="hero-second-line light">The art is not on the walls — it is the walls.</div>
         <div class="hero-subtext light">Saint-Paul de Vence · 20,000m² · 22 suites · Two restaurants · 3 pools</div>
         <div class="hero-body light">And the particular pleasure of going nowhere for a few days.</div>
@@ -188,95 +180,70 @@ const suites = [
         </button>
       </div>
     </div>
+    <div class="suites-view-all-link">
+      <a href="/suites" class="button secondary w-button light">View all suites →</a>
+    </div>
   </div>
 
-  <!-- Curated Lifestyle: Art, Restaurants, Suites -->
+  <!-- Art, Restaurants, Experiences -->
   <div class="section top-padding-192">
     <div class="container">
-      <div>
-        <div class="split-section-wrapper reverse-wrap">
-          <div class="split-section">
-            <!-- Art (first / lead) -->
-            <div class="grid-layout-content-wrapper right-padding">
-              <div class="card-image-wapper large-height">
-                <img
-                  src="/assets/images/677ce5a0ffdffd79d9f89e13_Aerts 6 (1)-p-1600.jpg"
-                  loading="eager"
-                  width="524"
-                  sizes="(max-width: 767px) 100vw, 524px"
-                  alt="Contemporary art at Toile Blanche"
-                  class="card-image"
-                />
-              </div>
-              <div class="card-content-wrapper">
-                <h3>The Collection</h3>
-                <p class="paragraph-7">
-                  The works at Toile Blanche are chosen, not accumulated. Each piece was selected by the Leroy Brothers — who are themselves artists — in conversation with the people who made them. Some were created specifically for the property. Others arrived because they belonged here.
-                  The collection spans painting, sculpture, photography and installation. It changes. New works arrive each season.
-                  Staying here more than once means encountering a different conversation with the same rooms.
-                </p>
-                <div class="btn-wrapper">
-                  <a href="/art" class="button secondary w-button">Discover the collection →</a>
-                </div>
-              </div>
-            </div>
-            <div class="divider _288px mobile-l-none"></div>
-            <!-- Restaurants -->
-            <div class="grid-layout-content-wrapper last right-padding">
-              <div class="card-image-wapper large-height">
-                <img
-                  src="/assets/images/6655f39e9f566028eff7ffa7_IMG_3986-p-1080.avif"
-                  loading="eager"
-                  width="524"
-                  sizes="(max-width: 767px) 100vw, 524px"
-                  alt="Toile Blanche restaurants"
-                  class="card-image"
-                />
-              </div>
-              <div class="card-content-wrapper">
-                <h3>Two Tables Worth Travelling For</h3>
-                <p class="paragraph-5">
-                  La Guinguette is lunch under the plane trees — rosé, grilled fish, the specific joy of eating outside in Provence. Le Restaurant is the evening version: more considered, more intimate, the kitchen at full attention.
-                  Both menus are built around what is in season, what is local, what is honest. The herb garden is twenty metres from the kitchen. The wine list is a love letter to the Var.
-                </p>
-                <div class="btn-wrapper">
-                  <a href="/restaurants" class="button secondary w-button">Reserve a table →</a>
-                </div>
-              </div>
-            </div>
+      <div class="tb-three-blocks">
+        <!-- Art -->
+        <div class="tb-feature-block">
+          <div class="tb-feature-block-image">
+            <img
+              src="/assets/images/677ce5a0ffdffd79d9f89e13_Aerts 6 (1)-p-1600.jpg"
+              loading="lazy"
+              width="524"
+              sizes="(max-width: 767px) 100vw, 524px"
+              alt="Contemporary art at Toile Blanche"
+            />
           </div>
-
-          <div class="split-section">
-            <div class="grid-layout-content-wrapper right-padding">
-              <p class="feature-paragraph">
-                Come as a guest, leave as a friend.
-              </p>
-            </div>
-            <div class="divider _288px mobile-l-none"></div>
-            <!-- Suites -->
-            <div class="grid-layout-content-wrapper left-padding">
-              <div class="card-image-wapper large-height">
-                <img
-                  src="/assets/images/677ce4eb2145f61e722b745d_20240817_Toile Blanche-16 (1)-p-1600.jpg"
-                  loading="eager"
-                  width="524"
-                  sizes="(max-width: 767px) 100vw, 524px"
-                  alt="Suites at Toile Blanche"
-                  class="card-image"
-                />
-              </div>
-              <div class="card-content-wrapper">
-                <h3>Our Suites</h3>
-                <p class="paragraph-6">
-                  Saint-Paul de Vence. 20,000m² of Provençal gardens. Contemporary art. Two restaurants. A pool. And the particular pleasure of going nowhere for a few days.
-                </p>
-                <div class="btn-wrapper">
-                  <a href="/suites" class="button secondary w-button">View all suites →</a>
-                </div>
-              </div>
-            </div>
+          <div class="tb-feature-block-content">
+            <h3>The Collection</h3>
+            <p>The works at Toile Blanche are chosen, not accumulated. Each piece was selected by the Leroy Brothers — who are themselves artists — in conversation with the people who made them. The collection spans painting, sculpture, photography and installation. It changes. New works arrive each season.</p>
+            <a href="/art" class="button secondary w-button">Discover the collection →</a>
           </div>
         </div>
+
+        <!-- Restaurants -->
+        <div class="tb-feature-block tb-feature-block--reverse">
+          <div class="tb-feature-block-image">
+            <img
+              src="/assets/images/6655f39e9f566028eff7ffa7_IMG_3986-p-1080.avif"
+              loading="lazy"
+              width="524"
+              sizes="(max-width: 767px) 100vw, 524px"
+              alt="Toile Blanche restaurants"
+            />
+          </div>
+          <div class="tb-feature-block-content">
+            <h3>Two Tables Worth Travelling For</h3>
+            <p>La Guinguette is lunch under the plane trees — rosé, grilled fish, the specific joy of eating outside in Provence. Le Restaurant is the evening version: more considered, more intimate, the kitchen at full attention. Both menus are built around what is in season, what is local, what is honest.</p>
+            <a href="/restaurants" class="button secondary w-button">Reserve a table →</a>
+          </div>
+        </div>
+
+        <!-- Experiences -->
+        <div class="tb-feature-block">
+          <div class="tb-feature-block-image">
+            <img
+              src="/assets/images/page-img-fed8bab60f310c.webp"
+              loading="lazy"
+              width="524"
+              sizes="(max-width: 767px) 100vw, 524px"
+              alt="Experiences at Toile Blanche"
+            />
+          </div>
+          <div class="tb-feature-block-content">
+            <h3>Experiences</h3>
+            <p>From the most relaxed spirits, to those who want a more cultural offering — we help you experience what we love the most about this part of France. Treatments, studio visits, the Art Route, bike rentals, and of course our two pools.</p>
+            <a href="/experiences" class="button secondary w-button">Explore experiences →</a>
+          </div>
+        </div>
+
+        <p class="tb-feature-closing">Come as a guest, leave as a friend.</p>
       </div>
     </div>
   </div>
@@ -303,33 +270,25 @@ const suites = [
   <!-- Newsletter -->
   <div class="section padding-96 bg-color-2">
     <div class="container">
-      <div class="cta-wrapper">
-        <div class="w-layout-grid cta-3-grid">
-          <div id="w-node-newsletter-title" class="cta-area-2">
-            <h3>The Toile Blanche Journal</h3>
-          </div>
-          <div id="w-node-newsletter-text" class="cta-area-1">
-            <p>Not too often. Just enough. The occasional note from Saint-Paul de Vence — new arrivals in the collection, what is on the table this season, and the things worth knowing before you visit.</p>
-            <p>Join 2,000 people who already know.</p>
-          </div>
-          <div id="w-node-newsletter-form" class="cta-area-3">
-            <div class="newsletter-form-block w-form">
-              <form id="newsletter-form" name="newsletter-form" method="POST" class="newsletter-form" action="/api/newsletter">
-                <div class="newsletter-input">
-                  <label for="Full-Name">Name</label>
-                  <input class="form-input w-input" maxlength="256" name="Full-Name" placeholder="John Doe" type="text" id="Full-Name" required />
-                </div>
-                <div class="newsletter-input">
-                  <label for="Email">Email Address</label>
-                  <input class="form-input w-input" maxlength="256" name="Email" placeholder="john.doe@myemail.com" type="email" id="Email" required />
-                </div>
-                <input type="submit" class="submit-button w-button" value="Subscribe now!" />
-              </form>
-              <div class="newsletter-discalimer">
-                By subscribing to The Toile Blanche Journal you agree to our <a href="/privacy-policy">privacy policy</a>
-              </div>
+      <div class="tb-newsletter">
+        <div class="tb-newsletter-content">
+          <h3 class="tb-newsletter-title">The Toile Blanche Journal</h3>
+          <p class="tb-newsletter-desc">Not too often. Just enough. The occasional note from Saint-Paul de Vence — new arrivals in the collection, what is on the table this season, and the things worth knowing before you visit.</p>
+          <p class="tb-newsletter-cta">Join 2,000 people who already know.</p>
+        </div>
+        <div class="tb-newsletter-form-wrap">
+          <form id="newsletter-form" name="newsletter-form" method="POST" class="tb-newsletter-form" action="/api/newsletter">
+            <div class="tb-newsletter-field">
+              <label for="Full-Name">Name</label>
+              <input id="Full-Name" name="Full-Name" type="text" placeholder="John Doe" maxlength="256" required />
             </div>
-          </div>
+            <div class="tb-newsletter-field">
+              <label for="Email">Email Address</label>
+              <input id="Email" name="Email" type="email" placeholder="john.doe@myemail.com" maxlength="256" required />
+            </div>
+            <button type="submit" class="tb-newsletter-submit">Subscribe now!</button>
+          </form>
+          <p class="tb-newsletter-legal">By subscribing to The Toile Blanche Journal you agree to our <a href="/privacy-policy">privacy policy</a></p>
         </div>
       </div>
     </div>
