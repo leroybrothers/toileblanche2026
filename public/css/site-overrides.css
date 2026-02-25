@@ -98,6 +98,42 @@
   padding: 2rem 0 3rem;
 }
 
+/* ─── Intro blocks: The Story, The Feeling ────────────────────────────────── */
+.tb-intro-blocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem 4rem;
+  margin-bottom: 3rem;
+}
+
+.tb-intro-block-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  margin: 0 0 1rem;
+  color: var(--dark-cream, #2c2a26);
+}
+
+.tb-intro-block p {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+  color: var(--dark-cream, #2c2a26);
+}
+
+.tb-intro-block p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .tb-intro-blocks {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 /* ─── Three blocks: Art, Restaurants, Experiences ─────────────────────────── */
 .tb-three-blocks {
   display: flex;
