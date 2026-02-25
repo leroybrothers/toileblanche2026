@@ -84,7 +84,8 @@
 }
 
 /* ─── Nav links container default hidden state ───────────────────────────── */
-.js-nav-links[hidden] {
+.js-nav-links[hidden],
+.tb-fullpage-menu.js-nav-links[hidden] {
   display: none !important;
 }
 
