@@ -1,0 +1,369 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const suites = [
+  {
+    href: '/suites/suite-petanque',
+    image: '/assets/images/694514f7700aaf8cf582cf9b_IMG_2662.jpg',
+    alt: 'Suite Pétanque',
+    title: 'Suite Pétanque',
+    description: 'Suite Pétanque set within a beautifully renovated residence, offers more space than our smallest category, complete with a living area, a terrace with sun loungers, and a tranquil setting to unwind.',
+  },
+  {
+    href: '/suites/bronzette',
+    image: '/assets/images/678e1fd67876e5f39084f009_DSCF7500 (1)-p-3200.jpg',
+    alt: 'Suite de la Bronzette',
+    title: 'Suite de la Bronzette',
+    description: "Spacious suites with bedroom and living room, allowing for extra privacy and the possibility to add an extra bed. You'll find a sumptuous spa-like bathroom here, along with a large, private outdoor area with sunbeds.",
+  },
+  {
+    href: '/suites/bonvivant',
+    image: '/assets/images/678e3042a536f8fb4e4e08ca_IMG_4830 (5)-p-1600.jpg',
+    alt: 'Suite du Bon-Vivant',
+    title: 'Suite du Bon-Vivant',
+    description: 'Our bright Suites du Bon-Vivant come with ample bedroom and lounging space, along with a luxury bathroom. The main attraction, however, is the exceptional terrace with a private pool. Here, the sunset is just magical.',
+  },
+  {
+    href: '/suites/suiteaartiste',
+    image: '/assets/images/678e3f2b6f23a1be636cddb8_20240817_Toile Blanche-19 (1).jpg',
+    alt: "Suite de l'Artiste",
+    title: "Suite de l'Artiste",
+    description: "This modern rustic suite is situated in the 200-year-old farmhouse, where authentic details (think wooden beams and natural stone) have been preserved to complement the contemporary design. But, the picturesque balcony with views of the surroundings is what makes this suite so special.",
+  },
+  {
+    href: '/suites/masartiste',
+    image: '/assets/images/678e3f710ec136d464f23375_20240817_Toile Blanche-2 (1).jpg',
+    alt: "Mas de l'Artiste",
+    title: "Mas de l'Artiste",
+    description: "This vast sun-flooded maisonette is housed in the 200-year-old restored farmhouse. The sleeping area is neatly separated to ensure complete intimacy, whereas the living area gives direct access to a private Provençal courtyard with sun loungers and a very cosy sitting corner.",
+  },
+  {
+    href: '/suites/penequet',
+    image: '/assets/images/694514f7700aaf8cf582cf9b_IMG_2662.jpg',
+    alt: 'Villa du Pénéquet',
+    title: 'Villa du Pénéquet',
+    description: 'The Villas du Pénéquet–the Provençal word for power-nap–are the only suites boasting two floors. Downstairs houses the luxurious living area with direct access to your own private pool and sun loungers. On the first floor, we find the master bedroom and a bathroom with a large bathtub and separate walk-in shower.',
+  },
+];
+---
+
+<Layout>
+  <!-- Page Loader -->
+  <div class="loader" id="page-loader">
+    <div class="loader-logo-wrapper">
+      <img src="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" loading="lazy" alt="Toile Blanche" />
+      <div class="loader-line"></div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero1" id="hero" style="opacity:0">
+    <div class="hero-bg-wrapper">
+      <div class="hero-bg-image">
+        <div class="hero-bg-video w-background-video w-background-video-atom">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            poster="/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg"
+            style="object-fit:cover; width:100%; height:100%;"
+          >
+            <source src="/assets/video/63c833490a337a19059088b6_Toile Blanche video 2020 (1)-transcode.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bg-overlay"></div>
+
+    <Nav theme="both" />
+
+    <div class="hero1-content-wrapper">
+      <div class="hero1-content" id="hero-content">
+        <div class="subtitle light">Laid-back luxury suites, delicious restaurants and art on the French Riviera</div>
+        <h1 class="display light">Toile Blanche</h1>
+        <div class="home-sub-title"><em>By Leroy Brothers</em></div>
+        <div class="hero1-arrow">
+          <img
+            src="/assets/images/639af6c370637a631de3b0f3_big_arrow_down_light.svg"
+            loading="lazy"
+            alt="Scroll down"
+            class="hero-arrow-image"
+            id="hero-arrow"
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Booking Buttons -->
+  <section class="subhero-section">
+    <div class="container">
+      <div class="booking-button-wrapper">
+        <div class="button-row space-around">
+          <a href="https://bookings.zenchef.com/results?rid=357953&pid=1001" target="_blank" rel="noopener noreferrer" class="button secondary w-button">Book My Table</a>
+          <a href="https://app.mews.com/distributor/150bd326-7c63-4a24-b668-abcf00c6bb22" target="_blank" rel="noopener noreferrer" class="button secondary w-button">Book My Suite</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <div class="section top-padding-192">
+    <div class="container">
+      <div class="heading-wrapper">
+        <h2 class="h3-style">Toile Blanche: An Oasis of Artistry and Sophistication</h2>
+      </div>
+      <div class="two-column-body-wrapper">
+        <div class="w-layout-grid two-column-body-grid no-row-gap">
+          <div>
+            <p class="paragraph-3">
+              Nestled on the edge of the enchanting Saint-Paul de Vence, Toile Blanche embodies the quintessence of French contemporary elegance and artistic flair.
+            </p>
+          </div>
+          <div class="mobile-none"></div>
+          <div>
+            <p class="paragraph-4">
+              This delightful boutique hotel, meticulously crafted by the Leroy Brothers, harmoniously blends modern aesthetics with the enduring charm of French heritage.
+              Spanning vast 20,000m² gardens, featuring two welcoming outdoor pools, and offering breathtaking vistas of the valley, Toile Blanche provides more than just a place to stay; it delivers an extraordinary experience.
+            </p>
+          </div>
+          <div class="page-inro-right-wrapper">
+            <p class="feature-paragraph">
+              <strong>Suites of Serenity<br /><br /></strong>
+              Each of the 22 light-filled suites at Toile Blanche is a haven of tranquillity. From the intimate Suite Pénard to the luxurious Villa du Pénéquet, every space is designed for ultimate relaxation.
+              Private patios, fragrant gardens, and even personal pools in select suites ensure a stay that's both private and picturesque.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="overlap-image-wrapper">
+        <img
+          src="/assets/images/6641e6da2641a4d61ae3a49a_IMG_4830-p-1600.avif"
+          width="800"
+          sizes="(max-width: 991px) 100vw, 800px"
+          alt="Toile Blanche gardens"
+          class="overlap-image"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Suites Slider -->
+  <div class="section bg-color-1 overlap-section-top">
+    <div class="container room-slider-section">
+      <div class="heading-wrapper inner-spacing">
+        <h2 class="light">Our Suites</h2>
+      </div>
+    </div>
+    <div class="home-room-slider-wrapper">
+      <div class="home-room-slider js-slider" id="suites-slider" role="region" aria-label="Suite gallery">
+        <div class="home-room-mask js-slider-track">
+          {suites.map((suite, i) => (
+            <div class="home-room-single-slide js-slide" role="group" aria-label={`${i + 1} of ${suites.length}`}>
+              <a href={suite.href} class="room-slide-wrapper w-inline-block">
+                <div class="room-slide-image-wrapper">
+                  <div class="room-slide-image-container">
+                    <img loading="lazy" alt={suite.alt} src={suite.image} class="room-slide-image" />
+                    <div class="btn-explore">
+                      <img src="/assets/images/639af6c370637a288ae3b129_rounded_explore_button.svg" loading="lazy" alt="Explore" />
+                    </div>
+                  </div>
+                </div>
+                <div class="room-slide-content-wrapper">
+                  <div class="room-slide-title">
+                    <h3 class="light">{suite.title}</h3>
+                  </div>
+                  <div class="room-slide-description">
+                    <p class="light">{suite.description}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+        <div class="room-slider-previous"><div class="small-text left-arrow-text">Previous Room</div></div>
+        <div class="room-slider-next"><div class="small-text right-arrow-text">Next Room</div></div>
+        <button class="room-slider-left-arrow w-slider-arrow-left js-slider-prev" aria-label="Previous suite">
+          <img src="/assets/images/639af6c370637a6f42e3b0f2_round_arrow_left.svg" loading="lazy" alt="Previous" class="arrow-img" />
+        </button>
+        <button class="room-slider-right-arrow w-slider-arrow-right js-slider-next" aria-label="Next suite">
+          <img src="/assets/images/639af6c370637a6d1fe3b0ee_round_arrow_right.svg" loading="lazy" alt="Next" class="arrow-img" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Curated Lifestyle -->
+  <div class="section top-padding-192">
+    <div class="container">
+      <div class="heading-wrapper">
+        <h2>Experience a curated lifestyle...</h2>
+      </div>
+      <div>
+        <div class="split-section-wrapper reverse-wrap">
+          <div class="split-section">
+            <div class="grid-layout-content-wrapper right-padding">
+              <div class="card-image-wapper large-height">
+                <img
+                  src="/assets/images/6655f39e9f566028eff7ffa7_IMG_3986-p-1080.avif"
+                  loading="eager"
+                  width="524"
+                  sizes="(max-width: 767px) 100vw, 524px"
+                  alt="Toile Blanche restaurants"
+                  class="card-image"
+                />
+              </div>
+              <div class="card-content-wrapper">
+                <h3>Our Provencal Restaurants</h3>
+                <p class="paragraph-5">
+                  Dine under the stars at Toile Blanche's restaurants, where Mediterranean cuisine meets creative flair.
+                  The organic, seasonally-inspired menu is a testament to the hotel's commitment to quality and sustainability.
+                  Each dish is not just a meal; it's a culinary journey.
+                </p>
+                <div class="btn-wrapper">
+                  <a href="/restaurants" class="button secondary w-button">View in more detail</a>
+                </div>
+              </div>
+            </div>
+            <div class="divider _288px mobile-l-none"></div>
+            <div class="grid-layout-content-wrapper last right-padding">
+              <div class="card-image-wapper large-height">
+                <img
+                  src="/assets/images/677ce5a0ffdffd79d9f89e13_Aerts 6 (1)-p-1600.jpg"
+                  loading="eager"
+                  width="524"
+                  sizes="(max-width: 767px) 100vw, 524px"
+                  alt="Contemporary art at Toile Blanche"
+                  class="card-image"
+                />
+              </div>
+              <div class="card-content-wrapper">
+                <h3>Contemporary Art</h3>
+                <p class="paragraph-7">
+                  Art is the soul of Toile Blanche. The property is adorned with contemporary artworks, offering guests an immersive artistic experience.
+                  It's a place where art and living intertwine, creating an environment that inspires and delights.
+                </p>
+                <div class="btn-wrapper">
+                  <a href="/art" class="button secondary w-button">View in more detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="split-section">
+            <div class="grid-layout-content-wrapper right-padding">
+              <p class="feature-paragraph">
+                Toile Blanche is not just a destination; it's a journey into the heart of French elegance and artistry.
+                It's where luxury meets authenticity, creating an unforgettable experience on the French Riviera.
+                <br /><br />
+                Come as a guest, leave as a friend.
+              </p>
+            </div>
+            <div class="divider _288px mobile-l-none"></div>
+            <div class="grid-layout-content-wrapper left-padding">
+              <div class="card-image-wapper large-height">
+                <img
+                  src="/assets/images/677ce4eb2145f61e722b745d_20240817_Toile Blanche-16 (1)-p-1600.jpg"
+                  loading="eager"
+                  width="524"
+                  sizes="(max-width: 767px) 100vw, 524px"
+                  alt="Suites at Toile Blanche"
+                  class="card-image"
+                />
+              </div>
+              <div class="card-content-wrapper">
+                <h3>Our Suites</h3>
+                <p class="paragraph-6">
+                  Toile Blanche is more than a hotel; it's a lifestyle. It's about creating memories, forming connections, and experiencing the joie de vivre.
+                  Whether it's exploring the cobblestone streets of Saint-Paul de Vence or lounging by the pool, every moment here is a celebration of life's finer aspects.
+                </p>
+                <div class="btn-wrapper">
+                  <a href="/suites" class="button secondary w-button">View in more detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking CTA -->
+  <div class="section no-bottom-padding no-top-padding">
+    <div class="subhero-section">
+      <div class="container">
+        <div class="booking-button-wrapper">
+          <div class="button-row space-around">
+            <a href="https://app.mews.com/distributor/150bd326-7c63-4a24-b668-abcf00c6bb22" target="_blank" rel="noopener noreferrer" class="button secondary w-button">Book My Suite</a>
+            <a href="https://bookings.zenchef.com/results?rid=357953&pid=1001" target="_blank" rel="noopener noreferrer" class="button secondary w-button">Book My Table</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full frame image 1 -->
+  <div class="section no-bottom-padding no-top-padding">
+    <div class="full-frame-image-wrapper homepage-one"></div>
+  </div>
+
+  <!-- Saint-Paul de Vence section -->
+  <div class="section no-bottom-padding">
+    <div class="container">
+      <div class="heading-wrapper centered">
+        <p class="paragraph-width-medium">
+          Lose track of time exploring the small paved streets of Saint-Paul de Vence.
+          The charming medieval town is perched on a hillside overlooking the majestic Var valley, and is home to an array of galleries, specialty food and wine shops along with upmarket boutiques.
+          It is the perfect romantic day-trip during your stay with us.
+        </p>
+      </div>
+    </div>
+    <div class="full-frame-image-wrapper homepage-two">
+      <div class="full-frame-image-content">
+        <p class="light">Get lost exploring the many alleys of the village</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="section padding-96 bg-color-2">
+    <div class="container">
+      <div class="cta-wrapper">
+        <div class="w-layout-grid cta-3-grid">
+          <div id="w-node-newsletter-text" class="cta-area-1">
+            <p>Subscribe to The Toile Blanche Journal to receive our latest offers and deals, news and much more. Not too often — Just enough. Join the 2K travellers before you!</p>
+          </div>
+          <div id="w-node-newsletter-title" class="cta-area-2">
+            <h3>Don't be a stranger.</h3>
+          </div>
+          <div id="w-node-newsletter-form" class="cta-area-3">
+            <div class="newsletter-form-block w-form">
+              <form id="newsletter-form" name="newsletter-form" method="POST" class="newsletter-form" action="/api/newsletter">
+                <div class="newsletter-input">
+                  <label for="Full-Name">Name</label>
+                  <input class="form-input w-input" maxlength="256" name="Full-Name" placeholder="John Doe" type="text" id="Full-Name" required />
+                </div>
+                <div class="newsletter-input">
+                  <label for="Email">Email Address</label>
+                  <input class="form-input w-input" maxlength="256" name="Email" placeholder="john.doe@myemail.com" type="email" id="Email" required />
+                </div>
+                <input type="submit" class="submit-button w-button" value="Subscribe now!" />
+              </form>
+              <div class="newsletter-discalimer">
+                By subscribing to The Toile Blanche Journal you agree to our <a href="/privacy-policy">privacy policy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider _96px"></div>
+
+  <Footer />
+</Layout>
