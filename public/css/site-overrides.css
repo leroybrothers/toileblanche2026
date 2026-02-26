@@ -140,6 +140,15 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   background-color: rgba(44, 42, 38, 0.08);
 }
 
+.tb-suites-section .room-slide-title,
+.tb-suites-section .room-slide-title h3,
+.tb-suites-section .room-slide-title .light,
+.tb-suites-section .room-slide-description,
+.tb-suites-section .room-slide-description p,
+.tb-suites-section .room-slide-description .light {
+  color: #2c2a26 !important;
+}
+
 /* One card at full width — no peek of next slide */
 .tb-suites-section .home-room-slider-wrapper {
   width: 100%;
