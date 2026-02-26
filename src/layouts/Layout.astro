@@ -129,13 +129,13 @@ const GTM_ID = "GTM-52R8BBP";
   <!-- Site JS -->
   <script src="/js/site.js" defer></script>
 
-  <!-- Mews Booking Engine Init -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
+  <!-- Mews Booking Engine Init (overlay, not redirect) -->
+  <script is:inline>
+    window.addEventListener('load', function() {
       if (typeof Mews !== 'undefined') {
         Mews.Distributor({
           configurationIds: ['150bd326-7c63-4a24-b668-abcf00c6bb22'],
-          openElements: '.distributor-open',
+          openElements: '.distributor-open, .book-now-trigger'
         });
       }
     });

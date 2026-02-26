@@ -76,6 +76,28 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 .navigation-dark .menu-button {
   color: #fff !important;
 }
+
+/* Book My Stay — Argile terracotta CTA, Mews overlay trigger ─── */
+.tb-book-cta,
+.book-now-trigger {
+  display: inline-block;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff !important;
+  background-color: #9e5c4a;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.tb-book-cta:hover,
+.book-now-trigger:hover {
+  opacity: 0.9;
+}
 .navigation-light .nav-link-light,
 .navigation-light .menu-button {
   color: #2c2a26 !important;
