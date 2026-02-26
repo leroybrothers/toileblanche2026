@@ -114,7 +114,38 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* ─── Suite Slider ───────────────────────────────────────────────────────── */
+/* ─── Suite Slider (white/cream bg — photography breathes) ─────────────────── */
+.tb-suites-section {
+  background-color: #fff !important;
+}
+
+.tb-suites-section .room-slider-dot {
+  background: rgba(44, 42, 38, 0.35);
+}
+
+.tb-suites-section .room-slider-dot:hover {
+  background: rgba(44, 42, 38, 0.6);
+}
+
+.tb-suites-section .room-slider-dot.is-active {
+  background: #2c2a26;
+}
+
+.tb-suites-section .suites-view-all-btn {
+  color: #2c2a26 !important;
+  border-color: #2c2a26;
+}
+
+.tb-suites-section .suites-view-all-btn:hover {
+  background-color: rgba(44, 42, 38, 0.08);
+}
+
+/* One card at full width — no peek of next slide */
+.tb-suites-section .home-room-slider-wrapper {
+  width: 100%;
+  max-width: 100%;
+}
+
 .home-room-slider {
   position: relative;
   overflow: hidden;
@@ -125,9 +156,17 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   will-change: transform;
 }
 
-.js-slide {
-  flex: 0 0 100%;
-  min-width: 100%;
+.js-slide,
+.home-room-single-slide.js-slide {
+  flex: 0 0 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.room-slide-wrapper {
+  width: 100%;
+  display: block;
 }
 
 .room-slider-left-arrow,
@@ -517,30 +556,33 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   }
 }
 
-/* ─── Hero typography (revised) ───────────────────────────────────────────── */
+/* ─── Hero typography (staggered hierarchy) ────────────────────────────────── */
 .hero-headline {
-  font-family: "Gilda Display", Georgia, serif;
-  font-weight: 500;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
   font-size: clamp(3rem, 7vw, 5.5rem);
   text-transform: none;
   line-height: 1.1;
-  margin: 0 0 0.25em;
+  margin: 0 0 0.15em;
 }
 
 .hero-second-line {
-  font-family: "Gilda Display", Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(2.5rem, 5.5vw, 4rem);
-  line-height: 1.15;
-  margin: 0 0 0.5em;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 1.2;
+  margin: 0 0 0.2em;
 }
 
 .hero-body {
-  font-family: "Gilda Display", Georgia, serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
   font-weight: 400;
-  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-  line-height: 1.4;
-  margin: 0 0 1.5em;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.5;
+  margin: 1.25em 0 1.5em;
   opacity: 0.95;
 }
 
@@ -559,22 +601,35 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   overflow: hidden;
 }
 
-.hero-bg-wrapper,
-.hero-bg-image {
+.hero-bg-wrapper {
   position: absolute;
   inset: 0;
 }
 
-/* ─── Hero background with parallax ───────────────────────────────────────── */
-.hero-bg-parallax .hero-bg-image {
-  background-image: url("/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg");
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  opacity: 0;
+  transition: opacity 1.2s ease;
 }
+
+.hero-bg-slide.is-active {
+  opacity: 1;
+  z-index: 0;
+}
+
+.hero-bg-slide-1 { background-image: url("/assets/images/slideshow1.jpg"); }
+.hero-bg-slide-2 { background-image: url("/assets/images/slideshow2.JPG"); }
+.hero-bg-slide-3 { background-image: url("/assets/images/slideshow3.jpg"); }
+.hero-bg-slide-4 { background-image: url("/assets/images/slideshow4.JPG"); }
+.hero-bg-slide-5 { background-image: url("/assets/images/slideshow5.jpg"); }
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-bg-parallax .hero-bg-image {
+  .hero-bg-slide {
     background-attachment: scroll;
   }
 }

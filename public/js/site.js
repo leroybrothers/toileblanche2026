@@ -44,6 +44,25 @@
     }
   }
 
+  // ─── Hero slideshow ────────────────────────────────────────────────────────
+  function initHeroSlideshow() {
+    const slides = document.querySelectorAll('.hero-bg-slide');
+    if (slides.length === 0) return;
+    let current = 0;
+    setInterval(function () {
+      slides[current].classList.remove('is-active');
+      slides[current].setAttribute('aria-hidden', 'true');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('is-active');
+      slides[current].setAttribute('aria-hidden', 'false');
+      if (current === 0) {
+        slides[0].setAttribute('aria-label', 'Toile Blanche, Saint-Paul de Vence');
+      } else {
+        slides[current].removeAttribute('aria-label');
+      }
+    }, 5000);
+  }
+
   // ─── Navigation Menu ───────────────────────────────────────────────────────
   function initNavigation() {
     const toggleBtns = document.querySelectorAll('.js-menu-toggle');
@@ -250,6 +269,7 @@
   // ─── Init ──────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
     initLoader();
+    initHeroSlideshow();
     initNavigation();
     initScrollNav();
     initSliders();

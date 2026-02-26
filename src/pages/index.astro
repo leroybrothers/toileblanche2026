@@ -61,7 +61,11 @@ const suites = [
   <!-- Hero Section -->
   <header class="hero1" id="hero" style="opacity:0">
     <div class="hero-bg-wrapper hero-bg-parallax">
-      <div class="hero-bg-image" role="img" aria-label="Toile Blanche, Saint-Paul de Vence"></div>
+      <div class="hero-bg-slide hero-bg-slide-1 is-active" role="img" aria-label="Toile Blanche, Saint-Paul de Vence"></div>
+      <div class="hero-bg-slide hero-bg-slide-2" aria-hidden="true"></div>
+      <div class="hero-bg-slide hero-bg-slide-3" aria-hidden="true"></div>
+      <div class="hero-bg-slide hero-bg-slide-4" aria-hidden="true"></div>
+      <div class="hero-bg-slide hero-bg-slide-5" aria-hidden="true"></div>
     </div>
     <div class="hero-bg-overlay"></div>
 
@@ -128,12 +132,7 @@ const suites = [
   </div>
 
   <!-- Suites Slider -->
-  <div class="section bg-color-1 overlap-section-top">
-    <div class="container room-slider-section">
-      <div class="heading-wrapper inner-spacing">
-        <h2 class="light">Our Suites</h2>
-      </div>
-    </div>
+  <div class="section tb-suites-section overlap-section-top">
     <div class="home-room-slider-wrapper">
       <div class="home-room-slider js-slider" id="suites-slider" role="region" aria-label="Suite gallery">
         <div class="home-room-mask js-slider-track">
@@ -196,7 +195,7 @@ const suites = [
         <div class="tb-feature-block tb-feature-block--reverse">
           <div class="tb-feature-block-image">
             <img
-              src="/assets/images/6655f39e9f566028eff7ffa7_IMG_3986-p-1600.avif"
+              src="/assets/images/twotable.jpg"
               loading="lazy"
               width="524"
               sizes="(max-width: 767px) 100vw, 524px"
@@ -214,7 +213,7 @@ const suites = [
         <div class="tb-feature-block">
           <div class="tb-feature-block-image">
             <img
-              src="/assets/images/page-img-fed8bab60f310c.webp"
+              src="/assets/images/Experiences.jpg"
               loading="lazy"
               width="524"
               sizes="(max-width: 767px) 100vw, 524px"
@@ -228,7 +227,6 @@ const suites = [
           </div>
         </div>
 
-        <p class="tb-feature-closing">Come as a guest, leave as a friend.</p>
       </div>
     </div>
   </div>
@@ -276,7 +274,7 @@ const suites = [
                 <label for="Email">Email address</label>
                 <input id="Email" name="Email" type="email" placeholder="Email address" maxlength="256" required />
               </div>
-              <button type="submit" class="tb-newsletter-submit">Join Now!</button>
+              <button type="submit" class="tb-newsletter-submit">Stay in Touch</button>
             </div>
           </form>
           <p class="tb-newsletter-legal">By subscribing to The Toile Blanche Journal you agree to our <a href="/privacy-policy">privacy policy</a></p>
