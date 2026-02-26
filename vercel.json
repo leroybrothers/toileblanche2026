@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/mews/distributor.min.js",
+      "destination": "https://api.mews.com/distributor/distributor.min.js"
+    }
+  ]
+}
