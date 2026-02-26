@@ -6,6 +6,11 @@ const { currentPath } = Astro.props;
 const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current' : '';
 ---
 
+<header class="tb-menu-header">
+  <a href="#" class="tb-menu-cta distributor-open">Book my Stay</a>
+  <button type="button" class="tb-menu-close js-menu-toggle" aria-label="Close menu">×</button>
+</header>
+
 <div class="tb-menu-inner">
   <!-- Left: Primary navigation (4 items only) -->
   <nav class="tb-menu-nav" aria-label="Main menu">
