@@ -16,7 +16,7 @@ const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current'
   <nav class="tb-menu-nav" aria-label="Main menu">
     <a href="/suites" class={`tb-menu-link${linkClass('/suites')}`}>Suites</a>
     <a href="/restaurants" class={`tb-menu-link${linkClass('/restaurants')}`}>Restaurants</a>
-    <a href="/art" class={`tb-menu-link${linkClass('/art')}`}>Art</a>
+    <a href="/art" class={`tb-menu-link${linkClass('/art')}`}>The Art</a>
     <a href="/experiences" class={`tb-menu-link tb-menu-link-last${linkClass('/experiences')}`}>Experiences</a>
   </nav>
 
@@ -41,13 +41,10 @@ const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current'
     </div>
     <div class="tb-menu-info-cell tb-menu-info-footer">
       <a href="/about" class="tb-menu-info-link">About</a>
-      <a href="/shop" class="tb-menu-info-link">Shop</a>
-      <a href="/gift-vouchers" class="tb-menu-info-link">Gift Vouchers</a>
+      <a href="/upcoming-events" class="tb-menu-info-link">Events</a>
       <a href="/blog" class="tb-menu-info-link">Blog</a>
-      <a href="/contact" class="tb-menu-info-link">Contact</a>
       <a href="/press" class="tb-menu-info-link">Press</a>
       <a href="/careers" class="tb-menu-info-link">Careers</a>
-      <a href="/#newsletter-form" class="tb-menu-info-link">Newsletter</a>
     </div>
   </div>
 </div>
