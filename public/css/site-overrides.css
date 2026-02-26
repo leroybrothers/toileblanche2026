@@ -134,9 +134,24 @@
   background-color: transparent !important;
 }
 
+.suites-view-all-link .button::after,
+.suites-view-all-link .button::before,
+.suites-view-all-link .w-button::after,
+.suites-view-all-link .w-button::before {
+  border-color: #fff !important;
+  background-color: #fff !important;
+  color: #fff !important;
+}
+
 .suites-view-all-link .button:hover,
 .suites-view-all-link .w-button:hover {
   background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Room slider arrows (Previous/Next) in suites section: ensure white on green */
+.bg-color-1 .room-slider-left-arrow img,
+.bg-color-1 .room-slider-right-arrow img {
+  filter: brightness(0) invert(1);
 }
 
 /* ─── Intro section: equal space above and below Story & Feeling text ─────── */
