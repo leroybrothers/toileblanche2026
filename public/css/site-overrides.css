@@ -178,6 +178,10 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   display: block;
 }
 
+.room-slide-masartiste .room-slide-image {
+  object-position: center 35%;
+}
+
 .room-slider-left-arrow,
 .room-slider-right-arrow {
   background: none;

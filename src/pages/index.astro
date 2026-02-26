@@ -118,16 +118,6 @@ const suites = [
           <p>This is the point.</p>
         </div>
       </div>
-      <div class="overlap-image-wrapper">
-        <img
-          src="/assets/images/6641e6da2641a4d61ae3a49a_IMG_4830-p-1600.avif"
-          width="800"
-          sizes="(max-width: 991px) 100vw, 800px"
-          alt="Toile Blanche gardens"
-          class="overlap-image"
-          loading="lazy"
-        />
-      </div>
     </div>
   </div>
 
@@ -137,7 +127,7 @@ const suites = [
       <div class="home-room-slider js-slider" id="suites-slider" role="region" aria-label="Suite gallery">
         <div class="home-room-mask js-slider-track">
           {suites.map((suite, i) => (
-            <div class="home-room-single-slide js-slide" data-slide-index={i} role="group" aria-label={`${i + 1} of ${suites.length}`}>
+            <div class={`home-room-single-slide js-slide${suite.href === '/suites/masartiste' ? ' room-slide-masartiste' : ''}`} data-slide-index={i} role="group" aria-label={`${i + 1} of ${suites.length}`}>
               <a href={suite.href} class="room-slide-wrapper w-inline-block">
                 <div class="room-slide-image-wrapper">
                   <div class="room-slide-image-container">
@@ -195,7 +185,7 @@ const suites = [
         <div class="tb-feature-block tb-feature-block--reverse">
           <div class="tb-feature-block-image">
             <img
-              src="/assets/images/twotable.jpg"
+              src="/assets/images/twotable2.jpg"
               loading="lazy"
               width="524"
               sizes="(max-width: 767px) 100vw, 524px"
