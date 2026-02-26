@@ -99,6 +99,29 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 .book-now-trigger:hover {
   opacity: 0.9;
 }
+
+@media (max-width: 767px) {
+  .tb-book-cta,
+  .book-now-trigger {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    padding: 0.5rem 0.9rem;
+    background-color: transparent;
+    border: 1px solid currentColor;
+    color: inherit !important;
+  }
+  .navigation-dark .tb-book-cta,
+  .navigation-dark .book-now-trigger {
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+  .navigation-light .tb-book-cta,
+  .navigation-light .book-now-trigger {
+    color: #2c2a26 !important;
+    border-color: rgba(44, 42, 38, 0.4);
+  }
+}
+
 .navigation-light .nav-link-light,
 .navigation-light .menu-button {
   color: #2c2a26 !important;
@@ -202,7 +225,7 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 }
 
 .room-slide-masartiste .room-slide-image {
-  object-position: center 35%;
+  object-position: center 48%;
 }
 
 .room-slider-left-arrow,
@@ -635,6 +658,11 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 /* ─── Hero structure (video visible, proper stacking) ─────────────────────── */
 .hero1 {
   overflow: hidden;
+}
+
+/* Hero text: lower-middle positioning (more air above and below) ───────────── */
+.hero1-content-wrapper {
+  padding-bottom: clamp(10vh, 15vh, 22vh);
 }
 
 .hero-bg-wrapper {
