@@ -125,15 +125,24 @@
   // ─── Suite Slider ──────────────────────────────────────────────────────────
   function initSliders() {
     document.querySelectorAll('.js-slider').forEach(function (sliderEl) {
+      const wrapper = sliderEl.closest('.home-room-slider-wrapper');
       const track = sliderEl.querySelector('.js-slider-track');
       const slides = sliderEl.querySelectorAll('.js-slide');
       const prevBtn = sliderEl.querySelector('.js-slider-prev');
       const nextBtn = sliderEl.querySelector('.js-slider-next');
+      const dots = wrapper ? wrapper.querySelectorAll('.js-slider-dot') : [];
 
       if (!track || slides.length === 0) return;
 
       let current = 0;
       let isAnimating = false;
+
+      function updateDots() {
+        dots.forEach(function (dot, i) {
+          dot.setAttribute('aria-current', i === current ? 'true' : null);
+          dot.classList.toggle('is-active', i === current);
+        });
+      }
 
       function goTo(index) {
         if (isAnimating) return;
@@ -152,11 +161,14 @@
         track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         track.style.transform = 'translateX(-' + (current * slideWidth) + 'px)';
 
+        updateDots();
+
         setTimeout(function () { isAnimating = false; }, 650);
       }
 
       // Set up initial state
       slides[0].classList.add('is-active');
+      updateDots();
 
       // Recalculate on resize
       window.addEventListener('resize', function () {
@@ -167,6 +179,11 @@
 
       if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
       if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+      // Pagination dots
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { goTo(i); });
+      });
 
       // Touch/swipe support
       let touchStartX = 0;

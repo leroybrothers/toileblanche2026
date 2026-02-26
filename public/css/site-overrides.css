@@ -138,38 +138,54 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   padding: 0;
 }
 
+.room-slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.25rem 0 0;
+}
+
+.room-slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.room-slider-dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.room-slider-dot.is-active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
 .suites-view-all-link {
   display: flex;
   justify-content: center;
   padding: 2rem 0 3rem;
 }
 
-.suites-view-all-link .button,
-.suites-view-all-link .w-button {
+.suites-view-all-btn {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
   color: #fff !important;
-  border-color: #fff !important;
-  background-color: transparent !important;
-  animation: none !important;
+  border: 2px solid #fff;
+  background-color: transparent;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
 }
 
-.suites-view-all-link .button::after,
-.suites-view-all-link .button::before,
-.suites-view-all-link .w-button::after,
-.suites-view-all-link .w-button::before {
-  display: none !important;
-  animation: none !important;
-}
-
-.suites-view-all-link .button img,
-.suites-view-all-link .button svg,
-.suites-view-all-link .w-button img,
-.suites-view-all-link .w-button svg {
-  display: none !important;
-}
-
-.suites-view-all-link .button:hover,
-.suites-view-all-link .w-button:hover {
-  background-color: rgba(255, 255, 255, 0.15) !important;
+.suites-view-all-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 
@@ -396,7 +412,9 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 .tb-menu-nav {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  justify-content: space-between;
+  height: 200px;
+  min-height: 200px;
 }
 
 .tb-menu-link {
@@ -423,9 +441,9 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 
 .tb-menu-divider {
   width: 1px;
-  min-height: 180px;
+  height: 200px;
+  min-height: 200px;
   background: rgba(44, 42, 38, 0.15);
-  align-self: stretch;
 }
 
 .tb-menu-info {
