@@ -136,6 +136,14 @@ const GTM_ID = "GTM-52R8BBP";
         Mews.Distributor({
           configurationIds: ['150bd326-7c63-4a24-b668-abcf00c6bb22'],
           openElements: '.distributor-open, .book-now-trigger'
+        }, function(distributor) {
+          document.querySelectorAll('.book-now-trigger').forEach(function(el) {
+            el.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              distributor.open();
+            });
+          });
         });
       }
     });
