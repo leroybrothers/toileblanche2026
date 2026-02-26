@@ -405,7 +405,7 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   width: 100%;
   max-width: 1100px;
   margin-inline: auto;
-  align-items: start;
+  align-items: stretch;
   align-self: start;
 }
 
@@ -413,8 +413,6 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 200px;
-  min-height: 200px;
 }
 
 .tb-menu-link {
@@ -441,9 +439,9 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 
 .tb-menu-divider {
   width: 1px;
-  height: 200px;
-  min-height: 200px;
+  min-height: 180px;
   background: rgba(44, 42, 38, 0.15);
+  align-self: stretch;
 }
 
 .tb-menu-info {
