@@ -3,6 +3,19 @@
  * Custom styles that supplement the main Webflow stylesheet
  */
 
+/* ─── Base text font ─────────────────────────────────────────────────────── */
+body {
+  font-family: "Didact Gothic", sans-serif;
+}
+
+/* ─── Titles: Gilda Display, larger sizes ─────────────────────────────────── */
+h1, h2, h3, .hero4 h1, .hero3 h1, .subtitle {
+  font-family: "Gilda Display", Georgia, serif !important;
+}
+h1 { font-size: clamp(2rem, 5vw, 3.5rem) !important; }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem) !important; }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
+
 /* ─── Scroll animations ──────────────────────────────────────────────────── */
 .tb-fade-in {
   opacity: 0;
@@ -58,9 +71,13 @@
   background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
-/* ─── Keep logo and Book my Stay black in header (no white/light variant) ─── */
+/* ─── Hero: white logo, Book my Stay, hamburger → Scroll: black ─── */
 .navigation-dark .nav-link-dark,
-.navigation-light .nav-link-light {
+.navigation-dark .menu-button {
+  color: #fff !important;
+}
+.navigation-light .nav-link-light,
+.navigation-light .menu-button {
   color: #2c2a26 !important;
 }
 
@@ -138,21 +155,14 @@
 .suites-view-all-link .button::before,
 .suites-view-all-link .w-button::after,
 .suites-view-all-link .w-button::before {
-  border-color: #fff !important;
-  border-left-color: #fff !important;
-  border-top-color: #fff !important;
-  border-bottom-color: #fff !important;
-  background-color: #fff !important;
-  color: #fff !important;
-  filter: brightness(0) invert(1);
+  display: none !important;
 }
 
-/* View all suites: make arrow icon/SVG white */
 .suites-view-all-link .button img,
 .suites-view-all-link .button svg,
 .suites-view-all-link .w-button img,
 .suites-view-all-link .w-button svg {
-  filter: brightness(0) invert(1);
+  display: none !important;
 }
 
 .suites-view-all-link .button:hover,
@@ -181,15 +191,15 @@
 }
 
 .tb-intro-block-title {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-family: "Gilda Display", Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 500;
   margin: 0 0 1rem;
   color: #2c2a26 !important;
 }
 
 .tb-intro-block p {
-  font-family: "Inter", sans-serif;
+  font-family: "Didact Gothic", sans-serif;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.7;
@@ -243,15 +253,15 @@
 }
 
 .tb-feature-block-content h3 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-family: "Gilda Display", Georgia, serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-weight: 500;
   margin: 0 0 1rem;
   color: #2c2a26 !important;
 }
 
 .tb-feature-block-content p {
-  font-family: "Inter", sans-serif;
+  font-family: "Didact Gothic", sans-serif;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.6;
@@ -260,9 +270,9 @@
 }
 
 .tb-feature-closing {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "Gilda Display", Georgia, serif;
   font-style: italic;
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   text-align: center;
   margin: 2rem 0 0;
   color: #2c2a26 !important;
@@ -335,7 +345,7 @@
 }
 
 .tb-menu-cta {
-  font-family: "Inter", sans-serif;
+  font-family: "Didact Gothic", sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
   color: #2c2a26 !important;
@@ -384,12 +394,12 @@
 .tb-menu-nav {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.75rem;
 }
 
 .tb-menu-link {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-family: "Gilda Display", Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
   font-weight: 500;
   color: #2c2a26 !important;
   text-decoration: none;
@@ -430,7 +440,7 @@
 }
 
 .tb-menu-info-title {
-  font-family: "Inter", sans-serif;
+  font-family: "Didact Gothic", sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -441,7 +451,7 @@
 }
 
 .tb-menu-info-link {
-  font-family: "Inter", sans-serif;
+  font-family: "Didact Gothic", sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
   color: #2c2a26 !important;
@@ -491,28 +501,25 @@
 
 /* ─── Hero typography (revised) ───────────────────────────────────────────── */
 .hero-headline {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
+  font-family: "Gilda Display", Georgia, serif;
   font-weight: 500;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(3rem, 7vw, 5.5rem);
   line-height: 1.1;
   margin: 0 0 0.25em;
 }
 
 .hero-second-line {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
+  font-family: "Gilda Display", Georgia, serif;
   font-weight: 400;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
   line-height: 1.15;
   margin: 0 0 0.5em;
 }
 
 .hero-body {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
+  font-family: "Gilda Display", Georgia, serif;
   font-weight: 400;
-  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
   line-height: 1.4;
   margin: 0 0 1.5em;
   opacity: 0.95;
@@ -582,14 +589,15 @@
 }
 
 .tb-newsletter-title {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 0.85rem;
+  font-family: "Gilda Display", Georgia, serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   font-weight: 500;
   margin: 0 0 1rem;
+  line-height: 1.3;
 }
 
 .tb-newsletter-desc {
-  font-family: "Inter", sans-serif;
+  font-family: "Didact Gothic", sans-serif;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.6;
@@ -597,7 +605,7 @@
 }
 
 .tb-newsletter-cta {
-  font-family: "Inter", sans-serif;
+  font-family: "Didact Gothic", sans-serif;
   font-size: 0.95rem;
   font-weight: 300;
   margin: 0;
@@ -624,7 +632,7 @@
 }
 
 .tb-newsletter-field label {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "Gilda Display", Georgia, serif;
   font-size: 1rem;
   font-weight: 500;
   color: #2c2a26 !important;
@@ -653,7 +661,7 @@
   width: 100%;
   max-width: 100%;
   padding: 0.5rem 0 0.6rem;
-  font-family: "Inter", sans-serif;
+  font-family: "Didact Gothic", sans-serif;
   font-size: 1rem;
   transition: border-color 0.2s ease;
   box-sizing: border-box;
@@ -668,7 +676,7 @@
 .tb-newsletter-submit {
   flex-shrink: 0;
   padding: 0.65rem 1.75rem;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "Gilda Display", Georgia, serif;
   font-size: 1.1rem;
   font-weight: 500;
   background: #2c2a26 !important;
@@ -685,14 +693,15 @@
 
 .tb-newsletter-legal {
   margin: 1.25rem 0 0;
-  font-family: "Inter", sans-serif;
-  font-size: 0.85rem;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 0.7rem;
   font-weight: 300;
   color: #2c2a26 !important;
   opacity: 0.8;
 }
 
 .tb-newsletter-legal a {
+  font-size: inherit;
   text-decoration: underline;
   text-underline-offset: 2px;
   color: #2c2a26 !important;
