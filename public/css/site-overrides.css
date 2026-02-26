@@ -35,6 +35,29 @@
   background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
+/* ─── Hamburger menu button: remove stray background, fit icon ─────────────── */
+.menu-button,
+.navigation-dark .menu-button,
+.navigation-light .menu-button {
+  background: none !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  min-width: unset !important;
+  width: 24px !important;
+  height: 18px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.menu-button:hover {
+  background-color: transparent !important;
+}
+.navigation-dark .menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+.navigation-light .menu-button:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
 /* ─── Keep logo and Book my Stay black in header (no white/light variant) ─── */
 .navigation-dark .nav-link-dark,
 .navigation-light .nav-link-light {
