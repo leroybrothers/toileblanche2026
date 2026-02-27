@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 
 const suites = [
   {
-    href: '/suites/suite-petanque',
+    href: '/suites/petanque',
     image: '/assets/images/694514f7700aaf8cf582cf9b_IMG_2662.jpg',
     alt: 'Suite Pétanque',
     title: 'Suite Pétanque',
@@ -26,14 +26,14 @@ const suites = [
     description: 'Our bright Suites du Bon-Vivant come with ample bedroom and lounging space, along with a luxury bathroom. The main attraction, however, is the exceptional terrace with a private pool. Here, the sunset is just magical.',
   },
   {
-    href: '/suites/suiteaartiste',
+    href: '/suites/suite-artiste',
     image: '/assets/images/suite-de-l-artist.jpg',
     alt: "Suite de l'Artiste",
     title: "Suite de l'Artiste",
     description: "This modern rustic suite is situated in the 200-year-old farmhouse, where authentic details (think wooden beams and natural stone) have been preserved to complement the contemporary design. But, the picturesque balcony with views of the surroundings is what makes this suite so special.",
   },
   {
-    href: '/suites/masartiste',
+    href: '/suites/mas-artiste',
     image: '/assets/images/mas-de-l-artist.jpg',
     alt: "Mas de l'Artiste",
     title: "Mas de l'Artiste",
@@ -116,7 +116,7 @@ const suites = [
       <div class="home-room-slider js-slider" id="suites-slider" role="region" aria-label="Suite gallery">
         <div class="home-room-mask js-slider-track">
           {suites.map((suite, i) => (
-            <div class={`home-room-single-slide js-slide${suite.href === '/suites/masartiste' ? ' room-slide-masartiste' : ''}`} data-slide-index={i} role="group" aria-label={`${i + 1} of ${suites.length}`}>
+            <div class={`home-room-single-slide js-slide${suite.href === '/suites/mas-artiste' ? ' room-slide-masartiste' : ''}`} data-slide-index={i} role="group" aria-label={`${i + 1} of ${suites.length}`}>
               <a href={suite.href} class="room-slide-wrapper w-inline-block">
                 <div class="room-slide-image-wrapper">
                   <div class="room-slide-image-container">
