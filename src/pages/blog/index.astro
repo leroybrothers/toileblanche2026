@@ -3,29 +3,17 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 
-const entries = [
-  {
-    slug: "declared-artwork",
-    date: "February 2026",
-    title: "Toile Blanche: The Declared Artwork",
-    excerpt: "A formal note on the transition from hospitality domain to a recognized work by the Leroy Brothers.",
-    image: "/assets/images/page-img-2e6a5d90d6c3d3.avif",
-  },
-  {
-    slug: "arik-levy-arrival",
-    date: "November 2025",
-    title: "The Arrival: Arik Levy",
-    excerpt: "Documenting the installation of the new structural sculpture in the lower gardens.",
-    image: "/assets/images/page-img-dd3867b14283dc.webp",
-  },
-];
+const archiveFiles = import.meta.glob('../../content/archive/*.md', { eager: true });
+const entries = Object.values(archiveFiles)
+  .map((file: any) => file.frontmatter)
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 ---
 
 <Layout
   title="The Archive | Toile Blanche | Saint-Paul de Vence"
   description="Occasional notes from Saint-Paul de Vence — new arrivals in the collection, seasonal tables, and the technical residues of the living artwork."
 >
-  <Nav theme="both" />
+  <Nav theme="light" />
 
   <main>
     <!-- HEADER -->

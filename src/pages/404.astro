@@ -1,13 +1,66 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 ---
+
 <Layout title="Page Not Found | Toile Blanche">
-  <div style="min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem;">
-    <img src="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" alt="Toile Blanche" style="max-width: 200px; margin-bottom: 3rem;" loading="lazy" />
-    <h1 class="h3-style">Page Not Found</h1>
-    <p class="paragraph-3">The page you're looking for doesn't exist or has been moved.</p>
-    <a href="/" class="button secondary w-button" style="margin-top: 2rem;">Return Home</a>
-  </div>
+  <Nav theme="light" />
+
+  <main class="not-found">
+    <p class="nf-eyebrow">404</p>
+    <h1 class="nf-title">Page not found</h1>
+    <p class="nf-body">The page you are looking for does not exist or has been moved.</p>
+    <a href="/" class="nf-link">Return to the homepage</a>
+  </main>
+
   <Footer />
 </Layout>
+
+<style>
+  .not-found {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 200px 24px 80px;
+  }
+  .nf-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 16px;
+  }
+  .nf-title {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 16px;
+  }
+  .nf-body {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #6B6256;
+    margin-bottom: 32px;
+  }
+  .nf-link {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #AD5D47;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(173, 93, 71, 0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+  }
+  .nf-link:hover {
+    border-color: #AD5D47;
+  }
+</style>

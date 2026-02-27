@@ -2,16 +2,222 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import sections from '../../data/faq.json';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": sections.flatMap(s => s.items.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a.replace(/<[^>]*>/g, ''),
+    },
+  }))),
+};
 ---
 
 <Layout
-  title="Toile Blanche FAQ | Suites & Restaurant | Toile Blanche"
-  description=""
-  ogImage="https://cdn.prod.website-files.com/639af6c370637a9be3e3b0b0/63dbc14a7fa59e1233dd4d93_Neutral%20Beige%20Minimalist%20Photo%20Collage%20Facebook%20Cover%20(1).jpg"
+  title="FAQ | Toile Blanche | Saint-Paul de Vence"
+  description="Frequently asked questions about Toile Blanche — booking, dining, the suites, and the domain."
 >
-  <Nav theme="both" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Nav theme="light" />
 
-  <div class="section bottom-padding-192 no-top-padding"><div class="container"><div class="hero4" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.01, 1.01, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.01, 1.01, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.01, 1.01, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.01, 1.01, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"><div class="subtitle">FAQ</div><h1>Why? What? Who? HOW?</h1><div class="hero-arrow"><img alt="arrow down" class="hero-arrow-image" loading="lazy" src="/assets/images/page-img-1e6e73d27d5690.svg" style="-webkit-transform:translate3d(0, 24PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"/></div></div></div></div><div class="section bg-color-3"><div class="container"><div id="w-node-_69eb4fe8-c4f4-fc5e-14d8-22f56d61760a-78d58235"><div class="faq-card" data-w-id="69eb4fe8-c4f4-fc5e-14d8-22f56d61760b"><div class="faq-question"><h2 class="faq-question-title">Do you ask pre-payments / Deposits?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">A 50% refundable <strong>prepayment</strong> is debited upon reservation. Please check our <a href="help/bookingconditions.html">booking conditions</a> for the refund conditions. </p></div></div><div class="faq-card" data-w-id="73d153ae-5842-055b-f454-3cc30dd34270"><div class="faq-question"><h2 class="faq-question-title">What are the check-in and check-out times?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">Check-in time for rooms is set between 4:00 PM and 8:00 PM. If you plan to arrive after 8:00 PM, please contact us to arrange your welcome.<br/><br/>Check-out time is scheduled between 8:00 AM and 11:00 AM. In case of early departure, please inform us.<br/><br/>‍<strong>Reception:<br/><br/>‍</strong>Our reception is open from 8:00 AM to 8:00 PM. Do not hesitate to contact us for any request or information.</p></div></div><div class="faq-card" data-w-id="69eb4fe8-c4f4-fc5e-14d8-22f56d617613"><div class="faq-question"><h2 class="faq-question-title">Can I cancel my booking?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph"><strong>Specific cancellation conditions according to the chosen offer:<br/><br/>For the flexible offer:<br/><br/>Cancellation is possible up to 14 days before arrival for a refund of the deposit. For a cancellation between 14 days and 7 days before arrival, the deposit will be retained. For any cancellation less than 7 days before, payment for the entire stay will be required. Free modifications are allowed up to 14 days before arrival, subject to paying any price difference if applicable.<br/><br/>For the group offer:<br/><br/>We consider a group booking all bookings with more then 3 suites per nights. All group bookings are required to have a minimum stay of 3 nights.<br/><br/>Cancellation is possible up to 30 days before arrival for a refund of the deposit. For a cancellation between 30 days and 14 days before arrival, the deposit will be retained. For any cancellation less than 14 days before, payment for the entire stay will be required. Free modifications are allowed up to 30 days before arrival, subject to paying any price difference if applicable.<br/><br/>For the early booking offer:<br/><br/>Full prepayment at the time of booking, non-refundable and non-modifiable.</strong><br/><br/></p></div></div><div class="faq-card" data-w-id="69eb4fe8-c4f4-fc5e-14d8-22f56d61761b"><div class="faq-question"><h2 class="faq-question-title">When is Toile Blanche closed?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">Never</p></div></div><div class="faq-card" data-w-id="69eb4fe8-c4f4-fc5e-14d8-22f56d617623"><div class="faq-question"><h2 class="faq-question-title">Are the restaurants always open?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">Le Restaurant:<br/>Lunch at Toile Blanche restaurant is served from 12:00 until 13:30.<br/>Dinner at Toile Blanche restaurant is served from 19:00 pm to 21:00.<br/><br/>La Guinguette (mid-april - mid-octobre): <br/>Lunch at La Guinguette is served from 12:30 until 15:30. <br/>Dinner at La Guinguette is served from 19:00 until 21:30 (dinner closed on sunday and monday). </p></div></div><div class="faq-card" data-w-id="69eb4fe8-c4f4-fc5e-14d8-22f56d61762b"><div class="faq-question"><h2 class="faq-question-title">When can I swim?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">Swimming is allowed once the temperatures allow it (usually from mid-April to mid-October) and this from 08:00 till 19:00.<br/>The Suites with private pools are heated from april till the end of october.<br/></p></div></div><div class="faq-card" data-w-id="91cbed40-dfd3-4020-fffb-96b73d2d3976"><div class="faq-question"><h2 class="faq-question-title">What are the nearby golf courses?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">There are several golf courses near Toile Blanche Saint-Paul de Vence. Here are a few options with their distances and brief descriptions:<br/><br/>Golf de Villeneuve-Loubet - 8.5 kmThis 18-hole golf course is located near the Mediterranean Sea and has a variety of challenges, including water hazards and bunkers. There is also a driving range and a pro shop on-site.<br/><br/>Royal Mougins Golf Club - 9.5 kmThis 18-hole course is known for its beautiful scenery and challenging layout. There are also practice facilities, including a driving range and putting greens. The club also has a restaurant and a pro shop.<br/><br/>Opio Valbonne Golf Club - 11 kmThis 18-hole golf course is situated in a picturesque valley and features a mix of challenging and straightforward holes. There is also a driving range, putting green, and pro shop on-site.<br/><br/>Golf Country Club de Cannes-Mougins - 13.5 kmThis 18-hole course is located in a tranquil setting and has a mix of challenging and enjoyable holes. The club also has a driving range, putting green, and a pro shop. There is also a restaurant on-site.<br/><br/>Golf de la Grande Bastide - 14 kmThis 18-hole golf course is situated in the hills above Nice and has a challenging layout with plenty of bunkers and water hazards. There is also a practice area with a driving range and putting green.<br/><br/>All of these golf courses offer a great golfing experience and are within a short driving distance of Toile Blanche Saint-Paul de Vence.s allow it and this from 09:00 till 20:00.</p></div></div><div class="faq-card" data-w-id="69eb4fe8-c4f4-fc5e-14d8-22f56d617633"><div class="faq-question"><h2 class="faq-question-title">Are children welcome?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">At Toile Blanche, we strive to provide a luxurious and peaceful experience for all of our guests. <br/><br/>To maintain this atmosphere, we kindly ask that children, if you plan to book with children you contact us so we can accommodate you in the most suitable way. Note that no children under 18 can occupy a suite unaccompanied by an adult. <br/>Once at Toile Blanche children under the age of 12 must be accompanied by an adult at all times while in the Toile Blanche common areas, including restaurants, bars and lounges. . Additionally, children under the age of 16 must be accompanied by an adult when using the swimming pool facilities.<br/><br/>We apologize for any inconvenience this may cause, and we thank you for your understanding in helping us to maintain the highest standards of comfort and relaxation for all of our guests. </p></div></div><div class="faq-card" data-w-id="93be0cf5-44f4-ba31-754d-df6ae8bd9dd2"><div class="faq-question"><h2 class="faq-question-title">What are your prices?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">‍<br/>Extra bed 80 € / night<br/><br/>Other  services:<br/><br/>City Tax:  4,02 € per person and per night (as of 18 years old)<br/>Parking is free<br/>Car charging station: 25 €/ recharge<br/>Breakfast – 26 €  per person and per day<br/>Kids Breakfast (younger then 7) – FREE<br/>Young Breakfast (older then 7 till 14) – 15 €<br/>Bike rental €35 half day / €49 full day<br/>‍<br/><br/>Prices listed in euros, subject to change and seasonal fluctuations. Prices include taxes and service.</p></div></div><div class="faq-card" data-w-id="b1025d89-6641-3c3b-7039-8efc6675aaf0"><div class="faq-question"><h2 class="faq-question-title">Do you allow pets?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">Toile Blanche does not accept pets. If the customer fails to comply with this clause, the hotel may refuse animals. This refusal can in no case be considered as a modification or a breach of the contract on the initiative of the hotel, so that in the event of departure of the client, the price corresponding to the cost of accommodation remains acquired at the hotel</p></div></div><div class="faq-card" data-w-id="e758c26f-4fd5-2fae-c0a0-a3ab5c1bcf48"><div class="faq-question"><h2 class="faq-question-title">Do you Allow outside food and Beverages?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">At Toile Blanche, we are dedicated to providing an exceptional luxury experience for all our guests. To maintain the elegance and ambiance of our property, we kindly request that no outside food, beverages, or groceries be brought into the hotel for consumption in guest rooms or public areas. Our carefully curated minibar and award-winning dining options are available to ensure your comfort and enjoyment, featuring the finest local and artisanal selections. We appreciate your understanding and cooperation in upholding the refined experience we strive to offer.</p></div></div><div class="faq-card" data-w-id="4e316937-d2b7-b70a-8aaa-a025317e0520"><div class="faq-question"><h2 class="faq-question-title">From what time is the room available on the day of arrival and at what time should it be vacated on departure day?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">For arriving customers the rooms are available starting at 16h. On the day of departure the room must be vacated by 11h. However, luggage storage for guests arriving before or intending to leave later.</p></div></div><div class="faq-card" data-w-id="2c79092b-a93c-2675-b249-c624d50101db"><div class="faq-question"><h2 class="faq-question-title">Is breakfast included?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">Breakfast is not included (except in the special offer). For further information visit our Breakfast section.</p></div></div><div class="faq-card" data-w-id="03f987ea-cd2e-35ab-8f27-2360aefb0ac3"><div class="faq-question"><h2 class="faq-question-title">Is there a safe in the suites</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">All rooms have an electronic safe installed which is safeguarded by a numerical code.</p></div></div><div class="faq-card" data-w-id="bd638dd5-dce1-5556-1c6f-22f01c03c184"><div class="faq-question"><h2 class="faq-question-title">Does Toile Blanche has a parking lot?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">The Hotel has a non covered private parking lot.</p></div></div><div class="faq-card" data-w-id="de55744a-45ff-fac4-8442-66a5349c8fba"><div class="faq-question"><h2 class="faq-question-title">How can we pay?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">We accept:<br/><br/>Cash<br/><br/>Cards:<br/>Amex<br/>Mastercard<br/>Maestro<br/>Visa<br/><br/>Digital wallets:<br/>Apple Pay<br/>Google Pay<br/>Samsung Pay<br/><br/>We don't accept cheques<br/></p></div></div><div class="faq-card" data-w-id="e50e3aef-1c40-bb79-0f98-475fdb02b46e"><div class="faq-question"><h2 class="faq-question-title">Is it possible for example, for 3 people to stay in a double room?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">It is strictly forbidden to surpass the specified number of people in a room for security reasons. Therefore a classic room can and must accommodate only two persons, and a deluxe room can accommodate three persons with an extra bed as supplement (for prices check the “What are your prices” question).</p></div></div><div class="faq-card" data-w-id="e8dcc9f4-9bfe-a982-2d18-996a47cbd6cd"><div class="faq-question"><h2 class="faq-question-title">If I am travelling with a child, can I ask for a baby cot?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">We have cots available for the little ones under two years of age. After which, the child will sleep in an ordinary bed.</p></div></div><div class="faq-card" data-w-id="240364aa-fa50-3088-afbb-ac9a67c42963"><div class="faq-question"><h2 class="faq-question-title">Is there a shuttle service to the airport / train station?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">We’d be happy to book a taxi shuttle to or from the airport or the train stations. Reception would be pleased to book or give you advice on your chosen mode of transport. The cost to the airport is approximately 60 €</p></div></div><div class="faq-card" data-w-id="13328d4a-2796-cb8e-026b-824e0bc45e05"><div class="faq-question"><h2 class="faq-question-title">What are the reception hours at Toile Blanche?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">The reception of Toile Blanche is at your disposal from 08:00 till 20:00.Please let us know if you plan to check-in or check-out earlier or later.</p></div></div><div class="faq-card" data-w-id="b0825bcc-f4bf-beac-b49d-7bd850dfb375"><div class="faq-question"><h2 class="faq-question-title">Is there room service at Toile Blanche?</h2><img alt="" class="faq-arrow" loading="lazy" src="/assets/images/page-img-bd4eabd66bc7b0.svg"/></div><div class="faq-answer" style="height:0PX"><p class="faq-paragraph">Toile Blanche offers an extensive mini-bar offer with snacks, food and drinks in the Suites.</p></div></div></div></div></div><div class="divider _96px"></div><div class="section bg-color-2 hide"><div class="container"><div class="cta-wrapper"><div class="w-layout-grid cta-3-grid"><div class="cta-area-1" id="w-node-a924dcd2-d5c0-7326-f66e-1c36f049af06-f049af02"><p>Get our emails. News about Toile Blanche, offers, special dishes from the chef’s table and much more. Not too often — Just enough.</p></div><div class="cta-area-2" id="w-node-a924dcd2-d5c0-7326-f66e-1c36f049af09-f049af02"><h3>Don't be a stranger!</h3></div><div class="cta-area-3" id="w-node-a924dcd2-d5c0-7326-f66e-1c36f049af0c-f049af02"><div class="newsletter-form-block w-form"><form class="newsletter-form" data-name="Newsletter Form" data-wf-element-id="a924dcd2-d5c0-7326-f66e-1c36f049af0e" data-wf-page-id="63df93af2ae9b0f778d58235" id="wf-form-Newsletter-Form" method="get" name="wf-form-Newsletter-Form"><div class="newsletter-input"><label for="Full-Name">Name</label><input class="form-input w-input" data-name="Full Name" id="Full-Name" maxlength="256" name="Full-Name" placeholder="John Doe" required="" type="text"/></div><div class="newsletter-input"><label for="Email">Email Address</label><input class="form-input w-input" data-name="Email" id="Email" maxlength="256" name="Email" placeholder="john.doe@myemail.com" required="" type="email"/></div><input class="submit-button w-button" data-wait="Please wait..." type="submit" value="Try it out now!"/></form><div class="w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div><div class="small-text">*By subscribing to our newsletter you agree to our Privacy Policy</div></div></div></div></div></div>
+  <main>
+    <!-- HEADER -->
+    <section class="faq-header">
+      <div class="faq-header-inner">
+        <p class="faq-header-eyebrow">Practical</p>
+        <h1>Frequently Asked<br />Questions</h1>
+      </div>
+    </section>
+
+    <!-- FAQ SECTIONS -->
+    {sections.map((section) => (
+      <section class="faq-section">
+        <div class="faq-section-inner">
+          <p class="faq-section-label">{section.label}</p>
+          {section.items.map((item) => (
+            <details class="faq-item">
+              <summary class="faq-question">{item.q}</summary>
+              <div class="faq-answer" set:html={item.a} />
+            </details>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <!-- CONTACT -->
+    <section class="faq-contact">
+      <div class="faq-contact-inner">
+        <h2>Still have a question?</h2>
+        <p>Our team is happy to help.</p>
+        <div class="faq-contact-links">
+          <a href="tel:+33493327421">+33 4 93 32 74 21</a>
+          <a href="mailto:info@toileblanche.com">info@toileblanche.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <Footer />
 </Layout>
+
+<style>
+  /* ─── HEADER ─── */
+  .faq-header {
+    padding: 200px 80px 80px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .faq-header-inner {
+    max-width: 800px;
+  }
+  .faq-header-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 24px;
+  }
+  .faq-header h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 400;
+    line-height: 1.05;
+    color: #1C1917;
+  }
+
+  /* ─── SECTIONS ─── */
+  .faq-section {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .faq-section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 80px;
+  }
+  .faq-section-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 32px;
+  }
+
+  /* ─── ACCORDION ─── */
+  .faq-item {
+    border-bottom: 1px solid rgba(226, 217, 204, 0.5);
+  }
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+  .faq-question {
+    display: block;
+    padding: 24px 0;
+    cursor: pointer;
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 400;
+    color: #1C1917;
+    list-style: none;
+    position: relative;
+    padding-right: 40px;
+  }
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 24px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 20px;
+    color: #C4B9AA;
+    transition: transform 0.3s ease;
+  }
+  .faq-item[open] .faq-question::after {
+    content: '−';
+  }
+  .faq-answer {
+    padding: 0 0 28px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #6B6256;
+    max-width: 700px;
+  }
+  .faq-answer a {
+    color: #9e5c4a;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(158, 92, 74, 0.3);
+    transition: border-color 0.2s;
+  }
+  .faq-answer a:hover {
+    border-color: #9e5c4a;
+  }
+  .faq-answer strong {
+    color: #3D3530;
+  }
+
+  /* ─── CONTACT ─── */
+  .faq-contact {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .faq-contact-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 80px;
+    text-align: center;
+  }
+  .faq-contact-inner h2 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 12px;
+  }
+  .faq-contact-inner > p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    color: #6B6256;
+    margin-bottom: 32px;
+  }
+  .faq-contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  .faq-contact-links a {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    color: #3D3530;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .faq-contact-links a:hover {
+    color: #9e5c4a;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .faq-header {
+      padding: 140px 24px 48px;
+    }
+    .faq-section-inner {
+      padding: 48px 24px;
+    }
+    .faq-contact-inner {
+      padding: 48px 24px;
+    }
+    .faq-contact-links {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+</style>

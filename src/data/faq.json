@@ -1,0 +1,52 @@
+[
+  {
+    "label": "Booking & Payments",
+    "items": [
+      { "q": "Do you require a deposit?", "a": "A 50% refundable prepayment is debited upon reservation. Please see our <a href='/booking-conditions'>booking conditions</a> for full refund details." },
+      { "q": "Can I cancel my booking?", "a": "<strong>Flexible offer:</strong> cancellation free up to 14 days before arrival (deposit refunded). 14–7 days: deposit retained. Less than 7 days: full stay charged.<br/><br/><strong>Group offer (3+ suites, 3-night minimum):</strong> cancellation free up to 30 days before arrival. 30–14 days: deposit retained. Less than 14 days: full stay charged.<br/><br/><strong>Early booking offer:</strong> full prepayment at booking, non-refundable and non-modifiable." },
+      { "q": "What are your prices?", "a": "Extra bed: €80/night. City tax: €4.02/person/night (18+). Parking: free. EV charging: €25/charge. Breakfast: €26/adult, €15 ages 7–14, free under 7. Bike rental: €35 half day, €49 full day.<br/><br/>Prices in euros, subject to seasonal variation. Taxes and service included." },
+      { "q": "How can I pay?", "a": "Cash, Visa, Mastercard, Maestro, Amex. Apple Pay, Google Pay, Samsung Pay. We do not accept cheques." }
+    ]
+  },
+  {
+    "label": "Arrival & Departure",
+    "items": [
+      { "q": "What are check-in and check-out times?", "a": "Check-in: 16:00–20:00. If arriving after 20:00, please let us know in advance.<br/>Check-out: 08:00–11:00.<br/><br/>Luggage storage is available for early arrivals or late departures." },
+      { "q": "What are the reception hours?", "a": "Reception is open 08:00–20:00 daily. Please contact us if you plan to arrive or depart outside these hours." },
+      { "q": "Is there a shuttle to the airport?", "a": "We can arrange a taxi shuttle to or from Nice airport or the train stations. The cost to Nice airport is approximately €60. Reception will be happy to book for you." }
+    ]
+  },
+  {
+    "label": "Dining",
+    "items": [
+      { "q": "Are the restaurants always open?", "a": "<strong>Le Restaurant:</strong> dinner 19:00–22:00, open year-round (closed Tuesdays in low season).<br/><br/><strong>La Guinguette:</strong> lunch 12:00–15:00, mid-April to mid-October." },
+      { "q": "Is breakfast included?", "a": "Breakfast is not included by default (except in special offers). Served 08:00–10:30. See <a href='/breakfast'>breakfast details</a>." },
+      { "q": "Can I bring outside food or beverages?", "a": "We kindly request that no outside food, beverages, or groceries be consumed in guest rooms or common areas. Each suite features a curated minibar with full bottles of wine, local provisions, and artisanal selections." },
+      { "q": "Is there room service?", "a": "We offer an extensive in-suite minibar with snacks, provisions, and drinks rather than traditional room service." }
+    ]
+  },
+  {
+    "label": "The Suites",
+    "items": [
+      { "q": "Can three people stay in a double suite?", "a": "Select suite categories (Bronzette, Mas de l'Artiste, Bon-Vivant, Pénéquet) can accommodate an extra bed at €80/night. Standard suites are strictly for two guests." },
+      { "q": "Is there a safe in the suites?", "a": "All suites have an electronic safe with a personal numerical code." },
+      { "q": "Are baby cots available?", "a": "Yes, complimentary cots are available for children under two. Older children require an extra bed." }
+    ]
+  },
+  {
+    "label": "The Domain",
+    "items": [
+      { "q": "When is Toile Blanche open?", "a": "Year-round. We never close." },
+      { "q": "When can I swim?", "a": "The main pools are open mid-April to mid-October, 08:00–19:00. Private suite pools are heated during this same period." },
+      { "q": "Is there parking?", "a": "Free private outdoor parking on the domain." },
+      { "q": "Are children welcome?", "a": "Yes. Children under 12 must be accompanied by an adult in all common areas and restaurants. Under 16s must be accompanied at the pool. No unaccompanied minors in suites. Please contact us when booking with children so we can arrange the best suite." },
+      { "q": "Are pets allowed?", "a": "Toile Blanche does not accept pets." }
+    ]
+  },
+  {
+    "label": "Golf",
+    "items": [
+      { "q": "What are the nearby golf courses?", "a": "Golf de Villeneuve-Loubet (8.5 km) · Royal Mougins Golf Club (9.5 km) · Opio Valbonne Golf Club (11 km) · Golf Country Club de Cannes-Mougins (13.5 km) · Golf de la Grande Bastide (14 km). Reception can arrange tee times." }
+    ]
+  }
+]

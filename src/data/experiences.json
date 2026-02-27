@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Wellness",
+    "tagline": "Massages in the garden, or in your suite.",
+    "body": "Amandine, our resident therapist, offers a range of treatments — deep tissue, relaxation, and signature rituals — designed to restore you completely. Book a session on arrival and forget everything outside the walls.",
+    "image": "page-img-1bc07c2749c20d.avif",
+    "cta": { "text": "View Wellness Menu", "href": "https://toileblanche.bowo.app/pages/2826" }
+  },
+  {
+    "title": "The Art Route",
+    "tagline": "10 art places worth visiting from here.",
+    "body": "A curated walking and driving itinerary through Saint-Paul de Vence and the surrounding area — from the Fondation Maeght to our own sculpture gardens. Available as a printed map at reception.",
+    "image": "page-img-7f21ae1bc9a088.png",
+    "cta": { "text": "Discover the Route", "href": "https://www.canva.com/design/DAGh41XVur0/SkdE6UHqFwKSUe5ud1AIKg/view" }
+  },
+  {
+    "title": "The Leroy Brothers Studio",
+    "tagline": "Visit the artists behind the artwork.",
+    "body": "Nicolas, Gilles, and Gregory Leroy maintain a working studio near the property. Subject to availability, guests can arrange a private visit to see the current body of work in progress.",
+    "image": "page-img-63eececa2d86be.jpg",
+    "cta": null
+  },
+  {
+    "title": "Electric Bikes",
+    "tagline": "Explore the hills at your own pace.",
+    "body": "Two Moustache electric bikes are available for guests. The terrain around Saint-Paul de Vence is hilly and beautiful — ride to neighbouring villages, through the vineyards, or along the coast road.",
+    "image": "page-img-5a95d37e2cdbac.avif",
+    "cta": null
+  },
+  {
+    "title": "The Pools",
+    "tagline": "Three for everyone. Four more that are entirely yours.",
+    "body": "Seven pools are scattered through the gardens — three shared, four private to specific suites. This is the place to read a book, work on a tan, and let conversations happen at their own pace.",
+    "image": "page-img-9539260525abcd.jpg",
+    "cta": null
+  }
+]

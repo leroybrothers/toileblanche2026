@@ -2,76 +2,16 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import pressData from '../../data/press.json';
 
-const reviews = [
-  {
-    publication: "Condé Nast Traveller",
-    quote: "A place where the boundary between hotel and gallery has been quietly dissolved.",
-    year: "2025",
-  },
-  {
-    publication: "Vogue Living",
-    quote: "The Leroy Brothers have turned hospitality into a medium. Every suite is a composition.",
-    year: "2025",
-  },
-  {
-    publication: "Le Figaro",
-    quote: "Saint-Paul de Vence retrouve son statut de village d'artistes — grâce, en partie, à Toile Blanche.",
-    year: "2024",
-  },
-  {
-    publication: "Financial Times — HTSI",
-    quote: "Not a hotel with art in it. An artwork you can sleep in.",
-    year: "2024",
-  },
-  {
-    publication: "Monocle",
-    quote: "Twenty-two suites, two restaurants, and something that resists easy categorisation.",
-    year: "2024",
-  },
-  {
-    publication: "AD Magazine",
-    quote: "Un domaine où chaque mur, chaque jardin, chaque angle de lumière a été pensé comme une œuvre.",
-    year: "2023",
-  },
-  {
-    publication: "Wallpaper*",
-    quote: "The new wave of art hotels owes something to what the Leroy Brothers built in Provence.",
-    year: "2023",
-  },
-  {
-    publication: "Elle Décoration",
-    quote: "Toile Blanche prouve que l'hôtellerie de luxe peut être un acte de création contemporaine.",
-    year: "2023",
-  },
-];
-
-const clippings = [
-  "/assets/images/page-img-37ea194b426b81.avif",
-  "/assets/images/page-img-c2b446ef508aab.avif",
-  "/assets/images/page-img-50b2a4b9fbb1fb.avif",
-  "/assets/images/page-img-64a0c95ea55a98.avif",
-  "/assets/images/page-img-fdf7aa86015b84.avif",
-  "/assets/images/page-img-a1596d1ce42090.avif",
-  "/assets/images/page-img-76f83587fddfbf.avif",
-  "/assets/images/page-img-db052c2e4f8e09.avif",
-  "/assets/images/page-img-8f223a02b060d9.avif",
-  "/assets/images/page-img-4eb937b727508c.avif",
-  "/assets/images/page-img-731ea094798e2d.avif",
-  "/assets/images/page-img-5120e0a8348fed.avif",
-  "/assets/images/page-img-e7cc42e5c98c03.avif",
-  "/assets/images/page-img-23693318da54c4.avif",
-  "/assets/images/page-img-fba9bab5d8fc93.avif",
-  "/assets/images/page-img-9b12f920448ad3.avif",
-  "/assets/images/page-img-6b3e1d28470db9.avif",
-];
+const { reviews, clippings } = pressData;
 ---
 
 <Layout
   title="Press | Toile Blanche | Saint-Paul de Vence"
   description="Records of recognition. Press coverage and media enquiries for Toile Blanche, Saint-Paul de Vence."
 >
-  <Nav theme="both" />
+  <Nav theme="light" />
 
   <main>
     <!-- HEADER -->

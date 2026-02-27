@@ -2,125 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import suitesData from '../../data/suites.json';
 
-const suites = [
-  {
-    slug: "penard",
-    index: "01",
-    name: "Suite Pénard",
-    headline: "The right amount of everything.",
-    description: "French windows, a private patio, and morning light that arrives exactly on time.",
-    count: "6 suites",
-    size: "30m²",
-    guests: "2 guests",
-    specs: "Garden view · Private patio · Walk-in shower",
-    image: "/assets/images/page-img-eb795e7700a147.jpg",
-    imageAlt: "Suite Pénard at Toile Blanche",
-    hasPool: false,
-  },
-  {
-    slug: "petanque",
-    index: "02",
-    name: "Suite Pétanque",
-    headline: "Where the afternoon lasts longest.",
-    description: "Named for the game played in the shade nearby. Forty square metres that feel considerably larger.",
-    count: "4 suites",
-    size: "40m²",
-    guests: "2 guests",
-    specs: "Garden view · Living area · Terrace with sun loungers · Walk-in shower",
-    image: "/assets/images/page-img-833a78c568fe35.jpg",
-    imageAlt: "Suite Pétanque at Toile Blanche",
-    hasPool: false,
-  },
-  {
-    slug: "bronzette",
-    index: "03",
-    name: "Suite de la Bronzette",
-    headline: "Photographers come for the light. Guests stay for everything else.",
-    description: "The name says it all. Fifty-five square metres, a spa bathroom, and a private terrace designed for serious sun.",
-    count: "2 suites",
-    size: "55m²",
-    guests: "2 guests",
-    specs: "Garden view · Spa bathroom · Bathtub · Large private terrace",
-    image: "/assets/images/page-img-8626fb58027da5.jpg",
-    imageAlt: "Suite de la Bronzette at Toile Blanche",
-    hasPool: false,
-    note: "Extra bed available — €80/night",
-  },
-  {
-    slug: "cabanat",
-    index: "04",
-    name: "Suite Cabanat",
-    headline: "Built into the slope. The only suite with a valley view.",
-    description: "Built into the slope, which gives it something the others do not have — a valley view, and a sunbed cabana you will not want to leave.",
-    count: "3 suites",
-    size: "55m²",
-    guests: "2 guests",
-    specs: "Valley view · Split-level · Outdoor shower · Bathtub · Private garden · Sunbed cabana",
-    image: "/assets/images/page-img-826f21859fa23e.jpg",
-    imageAlt: "Suite Cabanat at Toile Blanche",
-    hasPool: false,
-  },
-  {
-    slug: "suite-artiste",
-    index: "05",
-    name: "Suite de l'Artiste",
-    headline: "The oldest walls on the property.",
-    description: "The 200-year-old farmhouse, with its original beams and stone, and a balcony that has been watching the same view for two centuries.",
-    count: "2 suites",
-    size: "60–70m²",
-    guests: "2 guests",
-    specs: "200-year-old farmhouse · Original stone and beams · Balcony · Bathtub",
-    image: "/assets/images/page-img-e1708f1e9761a9.jpg",
-    imageAlt: "Suite de l'Artiste at Toile Blanche",
-    hasPool: false,
-  },
-  {
-    slug: "mas-artiste",
-    index: "06",
-    name: "Mas de l'Artiste",
-    headline: "The farmhouse, kept almost entirely for you.",
-    description: "The largest suite in the farmhouse. Ninety square metres, a private Provençal courtyard, and room for the people you actually want to travel with.",
-    count: "1 suite",
-    size: "90m²",
-    guests: "Up to 4 guests",
-    specs: "200-year-old farmhouse · Maisonette · Private Provençal courtyard · Bathtub",
-    image: "/assets/images/page-img-6106adc613aeb2.jpg",
-    imageAlt: "Mas de l'Artiste at Toile Blanche",
-    hasPool: false,
-    note: "Extra bed available — €80/night",
-  },
-  {
-    slug: "bonvivant",
-    index: "07",
-    name: "Suite du Bon-Vivant",
-    headline: "A private pool and a terrace where the sunset is unreasonably good.",
-    description: "A private pool, a terrace, and a sunset that arrives from the right direction at the right time of day. Some things are simply well arranged.",
-    count: "2 suites",
-    size: "55–60m²",
-    guests: "2 guests",
-    specs: "Private pool · Terrace · Bathtub",
-    image: "/assets/images/page-img-707417a43d47ee.jpg",
-    imageAlt: "Suite du Bon-Vivant at Toile Blanche",
-    hasPool: true,
-    note: "Extra bed available — €80/night",
-  },
-  {
-    slug: "penequet",
-    index: "08",
-    name: "Villa du Pénéquet",
-    headline: "Two floors, one pool, and the Provençal art of going nowhere.",
-    description: "Pénéquet — the Provençal word for power-nap. Two floors, a private pool, and the particular art of doing absolutely nothing on purpose.",
-    count: "2 villas",
-    size: "80m²",
-    guests: "2 guests",
-    specs: "Private pool · Two floors · Garden view · Bathtub",
-    image: "/assets/images/page-img-5f8a45f5b552ed.jpg",
-    imageAlt: "Villa du Pénéquet at Toile Blanche",
-    hasPool: true,
-    note: "Extra bed available",
-  },
-]
+const suites = suitesData.suites;
 ---
 
 <Layout
@@ -151,16 +35,16 @@ const suites = [
           <article class={`suite-card ${i % 2 !== 0 ? 'reversed' : ''}`}>
 
             <a href={`/suites/${suite.slug}`} class="card-image">
-              <img src={suite.image} alt={suite.imageAlt} loading="lazy" />
+              <img src={suite.images.card} alt={suite.images.cardAlt} loading="lazy" />
               {suite.hasPool && <span class="pool-tag">Private pool</span>}
             </a>
 
             <div class="card-body">
-              <p class="card-meta">{suite.index} — {suite.count} · {suite.size} · {suite.guests}</p>
+              <p class="card-meta">{suite.index} — {suite.specs.count} · {suite.specs.size} · {suite.specs.occupancy}</p>
               <h2>{suite.name}</h2>
               <p class="card-headline">{suite.headline}</p>
-              <p class="card-desc">{suite.description}</p>
-              <p class="card-specs">{suite.specs}</p>
+              <p class="card-desc">{suite.tagline}</p>
+              <p class="card-specs">{suite.specs.summary}</p>
               {suite.note && <p class="card-note">{suite.note}</p>}
               <div class="card-actions">
                 <a href={`/suites/${suite.slug}`} class="link-cta">Discover the suite →</a>

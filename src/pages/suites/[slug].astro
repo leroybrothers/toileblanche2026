@@ -2,151 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import suitesData from '../../data/suites.json';
 
 export function getStaticPaths() {
-  const masterAmenities = [
-    "King size Tréca bed · Premium bedding",
-    "Air conditioning",
-    "Free WiFi",
-    "Flat screen TV · Bluetooth audio",
-    "In-room safe",
-    "Bean-to-cup coffee machine",
-    "Curated minibar — full bottles of wine",
-    "Les Grandes Vacances toiletries",
-    "Bathrobes & slippers",
-    "Walk-in shower",
-  ];
-
-  const suites = [
-    {
-      slug: "penard",
-      index: "01",
-      name: "Suite Pénard",
-      tagline: "French windows, a private patio, and morning light that arrives exactly on time.",
-      description: "The right amount of everything. Pénard is the smallest of our categories, but it is perhaps the most precise. Built into the original stone structures, these suites are exercises in restraint and curated comfort.",
-      specs: { count: "6 suites", size: "30m²", occupancy: "2 guests", view: "Garden view", features: "Private patio · Walk-in shower" },
-      extras: [],
-      heroImage: "/assets/images/page-img-fc5920b651f35b.jpg",
-      gallery: [
-        "/assets/images/page-img-eb795e7700a147.jpg",
-        "/assets/images/page-img-0d4fab6cd496a8.jpg",
-        "/assets/images/page-img-0bd0acfefc8c5b.jpg",
-      ],
-      hasPool: false,
-    },
-    {
-      slug: "petanque",
-      index: "02",
-      name: "Suite Pétanque",
-      tagline: "Named for the game played in the shade nearby. Forty square metres that feel considerably larger.",
-      description: "Where the afternoon lasts longest. Set within a beautifully renovated residence, Suite Pétanque offers more space, complete with a dedicated living area and a terrace designed for the slow Provençal hours.",
-      specs: { count: "4 suites", size: "40m²", occupancy: "2 guests", view: "Garden view", features: "Living area · Terrace · Walk-in shower" },
-      extras: [],
-      heroImage: "/assets/images/page-img-13bfe0acd738c0.jpg",
-      gallery: [
-        "/assets/images/page-img-833a78c568fe35.jpg",
-        "/assets/images/page-img-8c03274d5f9fd2.jpg",
-        "/assets/images/page-img-e203e7177a0fba.jpg",
-      ],
-      hasPool: false,
-    },
-    {
-      slug: "bronzette",
-      index: "03",
-      name: "Suite de la Bronzette",
-      tagline: "The name says it all. Fifty-five square metres, a spa bathroom, and a private terrace designed for serious sun.",
-      description: "Photographers come for the light. Guests stay for everything else. These spacious suites feature a bedroom and living room layout, allowing for extra privacy and the possibility to add an extra bed.",
-      specs: { count: "2 suites", size: "55m²", occupancy: "2 guests", view: "Garden view", features: "Spa bathroom · Large private terrace" },
-      extras: ["Bathtub", "Extra bed available (+€80/night)"],
-      heroImage: "/assets/images/page-img-cc59a0bcdda081.jpg",
-      gallery: [
-        "/assets/images/page-img-8626fb58027da5.jpg",
-        "/assets/images/page-img-431877e28efcaf.jpg",
-        "/assets/images/page-img-17e8d97a8dfff6.jpg",
-      ],
-      hasPool: false,
-    },
-    {
-      slug: "cabanat",
-      index: "04",
-      name: "Suite Cabanat",
-      tagline: "Built into the slope, which gives it something the others do not have — a valley view, and a sunbed cabana you will not want to leave.",
-      description: "Our generous Suite Cabanat is a split-level retreat. It is the only category that faces the valley, offering a perspective on Saint-Paul de Vence that feels entirely private.",
-      specs: { count: "3 suites", size: "55m²", occupancy: "2 guests", view: "Valley view", features: "Split-level · Sunbed cabana · Private garden" },
-      extras: ["Bathtub", "Outdoor shower"],
-      heroImage: "/assets/images/page-img-22b8daa3a98de1.jpg",
-      gallery: [
-        "/assets/images/page-img-826f21859fa23e.jpg",
-        "/assets/images/page-img-eecc3519b1d474.jpg",
-        "/assets/images/page-img-be2c0c3fe3d438.jpg",
-      ],
-      hasPool: false,
-    },
-    {
-      slug: "suite-artiste",
-      index: "05",
-      name: "Suite de l'Artiste",
-      tagline: "The 200-year-old farmhouse, with its original beams and stone, and a balcony that has been watching the same view for two centuries.",
-      description: "Modern rustic situated in the oldest walls on the property. Authentic details have been preserved to complement contemporary curation. A space where history is not decoration, but the atmosphere itself.",
-      specs: { count: "2 suites", size: "60–70m²", occupancy: "2 guests", view: "Garden view", features: "200-year-old farmhouse · Original stone and beams · Balcony" },
-      extras: ["Bathtub"],
-      heroImage: "/assets/images/page-img-6fb08ef94b7be5.jpg",
-      gallery: [
-        "/assets/images/page-img-e1708f1e9761a9.jpg",
-        "/assets/images/page-img-cd43fba77f9e67.jpg",
-        "/assets/images/page-img-e025d0155b7425.jpg",
-      ],
-      hasPool: false,
-    },
-    {
-      slug: "mas-artiste",
-      index: "06",
-      name: "Mas de l'Artiste",
-      tagline: "The largest suite in the farmhouse. Ninety square metres, a private Provençal courtyard, and room for the people you actually want to travel with.",
-      description: "The farmhouse, kept almost entirely for you. This vast, sun-flooded maisonette separates the sleeping area to ensure complete intimacy, while the living area opens directly onto a private courtyard.",
-      specs: { count: "1 suite", size: "90m²", occupancy: "Up to 4 guests", view: "Private courtyard", features: "200-year-old farmhouse · Maisonette · Private courtyard" },
-      extras: ["Bathtub", "Extra bed available (+€80/night)"],
-      heroImage: "/assets/images/page-img-46f7b755735790.jpg",
-      gallery: [
-        "/assets/images/page-img-6106adc613aeb2.jpg",
-        "/assets/images/page-img-d9499fe50d6ed6.jpg",
-        "/assets/images/page-img-71d4e99222d050.jpg",
-      ],
-      hasPool: false,
-    },
-    {
-      slug: "bonvivant",
-      index: "07",
-      name: "Suite du Bon-Vivant",
-      tagline: "A private pool, a terrace, and a sunset that arrives from the right direction at the right time of day.",
-      description: "Our bright Suites du Bon-Vivant come with ample bedroom and lounging space, but the main attraction is the exceptional terrace with your own private pool. Here, the sunset is magical.",
-      specs: { count: "2 suites", size: "55–60m²", occupancy: "2 guests", view: "Sunset view", features: "Private pool · Terrace · Bathtub" },
-      extras: ["Private pool", "Bathtub", "Extra bed available (+€80/night)"],
-      heroImage: "/assets/images/page-img-59c7e07d15bf91.jpg",
-      gallery: [
-        "/assets/images/page-img-707417a43d47ee.jpg",
-        "/assets/images/page-img-1c7ae91a066a89.jpg",
-        "/assets/images/page-img-6318088b5c037e.jpg",
-      ],
-      hasPool: true,
-    },
-    {
-      slug: "penequet",
-      index: "08",
-      name: "Villa du Pénéquet",
-      tagline: "Pénéquet — the Provençal word for power-nap. Two floors, a private pool, and the particular art of doing absolutely nothing on purpose.",
-      description: "The only suites boasting two floors. The ground floor houses a luxurious living area with direct access to your private pool and sun loungers. Upstairs, the master bedroom offers the ultimate retreat.",
-      specs: { count: "2 villas", size: "80m²", occupancy: "2 guests", view: "Garden view", features: "Private pool · Two floors · Bathtub" },
-      extras: ["Private pool", "Two-floor layout", "Bathtub", "Extra bed available"],
-      heroImage: "/assets/images/page-img-8da5a0df461d5d.jpg",
-      gallery: [
-        "/assets/images/page-img-5f8a45f5b552ed.jpg",
-        "/assets/images/page-img-9502e1df731900.jpg",
-        "/assets/images/page-img-2288c37159b2c6.jpg",
-      ],
-      hasPool: true,
-    },
-  ];
+  const { masterAmenities, suites } = suitesData;
 
   return suites.map((suite) => ({
     params: { slug: suite.slug },
@@ -165,6 +24,7 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
 <Layout
   title={`${suite.name} | Toile Blanche | Saint-Paul de Vence`}
   description={suite.tagline}
+  ogImage={`https://www.toileblanche.com${suite.images.hero}`}
 >
   <Nav theme="both" />
 
@@ -172,7 +32,7 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
     <!-- HERO -->
     <section class="sd-hero">
       <div class="sd-hero-image">
-        <img src={suite.heroImage} alt={suite.name} loading="eager" />
+        <img src={suite.images.hero} alt={suite.name} loading="eager" />
         <div class="sd-hero-overlay"></div>
       </div>
       <div class="sd-hero-content">
@@ -218,7 +78,7 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
 
     <!-- GALLERY -->
     <section class="sd-gallery">
-      {suite.gallery.map((img, i) => (
+      {suite.images.gallery.map((img, i) => (
         <div class={`sd-gallery-item sd-gallery-item-${i + 1}`}>
           <img src={img} alt={`${suite.name} — view ${i + 1}`} loading="lazy" />
         </div>
@@ -238,7 +98,7 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
         {otherSuites.map(s => (
           <a href={`/suites/${s.slug}`} class="sd-explore-card">
             <div class="sd-explore-img">
-              <img src={s.gallery[0]} alt={s.name} loading="lazy" />
+              <img src={s.images.gallery[0]} alt={s.name} loading="lazy" />
             </div>
             <p class="sd-explore-name">{s.name}</p>
           </a>

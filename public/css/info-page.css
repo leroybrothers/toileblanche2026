@@ -1,0 +1,111 @@
+/* ─── Shared styles for info/legal pages ─── */
+
+.info-header {
+  padding: 200px 80px 80px;
+  border-bottom: 1px solid #E2D9CC;
+}
+.info-header-inner {
+  max-width: 800px;
+}
+.info-eyebrow {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9C9080;
+  margin-bottom: 24px;
+}
+.info-header h1 {
+  font-family: 'Gilda Display', serif;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: #1C1917;
+  margin-bottom: 24px;
+}
+.info-tagline {
+  font-family: 'Gilda Display', serif;
+  font-style: italic;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.55;
+  color: #6B6256;
+  max-width: 600px;
+}
+
+/* ─── BODY ─── */
+.info-body {
+  border-bottom: 1px solid #E2D9CC;
+}
+.info-body-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 64px 80px 80px;
+}
+.info-body-inner h2 {
+  font-family: 'Gilda Display', serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 400;
+  color: #1C1917;
+  margin-top: 48px;
+  margin-bottom: 20px;
+}
+.info-body-inner h2:first-child {
+  margin-top: 0;
+}
+.info-body-inner h3 {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #3D3530;
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+.info-body-inner p {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #3D3530;
+  margin-bottom: 16px;
+}
+.info-body-inner strong {
+  color: #1C1917;
+}
+.info-body-inner a {
+  color: #9e5c4a;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(158, 92, 74, 0.3);
+  transition: border-color 0.2s;
+}
+.info-body-inner a:hover {
+  border-color: #9e5c4a;
+}
+.info-body-inner ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+.info-body-inner li {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #3D3530;
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+}
+.info-body-inner li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: #C4B9AA;
+}
+
+@media (max-width: 900px) {
+  .info-header {
+    padding: 140px 24px 48px;
+  }
+  .info-body-inner {
+    padding: 48px 24px;
+  }
+}
