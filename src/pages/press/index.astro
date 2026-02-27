@@ -3,15 +3,47 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 
-const mentions = [
-  { publication: "Condé Nast Traveller", title: "The 30 Best Hotels on the French Riviera", year: "2025" },
-  { publication: "Vogue Living", title: "Where Art Meets Hospitality in Provence", year: "2025" },
-  { publication: "Le Figaro", title: "Saint-Paul de Vence: l'art contemporain reprend ses droits", year: "2024" },
-  { publication: "Financial Times", title: "How To Do the Côte d'Azur Differently", year: "2024" },
-  { publication: "Monocle", title: "The Hotels That Double as Galleries", year: "2024" },
-  { publication: "AD Magazine", title: "Un domaine entre art et nature à Saint-Paul de Vence", year: "2023" },
-  { publication: "Wallpaper*", title: "The New Wave of Art Hotels", year: "2023" },
-  { publication: "Elle Décoration", title: "Toile Blanche: quand l'hôtellerie devient œuvre d'art", year: "2023" },
+const reviews = [
+  {
+    publication: "Condé Nast Traveller",
+    quote: "A place where the boundary between hotel and gallery has been quietly dissolved.",
+    year: "2025",
+  },
+  {
+    publication: "Vogue Living",
+    quote: "The Leroy Brothers have turned hospitality into a medium. Every suite is a composition.",
+    year: "2025",
+  },
+  {
+    publication: "Le Figaro",
+    quote: "Saint-Paul de Vence retrouve son statut de village d'artistes — grâce, en partie, à Toile Blanche.",
+    year: "2024",
+  },
+  {
+    publication: "Financial Times — HTSI",
+    quote: "Not a hotel with art in it. An artwork you can sleep in.",
+    year: "2024",
+  },
+  {
+    publication: "Monocle",
+    quote: "Twenty-two suites, two restaurants, and something that resists easy categorisation.",
+    year: "2024",
+  },
+  {
+    publication: "AD Magazine",
+    quote: "Un domaine où chaque mur, chaque jardin, chaque angle de lumière a été pensé comme une œuvre.",
+    year: "2023",
+  },
+  {
+    publication: "Wallpaper*",
+    quote: "The new wave of art hotels owes something to what the Leroy Brothers built in Provence.",
+    year: "2023",
+  },
+  {
+    publication: "Elle Décoration",
+    quote: "Toile Blanche prouve que l'hôtellerie de luxe peut être un acte de création contemporaine.",
+    year: "2023",
+  },
 ];
 
 const clippings = [
@@ -37,7 +69,7 @@ const clippings = [
 
 <Layout
   title="Press | Toile Blanche | Saint-Paul de Vence"
-  description="Press coverage and media enquiries for Toile Blanche, Saint-Paul de Vence."
+  description="Records of recognition. Press coverage and media enquiries for Toile Blanche, Saint-Paul de Vence."
 >
   <Nav theme="both" />
 
@@ -45,51 +77,71 @@ const clippings = [
     <!-- HEADER -->
     <section class="prs-header">
       <div class="prs-header-inner">
-        <p class="prs-header-eyebrow">Media</p>
+        <p class="prs-header-eyebrow">Records of Recognition</p>
         <h1>Press</h1>
-        <p class="prs-header-tagline">A selection of coverage. For press enquiries, high-resolution imagery, or interview requests, please contact our PR teams below.</p>
+        <p class="prs-header-tagline">A curated archive of the critical reception. Toile Blanche was declared a work by the Leroy Brothers in 2026. The following is a record of how the world received it — before and after.</p>
+      </div>
+    </section>
+
+    <!-- REVIEW LOG -->
+    <section class="prs-reviews">
+      <div class="prs-reviews-inner">
+        <p class="prs-reviews-label">The Review Log</p>
+        {reviews.map((r) => (
+          <div class="prs-review">
+            <div class="prs-review-head">
+              <span class="prs-review-pub">{r.publication}</span>
+              <span class="prs-review-year">{r.year}</span>
+            </div>
+            <p class="prs-review-quote">"{r.quote}"</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- MEDIA KIT -->
+    <section class="prs-kit">
+      <div class="prs-kit-inner">
+        <div class="prs-kit-text">
+          <p class="prs-kit-label">Media Kit</p>
+          <h2>For Journalists &amp; Editors</h2>
+          <p>High-resolution photography, the brand book, fact sheet, floor plans, and approved copy. Everything you need in one download.</p>
+        </div>
+        <div class="prs-kit-actions">
+          <a href="mailto:press@toileblanche.com?subject=Media%20Kit%20Request" class="prs-kit-btn">Request the Media Kit</a>
+          <p class="prs-kit-note">Sent within 24 hours as a secure link.</p>
+        </div>
       </div>
     </section>
 
     <!-- PRESS CONTACTS -->
     <section class="prs-contacts">
       <div class="prs-contacts-inner">
-        <div class="prs-contact-card">
-          <h3>France</h3>
-          <p class="prs-contact-agency"><a href="https://www.pascalevenot.fr/" target="_blank" rel="noopener noreferrer">Pascale Venot</a></p>
-          <a href="mailto:audebanou@pascalevenot.fr" class="prs-contact-email">audebanou@pascalevenot.fr</a>
-        </div>
-        <div class="prs-contact-card">
-          <h3>UK / US</h3>
-          <p class="prs-contact-agency"><a href="https://www.re-agency.com/" target="_blank" rel="noopener noreferrer">Re-Agency</a></p>
-          <a href="mailto:toileblanche@re-agency.com" class="prs-contact-email">toileblanche@re-agency.com</a>
-        </div>
-        <div class="prs-contact-card">
-          <h3>General</h3>
-          <p class="prs-contact-agency">Toile Blanche</p>
-          <a href="mailto:press@toileblanche.com" class="prs-contact-email">press@toileblanche.com</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- MENTIONS -->
-    <section class="prs-mentions">
-      <div class="prs-mentions-inner">
-        <p class="prs-mentions-label">Selected Coverage</p>
-        {mentions.map((m) => (
-          <div class="prs-mention">
-            <span class="prs-mention-pub">{m.publication}</span>
-            <span class="prs-mention-title">{m.title}</span>
-            <span class="prs-mention-year">{m.year}</span>
+        <p class="prs-contacts-label">Press Contacts</p>
+        <div class="prs-contacts-grid">
+          <div class="prs-contact">
+            <h3>France</h3>
+            <p class="prs-contact-agency"><a href="https://www.pascalevenot.fr/" target="_blank" rel="noopener noreferrer">Pascale Venot</a></p>
+            <a href="mailto:audebanou@pascalevenot.fr" class="prs-contact-email">audebanou@pascalevenot.fr</a>
           </div>
-        ))}
+          <div class="prs-contact">
+            <h3>UK / US</h3>
+            <p class="prs-contact-agency"><a href="https://www.re-agency.com/" target="_blank" rel="noopener noreferrer">Re-Agency</a></p>
+            <a href="mailto:toileblanche@re-agency.com" class="prs-contact-email">toileblanche@re-agency.com</a>
+          </div>
+          <div class="prs-contact">
+            <h3>General Enquiries</h3>
+            <p class="prs-contact-agency">Toile Blanche</p>
+            <a href="mailto:press@toileblanche.com" class="prs-contact-email">press@toileblanche.com</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- CLIPPINGS GALLERY -->
+    <!-- CLIPPINGS ARCHIVE -->
     <section class="prs-clippings">
       <div class="prs-clippings-inner">
-        <p class="prs-clippings-label">Press Clippings</p>
+        <p class="prs-clippings-label">Clippings Archive</p>
         <div class="prs-clippings-grid">
           {clippings.map((src, i) => (
             <div class="prs-clipping">
@@ -98,12 +150,6 @@ const clippings = [
           ))}
         </div>
       </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="prs-cta">
-      <p>For high-resolution images, fact sheets, or interview requests:</p>
-      <a href="mailto:press@toileblanche.com" class="prs-cta-btn">Contact Press Office</a>
     </section>
   </main>
 
@@ -140,7 +186,117 @@ const clippings = [
     font-size: 16px;
     line-height: 1.7;
     color: #6B6256;
-    max-width: 560px;
+    max-width: 600px;
+  }
+
+  /* ─── REVIEW LOG ─── */
+  .prs-reviews {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .prs-reviews-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px;
+  }
+  .prs-reviews-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 48px;
+  }
+  .prs-review {
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(226, 217, 204, 0.5);
+  }
+  .prs-review:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .prs-review-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+  }
+  .prs-review-pub {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #9C9080;
+  }
+  .prs-review-year {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    color: #C4B9AA;
+  }
+  .prs-review-quote {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(20px, 2.5vw, 28px);
+    line-height: 1.45;
+    color: #1C1917;
+  }
+
+  /* ─── MEDIA KIT ─── */
+  .prs-kit {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .prs-kit-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .prs-kit-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 20px;
+  }
+  .prs-kit-text h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 20px;
+  }
+  .prs-kit-text > p:last-child {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6B6256;
+  }
+  .prs-kit-actions {
+    padding: 48px;
+    background: rgba(226, 217, 204, 0.15);
+    text-align: center;
+  }
+  .prs-kit-btn {
+    display: inline-block;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FAF8F3;
+    background: #1C1917;
+    padding: 18px 40px;
+    transition: opacity 0.2s;
+    margin-bottom: 16px;
+  }
+  .prs-kit-btn:hover {
+    opacity: 0.85;
+  }
+  .prs-kit-note {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    color: #C4B9AA;
   }
 
   /* ─── CONTACTS ─── */
@@ -150,16 +306,26 @@ const clippings = [
   .prs-contacts-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 64px 80px;
+    padding: 80px;
+  }
+  .prs-contacts-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 40px;
+  }
+  .prs-contacts-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 48px;
+    gap: 32px;
   }
-  .prs-contact-card {
+  .prs-contact {
     padding: 40px;
     background: rgba(226, 217, 204, 0.15);
   }
-  .prs-contact-card h3 {
+  .prs-contact h3 {
     font-family: 'Didact Gothic', sans-serif;
     font-size: 10px;
     letter-spacing: 0.2em;
@@ -191,52 +357,6 @@ const clippings = [
   }
   .prs-contact-email:hover {
     color: #9e5c4a;
-  }
-
-  /* ─── MENTIONS ─── */
-  .prs-mentions {
-    border-bottom: 1px solid #E2D9CC;
-  }
-  .prs-mentions-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px;
-  }
-  .prs-mentions-label {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #9C9080;
-    margin-bottom: 40px;
-  }
-  .prs-mention {
-    display: grid;
-    grid-template-columns: 200px 1fr 80px;
-    gap: 24px;
-    align-items: baseline;
-    padding: 24px 0;
-    border-bottom: 1px solid rgba(226, 217, 204, 0.5);
-  }
-  .prs-mention:last-child {
-    border-bottom: none;
-  }
-  .prs-mention-pub {
-    font-family: 'Gilda Display', serif;
-    font-style: italic;
-    font-size: 18px;
-    color: #1C1917;
-  }
-  .prs-mention-title {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 15px;
-    color: #3D3530;
-  }
-  .prs-mention-year {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 12px;
-    color: #9C9080;
-    text-align: right;
   }
 
   /* ─── CLIPPINGS ─── */
@@ -274,63 +394,35 @@ const clippings = [
     transform: scale(1.02);
   }
 
-  /* ─── CTA ─── */
-  .prs-cta {
-    padding: 80px;
-    text-align: center;
-    border-bottom: 1px solid #E2D9CC;
-  }
-  .prs-cta p {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 16px;
-    color: #6B6256;
-    margin-bottom: 32px;
-  }
-  .prs-cta-btn {
-    display: inline-block;
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #FAF8F3;
-    background: #9e5c4a;
-    padding: 16px 36px;
-    transition: opacity 0.2s;
-  }
-  .prs-cta-btn:hover {
-    opacity: 0.85;
-  }
-
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     .prs-header {
       padding: 140px 24px 48px;
     }
-    .prs-contacts-inner {
-      grid-template-columns: 1fr;
-      padding: 48px 24px;
-      gap: 16px;
-    }
-    .prs-mentions-inner {
+    .prs-reviews-inner {
       padding: 48px 24px;
     }
-    .prs-mention {
-      grid-template-columns: 1fr;
+    .prs-review-head {
+      flex-direction: column;
       gap: 4px;
-      padding: 20px 0;
     }
-    .prs-mention-year {
-      text-align: left;
+    .prs-kit-inner {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 32px;
+    }
+    .prs-contacts-inner {
+      padding: 48px 24px;
+    }
+    .prs-contacts-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
     .prs-clippings-inner {
       padding: 48px 24px;
     }
     .prs-clippings-grid {
       grid-template-columns: 1fr;
-    }
-    .prs-cta {
-      padding: 48px 24px;
     }
   }
 </style>
