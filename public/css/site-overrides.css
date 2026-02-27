@@ -873,6 +873,12 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   border: none !important;
 }
 
+/* ─── Nav CTA link variant (used on restaurant pages) ────────────────────── */
+a.tb-book-cta-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* ─── Print styles ───────────────────────────────────────────────────────── */
 @media print {
   #page-loader,

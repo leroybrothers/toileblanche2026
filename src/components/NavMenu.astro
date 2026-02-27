@@ -1,13 +1,19 @@
 ---
 export interface Props {
   currentPath: string;
+  ctaText?: string;
+  ctaHref?: string;
 }
-const { currentPath } = Astro.props;
+const { currentPath, ctaText = 'Book my Stay', ctaHref } = Astro.props;
 const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current' : '';
 ---
 
 <header class="tb-menu-header">
-  <a href="#" class="tb-menu-cta distributor-open">Book my Stay</a>
+  {ctaHref ? (
+    <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-menu-cta">{ctaText}</a>
+  ) : (
+    <a href="#" class="tb-menu-cta distributor-open">{ctaText}</a>
+  )}
   <button type="button" class="tb-menu-close js-menu-toggle" aria-label="Close menu">×</button>
 </header>
 

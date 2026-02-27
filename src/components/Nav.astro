@@ -2,8 +2,11 @@
 import NavMenu from './NavMenu.astro';
 export interface Props {
   theme?: 'dark' | 'light' | 'both';
+  ctaText?: string;
+  ctaHref?: string;
 }
-const { theme = 'both' } = Astro.props;
+const { theme = 'both', ctaText = 'Book my Stay', ctaHref } = Astro.props;
+const ctaIsLink = !!ctaHref;
 const currentPath = Astro.url.pathname;
 ---
 
@@ -18,7 +21,11 @@ const currentPath = Astro.url.pathname;
         </a>
         <div class="nav-buttons">
           <div class="book-button">
-            <button type="button" class="distributor-open tb-book-cta">Book my Stay</button>
+            {ctaIsLink ? (
+              <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-book-cta tb-book-cta-link">{ctaText}</a>
+            ) : (
+              <button type="button" class="distributor-open tb-book-cta">{ctaText}</button>
+            )}
           </div>
           <button class="menu-button w-inline-block js-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <div class="menu-icon-wrap">
@@ -32,7 +39,7 @@ const currentPath = Astro.url.pathname;
     </div>
 
     <div class="nav-links-container tb-fullpage-menu dark js-nav-links" hidden>
-      <NavMenu currentPath={currentPath} />
+      <NavMenu currentPath={currentPath} ctaText={ctaText} ctaHref={ctaHref} />
     </div>
   </nav>
 )}
@@ -48,7 +55,11 @@ const currentPath = Astro.url.pathname;
         </a>
         <div class="nav-buttons">
           <div class="book-button">
-            <button type="button" class="distributor-open tb-book-cta">Book my Stay</button>
+            {ctaIsLink ? (
+              <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-book-cta tb-book-cta-link">{ctaText}</a>
+            ) : (
+              <button type="button" class="distributor-open tb-book-cta">{ctaText}</button>
+            )}
           </div>
           <button class="menu-button w-inline-block js-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <div class="menu-icon-wrap">

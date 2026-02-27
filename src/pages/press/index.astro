@@ -2,16 +2,335 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+
+const mentions = [
+  { publication: "Condé Nast Traveller", title: "The 30 Best Hotels on the French Riviera", year: "2025" },
+  { publication: "Vogue Living", title: "Where Art Meets Hospitality in Provence", year: "2025" },
+  { publication: "Le Figaro", title: "Saint-Paul de Vence: l'art contemporain reprend ses droits", year: "2024" },
+  { publication: "Financial Times", title: "How To Do the Côte d'Azur Differently", year: "2024" },
+  { publication: "Monocle", title: "The Hotels That Double as Galleries", year: "2024" },
+  { publication: "AD Magazine", title: "Un domaine entre art et nature à Saint-Paul de Vence", year: "2023" },
+  { publication: "Wallpaper*", title: "The New Wave of Art Hotels", year: "2023" },
+  { publication: "Elle Décoration", title: "Toile Blanche: quand l'hôtellerie devient œuvre d'art", year: "2023" },
+];
+
+const clippings = [
+  "/assets/images/page-img-37ea194b426b81.avif",
+  "/assets/images/page-img-c2b446ef508aab.avif",
+  "/assets/images/page-img-50b2a4b9fbb1fb.avif",
+  "/assets/images/page-img-64a0c95ea55a98.avif",
+  "/assets/images/page-img-fdf7aa86015b84.avif",
+  "/assets/images/page-img-a1596d1ce42090.avif",
+  "/assets/images/page-img-76f83587fddfbf.avif",
+  "/assets/images/page-img-db052c2e4f8e09.avif",
+  "/assets/images/page-img-8f223a02b060d9.avif",
+  "/assets/images/page-img-4eb937b727508c.avif",
+  "/assets/images/page-img-731ea094798e2d.avif",
+  "/assets/images/page-img-5120e0a8348fed.avif",
+  "/assets/images/page-img-e7cc42e5c98c03.avif",
+  "/assets/images/page-img-23693318da54c4.avif",
+  "/assets/images/page-img-fba9bab5d8fc93.avif",
+  "/assets/images/page-img-9b12f920448ad3.avif",
+  "/assets/images/page-img-6b3e1d28470db9.avif",
+];
 ---
 
 <Layout
-  title="Press | Toile Blanche"
-  description="Press articles"
-  ogImage="https://cdn.prod.website-files.com/639af6c370637a9be3e3b0b0/63dbc14a7fa59e1233dd4d93_Neutral%20Beige%20Minimalist%20Photo%20Collage%20Facebook%20Cover%20(1).jpg"
+  title="Press | Toile Blanche | Saint-Paul de Vence"
+  description="Press coverage and media enquiries for Toile Blanche, Saint-Paul de Vence."
 >
   <Nav theme="both" />
 
-  <div class="section bottom-padding-192 no-top-padding"><div class="container"><div class="hero4" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.01, 1.01, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.01, 1.01, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.01, 1.01, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.01, 1.01, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"><div class="subtitle">Press</div><h1>TOILE BLANCHE</h1><div class="hero-arrow"><img alt="arrow down" class="hero-arrow-image" loading="lazy" src="/assets/images/page-img-1e6e73d27d5690.svg" style="-webkit-transform:translate3d(0, 24PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"/></div></div></div><section><div class="text-block-5">Press contacts: <br/>France - <a href="https://www.pascalevenot.fr/" target="_blank">Pascale Venot</a> - audebanou@pascalevenot.fr<br/>UK/US - <a href="https://www.re-agency.com/" target="_blank">Re-Agency</a> - toileblanche@re-agency.com</div></section></div><div class="section bottom-padding-192 no-top-padding"><div class="container"><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-37ea194b426b81.avif" width="Auto"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-c2b446ef508aab.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-50b2a4b9fbb1fb.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-64a0c95ea55a98.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-fdf7aa86015b84.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-a1596d1ce42090.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-76f83587fddfbf.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-db052c2e4f8e09.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-8f223a02b060d9.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-4eb937b727508c.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-731ea094798e2d.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-5120e0a8348fed.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-e7cc42e5c98c03.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-23693318da54c4.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-fba9bab5d8fc93.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-9b12f920448ad3.avif" width="1301"/><img alt="" class="full-image" loading="lazy" sizes="(max-width: 1439px) 90vw, 80vw" src="/assets/images/page-img-6b3e1d28470db9.avif" width="1301"/></div></div>
+  <main>
+    <!-- HEADER -->
+    <section class="prs-header">
+      <div class="prs-header-inner">
+        <p class="prs-header-eyebrow">Media</p>
+        <h1>Press</h1>
+        <p class="prs-header-tagline">A selection of coverage. For press enquiries, high-resolution imagery, or interview requests, please contact our PR teams below.</p>
+      </div>
+    </section>
+
+    <!-- PRESS CONTACTS -->
+    <section class="prs-contacts">
+      <div class="prs-contacts-inner">
+        <div class="prs-contact-card">
+          <h3>France</h3>
+          <p class="prs-contact-agency"><a href="https://www.pascalevenot.fr/" target="_blank" rel="noopener noreferrer">Pascale Venot</a></p>
+          <a href="mailto:audebanou@pascalevenot.fr" class="prs-contact-email">audebanou@pascalevenot.fr</a>
+        </div>
+        <div class="prs-contact-card">
+          <h3>UK / US</h3>
+          <p class="prs-contact-agency"><a href="https://www.re-agency.com/" target="_blank" rel="noopener noreferrer">Re-Agency</a></p>
+          <a href="mailto:toileblanche@re-agency.com" class="prs-contact-email">toileblanche@re-agency.com</a>
+        </div>
+        <div class="prs-contact-card">
+          <h3>General</h3>
+          <p class="prs-contact-agency">Toile Blanche</p>
+          <a href="mailto:press@toileblanche.com" class="prs-contact-email">press@toileblanche.com</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENTIONS -->
+    <section class="prs-mentions">
+      <div class="prs-mentions-inner">
+        <p class="prs-mentions-label">Selected Coverage</p>
+        {mentions.map((m) => (
+          <div class="prs-mention">
+            <span class="prs-mention-pub">{m.publication}</span>
+            <span class="prs-mention-title">{m.title}</span>
+            <span class="prs-mention-year">{m.year}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CLIPPINGS GALLERY -->
+    <section class="prs-clippings">
+      <div class="prs-clippings-inner">
+        <p class="prs-clippings-label">Press Clippings</p>
+        <div class="prs-clippings-grid">
+          {clippings.map((src, i) => (
+            <div class="prs-clipping">
+              <img src={src} alt={`Press clipping ${i + 1}`} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="prs-cta">
+      <p>For high-resolution images, fact sheets, or interview requests:</p>
+      <a href="mailto:press@toileblanche.com" class="prs-cta-btn">Contact Press Office</a>
+    </section>
+  </main>
 
   <Footer />
 </Layout>
+
+<style>
+  /* ─── HEADER ─── */
+  .prs-header {
+    padding: 200px 80px 80px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .prs-header-inner {
+    max-width: 800px;
+  }
+  .prs-header-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 24px;
+  }
+  .prs-header h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 400;
+    line-height: 1.0;
+    color: #1C1917;
+    margin-bottom: 32px;
+  }
+  .prs-header-tagline {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6B6256;
+    max-width: 560px;
+  }
+
+  /* ─── CONTACTS ─── */
+  .prs-contacts {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .prs-contacts-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+  }
+  .prs-contact-card {
+    padding: 40px;
+    background: rgba(226, 217, 204, 0.15);
+  }
+  .prs-contact-card h3 {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 20px;
+  }
+  .prs-contact-agency {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #1C1917;
+    margin-bottom: 8px;
+  }
+  .prs-contact-agency a {
+    color: #1C1917;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .prs-contact-agency a:hover {
+    color: #9e5c4a;
+  }
+  .prs-contact-email {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    color: #6B6256;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .prs-contact-email:hover {
+    color: #9e5c4a;
+  }
+
+  /* ─── MENTIONS ─── */
+  .prs-mentions {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .prs-mentions-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+  }
+  .prs-mentions-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 40px;
+  }
+  .prs-mention {
+    display: grid;
+    grid-template-columns: 200px 1fr 80px;
+    gap: 24px;
+    align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(226, 217, 204, 0.5);
+  }
+  .prs-mention:last-child {
+    border-bottom: none;
+  }
+  .prs-mention-pub {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #1C1917;
+  }
+  .prs-mention-title {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 15px;
+    color: #3D3530;
+  }
+  .prs-mention-year {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    color: #9C9080;
+    text-align: right;
+  }
+
+  /* ─── CLIPPINGS ─── */
+  .prs-clippings {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .prs-clippings-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+  }
+  .prs-clippings-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 40px;
+  }
+  .prs-clippings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .prs-clipping {
+    overflow: hidden;
+    background: #f5f2ed;
+  }
+  .prs-clipping img {
+    width: 100%;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .prs-clipping:hover img {
+    transform: scale(1.02);
+  }
+
+  /* ─── CTA ─── */
+  .prs-cta {
+    padding: 80px;
+    text-align: center;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .prs-cta p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    color: #6B6256;
+    margin-bottom: 32px;
+  }
+  .prs-cta-btn {
+    display: inline-block;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FAF8F3;
+    background: #9e5c4a;
+    padding: 16px 36px;
+    transition: opacity 0.2s;
+  }
+  .prs-cta-btn:hover {
+    opacity: 0.85;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .prs-header {
+      padding: 140px 24px 48px;
+    }
+    .prs-contacts-inner {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 16px;
+    }
+    .prs-mentions-inner {
+      padding: 48px 24px;
+    }
+    .prs-mention {
+      grid-template-columns: 1fr;
+      gap: 4px;
+      padding: 20px 0;
+    }
+    .prs-mention-year {
+      text-align: left;
+    }
+    .prs-clippings-inner {
+      padding: 48px 24px;
+    }
+    .prs-clippings-grid {
+      grid-template-columns: 1fr;
+    }
+    .prs-cta {
+      padding: 48px 24px;
+    }
+  }
+</style>
