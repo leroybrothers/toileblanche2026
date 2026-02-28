@@ -1,10 +1,16 @@
 ---
+import { getLocaleFromPath, getAlternateUrls, type Locale } from '../i18n/index';
+
 export interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
   canonicalURL?: string;
+  locale?: Locale;
 }
+
+const currentPath = Astro.url.pathname;
+const locale = Astro.props.locale ?? getLocaleFromPath(currentPath);
 
 const {
   title = "Toile Blanche | Suites & Restaurant",
@@ -14,10 +20,11 @@ const {
 } = Astro.props;
 
 const GTM_ID = "GTM-52R8BBP";
+const alternates = getAlternateUrls(currentPath);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={locale}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,6 +37,7 @@ const GTM_ID = "GTM-52R8BBP";
   <meta property="og:image" content={ogImage} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
+  <meta property="og:locale" content={locale === 'fr' ? 'fr_FR' : 'en_GB'} />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -37,10 +45,14 @@ const GTM_ID = "GTM-52R8BBP";
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImage} />
 
-  <!-- Canonical -->
+  <!-- Canonical & Alternates -->
   <link rel="canonical" href={canonicalURL} />
+  {alternates.map(alt => (
+    <link rel="alternate" hreflang={alt.locale} href={alt.href} />
+  ))}
+  <link rel="alternate" hreflang="x-default" href={alternates.find(a => a.locale === 'en')?.href} />
 
-  <!-- Favicon — update with your own favicon file -->
+  <!-- Favicon -->
   <link rel="shortcut icon" href="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" />
 
@@ -56,7 +68,7 @@ const GTM_ID = "GTM-52R8BBP";
   <!-- Google Site Verification -->
   <meta name="google-site-verification" content="ybV56V__njW0TIX5AEH_299IVdVUSQYtEk-I8KSaeQQ" />
 
-  <!-- Consent Mode V2 — must load before GTM -->
+  <!-- Consent Mode V2 -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }

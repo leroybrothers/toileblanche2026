@@ -1,13 +1,22 @@
 ---
 import NavMenu from './NavMenu.astro';
+import { useTranslations, getLocaleFromPath, localePath, type Locale } from '../i18n/index';
+
 export interface Props {
   theme?: 'dark' | 'light' | 'both';
   ctaText?: string;
   ctaHref?: string;
+  locale?: Locale;
 }
-const { theme = 'both', ctaText = 'Book my Stay', ctaHref } = Astro.props;
-const ctaIsLink = !!ctaHref;
+
 const currentPath = Astro.url.pathname;
+const locale = Astro.props.locale ?? getLocaleFromPath(currentPath);
+const t = useTranslations(locale);
+const { theme = 'both', ctaText = t.nav.bookStay, ctaHref } = Astro.props;
+const ctaIsLink = !!ctaHref;
+const homePath = localePath('/', locale);
+const altLocale: Locale = locale === 'en' ? 'fr' : 'en';
+const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/fr/, '') || '/';
 ---
 
 <!-- Dark Navigation (used on hero pages with video/dark bg) -->
@@ -15,11 +24,12 @@ const currentPath = Astro.url.pathname;
   <nav class="navigation-dark" id="nav-dark">
     <div class="navigation-bar dark">
       <div class="nav-container">
-        <a href="/" class={`nav-logo w-nav-brand${currentPath === '/' ? ' w--current' : ''}`} aria-current={currentPath === '/' ? 'page' : undefined}>
+        <a href={homePath} class={`nav-logo w-nav-brand${currentPath === homePath ? ' w--current' : ''}`} aria-current={currentPath === homePath ? 'page' : undefined}>
           <img src="/assets/images/63a19dac0c5c8e779178fddf_Toile%20Blanche%20Logo%202022%20light.webp" loading="lazy" alt="Toile Blanche Logo" class="nav-logo mobile-none" />
           <img src="/assets/images/63a19dac0c5c8e779178fddf_Toile%20Blanche%20Logo%202022%20light.webp" loading="eager" alt="Toile Blanche Logo" class="nav-logo mobile-only" />
         </a>
         <div class="nav-buttons">
+          <a href={altPath} class="tb-lang-switch" aria-label={altLocale === 'fr' ? 'Version française' : 'English version'}>{altLocale.toUpperCase()}</a>
           <div class="book-button">
             {ctaIsLink ? (
               <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-book-cta tb-book-cta-link">{ctaText}</a>
@@ -27,7 +37,7 @@ const currentPath = Astro.url.pathname;
               <button type="button" class="distributor-open tb-book-cta">{ctaText}</button>
             )}
           </div>
-          <button class="menu-button w-inline-block js-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <button class="menu-button w-inline-block js-menu-toggle" aria-label={t.nav.toggleMenu} aria-expanded="false">
             <div class="menu-icon-wrap">
               <span class="menu-bar top"></span>
               <span class="menu-bar middle"></span>
@@ -39,7 +49,7 @@ const currentPath = Astro.url.pathname;
     </div>
 
     <div class="nav-links-container tb-fullpage-menu dark js-nav-links" hidden>
-      <NavMenu currentPath={currentPath} ctaText={ctaText} ctaHref={ctaHref} />
+      <NavMenu currentPath={currentPath} ctaText={ctaText} ctaHref={ctaHref} locale={locale} />
     </div>
   </nav>
 )}
@@ -49,11 +59,12 @@ const currentPath = Astro.url.pathname;
   <nav class="navigation-light" id="nav-light">
     <div class="navigation-bar">
       <div class="nav-container">
-        <a href="/" class={`nav-logo w-nav-brand${currentPath === '/' ? ' w--current' : ''}`} aria-current={currentPath === '/' ? 'page' : undefined}>
+        <a href={homePath} class={`nav-logo w-nav-brand${currentPath === homePath ? ' w--current' : ''}`} aria-current={currentPath === homePath ? 'page' : undefined}>
           <img src="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" loading="lazy" alt="Toile Blanche Logo" class="logo-light mobile-none" />
           <img src="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" loading="eager" alt="Toile Blanche Logo" class="logo-light mobile-only" />
         </a>
         <div class="nav-buttons">
+          <a href={altPath} class="tb-lang-switch" aria-label={altLocale === 'fr' ? 'Version française' : 'English version'}>{altLocale.toUpperCase()}</a>
           <div class="book-button">
             {ctaIsLink ? (
               <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-book-cta tb-book-cta-link">{ctaText}</a>
@@ -61,7 +72,7 @@ const currentPath = Astro.url.pathname;
               <button type="button" class="distributor-open tb-book-cta">{ctaText}</button>
             )}
           </div>
-          <button class="menu-button w-inline-block js-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <button class="menu-button w-inline-block js-menu-toggle" aria-label={t.nav.toggleMenu} aria-expanded="false">
             <div class="menu-icon-wrap">
               <span class="menu-bar top"></span>
               <span class="menu-bar middle"></span>
@@ -73,7 +84,7 @@ const currentPath = Astro.url.pathname;
     </div>
 
     <div class="nav-links-container tb-fullpage-menu light js-nav-links" hidden>
-      <NavMenu currentPath={currentPath} />
+      <NavMenu currentPath={currentPath} locale={locale} />
     </div>
   </nav>
 )}

@@ -879,6 +879,24 @@ a.tb-book-cta-link {
   cursor: pointer;
 }
 
+/* ─── Language switcher ──────────────────────────────────────────────────── */
+.tb-lang-switch {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  padding: 6px 8px;
+  margin-right: 8px;
+}
+.tb-lang-switch:hover {
+  opacity: 1;
+}
+.navigation-dark .tb-lang-switch { color: #fff; }
+.navigation-light .tb-lang-switch { color: #0A0A0A; }
+
 /* ─── Print styles ───────────────────────────────────────────────────────── */
 @media print {
   #page-loader,

@@ -1,10 +1,16 @@
 ---
+import { useTranslations, localePath, type Locale } from '../i18n/index';
+
 export interface Props {
   currentPath: string;
   ctaText?: string;
   ctaHref?: string;
+  locale?: Locale;
 }
-const { currentPath, ctaText = 'Book my Stay', ctaHref } = Astro.props;
+const { currentPath, ctaHref, locale = 'en' } = Astro.props;
+const t = useTranslations(locale);
+const ctaText = Astro.props.ctaText ?? t.nav.bookStay;
+const lp = (path: string) => localePath(path, locale);
 const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current' : '';
 ---
 
@@ -14,43 +20,41 @@ const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current'
   ) : (
     <a href="#" class="tb-menu-cta distributor-open">{ctaText}</a>
   )}
-  <button type="button" class="tb-menu-close js-menu-toggle" aria-label="Close menu">×</button>
+  <button type="button" class="tb-menu-close js-menu-toggle" aria-label={t.nav.closeMenu}>×</button>
 </header>
 
 <div class="tb-menu-inner">
-  <!-- Left: Primary navigation (4 items only) -->
   <nav class="tb-menu-nav" aria-label="Main menu">
-    <a href="/suites" class={`tb-menu-link${linkClass('/suites')}`}>Suites</a>
-    <a href="/restaurants" class={`tb-menu-link${linkClass('/restaurants')}`}>Restaurants</a>
-    <a href="/art" class={`tb-menu-link${linkClass('/art')}`}>The Art</a>
-    <a href="/experiences" class={`tb-menu-link tb-menu-link-last${linkClass('/experiences')}`}>Experiences</a>
+    <a href={lp('/suites')} class={`tb-menu-link${linkClass(lp('/suites'))}`}>{t.nav.suites}</a>
+    <a href={lp('/restaurants')} class={`tb-menu-link${linkClass(lp('/restaurants'))}`}>{t.nav.restaurants}</a>
+    <a href={lp('/art')} class={`tb-menu-link${linkClass(lp('/art'))}`}>{t.nav.theArt}</a>
+    <a href={lp('/experiences')} class={`tb-menu-link tb-menu-link-last${linkClass(lp('/experiences'))}`}>{t.nav.experiences}</a>
   </nav>
 
   <div class="tb-menu-divider" aria-hidden="true"></div>
 
-  <!-- Right: Info grid -->
   <div class="tb-menu-info">
     <div class="tb-menu-info-cell">
-      <p class="tb-menu-info-title">Contact</p>
+      <p class="tb-menu-info-title">{t.nav.contact}</p>
       <a href="tel:+33493327421" class="tb-menu-info-link">+33 4 93 32 74 21</a>
       <a href="mailto:info@toileblanche.com" class="tb-menu-info-link">info@toileblanche.com</a>
     </div>
     <div class="tb-menu-info-cell">
-      <p class="tb-menu-info-title">Gift vouchers</p>
-      <a href="/gift-vouchers" class="tb-menu-info-link">Give a gift of luxury</a>
+      <p class="tb-menu-info-title">{t.nav.giftVouchers}</p>
+      <a href={lp('/gift-vouchers')} class="tb-menu-info-link">{t.nav.giftVouchersLink}</a>
     </div>
     <div class="tb-menu-info-cell">
-      <p class="tb-menu-info-title">Find us</p>
+      <p class="tb-menu-info-title">{t.nav.findUs}</p>
       <a href="https://goo.gl/maps/VoKrme28X62qbvTk7" target="_blank" rel="noopener noreferrer" class="tb-menu-info-link">
         826, chemin de la Pounchounière<br />06570 Saint-Paul de Vence
       </a>
     </div>
     <div class="tb-menu-info-cell tb-menu-info-footer">
-      <a href="/about" class="tb-menu-info-link">About</a>
-      <a href="/upcoming-events" class="tb-menu-info-link">Events</a>
-      <a href="/blog" class="tb-menu-info-link">The Archive</a>
-      <a href="/press" class="tb-menu-info-link">Press</a>
-      <a href="/careers" class="tb-menu-info-link">Careers</a>
+      <a href={lp('/about')} class="tb-menu-info-link">{t.nav.about}</a>
+      <a href={lp('/upcoming-events')} class="tb-menu-info-link">{t.nav.events}</a>
+      <a href={lp('/blog')} class="tb-menu-info-link">{t.nav.archive}</a>
+      <a href={lp('/press')} class="tb-menu-info-link">{t.nav.press}</a>
+      <a href={lp('/careers')} class="tb-menu-info-link">{t.nav.careers}</a>
     </div>
   </div>
 </div>
