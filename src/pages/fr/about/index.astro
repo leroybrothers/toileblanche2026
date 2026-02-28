@@ -1,0 +1,118 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout
+  locale="fr"
+  title="À propos | Toile Blanche | Saint-Paul de Vence"
+  description="Sept maisons, devenues une. Assemblées au fil de douze années à partir de propriétés voisines à Saint-Paul de Vence."
+>
+  <Nav theme="light" locale="fr" />
+
+  <main>
+    <section class="abt-hero">
+      <div class="abt-hero-inner">
+        <p class="abt-hero-eyebrow">Provenance — 2004–2026</p>
+        <h1>Sept maisons,<br />devenues une.</h1>
+        <p class="abt-hero-tagline">Assemblées au fil de douze années à partir de propriétés voisines à Saint-Paul de Vence — chaque bâtiment avec sa propre histoire, sa propre lumière, sa propre place dans les jardins.</p>
+      </div>
+    </section>
+
+    <section class="abt-gallery">
+      <div class="abt-gallery-inner">
+        <div class="abt-gallery-tall">
+          <img src="/assets/images/page-img-a7001c9d0203a9.jpg" alt="Le mas bicentenaire de Toile Blanche" loading="lazy" />
+        </div>
+        <div class="abt-gallery-offset">
+          <img src="/assets/images/page-img-ac7ecba10668ba.avif" alt="Sculptures dans les jardins de Toile Blanche" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="abt-narrative">
+      <div class="abt-narrative-inner">
+        <div class="abt-narrative-left">
+          <h2>Les Frères</h2>
+          <p>Nicolas, Gilles et Gregory Leroy sont la force créative derrière Toile Blanche. Originaires de Belgique, les trois frères se sont associés en 1997 pour former un collectif artistique. À Toile Blanche, leur vision prend une nouvelle dimension : ils accueillent des artistes en résidence, leurs œuvres ornent les suites et leurs sculptures s'épanouissent dans les jardins.</p>
+          <div class="abt-callout">
+            <p class="abt-callout-title">Le Cœur Battant</p>
+            <p>Caroline, l'épouse de Gregory, et une équipe exceptionnelle veillent à ce que Toile Blanche reste une maison loin de chez soi. Leur dévouement est ce qui permet à l'art de respirer.</p>
+          </div>
+        </div>
+        <div class="abt-narrative-right">
+          <h2>L'Histoire</h2>
+          <p>Un par un, à des voisins devenus amis, ils ont converti chaque bâtiment en suites, les ont reliés par des jardins et ont rempli les murs d'art. Le résultat : 22 chambres, deux restaurants et quelque chose de véritablement difficile à catégoriser.</p>
+          <p class="abt-narrative-quote">La piscine est chaude. Le rosé est frais. L'art vous fera vous arrêter et réfléchir, puis vous retournerez à la piscine. C'est tout le propos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="abt-full-bleed">
+      <img src="/assets/images/page-img-35c2647b126261.avif" alt="Le domaine de Toile Blanche à Saint-Paul de Vence" loading="lazy" />
+    </section>
+
+    <section class="abt-vision">
+      <div class="abt-vision-inner">
+        <h2>Une maison loin de chez soi — pour ceux qui ont des maisons d'exception.</h2>
+        <p class="abt-vision-label">Stratégie — Neutralité Carbone 2030</p>
+        <p>En 2026, Toile Blanche a été déclarée œuvre par les artistes. Le domaine continue de fonctionner normalement, mais avec la responsabilité supplémentaire d'un archivage. Notre objectif est la neutralité carbone en 2030 — garantir que la mémoire provençale persiste encore deux siècles. Nous privilégions les ingrédients locaux, entretenons nos jardins sans pesticides et collaborons avec Hotels for Trees pour préserver le paysage qui abrite cette œuvre.</p>
+      </div>
+    </section>
+
+    <section class="abt-cta">
+      <p class="abt-cta-tagline">Entrez dans l'œuvre.</p>
+      <div class="abt-cta-actions">
+        <a href="/fr/suites" class="abt-cta-btn">Explorer les Suites</a>
+        <a href="/fr/restaurants" class="abt-cta-link">Découvrir les Tables &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  .abt-hero { padding: 200px 80px 100px; border-bottom: 1px solid #E2D9CC; }
+  .abt-hero-inner { max-width: 900px; }
+  .abt-hero-eyebrow { font-family: 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #9C9080; margin-bottom: 32px; }
+  .abt-hero h1 { font-family: 'Gilda Display', serif; font-size: clamp(48px, 7vw, 96px); font-weight: 400; line-height: 1.05; color: #1C1917; margin-bottom: 40px; }
+  .abt-hero-tagline { font-family: 'Gilda Display', serif; font-style: italic; font-size: clamp(18px, 2vw, 24px); line-height: 1.55; color: #6B6256; max-width: 700px; }
+  .abt-gallery { border-bottom: 1px solid #E2D9CC; }
+  .abt-gallery-inner { max-width: 1200px; margin: 0 auto; padding: 80px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
+  .abt-gallery-tall img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
+  .abt-gallery-offset { padding-top: 140px; }
+  .abt-gallery-offset img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+  .abt-narrative { border-bottom: 1px solid #E2D9CC; }
+  .abt-narrative-inner { max-width: 1200px; margin: 0 auto; padding: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .abt-narrative-left h2, .abt-narrative-right h2 { font-family: 'Gilda Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 400; color: #1C1917; margin-bottom: 24px; }
+  .abt-narrative-left > p, .abt-narrative-right > p { font-family: 'Didact Gothic', sans-serif; font-size: 16px; line-height: 1.8; color: #3D3530; margin-bottom: 24px; }
+  .abt-narrative-right { padding-top: 120px; }
+  .abt-callout { margin-top: 40px; padding: 32px; background: rgba(226, 217, 204, 0.15); border: 1px solid rgba(226, 217, 204, 0.3); }
+  .abt-callout-title { font-family: 'Gilda Display', serif; font-style: italic; font-size: 18px; color: #1C1917; margin-bottom: 12px; }
+  .abt-callout p:last-child { font-family: 'Didact Gothic', sans-serif; font-size: 14px; line-height: 1.7; color: #6B6256; }
+  .abt-narrative-quote { font-family: 'Gilda Display', serif; font-style: italic; font-size: 18px; line-height: 1.6; color: #6B6256; padding-top: 24px; border-top: 1px solid #E2D9CC; }
+  .abt-full-bleed img { width: 100%; height: 60vh; object-fit: cover; display: block; }
+  .abt-vision { border-bottom: 1px solid #E2D9CC; }
+  .abt-vision-inner { max-width: 900px; margin: 0 auto; padding: 96px 80px; text-align: center; }
+  .abt-vision-inner h2 { font-family: 'Gilda Display', serif; font-style: italic; font-size: clamp(24px, 3.5vw, 44px); font-weight: 400; line-height: 1.3; color: #1C1917; margin-bottom: 40px; }
+  .abt-vision-label { font-family: 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #9C9080; margin-bottom: 20px; }
+  .abt-vision-inner > p:last-child { font-family: 'Didact Gothic', sans-serif; font-size: 16px; line-height: 1.8; color: #6B6256; max-width: 680px; margin: 0 auto; }
+  .abt-cta { padding: 80px; text-align: center; border-bottom: 1px solid #E2D9CC; }
+  .abt-cta-tagline { font-family: 'Gilda Display', serif; font-style: italic; font-size: clamp(20px, 2.5vw, 28px); color: #3D3530; margin-bottom: 32px; }
+  .abt-cta-actions { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .abt-cta-btn { display: inline-block; font-family: 'Didact Gothic', sans-serif; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: #FAF8F3; background: #9e5c4a; padding: 16px 36px; transition: opacity 0.2s; }
+  .abt-cta-btn:hover { opacity: 0.85; }
+  .abt-cta-link { font-family: 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: #9C9080; transition: color 0.2s; }
+  .abt-cta-link:hover { color: #3D3530; }
+  @media (max-width: 900px) {
+    .abt-hero { padding: 140px 24px 64px; }
+    .abt-gallery-inner { grid-template-columns: 1fr; padding: 48px 24px; gap: 24px; }
+    .abt-gallery-offset { padding-top: 0; }
+    .abt-narrative-inner { grid-template-columns: 1fr; padding: 48px 24px; gap: 48px; }
+    .abt-narrative-right { padding-top: 0; }
+    .abt-vision-inner { padding: 64px 24px; }
+    .abt-cta { padding: 48px 24px; }
+  }
+</style>

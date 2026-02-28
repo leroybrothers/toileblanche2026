@@ -1,0 +1,204 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout
+  locale="fr"
+  title="Bons Cadeaux | Toile Blanche | Saint-Paul de Vence"
+  description="Offrez un cadeau de luxe. Bons cadeaux Toile Blanche — un séjour, un dîner, ou la liberté de choisir."
+>
+  <Nav locale="fr" theme="light" />
+
+  <main>
+    <!-- HEADER -->
+    <section class="gft-header">
+      <div class="gft-header-inner">
+        <p class="gft-header-eyebrow">Idées Cadeaux</p>
+        <h1>Bons Cadeaux</h1>
+        <p class="gft-header-tagline">Un séjour au cœur de l'œuvre. Un dîner sous les platanes. Ou la liberté de choisir. Les bons cadeaux Toile Blanche sont envoyés par voie numérique et valables douze mois.</p>
+      </div>
+    </section>
+
+    <!-- UBILIZ WIDGET -->
+    <section class="gft-widget">
+      <div class="gft-widget-inner">
+        <div class="ubiliz-offers-widget" data-url="https://app.ubiliz.com/widget/liste-bons/4788"></div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="gft-how">
+      <div class="gft-how-inner">
+        <p class="gft-how-label">Comment Ça Marche</p>
+        <div class="gft-how-grid">
+          <div class="gft-how-step">
+            <span class="gft-how-num">01</span>
+            <h3>Choisissez</h3>
+            <p>Sélectionnez un bon parmi les options ci-dessus — une expérience spécifique ou une valeur monétaire.</p>
+          </div>
+          <div class="gft-how-step">
+            <span class="gft-how-num">02</span>
+            <h3>Personnalisez</h3>
+            <p>Ajoutez un message personnel. Le bon est généré sous forme de PDF au design élégant.</p>
+          </div>
+          <div class="gft-how-step">
+            <span class="gft-how-num">03</span>
+            <h3>Envoyez</h3>
+            <p>Livré instantanément par e-mail — à vous ou directement au destinataire.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="gft-cta">
+      <p>Pour des cadeaux sur mesure ou des demandes corporate :</p>
+      <a href="mailto:info@toileblanche.com?subject=Demande%20Bon%20Cadeau" class="gft-cta-link">Contactez-nous directement &rarr;</a>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+
+  <script is:inline src="https://app.ubiliz.com/widget/js/ubiliz-widget.js"></script>
+</Layout>
+
+<style>
+  /* ─── HEADER ─── */
+  .gft-header {
+    padding: 200px 80px 80px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .gft-header-inner {
+    max-width: 800px;
+  }
+  .gft-header-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 24px;
+  }
+  .gft-header h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 400;
+    line-height: 1.0;
+    color: #1C1917;
+    margin-bottom: 32px;
+  }
+  .gft-header-tagline {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6B6256;
+    max-width: 560px;
+  }
+
+  /* ─── WIDGET ─── */
+  .gft-widget {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .gft-widget-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .gft-how {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .gft-how-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+  }
+  .gft-how-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 48px;
+  }
+  .gft-how-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+  }
+  .gft-how-step {
+    padding: 40px;
+    background: rgba(226, 217, 204, 0.15);
+  }
+  .gft-how-num {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: #C4B9AA;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .gft-how-step h3 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #1C1917;
+    margin-bottom: 12px;
+  }
+  .gft-how-step p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6B6256;
+  }
+
+  /* ─── CTA ─── */
+  .gft-cta {
+    padding: 80px;
+    text-align: center;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .gft-cta p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    color: #6B6256;
+    margin-bottom: 24px;
+  }
+  .gft-cta-link {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #9e5c4a;
+    border-bottom: 1px solid #9e5c4a;
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+  .gft-cta-link:hover {
+    opacity: 0.7;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .gft-header {
+      padding: 140px 24px 48px;
+    }
+    .gft-widget-inner {
+      padding: 48px 24px;
+    }
+    .gft-how-inner {
+      padding: 48px 24px;
+    }
+    .gft-how-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .gft-cta {
+      padding: 48px 24px;
+    }
+  }
+</style>

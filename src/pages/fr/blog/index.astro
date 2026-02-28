@@ -1,0 +1,222 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+
+const archiveFiles = import.meta.glob('../../../content/archive-fr/*.md', { eager: true });
+const entries = Object.values(archiveFiles)
+  .map((file: any) => file.frontmatter)
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<Layout
+  locale="fr"
+  title="Les Archives | Toile Blanche | Saint-Paul de Vence"
+  description="Notes occasionnelles depuis Saint-Paul de Vence — nouvelles acquisitions dans la collection, tables de saison et résidus techniques de l'œuvre vivante."
+>
+  <Nav locale="fr" theme="light" />
+
+  <main>
+    <!-- HEADER -->
+    <section class="arc-header">
+      <div class="arc-header-inner">
+        <p class="arc-header-eyebrow">ADN — Les Registres</p>
+        <h1>Les Archives</h1>
+        <p class="arc-header-tagline">Notes occasionnelles depuis Saint-Paul de Vence — nouvelles acquisitions dans la collection, tables de saison et résidus techniques de l'œuvre vivante.</p>
+      </div>
+    </section>
+
+    <!-- ENTRIES -->
+    <section class="arc-feed">
+      {entries.map((entry, i) => (
+        <a href={`/fr/blog/${entry.slug}`} class="arc-entry">
+          <div class="arc-entry-image">
+            <img src={entry.image} alt={entry.title} loading="lazy" />
+          </div>
+          <div class="arc-entry-content">
+            <span class="arc-entry-date">{entry.date}</span>
+            <h2>{entry.title}</h2>
+            <p>{entry.excerpt}</p>
+            <span class="arc-entry-link">Accéder au journal &rarr;</span>
+          </div>
+        </a>
+      ))}
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="arc-newsletter">
+      <div class="arc-newsletter-inner">
+        <h2>Le Journal</h2>
+        <p>Pas trop souvent. Juste assez. La note occasionnelle depuis Saint-Paul de Vence — nouvelles acquisitions dans la collection et les choses à savoir avant votre visite.</p>
+        <div class="arc-newsletter-placeholder">[ Newsletter embed ]</div>
+        <p class="arc-newsletter-note">Rejoignez 2 000 voyageurs qui savent déjà.</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  /* ─── HEADER ─── */
+  .arc-header {
+    padding: 180px 80px 80px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .arc-header-inner {
+    max-width: 800px;
+  }
+  .arc-header-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 24px;
+  }
+  .arc-header h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 400;
+    line-height: 1.0;
+    color: #1C1917;
+    margin-bottom: 32px;
+  }
+  .arc-header-tagline {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.55;
+    color: #6B6256;
+    max-width: 600px;
+  }
+
+  /* ─── FEED ─── */
+  .arc-feed {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px;
+  }
+  .arc-entry {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    padding: 64px 0;
+    border-bottom: 1px solid #E2D9CC;
+    text-decoration: none;
+    color: inherit;
+  }
+  .arc-entry-image {
+    overflow: hidden;
+  }
+  .arc-entry-image img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+  .arc-entry:hover .arc-entry-image img {
+    transform: scale(1.03);
+  }
+  .arc-entry-date {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .arc-entry-content h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(24px, 3vw, 40px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: #1C1917;
+    margin-bottom: 20px;
+  }
+  .arc-entry-content p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6B6256;
+    margin-bottom: 28px;
+    max-width: 420px;
+  }
+  .arc-entry-link {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9e5c4a;
+    border-bottom: 1px solid #9e5c4a;
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+  .arc-entry:hover .arc-entry-link {
+    opacity: 0.7;
+  }
+
+  /* ─── NEWSLETTER ─── */
+  .arc-newsletter {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .arc-newsletter-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 96px 80px;
+    text-align: center;
+  }
+  .arc-newsletter-inner h2 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 20px;
+  }
+  .arc-newsletter-inner > p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6B6256;
+    margin-bottom: 40px;
+  }
+  .arc-newsletter-placeholder {
+    border: 1px solid #E2D9CC;
+    padding: 24px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #C4B9AA;
+  }
+  .arc-newsletter-note {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #C4B9AA;
+    margin-top: 20px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .arc-header {
+      padding: 140px 24px 48px;
+    }
+    .arc-feed {
+      padding: 0 24px;
+    }
+    .arc-entry {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: 40px 0;
+    }
+    .arc-newsletter-inner {
+      padding: 64px 24px;
+    }
+  }
+</style>

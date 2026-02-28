@@ -1,0 +1,52 @@
+[
+  {
+    "label": "Réservation & Paiements",
+    "items": [
+      { "q": "Demandez-vous un acompte ?", "a": "Un prépaiement remboursable de 50 % est débité lors de la réservation. Consultez nos <a href='/fr/booking-conditions'>conditions de réservation</a> pour les détails de remboursement." },
+      { "q": "Puis-je annuler ma réservation ?", "a": "<strong>Offre flexible :</strong> annulation gratuite jusqu'à 14 jours avant l'arrivée (acompte remboursé). 14–7 jours : acompte retenu. Moins de 7 jours : séjour intégralement facturé.<br/><br/><strong>Offre groupe (3+ suites, 3 nuits minimum) :</strong> annulation gratuite jusqu'à 30 jours avant l'arrivée. 30–14 jours : acompte retenu. Moins de 14 jours : séjour intégralement facturé.<br/><br/><strong>Offre réservation anticipée :</strong> prépaiement total à la réservation, non remboursable et non modifiable." },
+      { "q": "Quels sont vos tarifs ?", "a": "Lit supplémentaire : 80€/nuit. Taxe de séjour : 4,02€/personne/nuit (18+). Parking : gratuit. Recharge VE : 25€/charge. Petit-déjeuner : 26€/adulte, 15€ de 7 à 14 ans, gratuit moins de 7 ans. Location vélo : 35€ demi-journée, 49€ journée.<br/><br/>Prix en euros, soumis à variation saisonnière. Taxes et service inclus." },
+      { "q": "Comment puis-je payer ?", "a": "Espèces, Visa, Mastercard, Maestro, Amex. Apple Pay, Google Pay, Samsung Pay. Nous n'acceptons pas les chèques." }
+    ]
+  },
+  {
+    "label": "Arrivée & Départ",
+    "items": [
+      { "q": "Quels sont les horaires d'arrivée et de départ ?", "a": "Arrivée : 16h00–20h00. Si vous arrivez après 20h00, merci de nous prévenir à l'avance.<br/>Départ : 08h00–11h00.<br/><br/>Un service de bagagerie est disponible pour les arrivées anticipées ou les départs tardifs." },
+      { "q": "Quels sont les horaires de la réception ?", "a": "La réception est ouverte de 08h00 à 20h00 tous les jours. Contactez-nous si vous prévoyez d'arriver ou de partir en dehors de ces horaires." },
+      { "q": "Y a-t-il une navette pour l'aéroport ?", "a": "Nous pouvons organiser un taxi navette vers ou depuis l'aéroport de Nice ou les gares. Le coût vers l'aéroport de Nice est d'environ 60€. La réception se fera un plaisir de réserver pour vous." }
+    ]
+  },
+  {
+    "label": "Restauration",
+    "items": [
+      { "q": "Les restaurants sont-ils toujours ouverts ?", "a": "<strong>Le Restaurant :</strong> dîner 19h00–22h00, ouvert toute l'année (fermé le mardi en basse saison).<br/><br/><strong>La Guinguette :</strong> déjeuner 12h00–15h00, de mi-avril à mi-octobre." },
+      { "q": "Le petit-déjeuner est-il inclus ?", "a": "Le petit-déjeuner n'est pas inclus par défaut (sauf offres spéciales). Servi de 08h00 à 10h30. Voir les <a href='/fr/breakfast'>détails du petit-déjeuner</a>." },
+      { "q": "Puis-je apporter de la nourriture ou des boissons ?", "a": "Nous vous prions de ne pas consommer de nourriture, boissons ou provisions extérieures dans les chambres ou les espaces communs. Chaque suite dispose d'un minibar soigné avec des bouteilles entières de vin, des provisions locales et des sélections artisanales." },
+      { "q": "Y a-t-il un service en chambre ?", "a": "Nous proposons un minibar complet avec encas, provisions et boissons plutôt qu'un service en chambre traditionnel." }
+    ]
+  },
+  {
+    "label": "Les Suites",
+    "items": [
+      { "q": "Trois personnes peuvent-elles séjourner dans une suite double ?", "a": "Certaines catégories (Bronzette, Mas de l'Artiste, Bon-Vivant, Pénéquet) peuvent accueillir un lit supplémentaire à 80€/nuit. Les suites standard sont strictement pour deux personnes." },
+      { "q": "Y a-t-il un coffre-fort dans les suites ?", "a": "Toutes les suites disposent d'un coffre-fort électronique à code numérique personnel." },
+      { "q": "Des lits bébé sont-ils disponibles ?", "a": "Oui, des lits bébé gratuits sont disponibles pour les enfants de moins de deux ans. Les enfants plus âgés nécessitent un lit supplémentaire." }
+    ]
+  },
+  {
+    "label": "Le Domaine",
+    "items": [
+      { "q": "Quand Toile Blanche est-elle ouverte ?", "a": "Toute l'année. Nous ne fermons jamais." },
+      { "q": "Quand puis-je nager ?", "a": "Les piscines principales sont ouvertes de mi-avril à mi-octobre, 08h00–19h00. Les piscines privées des suites sont chauffées durant la même période." },
+      { "q": "Y a-t-il un parking ?", "a": "Parking extérieur privé gratuit sur le domaine." },
+      { "q": "Les enfants sont-ils les bienvenus ?", "a": "Oui. Les enfants de moins de 12 ans doivent être accompagnés d'un adulte dans tous les espaces communs et restaurants. Les moins de 16 ans doivent être accompagnés à la piscine. Pas de mineurs non accompagnés dans les suites. Contactez-nous lors de votre réservation avec enfants afin que nous puissions vous proposer la suite la mieux adaptée." },
+      { "q": "Les animaux sont-ils acceptés ?", "a": "Toile Blanche n'accepte pas les animaux de compagnie." }
+    ]
+  },
+  {
+    "label": "Golf",
+    "items": [
+      { "q": "Quels sont les golfs à proximité ?", "a": "Golf de Villeneuve-Loubet (8,5 km) · Royal Mougins Golf Club (9,5 km) · Opio Valbonne Golf Club (11 km) · Golf Country Club de Cannes-Mougins (13,5 km) · Golf de la Grande Bastide (14 km). La réception peut organiser vos départs." }
+    ]
+  }
+]

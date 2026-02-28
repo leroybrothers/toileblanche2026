@@ -1,0 +1,412 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout
+  locale="fr"
+  title="L'Art | Toile Blanche | Saint-Paul de Vence"
+  description="L'art n'est pas sur les murs, il est les murs. En 2026, Toile Blanche a été déclarée œuvre par les Leroy Brothers."
+>
+  <Nav theme="both" locale="fr" />
+
+  <main>
+    <section class="art-hero">
+      <div class="art-hero-image">
+        <img src="/assets/images/page-img-2e6a5d90d6c3d3.avif" alt="L'art à Toile Blanche" loading="eager" />
+        <div class="art-hero-overlay"></div>
+      </div>
+      <div class="art-hero-content">
+        <p class="art-hero-eyebrow">ADN — L'Œuvre Déclarée</p>
+        <h1>L'art n'est pas sur les murs,<br />il est les murs.</h1>
+      </div>
+    </section>
+
+    <section class="art-statement">
+      <div class="art-statement-inner">
+        <p>En 2026, Toile Blanche a été déclarée œuvre par les Leroy Brothers. Le domaine continue de fonctionner normalement.</p>
+      </div>
+    </section>
+
+    <section class="art-narrative">
+      <div class="art-narrative-inner">
+        <div class="art-narrative-text">
+          <h2>La Vision</h2>
+          <p>Les œuvres de Toile Blanche sont choisies, pas accumulées. Chaque pièce a été sélectionnée par les Leroy Brothers — eux-mêmes artistes — en conversation avec ceux qui les ont créées. Certaines ont été conçues spécifiquement pour le domaine. D'autres sont arrivées parce qu'elles avaient leur place ici.</p>
+          <h2>La Collection</h2>
+          <p>La collection couvre la peinture, la sculpture, la photographie et l'installation. C'est une entité vivante qui évolue au fil des saisons. Séjourner ici plus d'une fois, c'est découvrir une conversation différente avec les mêmes espaces.</p>
+        </div>
+        <div class="art-ecosystem">
+          <p class="art-ecosystem-label">L'Écosystème</p>
+
+          <div class="art-ecosystem-block">
+            <h3>Toile Blanche Contemporary</h3>
+            <p>L'atelier et la galerie au cœur du domaine. Un sanctuaire où la créativité est pratiquée, exposée et archivée.</p>
+            <a href="https://toileblanchecontemporary.com" target="_blank" rel="noopener noreferrer">Explorer la galerie &rarr;</a>
+          </div>
+
+          <div class="art-ecosystem-block">
+            <h3>Leroy Brothers</h3>
+            <p>Le collectif d'artistes derrière la vision. Découvrez l'ensemble de l'œuvre couvrant peinture, installation et art post-internet.</p>
+            <a href="https://leroybrothers.com" target="_blank" rel="noopener noreferrer">Le site des artistes &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="art-gallery-pair">
+      <div class="art-gallery-pair-inner">
+        <div class="art-gallery-tall">
+          <img src="/assets/images/page-img-a7001c9d0203a9.jpg" alt="Installation artistique à Toile Blanche" loading="lazy" />
+        </div>
+        <div class="art-gallery-offset">
+          <img src="/assets/images/page-img-ac7ecba10668ba.avif" alt="Sculpture dans les jardins de Toile Blanche" loading="lazy" />
+          <p class="art-gallery-caption">Des œuvres empilées, cachées dans les recoins de l'hôtel. Gardez les yeux ouverts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="art-quote">
+      <div class="art-quote-inner">
+        <h2>Une galerie vivante de sculptures contemporaines disséminées sur 20 000 m² de jardins provençaux.</h2>
+        <p>D'Arik Levy à Gregory Orekhov, en passant par les œuvres fondatrices de Raymond Leroy. Chaque pièce raconte une histoire de résistance, de lumière et de paysage méditerranéen.</p>
+      </div>
+    </section>
+
+    <section class="art-triptych">
+      <div class="art-triptych-inner">
+        <div class="art-triptych-item">
+          <img src="/assets/images/page-img-dd3867b14283dc.webp" alt="Sculpture Lying Child des Gao Brothers" loading="lazy" />
+          <p class="art-triptych-caption">Programme de résidences Leroy Brothers & Friends — chaque artiste laisse une trace de son passage.</p>
+        </div>
+        <div class="art-triptych-item">
+          <img src="/assets/images/page-img-2889884fe931a4.webp" alt="Expert Talks à Toile Blanche" loading="lazy" />
+          <p class="art-triptych-caption">Expert Talks — des professionnels du monde de l'art partagent leurs regards avec nos hôtes.</p>
+        </div>
+        <div class="art-triptych-item">
+          <img src="/assets/images/page-img-6c3a209baf61b2.webp" alt="Visite d'art à Saint-Paul de Vence" loading="lazy" />
+          <p class="art-triptych-caption">Des visites d'art conçues pour renouveler votre regard sur Saint-Paul de Vence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="art-full-bleed">
+      <img src="/assets/images/page-img-35c2647b126261.avif" alt="Installation Resin Text Messages à Toile Blanche" loading="lazy" />
+      <p class="art-full-bleed-caption">Resin Text Messages, installées à travers le domaine.</p>
+    </section>
+
+    <section class="art-cta">
+      <p>Vivez l'œuvre.</p>
+      <a href="#" class="art-cta-btn distributor-open">Réservez votre séjour</a>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  .art-hero {
+    position: relative;
+    height: 85vh;
+    min-height: 500px;
+    overflow: hidden;
+  }
+  .art-hero-image {
+    position: absolute;
+    inset: 0;
+  }
+  .art-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .art-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%);
+  }
+  .art-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 80px 72px;
+    color: #fff;
+  }
+  .art-hero-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 16px;
+  }
+  .art-hero-content h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  .art-statement {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .art-statement-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 64px 80px;
+    text-align: center;
+  }
+  .art-statement-inner p {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(20px, 2.5vw, 28px);
+    line-height: 1.55;
+    color: #3D3530;
+  }
+
+  .art-narrative {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .art-narrative-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .art-narrative-text h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 400;
+    margin-bottom: 24px;
+    color: #1C1917;
+  }
+  .art-narrative-text h2:not(:first-child) {
+    margin-top: 48px;
+  }
+  .art-narrative-text p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #3D3530;
+  }
+
+  .art-ecosystem {
+    padding: 48px;
+    background: rgba(226, 217, 204, 0.15);
+  }
+  .art-ecosystem-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 40px;
+  }
+  .art-ecosystem-block {
+    margin-bottom: 40px;
+  }
+  .art-ecosystem-block:last-child {
+    margin-bottom: 0;
+  }
+  .art-ecosystem-block h3 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #1C1917;
+    margin-bottom: 12px;
+  }
+  .art-ecosystem-block p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6B6256;
+    margin-bottom: 20px;
+  }
+  .art-ecosystem-block a {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #9e5c4a;
+    border-bottom: 1px solid #9e5c4a;
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+  .art-ecosystem-block a:hover {
+    opacity: 0.7;
+  }
+
+  .art-gallery-pair {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .art-gallery-pair-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .art-gallery-tall img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+  }
+  .art-gallery-offset {
+    padding-top: 120px;
+  }
+  .art-gallery-offset img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+  }
+  .art-gallery-caption {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 13px;
+    color: #9C9080;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  .art-quote {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .art-quote-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 96px 80px;
+    text-align: center;
+  }
+  .art-quote-inner h2 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(24px, 3.5vw, 44px);
+    font-weight: 400;
+    line-height: 1.3;
+    color: #1C1917;
+    margin-bottom: 32px;
+  }
+  .art-quote-inner p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #6B6256;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .art-triptych {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .art-triptych-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+  }
+  .art-triptych-item img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+  }
+  .art-triptych-caption {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 13px;
+    color: #9C9080;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  .art-full-bleed {
+    position: relative;
+  }
+  .art-full-bleed img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    display: block;
+  }
+  .art-full-bleed-caption {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .art-cta {
+    padding: 80px;
+    text-align: center;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .art-cta p {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(20px, 2.5vw, 28px);
+    color: #3D3530;
+    margin-bottom: 32px;
+  }
+  .art-cta-btn {
+    display: inline-block;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FAF8F3;
+    background: #9e5c4a;
+    padding: 16px 36px;
+    transition: opacity 0.2s;
+  }
+  .art-cta-btn:hover {
+    opacity: 0.85;
+  }
+
+  @media (max-width: 900px) {
+    .art-hero-content {
+      padding: 0 24px 48px;
+    }
+    .art-statement-inner {
+      padding: 48px 24px;
+    }
+    .art-narrative-inner {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 40px;
+    }
+    .art-gallery-pair-inner {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 24px;
+    }
+    .art-gallery-offset {
+      padding-top: 0;
+    }
+    .art-quote-inner {
+      padding: 64px 24px;
+    }
+    .art-triptych-inner {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+    }
+    .art-cta {
+      padding: 48px 24px;
+    }
+  }
+</style>

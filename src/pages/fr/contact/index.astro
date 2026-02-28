@@ -1,0 +1,189 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout
+  locale="fr"
+  title="Contact | Toile Blanche | Saint-Paul de Vence"
+  description="Contactez Toile Blanche. Téléphone, e-mail, itinéraire vers Saint-Paul de Vence."
+>
+  <Nav locale="fr" theme="light" />
+
+  <main>
+    <section class="cnt-header">
+      <div class="cnt-header-inner">
+        <p class="cnt-eyebrow">Nous Contacter</p>
+        <h1 class="cnt-title">Contact</h1>
+      </div>
+    </section>
+
+    <section class="cnt-body">
+      <div class="cnt-grid">
+        <div class="cnt-info">
+          <h2>Nous Joindre</h2>
+          <div class="cnt-block">
+            <p class="cnt-label">Téléphone</p>
+            <a href="tel:+33493327421" class="cnt-value">+33 (0)4 93 32 74 21</a>
+          </div>
+          <div class="cnt-block">
+            <p class="cnt-label">E-mail</p>
+            <a href="mailto:info@toileblanche.com" class="cnt-value">info@toileblanche.com</a>
+          </div>
+          <div class="cnt-block">
+            <p class="cnt-label">Adresse</p>
+            <a href="https://goo.gl/maps/VoKrme28X62qbvTk7" target="_blank" rel="noopener noreferrer" class="cnt-value">
+              826, chemin de la Pounchounière<br/>06570 Saint-Paul de Vence<br/>France
+            </a>
+          </div>
+          <div class="cnt-block">
+            <p class="cnt-label">Horaires de la réception</p>
+            <p class="cnt-value-text">8h00 – 20h00, tous les jours</p>
+          </div>
+        </div>
+
+        <div class="cnt-directions">
+          <h2>Venir Chez Nous</h2>
+          <p>Idéalement situé au cœur de la Côte d'Azur, Saint-Paul de Vence se trouve à :</p>
+          <ul>
+            <li>20 minutes de l'aéroport international de Nice</li>
+            <li>Moins de 30 minutes de Cannes</li>
+            <li>40 minutes de Monaco</li>
+            <li>45 minutes de la frontière italienne</li>
+            <li>30 minutes de plusieurs parcours de golf</li>
+          </ul>
+          <p>En hiver, les stations de ski les plus proches — Isola 2000, Auron et Valberg — sont à environ 90 minutes en voiture.</p>
+          <a href="https://goo.gl/maps/ZCo7wYc9FkAkvSUH9" target="_blank" rel="noopener noreferrer" class="cnt-map-link">Voir sur Google Maps</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  .cnt-header {
+    padding: 200px 80px 80px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .cnt-header-inner {
+    max-width: 800px;
+  }
+  .cnt-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 24px;
+  }
+  .cnt-title {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 400;
+    color: #1C1917;
+  }
+  .cnt-body {
+    padding: 80px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .cnt-grid {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+  .cnt-info h2,
+  .cnt-directions h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 32px;
+  }
+  .cnt-block {
+    margin-bottom: 28px;
+  }
+  .cnt-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 6px;
+  }
+  .cnt-value {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #1C1917;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .cnt-value:hover {
+    border-color: #1C1917;
+  }
+  .cnt-value-text {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #1C1917;
+  }
+  .cnt-directions p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #3D3530;
+    margin-bottom: 16px;
+  }
+  .cnt-directions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+  }
+  .cnt-directions li {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #3D3530;
+    padding: 4px 0 4px 20px;
+    position: relative;
+  }
+  .cnt-directions li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: #C4B9AA;
+  }
+  .cnt-map-link {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #AD5D47;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(173, 93, 71, 0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+  }
+  .cnt-map-link:hover {
+    border-color: #AD5D47;
+  }
+
+  @media (max-width: 900px) {
+    .cnt-header {
+      padding: 140px 24px 48px;
+    }
+    .cnt-body {
+      padding: 48px 24px;
+    }
+    .cnt-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+</style>

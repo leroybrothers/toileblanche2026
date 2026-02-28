@@ -1,0 +1,48 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout
+  locale="fr"
+  title="Carrières | Toile Blanche | Saint-Paul de Vence"
+  description="Rejoignez l'équipe derrière l'œuvre. Postes ouverts à Toile Blanche, Saint-Paul de Vence."
+>
+  <Nav locale="fr" theme="light" />
+
+  <main>
+    <section class="info-header">
+      <div class="info-header-inner">
+        <p class="info-eyebrow">L'Équipe</p>
+        <h1>Carrières</h1>
+        <p class="info-tagline">Toile Blanche est une œuvre d'art vivante qui fonctionne comme un hôtel. Les personnes qui l'animent sont aussi importantes que les murs qui l'abritent.</p>
+      </div>
+    </section>
+
+    <section class="info-body">
+      <div class="info-body-inner">
+        <h2>Pourquoi Toile Blanche</h2>
+        <p>Nous sommes une petite équipe travaillant au sein d'une propriété singulière — 22 suites, deux restaurants, 20 000 m² de jardins et une collection d'art contemporain sélectionnée par les propriétaires. L'environnement est intimiste, les standards sont élevés et la culture repose sur le respect mutuel.</p>
+
+        <h2>Nos Valeurs</h2>
+        <p><strong>L'excellence plutôt que la routine.</strong> Chaque rôle ici implique du soin — que vous prépariez une suite, dressiez une assiette ou accueilliez un hôte à l'entrée. Nous recrutons des personnes fières du travail bien fait.</p>
+        <p><strong>L'évolution.</strong> Nous investissons dans la formation et promouvons en interne autant que possible. Plusieurs membres de notre équipe d'encadrement ont commencé à des postes débutants.</p>
+        <p><strong>L'inclusivité.</strong> Nous nous engageons à recruter 5 % de notre personnel parmi des jeunes ayant moins d'opportunités sur le marché du travail.</p>
+
+        <h2>Postes Ouverts</h2>
+        <p>Nous recrutons tout au long de l'année pour des postes saisonniers et permanents dans l'hôtellerie, la cuisine, le service, l'entretien et les espaces verts. Si aucun poste spécifique n'est listé, nous accueillons toujours les candidatures spontanées.</p>
+
+        <h2>Postuler</h2>
+        <p>Envoyez votre CV et quelques lignes de présentation à :</p>
+        <p><a href="mailto:nicolas@toileblanche.com">nicolas@toileblanche.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  @import '/css/info-page.css';
+</style>

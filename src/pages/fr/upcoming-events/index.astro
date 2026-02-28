@@ -1,0 +1,376 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout
+  locale="fr"
+  title="Événements | Toile Blanche | Saint-Paul de Vence"
+  description="Les Sessions Toile Blanche — Art, Gastronomie et Musique en Harmonie. Des moments exclusifs où la Toile Vivante devient une scène."
+>
+  <Nav locale="fr" theme="light" />
+
+  <main>
+    <!-- HEADER -->
+    <section class="evt-header">
+      <div class="evt-header-inner">
+        <p class="evt-header-eyebrow">Culture — Les Sessions</p>
+        <h1>Les Sessions<br />Toile Blanche</h1>
+        <p class="evt-header-tagline">Art, Gastronomie et Musique en Harmonie. Des moments exclusifs où la Toile Vivante devient une scène.</p>
+      </div>
+    </section>
+
+    <!-- GALLERY PAIR -->
+    <section class="evt-gallery">
+      <div class="evt-gallery-inner">
+        <div class="evt-gallery-tall">
+          <img src="/assets/images/page-img-b37c597837c053.webp" alt="Les Sessions Toile Blanche — dîner et art" loading="lazy" />
+        </div>
+        <div class="evt-gallery-offset">
+          <img src="/assets/images/page-img-d58e25271c8486.webp" alt="Les Sessions Toile Blanche — performance live" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- THE CONCEPT + CALENDAR LINK -->
+    <section class="evt-concept">
+      <div class="evt-concept-inner">
+        <div class="evt-concept-text">
+          <h2>Les Sessions</h2>
+          <p>Plusieurs fois par an, nous organisons les Sessions Toile Blanche. Chaque édition invite un artiste visuel visionnaire à créer une exposition captivante dans notre galerie ou nos jardins. Un chef invité collabore avec notre cuisine pour élaborer des plats raffinés, tandis qu'un musicien, DJ ou groupe crée l'ambiance avec des sons envoûtants.</p>
+          <p class="evt-concept-quote">Rejoignez-nous l'après-midi à La Guinguette ou le soir au Restaurant pour une célébration du vivre-ensemble.</p>
+        </div>
+        <div class="evt-calendar">
+          <p class="evt-calendar-label">Calendrier en direct</p>
+          <h3>Le Calendrier</h3>
+          <p>Notre calendrier complet des sessions, résidences d'artistes et vernissages est en ligne et géré par notre écosystème d'Art Contemporain.</p>
+          <a href="https://www.toileblanchecontemporary.com/events/" target="_blank" rel="noopener noreferrer" class="evt-calendar-btn">Explorer les prochaines dates &rarr;</a>
+          <p class="evt-calendar-note">Ouvre toileblanchecontemporary.com</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAST SESSIONS -->
+    <section class="evt-past">
+      <div class="evt-past-inner">
+        <p class="evt-past-label">Sessions passées</p>
+        <div class="evt-past-grid">
+          <a href="https://www.toileblanchecontemporary.com/events/2/" target="_blank" rel="noopener noreferrer" class="evt-past-card">
+            <img src="/assets/images/page-img-621f7e97a4739b.webp" alt="Session Toile Blanche passée" loading="lazy" />
+          </a>
+          <a href="https://www.toileblanchecontemporary.com/events/4/" target="_blank" rel="noopener noreferrer" class="evt-past-card">
+            <img src="/assets/images/page-img-71783986edfe3a.webp" alt="Session Toile Blanche passée" loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVATE TAKEOVERS -->
+    <section class="evt-private">
+      <div class="evt-private-inner">
+        <h2>Votre Propre Session</h2>
+        <p>Le domaine est disponible pour des privatisations, des mariages intimistes et des retraites créatives sur mesure. Vingt-deux suites, deux restaurants, 20 000 m² de jardins et une équipe qui sait comment faire disparaître une soirée de la plus belle des manières.</p>
+        <a href="mailto:events@toileblanche.com?subject=Demande%20Événement%20Privé" class="evt-private-link">Renseignements événements privés &rarr;</a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="evt-cta">
+      <p>La prochaine session se prépare.</p>
+      <a href="https://www.toileblanchecontemporary.com/events/" target="_blank" rel="noopener noreferrer" class="evt-cta-btn">Voir ce qui arrive &rarr;</a>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  /* ─── HEADER ─── */
+  .evt-header {
+    padding: 200px 80px 80px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .evt-header-inner {
+    max-width: 900px;
+  }
+  .evt-header-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 32px;
+  }
+  .evt-header h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 400;
+    line-height: 1.05;
+    color: #1C1917;
+    margin-bottom: 40px;
+  }
+  .evt-header-tagline {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.55;
+    color: #6B6256;
+    max-width: 650px;
+  }
+
+  /* ─── GALLERY ─── */
+  .evt-gallery {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .evt-gallery-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .evt-gallery-tall img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+  }
+  .evt-gallery-offset {
+    padding-top: 140px;
+  }
+  .evt-gallery-offset img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ─── CONCEPT + CALENDAR ─── */
+  .evt-concept {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .evt-concept-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .evt-concept-text h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 24px;
+  }
+  .evt-concept-text > p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #3D3530;
+    margin-bottom: 24px;
+  }
+  .evt-concept-quote {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #6B6256;
+    padding-top: 24px;
+    border-top: 1px solid #E2D9CC;
+  }
+
+  .evt-calendar {
+    padding: 48px;
+    background: rgba(226, 217, 204, 0.15);
+    text-align: center;
+  }
+  .evt-calendar-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 20px;
+  }
+  .evt-calendar h3 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 28px;
+    color: #1C1917;
+    margin-bottom: 16px;
+  }
+  .evt-calendar > p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6B6256;
+    margin-bottom: 28px;
+  }
+  .evt-calendar-btn {
+    display: inline-block;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FAF8F3;
+    background: #9e5c4a;
+    padding: 16px 36px;
+    transition: opacity 0.2s;
+    margin-bottom: 16px;
+  }
+  .evt-calendar-btn:hover {
+    opacity: 0.85;
+  }
+  .evt-calendar-note {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #C4B9AA;
+  }
+
+  /* ─── PAST SESSIONS ─── */
+  .evt-past {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .evt-past-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+  }
+  .evt-past-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 40px;
+  }
+  .evt-past-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .evt-past-card {
+    overflow: hidden;
+    display: block;
+  }
+  .evt-past-card img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+  .evt-past-card:hover img {
+    transform: scale(1.03);
+  }
+
+  /* ─── PRIVATE TAKEOVERS ─── */
+  .evt-private {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .evt-private-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 96px 80px;
+    text-align: center;
+  }
+  .evt-private-inner h2 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 24px;
+  }
+  .evt-private-inner > p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #6B6256;
+    margin-bottom: 32px;
+  }
+  .evt-private-link {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #9e5c4a;
+    border-bottom: 1px solid #9e5c4a;
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+  .evt-private-link:hover {
+    opacity: 0.7;
+  }
+
+  /* ─── CTA ─── */
+  .evt-cta {
+    padding: 80px;
+    text-align: center;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .evt-cta p {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(20px, 2.5vw, 28px);
+    color: #3D3530;
+    margin-bottom: 32px;
+  }
+  .evt-cta-btn {
+    display: inline-block;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FAF8F3;
+    background: #9e5c4a;
+    padding: 16px 36px;
+    transition: opacity 0.2s;
+  }
+  .evt-cta-btn:hover {
+    opacity: 0.85;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .evt-header {
+      padding: 140px 24px 48px;
+    }
+    .evt-gallery-inner {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 24px;
+    }
+    .evt-gallery-offset {
+      padding-top: 0;
+    }
+    .evt-concept-inner {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 40px;
+    }
+    .evt-past-inner {
+      padding: 48px 24px;
+    }
+    .evt-past-grid {
+      grid-template-columns: 1fr;
+    }
+    .evt-private-inner {
+      padding: 64px 24px;
+    }
+    .evt-cta {
+      padding: 48px 24px;
+    }
+  }
+</style>

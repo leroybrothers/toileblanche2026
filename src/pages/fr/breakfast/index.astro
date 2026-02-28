@@ -1,0 +1,69 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout
+  locale="fr"
+  title="Petit-Déjeuner | Toile Blanche | Saint-Paul de Vence"
+  description="Commencez la journée avec des viennoiseries locales, des fruits frais et un bon café à Toile Blanche."
+>
+  <Nav locale="fr" theme="light" />
+
+  <main>
+    <section class="info-header">
+      <div class="info-header-inner">
+        <p class="info-eyebrow">Le Matin</p>
+        <h1>Petit-Déjeuner</h1>
+        <p class="info-tagline">Café, croissants, et le bruit du jardin qui s'éveille. L'un des souvenirs que les hôtes gardent le plus.</p>
+      </div>
+    </section>
+
+    <section class="bkf-image">
+      <img src="/assets/images/page-img-90d67bc14d6e33.webp" alt="Petit-déjeuner à Toile Blanche" />
+    </section>
+
+    <section class="info-body">
+      <div class="info-body-inner">
+        <h2>Prenez votre temps</h2>
+        <p>Que vous soyez lève-tôt et souhaitiez commencer la journée au plus vite, ou plutôt adepte de la grasse matinée, vous pouvez prendre le petit-déjeuner à votre rythme. Nous servons en salle ou dans votre suite.</p>
+
+        <h2>Ce qui vous attend</h2>
+        <p>Pain frais et viennoiseries d'une boulangerie locale. Fruits de saison. Œufs préparés à votre goût. Du bon café, en abondance. Miel local, confitures et fromages. Jus d'orange pressé le matin même.</p>
+
+        <h2>Horaires</h2>
+        <p>Le petit-déjeuner est servi chaque jour de <strong>8h00 à 10h30</strong>.</p>
+        <p>Si vous avez besoin d'un départ plus matinal, merci de prévenir la réception la veille au soir et nous organiserons quelque chose.</p>
+
+        <h2>Où</h2>
+        <p>Dans la salle du petit-déjeuner, sur la terrasse donnant sur les jardins, ou servi dans votre suite — à vous de choisir.</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  @import '/css/info-page.css';
+
+  .bkf-image {
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+  }
+  .bkf-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .bkf-image img {
+      height: 300px;
+    }
+  }
+</style>

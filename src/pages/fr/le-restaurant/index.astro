@@ -1,0 +1,483 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout
+  locale="fr"
+  title="Le Restaurant | Toile Blanche | Saint-Paul de Vence"
+  description="La version du soir : plus réfléchie, plus intimiste, la cuisine à pleine attention. Une lettre d'amour au Var."
+>
+  <Nav locale="fr" theme="both" ctaText="Réserver une table" ctaHref="https://bookings.zenchef.com/results?rid=357953" />
+
+  <main>
+    <!-- HERO -->
+    <section class="lrs-hero">
+      <div class="lrs-hero-image">
+        <img src="/assets/images/page-img-14433f29c9500d.jpg" alt="Le Restaurant de Toile Blanche" loading="eager" />
+        <div class="lrs-hero-overlay"></div>
+      </div>
+      <div class="lrs-hero-content">
+        <p class="lrs-hero-eyebrow">Dîner — Toute l'année</p>
+        <h1>Le Restaurant</h1>
+      </div>
+    </section>
+
+    <!-- TAGLINE -->
+    <section class="lrs-tagline">
+      <div class="lrs-tagline-inner">
+        <p>La version du soir : plus réfléchie, plus intimiste, la cuisine à pleine attention. Une lettre d'amour au Var.</p>
+      </div>
+    </section>
+
+    <!-- NARRATIVE + DETAILS -->
+    <section class="lrs-narrative">
+      <div class="lrs-narrative-inner">
+        <div class="lrs-narrative-text">
+          <h2>La Table</h2>
+          <p>Le Restaurant est le lieu où la tradition méditerranéenne est réinventée à travers un regard contemporain. Le menu est construit autour du rythme des saisons — ce qui est arrivé le matin même du marché de Nice, ce qui pousse dans le jardin aromatique à vingt mètres de la cuisine, ce que les pêcheurs ont ramené à l'aube.</p>
+          <p>La carte des vins se lit comme une lettre d'amour à la région. L'accent est mis sur les producteurs à portée de route — des domaines de Bellet, Bandol, Cassis et des collines au-dessus de Vence. Certaines bouteilles ne se trouvent nulle part ailleurs.</p>
+          <h2>Le Lieu</h2>
+          <p>Le dîner est servi sur la terrasse surplombant la vallée, ou dans la salle en pierre lorsque le mistral en décide autrement. L'ambiance est décontractée — pas de veste exigée, pas de conversations chuchotées. Simplement de la bonne cuisine dans une belle lumière.</p>
+        </div>
+        <div class="lrs-details">
+          <p class="lrs-details-label">Informations Pratiques</p>
+
+          <div class="lrs-details-block">
+            <h3>Horaires</h3>
+            <p>Dîner : 19h00 – 22h00</p>
+            <p>Ouvert toute l'année</p>
+            <p>Fermé le mardi (basse saison)</p>
+          </div>
+
+          <div class="lrs-details-block">
+            <h3>Réservation</h3>
+            <p>Recommandée pour tous les convives.</p>
+            <p>Les hôtes de l'hôtel peuvent réserver via la réception ou lors de leur réservation.</p>
+          </div>
+
+          <div class="lrs-details-block lrs-details-cta">
+            <a href="https://bookings.zenchef.com/results?rid=357953" target="_blank" rel="noopener noreferrer" class="lrs-btn">Réserver une Table</a>
+          </div>
+
+          <div class="lrs-details-block">
+            <h3>Adresse</h3>
+            <p>Toile Blanche</p>
+            <p>826, chemin de la Pounchounière</p>
+            <p>06570 Saint-Paul de Vence</p>
+            <p>France</p>
+          </div>
+
+          <div class="lrs-details-block">
+            <h3>Contact</h3>
+            <a href="tel:+33493327421" class="lrs-details-link">+33 4 93 32 74 21</a>
+            <a href="mailto:restaurant@toileblanche.com" class="lrs-details-link">restaurant@toileblanche.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY PAIR -->
+    <section class="lrs-gallery">
+      <div class="lrs-gallery-inner">
+        <div class="lrs-gallery-tall">
+          <img src="/assets/images/page-img-cc1d88d7ddf7f1.jpg" alt="La terrasse du Restaurant à Toile Blanche" loading="lazy" />
+        </div>
+        <div class="lrs-gallery-offset">
+          <img src="/assets/images/page-img-21bedcbb150956.avif" alt="Plat de saison au Restaurant" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SEASONAL MENU -->
+    <section class="lrs-menu">
+      <div class="lrs-menu-inner">
+        <p class="lrs-menu-label">Saison en Cours</p>
+        <h2>Le Menu de Printemps</h2>
+        <p class="lrs-menu-intro">Nos menus changent au fil des saisons. Voici une sélection représentative — l'offre réelle d'un soir donné dépend du marché, du jardin et de l'inspiration du chef.</p>
+        <div class="lrs-menu-grid">
+          <div class="lrs-menu-col">
+            <h3>Pour Commencer</h3>
+            <p>Beignets de fleurs de courgette, pâte légère, citron</p>
+            <p>Burrata, tomates anciennes, huile de basilic, fleur de sel</p>
+            <p>Ceviche du jour, agrumes, herbes fraîches</p>
+          </div>
+          <div class="lrs-menu-col">
+            <h3>Plats</h3>
+            <p>Bar de ligne, fenouil, tapenade d'olives</p>
+            <p>Épaule d'agneau confite, légumes provençaux, jus</p>
+            <p>Risotto du moment, produits de saison</p>
+          </div>
+          <div class="lrs-menu-col">
+            <h3>Pour Finir</h3>
+            <p>Tarte au citron, meringue italienne</p>
+            <p>Fondant au chocolat, caramel au beurre salé, glace vanille</p>
+            <p>Sélection de fromages locaux, miel, noix</p>
+          </div>
+        </div>
+        <p class="lrs-menu-note">Les menus sont indicatifs et sujets à des changements quotidiens. Merci de nous informer de toute exigence alimentaire lors de la réservation.</p>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="lrs-quote">
+      <div class="lrs-quote-inner">
+        <h2>Les tomates sont arrivées ce matin. Les herbes ont été coupées il y a dix minutes. Le vin vient de la vallée voisine.</h2>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="lrs-cta">
+      <p>La table est dressée.</p>
+      <a href="https://bookings.zenchef.com/results?rid=357953" target="_blank" rel="noopener noreferrer" class="lrs-cta-btn">Réserver une Table</a>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  /* ─── HERO ─── */
+  .lrs-hero {
+    position: relative;
+    height: 85vh;
+    min-height: 500px;
+    overflow: hidden;
+  }
+  .lrs-hero-image {
+    position: absolute;
+    inset: 0;
+  }
+  .lrs-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .lrs-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%);
+  }
+  .lrs-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 80px 72px;
+    color: #fff;
+  }
+  .lrs-hero-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 16px;
+  }
+  .lrs-hero-content h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 400;
+    line-height: 1.05;
+  }
+
+  /* ─── TAGLINE ─── */
+  .lrs-tagline {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .lrs-tagline-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 64px 80px;
+    text-align: center;
+  }
+  .lrs-tagline-inner p {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(20px, 2.5vw, 28px);
+    line-height: 1.55;
+    color: #3D3530;
+  }
+
+  /* ─── NARRATIVE + DETAILS ─── */
+  .lrs-narrative {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .lrs-narrative-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .lrs-narrative-text h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 400;
+    margin-bottom: 24px;
+    color: #1C1917;
+  }
+  .lrs-narrative-text h2:not(:first-child) {
+    margin-top: 48px;
+  }
+  .lrs-narrative-text p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #3D3530;
+    margin-bottom: 16px;
+  }
+
+  .lrs-details {
+    padding: 48px;
+    background: rgba(226, 217, 204, 0.15);
+  }
+  .lrs-details-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 40px;
+  }
+  .lrs-details-block {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(226, 217, 204, 0.5);
+  }
+  .lrs-details-block:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .lrs-details-block h3 {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 12px;
+  }
+  .lrs-details-block p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #3D3530;
+  }
+  .lrs-details-link {
+    display: block;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    color: #3D3530;
+    text-decoration: none;
+    line-height: 1.7;
+    transition: color 0.2s;
+  }
+  .lrs-details-link:hover {
+    color: #9e5c4a;
+  }
+  .lrs-details-cta {
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 40px;
+  }
+  .lrs-btn {
+    display: inline-block;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FAF8F3;
+    background: #9e5c4a;
+    padding: 16px 36px;
+    transition: opacity 0.2s;
+  }
+  .lrs-btn:hover {
+    opacity: 0.85;
+  }
+
+  /* ─── GALLERY ─── */
+  .lrs-gallery {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .lrs-gallery-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .lrs-gallery-tall img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+  }
+  .lrs-gallery-offset {
+    padding-top: 120px;
+  }
+  .lrs-gallery-offset img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ─── SEASONAL MENU ─── */
+  .lrs-menu {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .lrs-menu-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px;
+  }
+  .lrs-menu-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 16px;
+  }
+  .lrs-menu-inner > h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 20px;
+  }
+  .lrs-menu-intro {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6B6256;
+    margin-bottom: 48px;
+    max-width: 700px;
+  }
+  .lrs-menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+  .lrs-menu-col h3 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #1C1917;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .lrs-menu-col p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #3D3530;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(226, 217, 204, 0.3);
+  }
+  .lrs-menu-col p:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .lrs-menu-note {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    color: #9C9080;
+    font-style: italic;
+  }
+
+  /* ─── QUOTE ─── */
+  .lrs-quote {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .lrs-quote-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 96px 80px;
+    text-align: center;
+  }
+  .lrs-quote-inner h2 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(24px, 3.5vw, 44px);
+    font-weight: 400;
+    line-height: 1.3;
+    color: #1C1917;
+  }
+
+  /* ─── CTA ─── */
+  .lrs-cta {
+    padding: 80px;
+    text-align: center;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .lrs-cta p {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(20px, 2.5vw, 28px);
+    color: #3D3530;
+    margin-bottom: 32px;
+  }
+  .lrs-cta-btn {
+    display: inline-block;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FAF8F3;
+    background: #9e5c4a;
+    padding: 16px 36px;
+    transition: opacity 0.2s;
+  }
+  .lrs-cta-btn:hover {
+    opacity: 0.85;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .lrs-hero-content {
+      padding: 0 24px 48px;
+    }
+    .lrs-tagline-inner {
+      padding: 48px 24px;
+    }
+    .lrs-narrative-inner {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 40px;
+    }
+    .lrs-gallery-inner {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 24px;
+    }
+    .lrs-gallery-offset {
+      padding-top: 0;
+    }
+    .lrs-menu-inner {
+      padding: 48px 24px;
+    }
+    .lrs-menu-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .lrs-quote-inner {
+      padding: 64px 24px;
+    }
+    .lrs-cta {
+      padding: 48px 24px;
+    }
+  }
+</style>

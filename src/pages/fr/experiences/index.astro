@@ -1,0 +1,246 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import experiences from '../../../data/experiences.fr.json';
+---
+
+<Layout
+  locale="fr"
+  title="Expériences | Toile Blanche | Saint-Paul de Vence"
+  description="Bien-être, art, vélos électriques et sept piscines — activités durant votre séjour à Toile Blanche."
+>
+  <Nav locale="fr" theme="both" />
+
+  <section class="exp-hero">
+    <div class="exp-hero-image">
+      <img src="/assets/images/page-img-fed8bab60f310c.webp" alt="Vue des jardins de Toile Blanche" />
+    </div>
+    <div class="exp-hero-overlay"></div>
+    <div class="exp-hero-content">
+      <p class="exp-hero-eyebrow">Le Domaine</p>
+      <h1 class="exp-hero-title">Expériences</h1>
+      <p class="exp-hero-sub">Des esprits les plus détendus à ceux en quête d'une offre plus culturelle — nous vous aidons à vivre ce que nous aimons le plus dans cette partie de la France.</p>
+    </div>
+  </section>
+
+  <main>
+    {experiences.map((item, i) => (
+      <section class={`exp-item ${i % 2 === 1 ? 'exp-item--reverse' : ''}`}>
+        <div class="exp-item-image">
+          <img src={`/assets/images/${item.image}`} alt={item.title} loading="lazy" />
+        </div>
+        <div class="exp-item-content">
+          <h2 class="exp-item-title">{item.title}</h2>
+          <p class="exp-item-tagline">{item.tagline}</p>
+          <p class="exp-item-body">{item.body}</p>
+          {item.cta && (
+            <a href={item.cta.href} target="_blank" rel="noopener noreferrer" class="exp-item-cta">{item.cta.text}</a>
+          )}
+        </div>
+      </section>
+    ))}
+
+    <section class="exp-cta">
+      <h2 class="exp-cta-title">Restez dans la toile</h2>
+      <div class="exp-cta-links">
+        <a href="/fr/suites" class="exp-cta-primary">Réservez votre séjour</a>
+        <a href="/fr/upcoming-events" class="exp-cta-secondary">Événements à venir</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  .exp-hero {
+    position: relative;
+    height: 85vh;
+    min-height: 500px;
+    overflow: hidden;
+  }
+  .exp-hero-image {
+    position: absolute;
+    inset: 0;
+  }
+  .exp-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .exp-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+  }
+  .exp-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 80px;
+    max-width: 700px;
+  }
+  .exp-hero-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 16px;
+  }
+  .exp-hero-title {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(44px, 6vw, 80px);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .exp-hero-sub {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.6;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .exp-item--reverse .exp-item-image {
+    order: 2;
+  }
+  .exp-item--reverse .exp-item-content {
+    order: 1;
+  }
+  .exp-item-image {
+    overflow: hidden;
+  }
+  .exp-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 400px;
+  }
+  .exp-item-content {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .exp-item-title {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 12px;
+  }
+  .exp-item-tagline {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(16px, 1.5vw, 20px);
+    color: #AD5D47;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  .exp-item-body {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #3D3530;
+    margin-bottom: 28px;
+  }
+  .exp-item-cta {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #AD5D47;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(173, 93, 71, 0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+    align-self: flex-start;
+  }
+  .exp-item-cta:hover {
+    border-color: #AD5D47;
+  }
+
+  .exp-cta {
+    text-align: center;
+    padding: 120px 24px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .exp-cta-title {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 400;
+    font-style: italic;
+    color: #1C1917;
+    margin-bottom: 32px;
+  }
+  .exp-cta-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .exp-cta-primary {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: #AD5D47;
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 40px;
+    transition: background 0.3s;
+  }
+  .exp-cta-primary:hover {
+    background: #964d3a;
+  }
+  .exp-cta-secondary {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #6B6256;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+  }
+  .exp-cta-secondary:hover {
+    border-color: #1C1917;
+  }
+
+  @media (max-width: 900px) {
+    .exp-hero-content {
+      padding: 32px 24px;
+    }
+    .exp-item {
+      grid-template-columns: 1fr;
+    }
+    .exp-item--reverse .exp-item-image {
+      order: 0;
+    }
+    .exp-item--reverse .exp-item-content {
+      order: 0;
+    }
+    .exp-item-image img {
+      min-height: 280px;
+      max-height: 360px;
+    }
+    .exp-item-content {
+      padding: 40px 24px;
+    }
+    .exp-cta {
+      padding: 80px 24px;
+    }
+  }
+</style>

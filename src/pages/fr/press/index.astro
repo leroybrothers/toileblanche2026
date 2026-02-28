@@ -1,0 +1,369 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import pressData from '../../../data/press.fr.json';
+
+const { reviews, clippings } = pressData;
+---
+
+<Layout
+  locale="fr"
+  title="Presse | Toile Blanche | Saint-Paul de Vence"
+  description="Registres de reconnaissance. Couverture médiatique et demandes presse pour Toile Blanche, Saint-Paul de Vence."
+>
+  <Nav locale="fr" theme="light" />
+
+  <main>
+    <!-- HEADER -->
+    <section class="prs-header">
+      <div class="prs-header-inner">
+        <p class="prs-header-eyebrow">Réception — Les Registres</p>
+        <h1>Presse</h1>
+        <p class="prs-header-tagline">Une archive soignée de la réception critique. Toile Blanche a été déclarée œuvre par les Leroy Brothers en 2026. Ce qui suit est un registre de la façon dont le monde l'a reçue — avant et après.</p>
+      </div>
+    </section>
+
+    <!-- REVIEW LOG -->
+    <section class="prs-reviews">
+      <div class="prs-reviews-inner">
+        <p class="prs-reviews-label">Revue critique</p>
+        {reviews.map((r) => (
+          <div class="prs-review">
+            <div class="prs-review-head">
+              <span class="prs-review-pub">{r.publication}</span>
+              <span class="prs-review-year">{r.year}</span>
+            </div>
+            <p class="prs-review-quote">"{r.quote}"</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- MEDIA KIT -->
+    <section class="prs-kit">
+      <div class="prs-kit-inner">
+        <div class="prs-kit-text">
+          <p class="prs-kit-label">Dossier de presse</p>
+          <h2>Pour les journalistes &amp; rédacteurs</h2>
+          <p>Photographies haute résolution, le brand book, la fiche technique, les plans et les textes approuvés. Tout ce dont vous avez besoin en un seul téléchargement.</p>
+        </div>
+        <div class="prs-kit-actions">
+          <a href="mailto:press@toileblanche.com?subject=Demande%20Dossier%20de%20Presse" class="prs-kit-btn">Télécharger le dossier de presse</a>
+          <p class="prs-kit-note">Envoyé sous 24 heures via un lien sécurisé.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESS CONTACTS -->
+    <section class="prs-contacts">
+      <div class="prs-contacts-inner">
+        <p class="prs-contacts-label">Contacts presse</p>
+        <div class="prs-contacts-grid">
+          <div class="prs-contact">
+            <h3>France</h3>
+            <p class="prs-contact-agency"><a href="https://www.pascalevenot.fr/" target="_blank" rel="noopener noreferrer">Pascale Venot</a></p>
+            <a href="mailto:audebanou@pascalevenot.fr" class="prs-contact-email">audebanou@pascalevenot.fr</a>
+          </div>
+          <div class="prs-contact">
+            <h3>UK / US</h3>
+            <p class="prs-contact-agency"><a href="https://www.re-agency.com/" target="_blank" rel="noopener noreferrer">Re-Agency</a></p>
+            <a href="mailto:toileblanche@re-agency.com" class="prs-contact-email">toileblanche@re-agency.com</a>
+          </div>
+          <div class="prs-contact">
+            <h3>Demandes générales</h3>
+            <p class="prs-contact-agency">Toile Blanche</p>
+            <a href="mailto:press@toileblanche.com" class="prs-contact-email">press@toileblanche.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIPPINGS ARCHIVE -->
+    <section class="prs-clippings">
+      <div class="prs-clippings-inner">
+        <p class="prs-clippings-label">Archives de coupures</p>
+        <div class="prs-clippings-grid">
+          {clippings.map((src, i) => (
+            <div class="prs-clipping">
+              <img src={src} alt={`Coupure de presse ${i + 1}`} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  /* ─── HEADER ─── */
+  .prs-header {
+    padding: 200px 80px 80px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .prs-header-inner {
+    max-width: 800px;
+  }
+  .prs-header-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 24px;
+  }
+  .prs-header h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 400;
+    line-height: 1.0;
+    color: #1C1917;
+    margin-bottom: 32px;
+  }
+  .prs-header-tagline {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6B6256;
+    max-width: 600px;
+  }
+
+  /* ─── REVIEW LOG ─── */
+  .prs-reviews {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .prs-reviews-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px;
+  }
+  .prs-reviews-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 48px;
+  }
+  .prs-review {
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(226, 217, 204, 0.5);
+  }
+  .prs-review:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .prs-review-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+  }
+  .prs-review-pub {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #9C9080;
+  }
+  .prs-review-year {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    color: #C4B9AA;
+  }
+  .prs-review-quote {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(20px, 2.5vw, 28px);
+    line-height: 1.45;
+    color: #1C1917;
+  }
+
+  /* ─── MEDIA KIT ─── */
+  .prs-kit {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .prs-kit-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .prs-kit-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 20px;
+  }
+  .prs-kit-text h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 20px;
+  }
+  .prs-kit-text > p:last-child {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6B6256;
+  }
+  .prs-kit-actions {
+    padding: 48px;
+    background: rgba(226, 217, 204, 0.15);
+    text-align: center;
+  }
+  .prs-kit-btn {
+    display: inline-block;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FAF8F3;
+    background: #1C1917;
+    padding: 18px 40px;
+    transition: opacity 0.2s;
+    margin-bottom: 16px;
+  }
+  .prs-kit-btn:hover {
+    opacity: 0.85;
+  }
+  .prs-kit-note {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    color: #C4B9AA;
+  }
+
+  /* ─── CONTACTS ─── */
+  .prs-contacts {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .prs-contacts-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+  }
+  .prs-contacts-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 40px;
+  }
+  .prs-contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+  }
+  .prs-contact {
+    padding: 40px;
+    background: rgba(226, 217, 204, 0.15);
+  }
+  .prs-contact h3 {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 20px;
+  }
+  .prs-contact-agency {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #1C1917;
+    margin-bottom: 8px;
+  }
+  .prs-contact-agency a {
+    color: #1C1917;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .prs-contact-agency a:hover {
+    color: #9e5c4a;
+  }
+  .prs-contact-email {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    color: #6B6256;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .prs-contact-email:hover {
+    color: #9e5c4a;
+  }
+
+  /* ─── CLIPPINGS ─── */
+  .prs-clippings {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .prs-clippings-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+  }
+  .prs-clippings-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 40px;
+  }
+  .prs-clippings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .prs-clipping {
+    overflow: hidden;
+    background: #f5f2ed;
+  }
+  .prs-clipping img {
+    width: 100%;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .prs-clipping:hover img {
+    transform: scale(1.02);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .prs-header {
+      padding: 140px 24px 48px;
+    }
+    .prs-reviews-inner {
+      padding: 48px 24px;
+    }
+    .prs-review-head {
+      flex-direction: column;
+      gap: 4px;
+    }
+    .prs-kit-inner {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 32px;
+    }
+    .prs-contacts-inner {
+      padding: 48px 24px;
+    }
+    .prs-contacts-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .prs-clippings-inner {
+      padding: 48px 24px;
+    }
+    .prs-clippings-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,248 @@
+{
+  "masterAmenities": [
+    "Lit King size Tréca · Literie premium",
+    "Climatisation",
+    "WiFi gratuit",
+    "TV écran plat · Audio Bluetooth",
+    "Coffre-fort privatif",
+    "Machine à café grain",
+    "Minibar soigné — bouteilles entières",
+    "Produits Les Grandes Vacances",
+    "Peignoirs & chaussons",
+    "Douche à l'italienne"
+  ],
+  "suites": [
+    {
+      "slug": "penard",
+      "index": "01",
+      "name": "Suite Pénard",
+      "tagline": "Portes-fenêtres, un patio privé et une lumière du matin qui arrive pile à l'heure.",
+      "headline": "La juste mesure en toute chose.",
+      "description": "La juste mesure en toute chose. Pénard est la plus petite de nos catégories, mais peut-être la plus précise. Construites dans les structures en pierre d'origine, ces suites sont des exercices de retenue et de confort soigné.",
+      "specs": {
+        "count": "6 suites",
+        "size": "30m²",
+        "occupancy": "2 personnes",
+        "view": "Vue jardin",
+        "features": "Patio privé · Douche à l'italienne",
+        "summary": "Vue jardin · Patio privé · Douche à l'italienne"
+      },
+      "extras": [],
+      "images": {
+        "hero": "/assets/images/page-img-fc5920b651f35b.jpg",
+        "card": "/assets/images/page-img-eb795e7700a147.jpg",
+        "cardAlt": "Suite Pénard à Toile Blanche",
+        "gallery": [
+          "/assets/images/page-img-eb795e7700a147.jpg",
+          "/assets/images/page-img-0d4fab6cd496a8.jpg",
+          "/assets/images/page-img-0bd0acfefc8c5b.jpg"
+        ]
+      },
+      "hasPool": false,
+      "note": null
+    },
+    {
+      "slug": "petanque",
+      "index": "02",
+      "name": "Suite Pétanque",
+      "tagline": "Nommée d'après le jeu qui se joue à l'ombre, juste à côté. Quarante mètres carrés qui semblent bien plus grands.",
+      "headline": "Là où l'après-midi dure le plus longtemps.",
+      "description": "Là où l'après-midi dure le plus longtemps. Située dans une résidence joliment rénovée, la Suite Pétanque offre davantage d'espace, avec un salon dédié et une terrasse conçue pour les lentes heures provençales.",
+      "specs": {
+        "count": "4 suites",
+        "size": "40m²",
+        "occupancy": "2 personnes",
+        "view": "Vue jardin",
+        "features": "Salon · Terrasse · Douche à l'italienne",
+        "summary": "Vue jardin · Salon · Terrasse avec bains de soleil · Douche à l'italienne"
+      },
+      "extras": [],
+      "images": {
+        "hero": "/assets/images/page-img-13bfe0acd738c0.jpg",
+        "card": "/assets/images/page-img-833a78c568fe35.jpg",
+        "cardAlt": "Suite Pétanque à Toile Blanche",
+        "gallery": [
+          "/assets/images/page-img-833a78c568fe35.jpg",
+          "/assets/images/page-img-8c03274d5f9fd2.jpg",
+          "/assets/images/page-img-e203e7177a0fba.jpg"
+        ]
+      },
+      "hasPool": false,
+      "note": null
+    },
+    {
+      "slug": "bronzette",
+      "index": "03",
+      "name": "Suite de la Bronzette",
+      "tagline": "Le nom dit tout. Cinquante-cinq mètres carrés, une salle de bain spa et une terrasse privée conçue pour le soleil.",
+      "headline": "Les photographes viennent pour la lumière. Les hôtes restent pour tout le reste.",
+      "description": "Les photographes viennent pour la lumière. Les hôtes restent pour tout le reste. Ces suites spacieuses disposent d'une chambre et d'un salon séparés, offrant une intimité totale et la possibilité d'ajouter un lit supplémentaire.",
+      "specs": {
+        "count": "2 suites",
+        "size": "55m²",
+        "occupancy": "2 personnes",
+        "view": "Vue jardin",
+        "features": "Salle de bain spa · Grande terrasse privée",
+        "summary": "Vue jardin · Salle de bain spa · Baignoire · Grande terrasse privée"
+      },
+      "extras": ["Baignoire", "Lit supplémentaire disponible (+80€/nuit)"],
+      "images": {
+        "hero": "/assets/images/page-img-cc59a0bcdda081.jpg",
+        "card": "/assets/images/page-img-8626fb58027da5.jpg",
+        "cardAlt": "Suite de la Bronzette à Toile Blanche",
+        "gallery": [
+          "/assets/images/page-img-8626fb58027da5.jpg",
+          "/assets/images/page-img-431877e28efcaf.jpg",
+          "/assets/images/page-img-17e8d97a8dfff6.jpg"
+        ]
+      },
+      "hasPool": false,
+      "note": "Lit supplémentaire disponible — 80€/nuit"
+    },
+    {
+      "slug": "cabanat",
+      "index": "04",
+      "name": "Suite Cabanat",
+      "tagline": "Construite dans la pente, ce qui lui confère un atout unique — la vue sur la vallée, et un cabana bain de soleil dont vous ne voudrez plus partir.",
+      "headline": "Construite dans la pente. La seule suite avec vue sur la vallée.",
+      "description": "Notre généreuse Suite Cabanat est un refuge en duplex. C'est la seule catégorie face à la vallée, offrant une perspective sur Saint-Paul de Vence qui semble entièrement privée.",
+      "specs": {
+        "count": "3 suites",
+        "size": "55m²",
+        "occupancy": "2 personnes",
+        "view": "Vue vallée",
+        "features": "Duplex · Cabana · Jardin privé",
+        "summary": "Vue vallée · Duplex · Douche extérieure · Baignoire · Jardin privé · Cabana"
+      },
+      "extras": ["Baignoire", "Douche extérieure"],
+      "images": {
+        "hero": "/assets/images/page-img-22b8daa3a98de1.jpg",
+        "card": "/assets/images/page-img-826f21859fa23e.jpg",
+        "cardAlt": "Suite Cabanat à Toile Blanche",
+        "gallery": [
+          "/assets/images/page-img-826f21859fa23e.jpg",
+          "/assets/images/page-img-eecc3519b1d474.jpg",
+          "/assets/images/page-img-be2c0c3fe3d438.jpg"
+        ]
+      },
+      "hasPool": false,
+      "note": null
+    },
+    {
+      "slug": "suite-artiste",
+      "index": "05",
+      "name": "Suite de l'Artiste",
+      "tagline": "Le mas bicentenaire, avec ses poutres et sa pierre d'origine, et un balcon qui contemple la même vue depuis deux siècles.",
+      "headline": "Les murs les plus anciens du domaine.",
+      "description": "Un rustique moderne niché dans les murs les plus anciens du domaine. Les détails authentiques ont été préservés pour compléter une curation contemporaine. Un espace où l'histoire n'est pas de la décoration, mais l'atmosphère elle-même.",
+      "specs": {
+        "count": "2 suites",
+        "size": "60–70m²",
+        "occupancy": "2 personnes",
+        "view": "Vue jardin",
+        "features": "Mas bicentenaire · Pierre et poutres d'origine · Balcon",
+        "summary": "Mas bicentenaire · Pierre et poutres d'origine · Balcon · Baignoire"
+      },
+      "extras": ["Baignoire"],
+      "images": {
+        "hero": "/assets/images/page-img-6fb08ef94b7be5.jpg",
+        "card": "/assets/images/page-img-e1708f1e9761a9.jpg",
+        "cardAlt": "Suite de l'Artiste à Toile Blanche",
+        "gallery": [
+          "/assets/images/page-img-e1708f1e9761a9.jpg",
+          "/assets/images/page-img-cd43fba77f9e67.jpg",
+          "/assets/images/page-img-e025d0155b7425.jpg"
+        ]
+      },
+      "hasPool": false,
+      "note": null
+    },
+    {
+      "slug": "mas-artiste",
+      "index": "06",
+      "name": "Mas de l'Artiste",
+      "tagline": "La plus grande suite du mas. Quatre-vingt-dix mètres carrés, une cour provençale privée et de la place pour les personnes avec qui vous avez vraiment envie de voyager.",
+      "headline": "Le mas, presque entièrement pour vous.",
+      "description": "Le mas, presque entièrement pour vous. Cette vaste maisonnette baignée de lumière sépare l'espace nuit pour une intimité totale, tandis que le salon ouvre directement sur une cour privée.",
+      "specs": {
+        "count": "1 suite",
+        "size": "90m²",
+        "occupancy": "Jusqu'à 4 personnes",
+        "view": "Cour privée",
+        "features": "Mas bicentenaire · Maisonnette · Cour privée",
+        "summary": "Mas bicentenaire · Maisonnette · Cour provençale privée · Baignoire"
+      },
+      "extras": ["Baignoire", "Lit supplémentaire disponible (+80€/nuit)"],
+      "images": {
+        "hero": "/assets/images/page-img-46f7b755735790.jpg",
+        "card": "/assets/images/page-img-6106adc613aeb2.jpg",
+        "cardAlt": "Mas de l'Artiste à Toile Blanche",
+        "gallery": [
+          "/assets/images/page-img-6106adc613aeb2.jpg",
+          "/assets/images/page-img-d9499fe50d6ed6.jpg",
+          "/assets/images/page-img-71d4e99222d050.jpg"
+        ]
+      },
+      "hasPool": false,
+      "note": "Lit supplémentaire disponible — 80€/nuit"
+    },
+    {
+      "slug": "bonvivant",
+      "index": "07",
+      "name": "Suite du Bon-Vivant",
+      "tagline": "Une piscine privée, une terrasse et un coucher de soleil qui arrive dans la bonne direction au bon moment.",
+      "headline": "Une piscine privée et une terrasse où le coucher de soleil est déraisonnablement beau.",
+      "description": "Nos lumineuses Suites du Bon-Vivant offrent une chambre et un espace détente généreux, mais l'attraction principale est la terrasse d'exception avec votre piscine privée. Ici, le coucher de soleil est magique.",
+      "specs": {
+        "count": "2 suites",
+        "size": "55–60m²",
+        "occupancy": "2 personnes",
+        "view": "Vue coucher de soleil",
+        "features": "Piscine privée · Terrasse · Baignoire",
+        "summary": "Piscine privée · Terrasse · Baignoire"
+      },
+      "extras": ["Piscine privée", "Baignoire", "Lit supplémentaire disponible (+80€/nuit)"],
+      "images": {
+        "hero": "/assets/images/page-img-59c7e07d15bf91.jpg",
+        "card": "/assets/images/page-img-707417a43d47ee.jpg",
+        "cardAlt": "Suite du Bon-Vivant à Toile Blanche",
+        "gallery": [
+          "/assets/images/page-img-707417a43d47ee.jpg",
+          "/assets/images/page-img-1c7ae91a066a89.jpg",
+          "/assets/images/page-img-6318088b5c037e.jpg"
+        ]
+      },
+      "hasPool": true,
+      "note": "Lit supplémentaire disponible — 80€/nuit"
+    },
+    {
+      "slug": "penequet",
+      "index": "08",
+      "name": "Villa du Pénéquet",
+      "tagline": "Pénéquet — le mot provençal pour sieste. Deux étages, une piscine privée et l'art provençal de ne rien faire du tout, exprès.",
+      "headline": "Deux étages, une piscine et l'art provençal de ne rien faire.",
+      "description": "Les seules suites sur deux étages. Le rez-de-chaussée abrite un salon luxueux avec accès direct à votre piscine privée et bains de soleil. À l'étage, la chambre principale offre la retraite ultime.",
+      "specs": {
+        "count": "2 villas",
+        "size": "80m²",
+        "occupancy": "2 personnes",
+        "view": "Vue jardin",
+        "features": "Piscine privée · Deux étages · Baignoire",
+        "summary": "Piscine privée · Deux étages · Vue jardin · Baignoire"
+      },
+      "extras": ["Piscine privée", "Duplex", "Baignoire", "Lit supplémentaire disponible"],
+      "images": {
+        "hero": "/assets/images/page-img-8da5a0df461d5d.jpg",
+        "card": "/assets/images/page-img-5f8a45f5b552ed.jpg",
+        "cardAlt": "Villa du Pénéquet à Toile Blanche",
+        "gallery": [
+          "/assets/images/page-img-5f8a45f5b552ed.jpg",
+          "/assets/images/page-img-9502e1df731900.jpg",
+          "/assets/images/page-img-2288c37159b2c6.jpg"
+        ]
+      },
+      "hasPool": true,
+      "note": "Lit supplémentaire disponible"
+    }
+  ]
+}

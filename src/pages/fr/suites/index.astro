@@ -1,0 +1,334 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import suitesData from '../../../data/suites.fr.json';
+
+const suites = suitesData.suites;
+---
+
+<Layout
+  locale="fr"
+  title="Suites | Toile Blanche | Saint-Paul de Vence"
+  description="Vingt-deux suites réparties dans sept bâtiments à Saint-Paul de Vence. Aucun bâtiment ne se ressemble. Aucune vue n'est identique."
+>
+  <Nav theme="both" locale="fr" />
+
+  <main>
+    <section class="suites-hero">
+      <p class="eyebrow">Sept bâtiments · Saint-Paul de Vence</p>
+      <h1>Vingt-deux suites<br /><em>dans sept bâtiments.</em></h1>
+      <p class="hero-sub">Aucun bâtiment ne se ressemble. Aucune vue n'est identique.</p>
+    </section>
+
+    <div class="suite-list">
+      {suites.map((suite, i) => (
+        <>
+          {i === 4 && (
+            <div class="interlude">
+              <p>Trois piscines pour tous.<br /><em>Quatre autres rien que pour vous.</em></p>
+            </div>
+          )}
+          <article class={`suite-card ${i % 2 !== 0 ? 'reversed' : ''}`}>
+            <a href={`/fr/suites/${suite.slug}`} class="card-image">
+              <img src={suite.images.card} alt={suite.images.cardAlt} loading="lazy" />
+              {suite.hasPool && <span class="pool-tag">Piscine privée</span>}
+            </a>
+            <div class="card-body">
+              <p class="card-meta">{suite.index} — {suite.specs.count} · {suite.specs.size} · {suite.specs.occupancy}</p>
+              <h2>{suite.name}</h2>
+              <p class="card-headline">{suite.headline}</p>
+              <p class="card-desc">{suite.tagline}</p>
+              <p class="card-specs">{suite.specs.summary}</p>
+              {suite.note && <p class="card-note">{suite.note}</p>}
+              <div class="card-actions">
+                <a href={`/fr/suites/${suite.slug}`} class="link-cta">Découvrir la suite →</a>
+                <a href="https://app.mews.com/distributor/150bd326-7c63-4a24-b668-abcf00c6bb22" class="btn-book">Réserver</a>
+              </div>
+            </div>
+          </article>
+        </>
+      ))}
+    </div>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+
+  /* ─────────────────────────────
+     HERO
+  ───────────────────────────── */
+  .suites-hero {
+    padding: 160px 80px 80px;
+  }
+
+  .eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 28px;
+  }
+
+  .suites-hero h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 400;
+    line-height: 1.0;
+    color: #1C1917;
+    margin-bottom: 28px;
+  }
+
+  .suites-hero h1 em {
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-family: 'Gilda Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #6B6256;
+    line-height: 1.5;
+  }
+
+  /* ─────────────────────────────
+     SUITE LIST
+  ───────────────────────────── */
+  .suite-list {
+    border-top: 1px solid #E2D9CC;
+  }
+
+  /* ─────────────────────────────
+     SUITE CARD
+  ───────────────────────────── */
+  .suite-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #E2D9CC;
+    min-height: 580px;
+  }
+
+  .suite-card.reversed .card-image { order: 2; }
+  .suite-card.reversed .card-body  { order: 1; }
+
+  /* Image — fills full grid cell height, no gaps */
+  .card-image {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: #D9D0C3;
+    text-decoration: none;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+
+  .suite-card:hover .card-image img {
+    transform: scale(1.04);
+  }
+
+  .pool-tag {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #FAF8F3;
+    background: rgba(28, 25, 23, 0.5);
+    backdrop-filter: blur(6px);
+    padding: 8px 14px;
+  }
+
+  /* Body */
+  .card-body {
+    padding: 64px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #FAF8F3;
+  }
+
+  .card-meta {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 20px;
+  }
+
+  .card-body h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(32px, 3vw, 50px);
+    font-weight: 400;
+    line-height: 1.05;
+    color: #1C1917;
+    margin-bottom: 16px;
+  }
+
+  .card-headline {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 20px;
+  }
+
+  .card-desc {
+    font-family: 'Gilda Display', serif;
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.65;
+    color: #3D3530;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+
+  .card-specs {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: #6B6256;
+    line-height: 2;
+    margin-bottom: 8px;
+  }
+
+  .card-note {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: #9C9080;
+    font-style: italic;
+    margin-bottom: 0;
+  }
+
+  /* Actions */
+  .card-actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .link-cta {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1C1917;
+    border-bottom: 1px solid #1C1917;
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+
+  .link-cta:hover { opacity: 0.45; }
+
+  .btn-book {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FAF8F3;
+    background: #1C1917;
+    padding: 13px 28px;
+    transition: opacity 0.2s;
+    display: inline-block;
+  }
+
+  .btn-book:hover { opacity: 0.7; }
+
+  /* ─────────────────────────────
+     INTERLUDE
+  ───────────────────────────── */
+  .interlude {
+    background: #FAF8F3;
+    padding: 100px 80px;
+    text-align: center;
+    border-bottom: 1px solid #E2D9CC;
+  }
+
+  .interlude p {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(28px, 4.5vw, 60px);
+    font-weight: 400;
+    line-height: 1.3;
+    color: #1C1917;
+  }
+
+  .interlude em {
+    font-style: italic;
+  }
+
+  /* ─────────────────────────────
+     PAGE CLOSE
+  ───────────────────────────── */
+  .page-close {
+    padding: 100px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+    border-top: 1px solid #E2D9CC;
+  }
+
+  .page-close p {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(24px, 3vw, 42px);
+    color: #1C1917;
+    line-height: 1.3;
+  }
+
+  .page-close em {
+    font-style: italic;
+  }
+
+  /* ─────────────────────────────
+     RESPONSIVE
+  ───────────────────────────── */
+  @media (max-width: 900px) {
+
+    .suites-hero {
+      padding: 120px 24px 60px;
+    }
+
+    .suite-card {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .suite-card.reversed .card-image { order: 0; }
+    .suite-card.reversed .card-body  { order: 1; }
+
+    .card-image { aspect-ratio: 4/3; }
+
+    .card-body {
+      padding: 40px 24px;
+    }
+
+    .interlude {
+      padding: 64px 24px;
+    }
+
+    .page-close {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 64px 24px;
+    }
+  }
+
+</style>

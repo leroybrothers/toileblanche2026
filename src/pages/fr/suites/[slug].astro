@@ -1,0 +1,403 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import suitesData from '../../../data/suites.fr.json';
+
+export function getStaticPaths() {
+  const { masterAmenities, suites } = suitesData;
+
+  return suites.map((suite) => ({
+    params: { slug: suite.slug },
+    props: {
+      suite,
+      allSuites: suites,
+      amenities: [...masterAmenities, ...suite.extras],
+    },
+  }));
+}
+
+const { suite, allSuites, amenities } = Astro.props;
+const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
+---
+
+<Layout
+  locale="fr"
+  title={`${suite.name} | Toile Blanche | Saint-Paul de Vence`}
+  description={suite.tagline}
+  ogImage={`https://www.toileblanche.com${suite.images.hero}`}
+>
+  <Nav theme="both" locale="fr" />
+
+  <main>
+    <section class="sd-hero">
+      <div class="sd-hero-image">
+        <img src={suite.images.hero} alt={suite.name} loading="eager" />
+        <div class="sd-hero-overlay"></div>
+      </div>
+      <div class="sd-hero-content">
+        <p class="sd-hero-eyebrow">{suite.index} — {suite.specs.count}</p>
+        <h1>{suite.name}</h1>
+      </div>
+    </section>
+
+    <section class="sd-intro">
+      <div class="sd-intro-inner">
+        <div class="sd-intro-tagline">
+          <p>{suite.tagline}</p>
+        </div>
+        <div class="sd-intro-specs">
+          <div class="sd-spec">{suite.specs.size}</div>
+          <div class="sd-spec">{suite.specs.occupancy}</div>
+          <div class="sd-spec">{suite.specs.view}</div>
+          <div class="sd-spec">{suite.specs.features}</div>
+          {suite.hasPool && <div class="sd-spec sd-spec-pool">Piscine privée</div>}
+        </div>
+      </div>
+    </section>
+
+    <section class="sd-narrative">
+      <div class="sd-narrative-inner">
+        <div class="sd-narrative-text">
+          <h2>Le Ressenti</h2>
+          <p class="sd-narrative-desc">{suite.description}</p>
+          <p class="sd-narrative-maxibar">Le bar est garni de bouteilles pleines plutôt que de miniatures — rosé Côtes de Provence, blanc et rouge de producteurs locaux, champagne, produits régionaux, et les bonbons Toile Blanche que les clients mentionnent spontanément.</p>
+        </div>
+        <div class="sd-amenities">
+          <p class="sd-amenities-title">Équipements</p>
+          <ul>
+            {amenities.map(item => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sd-gallery">
+      {suite.images.gallery.map((img, i) => (
+        <div class={`sd-gallery-item sd-gallery-item-${i + 1}`}>
+          <img src={img} alt={`${suite.name} — vue ${i + 1}`} loading="lazy" />
+        </div>
+      ))}
+    </section>
+
+    <section class="sd-cta">
+      <p>22 suites. Aucune n'est identique.</p>
+      <a href="#" class="sd-cta-btn distributor-open">Réserver {suite.name}</a>
+    </section>
+
+    <section class="sd-explore">
+      <h2>Découvrir les autres suites</h2>
+      <div class="sd-explore-grid">
+        {otherSuites.map(s => (
+          <a href={`/fr/suites/${s.slug}`} class="sd-explore-card">
+            <div class="sd-explore-img">
+              <img src={s.images.gallery[0]} alt={s.name} loading="lazy" />
+            </div>
+            <p class="sd-explore-name">{s.name}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  /* ─── HERO ─── */
+  .sd-hero {
+    position: relative;
+    height: 85vh;
+    min-height: 500px;
+    overflow: hidden;
+  }
+  .sd-hero-image {
+    position: absolute;
+    inset: 0;
+  }
+  .sd-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .sd-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 50%);
+  }
+  .sd-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 80px 72px;
+    color: #fff;
+  }
+  .sd-hero-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 16px;
+  }
+  .sd-hero-content h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 400;
+    line-height: 1.05;
+  }
+
+  /* ─── INTRO (tagline + specs) ─── */
+  .sd-intro {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .sd-intro-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .sd-intro-tagline p {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(20px, 2.5vw, 28px);
+    line-height: 1.55;
+    color: #3D3530;
+  }
+  .sd-intro-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+  }
+  .sd-spec {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6B6256;
+    padding: 8px 16px;
+    border: 1px solid #E2D9CC;
+  }
+  .sd-spec-pool {
+    background: #1C1917;
+    color: #FAF8F3;
+    border-color: #1C1917;
+  }
+
+  /* ─── NARRATIVE ─── */
+  .sd-narrative {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .sd-narrative-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .sd-narrative-text h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 400;
+    margin-bottom: 28px;
+    color: #1C1917;
+  }
+  .sd-narrative-desc {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #3D3530;
+    margin-bottom: 32px;
+  }
+  .sd-narrative-maxibar {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6B6256;
+    padding-top: 28px;
+    border-top: 1px solid #E2D9CC;
+  }
+  .sd-amenities {
+    padding: 40px;
+    background: rgba(226, 217, 204, 0.15);
+  }
+  .sd-amenities-title {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 28px;
+  }
+  .sd-amenities ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
+  }
+  .sd-amenities li {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 13px;
+    color: #3D3530;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(226, 217, 204, 0.5);
+  }
+
+  /* ─── GALLERY ─── */
+  .sd-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  .sd-gallery-item {
+    overflow: hidden;
+  }
+  .sd-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+  .sd-gallery-item:hover img {
+    transform: scale(1.03);
+  }
+  .sd-gallery-item-1 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    aspect-ratio: 3/4;
+  }
+  .sd-gallery-item-2 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    aspect-ratio: 4/3;
+  }
+  .sd-gallery-item-3 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    aspect-ratio: 4/3;
+  }
+
+  /* ─── CTA ─── */
+  .sd-cta {
+    padding: 80px;
+    text-align: center;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .sd-cta p {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(20px, 2.5vw, 28px);
+    color: #3D3530;
+    margin-bottom: 32px;
+  }
+  .sd-cta-btn {
+    display: inline-block;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FAF8F3;
+    background: #9e5c4a;
+    padding: 16px 36px;
+    transition: opacity 0.2s;
+  }
+  .sd-cta-btn:hover {
+    opacity: 0.85;
+  }
+
+  /* ─── EXPLORE OTHER SUITES ─── */
+  .sd-explore {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+  }
+  .sd-explore h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 48px;
+  }
+  .sd-explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 32px;
+  }
+  .sd-explore-card {
+    text-decoration: none;
+    color: inherit;
+  }
+  .sd-explore-img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .sd-explore-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .sd-explore-card:hover .sd-explore-img img {
+    transform: scale(1.04);
+  }
+  .sd-explore-name {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #1C1917;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .sd-hero-content {
+      padding: 0 24px 48px;
+    }
+    .sd-intro-inner {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 32px;
+    }
+    .sd-narrative-inner {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 40px;
+    }
+    .sd-gallery {
+      grid-template-columns: 1fr;
+    }
+    .sd-gallery-item-1 {
+      grid-column: 1;
+      grid-row: auto;
+      aspect-ratio: 4/3;
+    }
+    .sd-gallery-item-2,
+    .sd-gallery-item-3 {
+      grid-column: 1;
+      grid-row: auto;
+    }
+    .sd-cta {
+      padding: 48px 24px;
+    }
+    .sd-explore {
+      padding: 48px 24px;
+    }
+    .sd-amenities ul {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

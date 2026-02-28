@@ -1,0 +1,224 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import sections from '../../../data/faq.fr.json';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": sections.flatMap(s => s.items.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a.replace(/<[^>]*>/g, ''),
+    },
+  }))),
+};
+---
+
+<Layout
+  locale="fr"
+  title="FAQ | Toile Blanche | Saint-Paul de Vence"
+  description="Questions fréquemment posées sur Toile Blanche — réservation, restauration, les suites et le domaine."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Nav locale="fr" theme="light" />
+
+  <main>
+    <!-- HEADER -->
+    <section class="faq-header">
+      <div class="faq-header-inner">
+        <p class="faq-header-eyebrow">Pratique</p>
+        <h1>Questions<br />Fréquentes</h1>
+      </div>
+    </section>
+
+    <!-- FAQ SECTIONS -->
+    {sections.map((section) => (
+      <section class="faq-section">
+        <div class="faq-section-inner">
+          <p class="faq-section-label">{section.label}</p>
+          {section.items.map((item) => (
+            <details class="faq-item">
+              <summary class="faq-question">{item.q}</summary>
+              <div class="faq-answer" set:html={item.a} />
+            </details>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <!-- CONTACT -->
+    <section class="faq-contact">
+      <div class="faq-contact-inner">
+        <h2>Vous n'avez pas trouvé votre réponse ?</h2>
+        <p>Notre équipe se fera un plaisir de vous aider.</p>
+        <div class="faq-contact-links">
+          <a href="tel:+33493327421">+33 4 93 32 74 21</a>
+          <a href="mailto:info@toileblanche.com">info@toileblanche.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  /* ─── HEADER ─── */
+  .faq-header {
+    padding: 200px 80px 80px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .faq-header-inner {
+    max-width: 800px;
+  }
+  .faq-header-eyebrow {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 24px;
+  }
+  .faq-header h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 400;
+    line-height: 1.05;
+    color: #1C1917;
+  }
+
+  /* ─── SECTIONS ─── */
+  .faq-section {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .faq-section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 80px;
+  }
+  .faq-section-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 32px;
+  }
+
+  /* ─── ACCORDION ─── */
+  .faq-item {
+    border-bottom: 1px solid rgba(226, 217, 204, 0.5);
+  }
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+  .faq-question {
+    display: block;
+    padding: 24px 0;
+    cursor: pointer;
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 400;
+    color: #1C1917;
+    list-style: none;
+    position: relative;
+    padding-right: 40px;
+  }
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 24px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 20px;
+    color: #C4B9AA;
+    transition: transform 0.3s ease;
+  }
+  .faq-item[open] .faq-question::after {
+    content: '−';
+  }
+  .faq-answer {
+    padding: 0 0 28px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #6B6256;
+    max-width: 700px;
+  }
+  .faq-answer a {
+    color: #9e5c4a;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(158, 92, 74, 0.3);
+    transition: border-color 0.2s;
+  }
+  .faq-answer a:hover {
+    border-color: #9e5c4a;
+  }
+  .faq-answer strong {
+    color: #3D3530;
+  }
+
+  /* ─── CONTACT ─── */
+  .faq-contact {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .faq-contact-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 80px;
+    text-align: center;
+  }
+  .faq-contact-inner h2 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 12px;
+  }
+  .faq-contact-inner > p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    color: #6B6256;
+    margin-bottom: 32px;
+  }
+  .faq-contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  .faq-contact-links a {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    color: #3D3530;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .faq-contact-links a:hover {
+    color: #9e5c4a;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .faq-header {
+      padding: 140px 24px 48px;
+    }
+    .faq-section-inner {
+      padding: 48px 24px;
+    }
+    .faq-contact-inner {
+      padding: 48px 24px;
+    }
+    .faq-contact-links {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+</style>
