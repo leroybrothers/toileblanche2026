@@ -2,4 +2,23 @@ User-agent: *
 Allow: /
 Disallow: /mews/
 
+# AI Search Engines — explicitly welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://www.toileblanche.com/sitemap-index.xml

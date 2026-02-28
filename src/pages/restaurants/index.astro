@@ -92,6 +92,73 @@ import Footer from '../../components/Footer.astro';
   <Footer />
 </Layout>
 
+<script type="application/ld+json" is:inline>
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Le Restaurant — Toile Blanche",
+    "description": "Mediterranean fine dining reimagined through a contemporary lens. Open year-round for dinner.",
+    "image": "https://www.toileblanche.com/assets/images/page-img-14433f29c9500d.jpg",
+    "url": "https://www.toileblanche.com/le-restaurant",
+    "telephone": "+33493327421",
+    "servesCuisine": "Mediterranean",
+    "priceRange": "€€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "826, chemin de la Pounchounière",
+      "addressLocality": "Saint-Paul de Vence",
+      "postalCode": "06570",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.6874494,
+      "longitude": 7.1285941
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "19:00",
+      "closes": "22:00"
+    },
+    "acceptsReservations": "True",
+    "hasMenu": "https://bookings.zenchef.com/results?rid=357953"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "La Guinguette — Toile Blanche",
+    "description": "Lunch under the plane trees — rosé, grilled fish, the specific joy of eating outside in Provence. Open May to October.",
+    "image": "https://www.toileblanche.com/assets/images/page-img-7f72d09199a7a2.jpg",
+    "url": "https://www.toileblanche.com/la-guinguette",
+    "telephone": "+33493327421",
+    "servesCuisine": "Provençal",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "826, chemin de la Pounchounière",
+      "addressLocality": "Saint-Paul de Vence",
+      "postalCode": "06570",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.6874494,
+      "longitude": 7.1285941
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "12:00",
+      "closes": "15:00"
+    },
+    "acceptsReservations": "True",
+    "hasMenu": "https://bookings.zenchef.com/results?rid=357953"
+  }
+]
+</script>
+
 <style>
   /* ─── HERO ─── */
   .rst-hero {

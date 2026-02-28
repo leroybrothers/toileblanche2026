@@ -110,6 +110,35 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
   <Footer />
 </Layout>
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "HotelRoom",
+  "name": suite.name,
+  "description": suite.tagline,
+  "image": `https://www.toileblanche.com${suite.images.hero}`,
+  "url": `https://www.toileblanche.com/suites/${suite.slug}`,
+  "occupancy": {
+    "@type": "QuantitativeValue",
+    "value": parseInt(suite.specs.occupancy) || 2,
+    "unitText": "guests"
+  },
+  "floorSize": {
+    "@type": "QuantitativeValue",
+    "value": suite.specs.size,
+    "unitCode": "MTK"
+  },
+  "numberOfRooms": suite.specs.count,
+  "amenityFeature": [
+    ...suite.extras.map(e => ({ "@type": "LocationFeatureSpecification", "name": e, "value": true })),
+    { "@type": "LocationFeatureSpecification", "name": suite.specs.view, "value": true }
+  ],
+  "containedInPlace": {
+    "@type": "Hotel",
+    "name": "Toile Blanche",
+    "url": "https://www.toileblanche.com"
+  }
+})} />
+
 <style>
   /* ─── HERO ─── */
   .sd-hero {

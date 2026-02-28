@@ -104,15 +104,37 @@ const alternates = getAlternateUrls(currentPath);
       "@context": "https://schema.org",
       "@type": "Hotel",
       "name": "Toile Blanche",
+      "description": "22 suites, two restaurants, and a contemporary art collection in Saint-Paul de Vence. A declared artwork by the Leroy Brothers on the Côte d'Azur.",
       "image": "https://www.toileblanche.com/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg",
-      "@id": "https://www.toileblanche.com#organisation",
+      "@id": "https://www.toileblanche.com#hotel",
       "url": "https://www.toileblanche.com",
       "telephone": "+33493327421",
+      "email": "info@toileblanche.com",
+      "priceRange": "€€€€",
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "4"
+      },
+      "numberOfRooms": 22,
+      "checkinTime": "16:00",
+      "checkoutTime": "11:00",
+      "petsAllowed": false,
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Outdoor Pool", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Restaurant", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "EV Charging", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Spa Services", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Electric Bike Rental", "value": true }
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "826, chemin de la Pounchounière",
         "addressLocality": "Saint-Paul de Vence",
         "postalCode": "06570",
+        "addressRegion": "Provence-Alpes-Côte d'Azur",
         "addressCountry": "FR"
       },
       "geo": {
@@ -125,7 +147,11 @@ const alternates = getAlternateUrls(currentPath);
         "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
         "opens": "08:00",
         "closes": "22:00"
-      }
+      },
+      "hasMap": "https://goo.gl/maps/VoKrme28X62qbvTk7",
+      "sameAs": [
+        "https://www.instagram.com/toileblanche/"
+      ]
     }
   </script>
 </head>
