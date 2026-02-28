@@ -2,56 +2,20 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import suitesData from '../../data/suites.fr.json';
 
-const suites = [
-  {
-    href: '/fr/suites/petanque',
-    image: '/assets/images/694514f7700aaf8cf582cf9b_IMG_2662.jpg',
-    alt: 'Suite Pétanque',
-    title: 'Suite Pétanque',
-    description: 'La Suite Pétanque, située dans une résidence joliment rénovée, offre davantage d\'espace que notre plus petite catégorie, avec un salon, une terrasse avec bains de soleil et un cadre paisible pour se détendre.',
-  },
-  {
-    href: '/fr/suites/bronzette',
-    image: '/assets/images/678e1fd67876e5f39084f009_DSCF7500 (1)-p-3200.jpg',
-    alt: 'Suite de la Bronzette',
-    title: 'Suite de la Bronzette',
-    description: 'Suites spacieuses avec chambre et salon, offrant intimité et possibilité d\'ajouter un lit supplémentaire. Vous y trouverez une somptueuse salle de bain spa et un grand espace extérieur privé avec bains de soleil.',
-  },
-  {
-    href: '/fr/suites/bonvivant',
-    image: '/assets/images/678e3042a536f8fb4e4e08ca_IMG_4830 (5)-p-1600.jpg',
-    alt: 'Suite du Bon-Vivant',
-    title: 'Suite du Bon-Vivant',
-    description: 'Nos lumineuses Suites du Bon-Vivant offrent une chambre et un espace détente généreux, avec une salle de bain de luxe. L\'attraction principale est la terrasse d\'exception avec piscine privée. Ici, le coucher de soleil est magique.',
-  },
-  {
-    href: '/fr/suites/suite-artiste',
-    image: '/assets/images/suite-de-l-artist.jpg',
-    alt: "Suite de l'Artiste",
-    title: "Suite de l'Artiste",
-    description: "Cette suite rustique moderne est située dans le mas bicentenaire, où les détails authentiques (poutres en bois et pierre naturelle) ont été préservés pour compléter le design contemporain. Le balcon pittoresque avec vue sur les environs rend cette suite si spéciale.",
-  },
-  {
-    href: '/fr/suites/mas-artiste',
-    image: '/assets/images/mas-de-l-artist.jpg',
-    alt: "Mas de l'Artiste",
-    title: "Mas de l'Artiste",
-    description: "Cette vaste maisonnette baignée de soleil est aménagée dans le mas bicentenaire restauré. L'espace nuit est séparé pour une intimité totale, tandis que le salon donne sur une cour provençale privée avec bains de soleil.",
-  },
-  {
-    href: '/fr/suites/penequet',
-    image: '/assets/images/694514f7700aaf8cf582cf9b_IMG_2662.jpg',
-    alt: 'Villa du Pénéquet',
-    title: 'Villa du Pénéquet',
-    description: 'Les Villas du Pénéquet — le mot provençal pour sieste — sont les seules suites sur deux étages. Le rez-de-chaussée abrite le salon avec accès direct à votre piscine privée. À l\'étage, la chambre principale avec grande baignoire et douche à l\'italienne.',
-  },
-];
+const suites = suitesData.suites.map(s => ({
+  href: `/fr/suites/${s.slug}`,
+  image: s.images.card,
+  alt: s.images.cardAlt,
+  title: s.name,
+  description: s.tagline,
+}));
 ---
 
 <Layout
   locale="fr"
-  title="Toile Blanche | Hôtel Boutique & Œuvre Déclarée | Saint-Paul de Vence"
+  title="Toile Blanche | Saint-Paul de Vence"
   description="22 suites, deux restaurants et une collection d'art contemporain à Saint-Paul de Vence. Une œuvre déclarée des Leroy Brothers sur la Côte d'Azur."
 >
   <div class="loader" id="page-loader">

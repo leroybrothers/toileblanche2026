@@ -882,20 +882,31 @@ a.tb-book-cta-link {
 /* ─── Language switcher ──────────────────────────────────────────────────── */
 .tb-lang-switch {
   font-family: 'Didact Gothic', sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   text-decoration: none;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-  padding: 6px 8px;
-  margin-right: 8px;
+  padding: 8px 14px;
+  margin-right: 12px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
-.tb-lang-switch:hover {
-  opacity: 1;
+.navigation-dark .tb-lang-switch {
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
 }
-.navigation-dark .tb-lang-switch { color: #fff; }
-.navigation-light .tb-lang-switch { color: #0A0A0A; }
+.navigation-dark .tb-lang-switch:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.8);
+}
+.navigation-light .tb-lang-switch {
+  color: #1C1917;
+  border: 1px solid rgba(28,25,23,0.3);
+}
+.navigation-light .tb-lang-switch:hover {
+  background: rgba(28,25,23,0.06);
+  border-color: rgba(28,25,23,0.6);
+}
 
 /* ─── Print styles ───────────────────────────────────────────────────────── */
 @media print {

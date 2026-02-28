@@ -2,55 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import suitesData from '../data/suites.json';
 
-const suites = [
-  {
-    href: '/suites/petanque',
-    image: '/assets/images/694514f7700aaf8cf582cf9b_IMG_2662.jpg',
-    alt: 'Suite Pétanque',
-    title: 'Suite Pétanque',
-    description: 'Suite Pétanque set within a beautifully renovated residence, offers more space than our smallest category, complete with a living area, a terrace with sun loungers, and a tranquil setting to unwind.',
-  },
-  {
-    href: '/suites/bronzette',
-    image: '/assets/images/678e1fd67876e5f39084f009_DSCF7500 (1)-p-3200.jpg',
-    alt: 'Suite de la Bronzette',
-    title: 'Suite de la Bronzette',
-    description: "Spacious suites with bedroom and living room, allowing for extra privacy and the possibility to add an extra bed. You'll find a sumptuous spa-like bathroom here, along with a large, private outdoor area with sunbeds.",
-  },
-  {
-    href: '/suites/bonvivant',
-    image: '/assets/images/678e3042a536f8fb4e4e08ca_IMG_4830 (5)-p-1600.jpg',
-    alt: 'Suite du Bon-Vivant',
-    title: 'Suite du Bon-Vivant',
-    description: 'Our bright Suites du Bon-Vivant come with ample bedroom and lounging space, along with a luxury bathroom. The main attraction, however, is the exceptional terrace with a private pool. Here, the sunset is just magical.',
-  },
-  {
-    href: '/suites/suite-artiste',
-    image: '/assets/images/suite-de-l-artist.jpg',
-    alt: "Suite de l'Artiste",
-    title: "Suite de l'Artiste",
-    description: "This modern rustic suite is situated in the 200-year-old farmhouse, where authentic details (think wooden beams and natural stone) have been preserved to complement the contemporary design. But, the picturesque balcony with views of the surroundings is what makes this suite so special.",
-  },
-  {
-    href: '/suites/mas-artiste',
-    image: '/assets/images/mas-de-l-artist.jpg',
-    alt: "Mas de l'Artiste",
-    title: "Mas de l'Artiste",
-    description: "This vast sun-flooded maisonette is housed in the 200-year-old restored farmhouse. The sleeping area is neatly separated to ensure complete intimacy, whereas the living area gives direct access to a private Provençal courtyard with sun loungers and a very cosy sitting corner.",
-  },
-  {
-    href: '/suites/penequet',
-    image: '/assets/images/694514f7700aaf8cf582cf9b_IMG_2662.jpg',
-    alt: 'Villa du Pénéquet',
-    title: 'Villa du Pénéquet',
-    description: 'The Villas du Pénéquet–the Provençal word for power-nap–are the only suites boasting two floors. Downstairs houses the luxurious living area with direct access to your own private pool and sun loungers. On the first floor, we find the master bedroom and a bathroom with a large bathtub and separate walk-in shower.',
-  },
-];
+const suites = suitesData.suites.map(s => ({
+  href: `/suites/${s.slug}`,
+  image: s.images.card,
+  alt: s.images.cardAlt,
+  title: s.name,
+  description: s.tagline,
+}));
 ---
 
 <Layout
-  title="Toile Blanche | Boutique Hotel & Declared Artwork | Saint-Paul de Vence"
+  title="Toile Blanche | Saint-Paul de Vence"
   description="22 suites, two restaurants, and a contemporary art collection in Saint-Paul de Vence. A declared artwork by the Leroy Brothers on the Côte d'Azur."
 >
   <!-- Page Loader -->

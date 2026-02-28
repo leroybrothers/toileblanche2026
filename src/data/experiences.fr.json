@@ -2,30 +2,30 @@
   {
     "title": "Bien-être",
     "tagline": "Massages dans le jardin ou dans votre suite.",
-    "body": "Amandine, notre thérapeute résidente, propose une gamme de soins — massage profond, relaxation et rituels signature — conçus pour vous restaurer complètement. Réservez une séance à votre arrivée et oubliez tout ce qui se passe hors des murs.",
+    "body": "Amandine et Eve, nos thérapeutes résidentes, proposent une gamme de soins — massage profond, relaxation et rituels signature — conçus pour vous restaurer complètement. Réservez une séance dès votre arrivée et oubliez tout ce qui se passe hors des murs.",
     "image": "page-img-1bc07c2749c20d.avif",
-    "cta": { "text": "Voir la carte bien-être", "href": "https://toileblanche.bowo.app/pages/2826" }
+    "cta": { "text": "Se renseigner ou réserver un soin", "href": "https://toileblanche.bowo.app/pages/2826" }
   },
   {
     "title": "La Route de l'Art",
     "tagline": "10 lieux d'art à visiter depuis ici.",
     "body": "Un itinéraire à pied et en voiture à travers Saint-Paul de Vence et ses environs — de la Fondation Maeght à nos propres jardins de sculptures. Disponible en carte imprimée à la réception.",
     "image": "page-img-7f21ae1bc9a088.png",
-    "cta": { "text": "Découvrir la route", "href": "https://www.canva.com/design/DAGh41XVur0/SkdE6UHqFwKSUe5ud1AIKg/view" }
+    "cta": { "text": "Explorer la route", "href": "https://www.canva.com/design/DAGh41XVur0/SkdE6UHqFwKSUe5ud1AIKg/view" }
   },
   {
     "title": "L'Atelier des Leroy Brothers",
     "tagline": "Rendez visite aux artistes derrière l'œuvre.",
     "body": "Nicolas, Gilles et Gregory Leroy ont un atelier en activité près du domaine. Sous réserve de disponibilité, les hôtes peuvent organiser une visite privée pour découvrir les œuvres en cours.",
     "image": "page-img-63eececa2d86be.jpg",
-    "cta": null
+    "cta": { "text": "Se renseigner à la réception", "href": "mailto:info@toileblanche.com" }
   },
   {
     "title": "Vélos électriques",
     "tagline": "Explorez les collines à votre rythme.",
     "body": "Deux vélos électriques Moustache sont à disposition des hôtes. Le terrain autour de Saint-Paul de Vence est vallonné et magnifique — pédalez vers les villages voisins, à travers les vignes ou le long de la route côtière.",
     "image": "page-img-5a95d37e2cdbac.avif",
-    "cta": null
+    "cta": { "text": "Se renseigner à la réception", "href": "mailto:info@toileblanche.com" }
   },
   {
     "title": "Les Piscines",
