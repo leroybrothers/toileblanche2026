@@ -678,8 +678,8 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 }
 
 .tb-affil-michelin img {
-  height: 72px !important;
-  width: 64px !important;
+  height: 80px !important;
+  width: 78px !important;
   object-fit: contain !important;
   object-position: left center !important;
   display: block !important;
@@ -731,8 +731,8 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   }
 
   .tb-affil-michelin img {
-    height: 56px !important;
-    width: 50px !important;
+    height: 64px !important;
+    width: 62px !important;
   }
 
   .tb-affil-slh img {
