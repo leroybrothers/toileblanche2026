@@ -59,12 +59,21 @@ const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current'
   </div>
 </div>
 
-<div class="tb-menu-michelin">
-  <img
-    src="/assets/images/michelin-key-2025.png"
-    alt="MICHELIN Key 2025"
-    width="48"
-    height="64"
-    loading="lazy"
-  />
+<div class="tb-menu-affiliations">
+  <div class="tb-affil-michelin">
+    <img
+      src="/assets/images/affiliations/michelin-key.png"
+      alt="MICHELIN Key"
+      loading="lazy"
+    />
+    <span class="tb-affil-label">The Michelin Key · 2025</span>
+  </div>
+  <div class="tb-affil-slh">
+    <span class="tb-affil-caption">{locale === 'fr' ? 'Affilié à' : 'Affiliated with'}</span>
+    <img
+      src="/assets/images/affiliations/logo-slh.svg"
+      alt="Small Luxury Hotels of the World"
+      loading="lazy"
+    />
+  </div>
 </div>
