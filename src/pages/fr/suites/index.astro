@@ -14,7 +14,7 @@ const suites = suitesData.suites;
 >
   <Nav theme="both" locale="fr" />
 
-  <main>
+  <main id="main-content">
     <section class="suites-hero">
       <p class="eyebrow">Sept bâtiments · Saint-Paul de Vence</p>
       <h1>Vingt-deux suites<br /><em>dans sept bâtiments.</em></h1>
@@ -43,7 +43,7 @@ const suites = suitesData.suites;
               {suite.note && <p class="card-note">{suite.note}</p>}
               <div class="card-actions">
                 <a href={`/fr/suites/${suite.slug}`} class="link-cta">Découvrir la suite →</a>
-                <a href="https://app.mews.com/distributor/150bd326-7c63-4a24-b668-abcf00c6bb22" class="btn-book">Réserver</a>
+                <a href="#" class="btn-book distributor-open">Réserver</a>
               </div>
             </div>
           </article>

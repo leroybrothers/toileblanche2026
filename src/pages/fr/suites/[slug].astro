@@ -29,7 +29,7 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
 >
   <Nav theme="both" locale="fr" />
 
-  <main>
+  <main id="main-content">
     <section class="sd-hero">
       <div class="sd-hero-image">
         <img src={suite.images.hero} alt={suite.name} loading="eager" />
@@ -80,6 +80,25 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
           <img src={img} alt={`${suite.name} — vue ${i + 1}`} loading="lazy" />
         </div>
       ))}
+    </section>
+
+    <!-- AVANTAGE RÉSERVATION DIRECTE -->
+    <section class="sd-direct">
+      <h2 class="sd-direct-title">L'Avantage Direct</h2>
+      <div class="sd-direct-grid">
+        <div class="sd-direct-item">
+          <p class="sd-direct-heading">Le Meilleur Tarif Garanti</p>
+          <p class="sd-direct-desc">Vous ne trouverez pas de tarif plus avantageux ailleurs.</p>
+        </div>
+        <div class="sd-direct-item">
+          <p class="sd-direct-heading">Priorité au Surclassement</p>
+          <p class="sd-direct-desc">Nos clients directs sont prioritaires pour les surclassements de suite, selon disponibilité.</p>
+        </div>
+        <div class="sd-direct-item">
+          <p class="sd-direct-heading">Petit-Déjeuner Inclus</p>
+          <p class="sd-direct-desc">Le petit-déjeuner provençal complet, chaque matin. <span class="sd-direct-value">(D'une valeur de 35 € par personne.)</span></p>
+        </div>
+      </div>
     </section>
 
     <section class="sd-cta">
@@ -289,6 +308,52 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
     aspect-ratio: 4/3;
   }
 
+  /* ─── DIRECT BOOKING ADVANTAGE ─── */
+  .sd-direct {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 80px 0;
+    text-align: center;
+  }
+  .sd-direct-title {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 48px;
+  }
+  .sd-direct-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    text-align: left;
+  }
+  .sd-direct-item {
+    padding-top: 24px;
+    border-top: 1px solid #E2D9CC;
+  }
+  .sd-direct-heading {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #1C1917;
+    margin-bottom: 12px;
+  }
+  .sd-direct-desc {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6B6256;
+    margin: 0;
+  }
+  .sd-direct-value {
+    font-style: italic;
+    opacity: 0.75;
+  }
+
   /* ─── CTA ─── */
   .sd-cta {
     padding: 80px;
@@ -389,6 +454,13 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
     .sd-gallery-item-3 {
       grid-column: 1;
       grid-row: auto;
+    }
+    .sd-direct {
+      padding: 48px 24px 0;
+    }
+    .sd-direct-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
     }
     .sd-cta {
       padding: 48px 24px;

@@ -26,6 +26,7 @@ const suites = suitesData.suites.map(s => ({
   </div>
 
   <!-- Hero Section -->
+  <main id="main-content">
   <header class="hero1" id="hero" style="opacity:0">
     <div class="hero-bg-wrapper hero-bg-parallax">
       <div class="hero-bg-slide hero-bg-slide-1 is-active" role="img" aria-label="Toile Blanche, Saint-Paul de Vence"></div>
@@ -43,6 +44,10 @@ const suites = suitesData.suites.map(s => ({
         <h1 class="hero-headline light">The Côte d'Azur,<br />without the spectacle.</h1>
         <div class="hero-second-line light">The art is not on the walls — it is the walls.</div>
         <div class="hero-body light">And the particular pleasure of going nowhere for a few days.</div>
+        <div class="hero-cta-wrap">
+          <a href="#" class="hero-cta distributor-open">Book My Stay</a>
+        </div>
+        <p class="hero-micro">Direct bookings include our best rate guarantee, priority for suite upgrades, and complimentary breakfast.</p>
         <div class="hero1-arrow">
           <img
             src="/assets/images/639af6c370637a631de3b0f3_big_arrow_down_light.svg"
@@ -196,6 +201,29 @@ const suites = suitesData.suites.map(s => ({
     <div class="full-frame-image-wrapper homepage-one"></div>
   </div>
 
+  <!-- Direct Privilege -->
+  <section class="tb-direct-privilege">
+    <h2 class="tb-dp-headline">Book with the Estate.</h2>
+    <p class="tb-dp-intro">Reserve your stay directly with Toile Blanche for a more personal experience and the best available value.</p>
+    <div class="tb-dp-grid">
+      <div class="tb-dp-item">
+        <p class="tb-dp-label">Best Rate Guaranteed</p>
+        <p class="tb-dp-desc">The most favourable price is only found here.</p>
+      </div>
+      <div class="tb-dp-item">
+        <p class="tb-dp-label">Priority Upgrades</p>
+        <p class="tb-dp-desc">Direct guests are first in line for suite surclasses.</p>
+      </div>
+      <div class="tb-dp-item">
+        <p class="tb-dp-label">Breakfast Included</p>
+        <p class="tb-dp-desc">Our full Provençal morning ritual is always complimentary.</p>
+      </div>
+    </div>
+    <div class="tb-dp-cta-wrap">
+      <a href="#" class="tb-dp-cta distributor-open">Reserve My Suite</a>
+    </div>
+  </section>
+
   <!-- Newsletter -->
   <div class="section padding-96 bg-color-2">
     <div class="container">
@@ -206,23 +234,25 @@ const suites = suitesData.suites.map(s => ({
           <p class="tb-newsletter-cta">Join 2,000 people who already know.</p>
         </div>
         <div class="tb-newsletter-form-wrap">
-          <form id="newsletter-form" name="newsletter-form" method="POST" class="tb-newsletter-form" action="/api/newsletter">
+          <form id="newsletter-form" class="tb-newsletter-form">
             <div class="tb-newsletter-row">
               <div class="tb-newsletter-field">
-                <label for="First-Name">First name</label>
-                <input id="First-Name" name="First-Name" type="text" placeholder="First name" maxlength="256" required />
+                <label for="nl-first">First name</label>
+                <input id="nl-first" name="firstName" type="text" placeholder="First name" maxlength="256" required />
               </div>
               <div class="tb-newsletter-field">
-                <label for="Last-Name">Last name</label>
-                <input id="Last-Name" name="Last-Name" type="text" placeholder="Last name" maxlength="256" required />
+                <label for="nl-last">Last name</label>
+                <input id="nl-last" name="lastName" type="text" placeholder="Last name" maxlength="256" required />
               </div>
               <div class="tb-newsletter-field">
-                <label for="Email">Email address</label>
-                <input id="Email" name="Email" type="email" placeholder="Email address" maxlength="256" required />
+                <label for="nl-email">Email address</label>
+                <input id="nl-email" name="email" type="email" placeholder="Email address" maxlength="256" required />
               </div>
               <button type="submit" class="tb-newsletter-submit">Stay in Touch</button>
             </div>
           </form>
+          <p class="tb-newsletter-msg tb-newsletter-success" aria-live="polite">Thank you. You are on the list.</p>
+          <p class="tb-newsletter-msg tb-newsletter-error" aria-live="polite">Something went wrong. Please try again.</p>
           <p class="tb-newsletter-legal">By subscribing to The Toile Blanche Journal you agree to our <a href="/privacy-policy">privacy policy</a></p>
         </div>
       </div>
@@ -232,6 +262,13 @@ const suites = suitesData.suites.map(s => ({
   <div class="divider _96px"></div>
 
   <Footer />
+  </main>
+
+  <!-- Sticky mobile booking bar -->
+  <div class="tb-sticky-book">
+    <span class="tb-sticky-hint">Direct: Best Rate + Breakfast Included</span>
+    <a href="#" class="tb-sticky-btn distributor-open">Book My Stay</a>
+  </div>
 </Layout>
 
 <script type="application/ld+json" is:inline>
@@ -256,4 +293,41 @@ const suites = suitesData.suites.map(s => ({
     ]
   }
 }
+</script>
+
+<script is:inline>
+(function () {
+  var form = document.getElementById('newsletter-form');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var wrap = form.closest('.tb-newsletter-form-wrap');
+    var btn = form.querySelector('.tb-newsletter-submit');
+    var data = new FormData(form);
+
+    wrap.classList.remove('is-error');
+    btn.classList.add('is-sending');
+    btn.textContent = '…';
+
+    fetch('/api/newsletter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: data.get('email'),
+        firstName: data.get('firstName'),
+        lastName: data.get('lastName')
+      })
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        wrap.classList.add('is-success');
+      })
+      .catch(function () {
+        wrap.classList.add('is-error');
+        btn.classList.remove('is-sending');
+        btn.textContent = form.dataset.submitLabel || 'Stay in Touch';
+      });
+  });
+})();
 </script>

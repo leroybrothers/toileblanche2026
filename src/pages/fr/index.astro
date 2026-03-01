@@ -25,6 +25,7 @@ const suites = suitesData.suites.map(s => ({
     </div>
   </div>
 
+  <main id="main-content">
   <header class="hero1" id="hero" style="opacity:0">
     <div class="hero-bg-wrapper hero-bg-parallax">
       <div class="hero-bg-slide hero-bg-slide-1 is-active" role="img" aria-label="Toile Blanche, Saint-Paul de Vence"></div>
@@ -42,6 +43,10 @@ const suites = suitesData.suites.map(s => ({
         <h1 class="hero-headline light">La Côte d'Azur,<br />sans le spectacle.</h1>
         <div class="hero-second-line light">L'art n'est pas sur les murs — il est les murs.</div>
         <div class="hero-body light">Et le plaisir particulier de ne rien faire pendant quelques jours.</div>
+        <div class="hero-cta-wrap">
+          <a href="#" class="hero-cta distributor-open">Réserver</a>
+        </div>
+        <p class="hero-micro">Le meilleur tarif, priorité au surclassement et petit-déjeuner inclus pour toute réservation directe.</p>
         <div class="hero1-arrow">
           <img src="/assets/images/639af6c370637a631de3b0f3_big_arrow_down_light.svg" loading="lazy" alt="Défiler vers le bas" class="hero-arrow-image" id="hero-arrow" />
         </div>
@@ -162,6 +167,29 @@ const suites = suitesData.suites.map(s => ({
     <div class="full-frame-image-wrapper homepage-one"></div>
   </div>
 
+  <!-- Avantage Réservation Directe -->
+  <section class="tb-direct-privilege">
+    <h2 class="tb-dp-headline">Réservez auprès du Domaine.</h2>
+    <p class="tb-dp-intro">Réservez votre séjour directement auprès de Toile Blanche pour une expérience plus personnelle et les meilleures conditions.</p>
+    <div class="tb-dp-grid">
+      <div class="tb-dp-item">
+        <p class="tb-dp-label">Le Meilleur Tarif Garanti</p>
+        <p class="tb-dp-desc">Le tarif le plus avantageux ne se trouve qu'ici.</p>
+      </div>
+      <div class="tb-dp-item">
+        <p class="tb-dp-label">Priorité au Surclassement</p>
+        <p class="tb-dp-desc">Nos clients directs sont prioritaires pour les surclassements de suite.</p>
+      </div>
+      <div class="tb-dp-item">
+        <p class="tb-dp-label">Petit-Déjeuner Inclus</p>
+        <p class="tb-dp-desc">Notre rituel provençal du matin est toujours offert.</p>
+      </div>
+    </div>
+    <div class="tb-dp-cta-wrap">
+      <a href="#" class="tb-dp-cta distributor-open">Réserver Ma Suite</a>
+    </div>
+  </section>
+
   <div class="section padding-96 bg-color-2">
     <div class="container">
       <div class="tb-newsletter">
@@ -171,23 +199,25 @@ const suites = suitesData.suites.map(s => ({
           <p class="tb-newsletter-cta">Rejoignez 2 000 personnes qui savent déjà.</p>
         </div>
         <div class="tb-newsletter-form-wrap">
-          <form id="newsletter-form" name="newsletter-form" method="POST" class="tb-newsletter-form" action="/api/newsletter">
+          <form id="newsletter-form" class="tb-newsletter-form">
             <div class="tb-newsletter-row">
               <div class="tb-newsletter-field">
-                <label for="First-Name">Prénom</label>
-                <input id="First-Name" name="First-Name" type="text" placeholder="Prénom" maxlength="256" required />
+                <label for="nl-first">Prénom</label>
+                <input id="nl-first" name="firstName" type="text" placeholder="Prénom" maxlength="256" required />
               </div>
               <div class="tb-newsletter-field">
-                <label for="Last-Name">Nom</label>
-                <input id="Last-Name" name="Last-Name" type="text" placeholder="Nom" maxlength="256" required />
+                <label for="nl-last">Nom</label>
+                <input id="nl-last" name="lastName" type="text" placeholder="Nom" maxlength="256" required />
               </div>
               <div class="tb-newsletter-field">
-                <label for="Email">Adresse email</label>
-                <input id="Email" name="Email" type="email" placeholder="Adresse email" maxlength="256" required />
+                <label for="nl-email">Adresse email</label>
+                <input id="nl-email" name="email" type="email" placeholder="Adresse email" maxlength="256" required />
               </div>
               <button type="submit" class="tb-newsletter-submit">Rester en contact</button>
             </div>
           </form>
+          <p class="tb-newsletter-msg tb-newsletter-success" aria-live="polite">Merci. Vous êtes inscrit(e).</p>
+          <p class="tb-newsletter-msg tb-newsletter-error" aria-live="polite">Une erreur est survenue. Veuillez réessayer.</p>
           <p class="tb-newsletter-legal">En vous abonnant au Journal Toile Blanche, vous acceptez notre <a href="/fr/privacy-policy">politique de confidentialité</a></p>
         </div>
       </div>
@@ -197,4 +227,48 @@ const suites = suitesData.suites.map(s => ({
   <div class="divider _96px"></div>
 
   <Footer locale="fr" />
+  </main>
+
+  <!-- Sticky mobile booking bar -->
+  <div class="tb-sticky-book">
+    <span class="tb-sticky-hint">Direct : Meilleur tarif + Petit-déjeuner inclus</span>
+    <a href="#" class="tb-sticky-btn distributor-open">Réserver</a>
+  </div>
 </Layout>
+
+<script is:inline>
+(function () {
+  var form = document.getElementById('newsletter-form');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var wrap = form.closest('.tb-newsletter-form-wrap');
+    var btn = form.querySelector('.tb-newsletter-submit');
+    var data = new FormData(form);
+
+    wrap.classList.remove('is-error');
+    btn.classList.add('is-sending');
+    btn.textContent = '…';
+
+    fetch('/api/newsletter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: data.get('email'),
+        firstName: data.get('firstName'),
+        lastName: data.get('lastName')
+      })
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        wrap.classList.add('is-success');
+      })
+      .catch(function () {
+        wrap.classList.add('is-error');
+        btn.classList.remove('is-sending');
+        btn.textContent = 'Rester en contact';
+      });
+  });
+})();
+</script>

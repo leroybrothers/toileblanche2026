@@ -3,6 +3,41 @@
  * Custom styles that supplement the main Webflow stylesheet
  */
 
+/* ─── Accessibility: skip-to-content link ────────────────────────────────── */
+.tb-skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 10000;
+  padding: 12px 24px;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: #1C1917;
+  background: #FAF8F3;
+  border: 1px solid #E2D9CC;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+
+.tb-skip-link:focus {
+  top: 16px;
+}
+
+/* ─── Accessibility: visible keyboard focus ──────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid #AD5D47 !important;
+  outline-offset: 2px !important;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
 /* ─── Base text font ─────────────────────────────────────────────────────── */
 body {
   font-family: "Didact Gothic", sans-serif;
@@ -732,6 +767,39 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   opacity: 0.95;
 }
 
+/* ─── Hero CTA button ────────────────────────────────────────────────────── */
+.hero-cta-wrap {
+  margin: 2rem 0 0;
+}
+
+.hero-cta {
+  display: inline-block;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background-color: #9e5c4a;
+  padding: 1rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-cta:hover {
+  background-color: #8a4e3e;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .hero-cta {
+    font-size: 11px;
+    padding: 0.85rem 2rem;
+  }
+}
+
 /* ─── Hero reveal animation ──────────────────────────────────────────────── */
 #hero-content {
   opacity: 0;
@@ -893,8 +961,12 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 }
 
 .tb-newsletter-field input:focus {
-  outline: none;
   border-bottom-color: #2c2a26 !important;
+}
+
+.tb-newsletter-field input:focus-visible {
+  outline: 2px solid #AD5D47 !important;
+  outline-offset: 2px !important;
 }
 
 /* Submit: clear dark button, dark text */
@@ -948,6 +1020,40 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   }
 }
 
+.tb-newsletter-msg {
+  display: none;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 1rem 0 0;
+}
+
+.tb-newsletter-success {
+  color: #4a7c59;
+}
+
+.tb-newsletter-error {
+  color: #9e5c4a;
+}
+
+.tb-newsletter-form-wrap.is-success .tb-newsletter-form,
+.tb-newsletter-form-wrap.is-success .tb-newsletter-legal {
+  display: none;
+}
+
+.tb-newsletter-form-wrap.is-success .tb-newsletter-success {
+  display: block;
+}
+
+.tb-newsletter-form-wrap.is-error .tb-newsletter-error {
+  display: block;
+}
+
+.tb-newsletter-submit.is-sending {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 /* ─── Footer: remove purposeless horizontal line ──────────────────────────── */
 .footer-section,
 .footer-wrapper,
@@ -993,6 +1099,181 @@ a.tb-book-cta-link {
 .navigation-light .tb-lang-switch:hover {
   background: rgba(28,25,23,0.06);
   border-color: rgba(28,25,23,0.6);
+}
+
+/* ─── Hero micro-copy (direct booking reassurance) ───────────────────────── */
+.hero-micro {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 1rem 0 0;
+  max-width: 480px;
+}
+
+@media (max-width: 767px) {
+  .hero-micro {
+    font-size: 9px;
+    max-width: 320px;
+  }
+}
+
+/* ─── Direct Privilege (pre-footer conversion block) ─────────────────────── */
+.tb-direct-privilege {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 96px 80px;
+  text-align: center;
+}
+
+.tb-dp-headline {
+  font-family: "Gilda Display", Georgia, serif !important;
+  font-style: italic;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+  font-weight: 400 !important;
+  color: #1C1917 !important;
+  margin: 0 0 1.25rem;
+}
+
+.tb-dp-intro {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #6B6256;
+  max-width: 600px;
+  margin: 0 auto 56px;
+}
+
+.tb-dp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  text-align: left;
+  margin-bottom: 56px;
+}
+
+.tb-dp-item {
+  padding-top: 24px;
+  border-top: 1px solid #E2D9CC;
+}
+
+.tb-dp-label {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #1C1917;
+  margin: 0 0 10px;
+}
+
+.tb-dp-desc {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #6B6256;
+  margin: 0;
+}
+
+.tb-dp-cta-wrap {
+  text-align: center;
+}
+
+.tb-dp-cta {
+  display: inline-block;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background-color: #9e5c4a;
+  padding: 1rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tb-dp-cta:hover {
+  background-color: #8a4e3e;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .tb-direct-privilege {
+    padding: 64px 24px;
+  }
+
+  .tb-dp-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .tb-dp-cta {
+    font-size: 11px;
+    padding: 0.85rem 2rem;
+  }
+}
+
+/* ─── Sticky mobile booking bar ──────────────────────────────────────────── */
+.tb-sticky-book {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .tb-sticky-book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 900;
+    background: #FAF8F3;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+    padding: 8px 16px 12px;
+  }
+
+  .tb-sticky-hint {
+    font-family: "Didact Gothic", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9e5c4a;
+    margin-bottom: 6px;
+  }
+
+  .tb-sticky-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: "Didact Gothic", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background-color: #9e5c4a;
+    padding: 14px 0;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .tb-sticky-btn:hover {
+    background-color: #8a4e3e;
+  }
+
+  body {
+    padding-bottom: 72px;
+  }
 }
 
 /* ─── Print styles ───────────────────────────────────────────────────────── */

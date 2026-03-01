@@ -7,15 +7,28 @@ import Footer from '../components/Footer.astro';
 <Layout title="Page Not Found | Toile Blanche">
   <Nav theme="light" />
 
-  <main class="not-found">
+  <main class="not-found" id="main-content">
     <p class="nf-eyebrow">404</p>
-    <h1 class="nf-title">Page not found</h1>
-    <p class="nf-body">The page you are looking for does not exist or has been moved.</p>
-    <a href="/" class="nf-link">Return to the homepage</a>
+    <h1 class="nf-title" data-en="Page not found" data-fr="Page introuvable">Page not found</h1>
+    <p class="nf-body" data-en="The page you are looking for does not exist or has been moved." data-fr="La page que vous recherchez n'existe pas ou a été déplacée.">The page you are looking for does not exist or has been moved.</p>
+    <a href="/" class="nf-link" id="nf-home" data-en="Return to the homepage" data-fr="Retour à l'accueil">Return to the homepage</a>
   </main>
 
   <Footer />
 </Layout>
+
+<script is:inline>
+(function () {
+  if (window.location.pathname.indexOf('/fr') !== 0) return;
+  document.documentElement.lang = 'fr';
+  var els = document.querySelectorAll('[data-fr]');
+  for (var i = 0; i < els.length; i++) {
+    els[i].textContent = els[i].getAttribute('data-fr');
+  }
+  var link = document.getElementById('nf-home');
+  if (link) link.href = '/fr/';
+})();
+</script>
 
 <style>
   .not-found {

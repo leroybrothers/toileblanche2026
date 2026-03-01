@@ -20,6 +20,7 @@ const {
 } = Astro.props;
 
 const GTM_ID = "GTM-52R8BBP";
+const AXEPTIO_ID = "63ce737f6a87883d8a3d1f79";
 const alternates = getAlternateUrls(currentPath);
 ---
 
@@ -53,12 +54,21 @@ const alternates = getAlternateUrls(currentPath);
   <link rel="alternate" hreflang="x-default" href={alternates.find(a => a.locale === 'en')?.href} />
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#FAF8F3" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+  <!-- Preload hero LCP image -->
+  <link rel="preload" as="image" href="/assets/images/slideshow1.jpg" fetchpriority="high" />
+
+  <!-- Preconnect third-party origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://static.axept.io" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&display=swap" rel="stylesheet" />
 
   <!-- Site Stylesheet -->
@@ -95,6 +105,36 @@ const alternates = getAlternateUrls(currentPath);
     })(window,document,'script','dataLayer', GTM_ID);
   </script>
 
+  <!-- Axeptio Consent Manager -->
+  <script define:vars={{ AXEPTIO_ID, locale }}>
+    window.axeptioSettings = {
+      clientId: AXEPTIO_ID,
+      cookiesVersion: locale === 'fr' ? 'toileblanche-fr' : 'toileblanche-en'
+    };
+
+    (function(d, s) {
+      var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+      e.async = true;
+      e.src = "//static.axept.io/sdk.js";
+      t.parentNode.insertBefore(e, t);
+    })(document, "script");
+
+    void 0 === window._axcb && (window._axcb = []);
+    window._axcb.push(function(axeptio) {
+      axeptio.on("cookies:complete", function(choices) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+
+        gtag('consent', 'update', {
+          'analytics_storage': choices.google_analytics ? 'granted' : 'denied',
+          'ad_storage': choices.google_ads ? 'granted' : 'denied',
+          'ad_user_data': choices.google_ads ? 'granted' : 'denied',
+          'ad_personalization': choices.google_ads ? 'granted' : 'denied'
+        });
+      });
+    });
+  </script>
+
   <!-- Mews Booking Engine (proxied to avoid CORS) -->
   <script is:inline src="/mews/distributor.min.js"></script>
 
@@ -102,7 +142,7 @@ const alternates = getAlternateUrls(currentPath);
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Hotel",
+      "@type": ["Hotel", "ArtGallery"],
       "name": "Toile Blanche",
       "description": "22 suites, two restaurants, and a contemporary art collection in Saint-Paul de Vence. A declared artwork by the Leroy Brothers on the Côte d'Azur.",
       "image": "https://www.toileblanche.com/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg",
@@ -156,6 +196,8 @@ const alternates = getAlternateUrls(currentPath);
   </script>
 </head>
 <body>
+  <a href="#main-content" class="tb-skip-link">{locale === 'fr' ? 'Aller au contenu' : 'Skip to content'}</a>
+
   <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
@@ -166,6 +208,18 @@ const alternates = getAlternateUrls(currentPath);
 
   <!-- Site JS -->
   <script src="/js/site.js" defer></script>
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    import { inject } from '@vercel/analytics';
+    inject();
+  </script>
+
+  <!-- Vercel Speed Insights -->
+  <script>
+    import { injectSpeedInsights } from '@vercel/speed-insights';
+    injectSpeedInsights();
+  </script>
 
   <!-- Mews Booking Engine Init (overlay) -->
   <script is:inline>

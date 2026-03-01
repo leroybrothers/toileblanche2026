@@ -14,7 +14,7 @@ const suites = suitesData.suites;
 >
   <Nav theme="both" />
 
-  <main>
+  <main id="main-content">
 
     <!-- HERO -->
     <section class="suites-hero">
@@ -48,7 +48,7 @@ const suites = suitesData.suites;
               {suite.note && <p class="card-note">{suite.note}</p>}
               <div class="card-actions">
                 <a href={`/suites/${suite.slug}`} class="link-cta">Discover the suite →</a>
-                <a href="https://app.mews.com/distributor/150bd326-7c63-4a24-b668-abcf00c6bb22" class="btn-book">Reserve</a>
+                <a href="#" class="btn-book distributor-open">Reserve</a>
               </div>
             </div>
 
