@@ -245,27 +245,6 @@
     });
   }
 
-  // ─── Newsletter Form ───────────────────────────────────────────────────────
-  function initNewsletterForm() {
-    const form = document.getElementById('newsletter-form');
-    if (!form) return;
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const name = form.querySelector('[name="Full-Name"]').value;
-      const email = form.querySelector('[name="Email"]').value;
-
-      // Replace with your actual newsletter integration (Flodesk, Mailchimp, etc.)
-      console.log('Newsletter signup:', { name, email });
-
-      const done = form.parentElement.querySelector('.w-form-done');
-      if (done) {
-        form.style.display = 'none';
-        done.style.display = 'block';
-      }
-    });
-  }
-
   // ─── Init ──────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
     initLoader();
@@ -274,7 +253,6 @@
     initScrollNav();
     initSliders();
     initScrollAnimations();
-    initNewsletterForm();
   });
 
 })();

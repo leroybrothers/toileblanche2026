@@ -28,7 +28,7 @@ const entries = Object.values(archiveFiles)
     <!-- ENTRIES -->
     <section class="arc-feed">
       {entries.map((entry, i) => (
-        <a href={`/blog/${entry.slug}`} class="arc-entry">
+        <article class="arc-entry">
           <div class="arc-entry-image">
             <img src={entry.image} alt={entry.title} loading="lazy" />
           </div>
@@ -36,9 +36,8 @@ const entries = Object.values(archiveFiles)
             <span class="arc-entry-date">{entry.date}</span>
             <h2>{entry.title}</h2>
             <p>{entry.excerpt}</p>
-            <span class="arc-entry-link">Access the log &rarr;</span>
           </div>
-        </a>
+        </article>
       ))}
     </section>
 
@@ -47,7 +46,12 @@ const entries = Object.values(archiveFiles)
       <div class="arc-newsletter-inner">
         <h2>The Journal</h2>
         <p>Not too often. Just enough. The occasional note from Saint-Paul de Vence — new arrivals in the collection and the things worth knowing before you visit.</p>
-        <div class="arc-newsletter-placeholder">[ Newsletter embed ]</div>
+        <form id="newsletter-form" class="arc-nl-form">
+          <input name="email" type="email" placeholder="Email address" required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="tb-newsletter-msg tb-newsletter-success" aria-live="polite">Thank you. You are on the list.</p>
+        <p class="tb-newsletter-msg tb-newsletter-error" aria-live="polite">Something went wrong. Please try again.</p>
         <p class="arc-newsletter-note">Join 2,000 travellers who already know.</p>
       </div>
     </section>
@@ -55,6 +59,27 @@ const entries = Object.values(archiveFiles)
 
   <Footer />
 </Layout>
+
+<script is:inline>
+(function () {
+  var form = document.getElementById('newsletter-form');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var wrap = form.closest('.arc-newsletter-inner');
+    var btn = form.querySelector('button');
+    btn.textContent = '…';
+    btn.disabled = true;
+    fetch('/api/newsletter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: form.querySelector('[name="email"]').value })
+    })
+      .then(function (r) { if (!r.ok) throw new Error(); wrap.classList.add('is-success'); form.style.display = 'none'; })
+      .catch(function () { wrap.classList.add('is-error'); btn.textContent = 'Subscribe'; btn.disabled = false; });
+  });
+})();
+</script>
 
 <style>
   /* ─── HEADER ─── */
@@ -144,20 +169,6 @@ const entries = Object.values(archiveFiles)
     margin-bottom: 28px;
     max-width: 420px;
   }
-  .arc-entry-link {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #9e5c4a;
-    border-bottom: 1px solid #9e5c4a;
-    padding-bottom: 2px;
-    transition: opacity 0.2s;
-  }
-  .arc-entry:hover .arc-entry-link {
-    opacity: 0.7;
-  }
-
   /* ─── NEWSLETTER ─── */
   .arc-newsletter {
     border-bottom: 1px solid #E2D9CC;
@@ -183,14 +194,38 @@ const entries = Object.values(archiveFiles)
     color: #6B6256;
     margin-bottom: 40px;
   }
-  .arc-newsletter-placeholder {
-    border: 1px solid #E2D9CC;
-    padding: 24px;
+  .arc-nl-form {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .arc-nl-form input {
     font-family: 'Didact Gothic', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.2em;
+    font-size: 14px;
+    padding: 12px 16px;
+    border: 1px solid #E2D9CC;
+    background: transparent;
+    color: #1C1917;
+    min-width: 240px;
+  }
+  .arc-nl-form input::placeholder {
+    color: rgba(44, 42, 38, 0.5);
+  }
+  .arc-nl-form button {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #C4B9AA;
+    color: #FAF8F3;
+    background: #1C1917;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .arc-nl-form button:hover {
+    opacity: 0.7;
   }
   .arc-newsletter-note {
     font-family: 'Didact Gothic', sans-serif;
