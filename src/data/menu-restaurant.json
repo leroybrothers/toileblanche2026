@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "restaurant": "Le Restaurant de Toile Blanche",
+    "season": {
+      "fr": "Saison Hivernale 2025/26",
+      "en": "Winter Season 2025/26"
+    },
+    "chefs": ["Nicolas Leclair", "Melissa Giordano"],
+    "philosophy": {
+      "fr": "Cuisine bistronomique toute en finesse. Tous les plats sont faits maison et mettent en valeur des ingrédients locaux de qualité.",
+      "en": "Fine bistro cuisine. All dishes are homemade, featuring quality local ingredients."
+    }
+  },
+  "set_menu": {
+    "title": "Toile Blanche",
+    "price": 69,
+    "courses": [
+      {
+        "type": { "fr": "Entrée", "en": "Starter" },
+        "options": [
+          {
+            "fr": "Langoustines rôties puis saisies dans une nage de crustacés, avocat, citron combawa, céleri et poire nashi, Goma wakamé.",
+            "en": "Roasted langoustines seared in a shellfish broth, avocado, combawa lemon, celery and nashi pear, Goma wakame."
+          },
+          {
+            "fr": "Tortellinis maison de carotte d'hiver, potimarron, gomasio au romarin, écume végétale d'oignons doux des Cévennes.",
+            "en": "Homemade tortellini with winter carrots, pumpkin, rosemary gomasio, and a vegetable foam made from sweet onions from the Cévennes."
+          }
+        ]
+      },
+      {
+        "type": { "fr": "Plat", "en": "Main" },
+        "options": [
+          {
+            "fr": "Lieu jaune sauvage grillé, écume chaude de haddock, chips de riz aux algues nori, pomme de terre fondante, condiment au citron cédrat.",
+            "en": "Grilled wild pollock, warm haddock foam, nori seaweed rice crisps, creamy potatoes, cedrat lemon condiment."
+          },
+          {
+            "fr": "Volaille fermière grillée au barbecue, panais, cacahuètes, lard de Colonnata et jus de viande.",
+            "en": "Barbecued free-range poultry, parsnips, peanuts, Colonnata bacon and meat juices."
+          }
+        ]
+      },
+      {
+        "type": { "fr": "Dessert", "en": "Dessert" },
+        "options": [
+          {
+            "fr": "Chocolat Ocoa 70%, crumble aux amandes, crème glacée mascarpone, fleur de sel et réduction de balsamique.",
+            "en": "Ocoa 70% chocolate, crumble with almonds, mascarpone ice cream, fleur de sel, and balsamic reduction."
+          },
+          {
+            "fr": "Baba au Rhum, ananas rôti au poivre de Timut, crème végétale au lait de coco, condiment fruit de la passion.",
+            "en": "Rum Baba, roasted pineapple with Timut pepper, coconut milk cream, passion fruit condiment."
+          }
+        ]
+      }
+    ]
+  },
+  "a_la_carte": {
+    "starters": {
+      "title": { "fr": "Nos Entrées", "en": "Starters" },
+      "items": [
+        {
+          "fr": "Langoustines rôties puis saisies dans une nage de crustacés, avocat, citron combawa, céleri et poire nashi, Goma wakamé.",
+          "en": "Roasted langoustines seared in a shellfish broth, avocado, combawa lemon, celery and nashi pear, Goma wakame.",
+          "price": 26
+        },
+        {
+          "fr": "Pot-au-feu de foie gras et os à moelle, pousses de moutarde, navet boule d'or, rutabaga et chou kale.",
+          "en": "Pot-au-feu with foie gras and marrow bones, mustard shoots, golden turnips, rutabaga and kale.",
+          "price": 29
+        },
+        {
+          "fr": "Tortellinis maison de carotte d'hiver, potimarron, gomasio au romarin, écume végétale d'oignons doux des Cévennes.",
+          "en": "Homemade tortellini with winter carrots, pumpkin, rosemary gomasio, and a vegetable foam made from sweet onions from the Cévennes.",
+          "price": 22
+        },
+        {
+          "fr": "Les incontournables 'Petits Farcis Niçois'",
+          "en": "The must-have 'Petits Farcis Niçois'",
+          "price": 24
+        }
+      ]
+    },
+    "mains": {
+      "vegan": {
+        "title": { "fr": "Vegan", "en": "Vegan" },
+        "items": [
+          {
+            "fr": "Légumes de saison rôtis, déclinés en différentes textures, Pesto basilic et parmesan.",
+            "en": "Roasted seasonal vegetables in different textures, basil and parmesan pesto.",
+            "price": 24
+          }
+        ]
+      },
+      "sea": {
+        "title": { "fr": "La Mer", "en": "The Sea" },
+        "items": [
+          {
+            "fr": "Lieu jaune sauvage grillé, écume chaude de haddock, chips de riz aux algues nori, pomme de terre fondante, condiment au citron cédrat.",
+            "en": "Grilled wild pollock, warm haddock foam, nori seaweed rice crisps, creamy potatoes, cedrat lemon condiment.",
+            "price": 36
+          },
+          {
+            "fr": "Linguine de Gragnano, homard rôti au beurre de Salicorne, bisque de crustacés et citron confit.",
+            "en": "Gragnano linguine, lobster roasted with samphire butter, shellfish bisque and candied lemon.",
+            "price": 48
+          },
+          {
+            "fr": "Poisson du jour grillé, sauce vierge de saison, accompagnement au choix.",
+            "en": "Grilled fish of the day, seasonal virgin sauce, choice of side dishes.",
+            "price": 32
+          }
+        ]
+      },
+      "land": {
+        "title": { "fr": "La Terre", "en": "The Land" },
+        "items": [
+          {
+            "fr": "Volaille fermière grillée au barbecue, panais, cacahuètes, lard de Colonnata et jus de viande.",
+            "en": "Barbecued free-range poultry, parsnips, peanuts, Colonnata bacon and meat juices.",
+            "price": 32
+          },
+          {
+            "fr": "Filet de Boeuf Simmenthal, petite salade avec vinaigrette, frites maison au Parmesan et à l'huile de Truffe. Sauce poivre vert ou jus de veau.",
+            "en": "Simmenthal beef fillet, small salad with vinaigrette, homemade fries with Parmesan and truffle oil. Green pepper sauce or veal gravy.",
+            "price": 43
+          },
+          {
+            "fr": "Carré de Porcelet braisé au romarin, feuille à feuille de blettes et oignons blancs, pomme gaufrette, moutarde à l'ancienne.",
+            "en": "Braised rack of pork with rosemary, Swiss chard and white onions, waffle potatoes, with traditional wholegrain mustard.",
+            "price": 37
+          }
+        ]
+      }
+    },
+    "extras": {
+      "title": { "fr": "Les Extras", "en": "Extras" },
+      "items": [
+        { "fr": "Légumes de saison rôtis et Pesto", "en": "Roasted seasonal vegetables with pesto", "price": 8 },
+        { "fr": "Pâtes au beurre, Parmesan et poivre noir", "en": "Pasta with butter, Parmesan and black pepper", "price": 8 },
+        { "fr": "Broccolinis au BBQ, citron", "en": "BBQ broccolinis, lemon", "price": 8 },
+        { "fr": "Salade vinaigrette", "en": "Salad with dressing", "price": 8 },
+        { "fr": "Panisse aux herbes de Provence", "en": "Panisse with Provençal herbs", "price": 8 },
+        { "fr": "Frites maison à l'huile de truffe et au parmesan", "en": "Homemade fries with truffle oil and Parmesan", "price": 8 }
+      ]
+    },
+    "desserts": {
+      "title": { "fr": "Nos Desserts", "en": "Desserts" },
+      "items": [
+        {
+          "fr": "Sélection de fromages par la maison Mons (MOF)",
+          "en": "Selection of cheeses by Maison Mons (MOF)",
+          "price": 14
+        },
+        {
+          "fr": "Chocolat Ocoa 70% crumble aux amandes, crème glacée mascarpone, fleur de sel et réduction de balsamique.",
+          "en": "Ocoa 70% chocolate crumble with almonds, mascarpone ice cream, fleur de sel, and balsamic reduction.",
+          "price": 14
+        },
+        {
+          "fr": "Baba au Rhum, ananas rôti au poivre de Timut, crème végétale au lait de coco, condiment fruit de la passion.",
+          "en": "Rum Baba, roasted pineapple with Timut pepper, coconut milk cream, passion fruit condiment.",
+          "price": 14
+        },
+        {
+          "fr": "L'agrume dans tous ses états : cédrat confit, limoncello en fine gelée, orange sanguine, kalamansi et sorbet lemon curd.",
+          "en": "Citrus fruits in all their forms: candied citron, limoncello in fine jelly, blood orange, kalamansi and lemon curd sorbet.",
+          "price": 14
+        },
+        {
+          "fr": "Pain d'épices grillé, glace yaourt, pollen, lavande et miel de rayon.",
+          "en": "Toasted gingerbread, yogurt ice cream, pollen, lavender, and honeycomb honey.",
+          "price": 14
+        }
+      ]
+    }
+  },
+  "legal": {
+    "meat_origins": {
+      "fr": "Porc, volaille, veau, canard : France / Bœuf : Allemagne",
+      "en": "Pork, poultry, veal, duck: France / Beef: Germany"
+    },
+    "allergy_note": {
+      "fr": "En cas d'allergies ou d'intolérances, merci de nous en informer.",
+      "en": "If you have any allergies or intolerances, please let us know."
+    }
+  }
+}

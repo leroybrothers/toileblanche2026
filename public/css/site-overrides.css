@@ -742,6 +742,25 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   }
 }
 
+/* ─── Hero text color: white over images, dark on plain backgrounds ────────── */
+.rst-hero-content h1,
+.rst-hero-content p,
+.art-hero-content h1,
+.art-hero-content p,
+.lrs-hero-content h1,
+.lrs-hero-content p,
+.lgn-hero-content h1,
+.lgn-hero-content p,
+.sd-hero-content h1,
+.sd-hero-content p,
+.exp-hero-content h1,
+.exp-hero-content p,
+.exp-hero-title,
+.exp-hero-eyebrow,
+.exp-hero-sub {
+  color: #fff !important;
+}
+
 /* ─── Hero typography (staggered hierarchy) ────────────────────────────────── */
 .hero-headline {
   font-family: "Cormorant Garamond", Georgia, serif;

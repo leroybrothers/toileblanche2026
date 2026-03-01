@@ -2,6 +2,8 @@
 import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
+import menu from '../../../data/menu-restaurant.json';
+const lang = 'fr';
 ---
 
 <Layout
@@ -94,30 +96,80 @@ import Footer from '../../../components/Footer.astro';
     <!-- SEASONAL MENU -->
     <section class="lrs-menu">
       <div class="lrs-menu-inner">
-        <p class="lrs-menu-label">Saison en Cours</p>
-        <h2>Le Menu de Printemps</h2>
-        <p class="lrs-menu-intro">Nos menus changent au fil des saisons. Voici une sélection représentative — l'offre réelle d'un soir donné dépend du marché, du jardin et de l'inspiration du chef.</p>
-        <div class="lrs-menu-grid">
-          <div class="lrs-menu-col">
-            <h3>Pour Commencer</h3>
-            <p>Beignets de fleurs de courgette, pâte légère, citron</p>
-            <p>Burrata, tomates anciennes, huile de basilic, fleur de sel</p>
-            <p>Ceviche du jour, agrumes, herbes fraîches</p>
+        <p class="lrs-menu-label">{menu.meta.season[lang]}</p>
+        <h2>La Carte</h2>
+        <p class="lrs-menu-intro">{menu.meta.philosophy[lang]}</p>
+        <p class="lrs-menu-chefs">Chefs : {menu.meta.chefs.join(' & ')}</p>
+
+        <!-- SET MENU -->
+        <div class="lrs-menu-set">
+          <div class="lrs-menu-set-header">
+            <h3>Menu {menu.set_menu.title}</h3>
+            <span class="lrs-menu-set-price">{menu.set_menu.price}€</span>
           </div>
-          <div class="lrs-menu-col">
-            <h3>Plats</h3>
-            <p>Bar de ligne, fenouil, tapenade d'olives</p>
-            <p>Épaule d'agneau confite, légumes provençaux, jus</p>
-            <p>Risotto du moment, produits de saison</p>
+          {menu.set_menu.courses.map(course => (
+            <div class="lrs-menu-course">
+              <p class="lrs-menu-course-label">{course.type[lang]}</p>
+              {course.options.map(opt => (
+                <p class="lrs-menu-dish">{opt[lang]}</p>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <!-- À LA CARTE: ENTRÉES -->
+        <div class="lrs-menu-section">
+          <h3>{menu.a_la_carte.starters.title[lang]}</h3>
+          {menu.a_la_carte.starters.items.map(item => (
+            <div class="lrs-menu-item">
+              <p class="lrs-menu-dish">{item[lang]}</p>
+              <span class="lrs-menu-price">{item.price}€</span>
+            </div>
+          ))}
+        </div>
+
+        <!-- À LA CARTE: PLATS -->
+        {Object.values(menu.a_la_carte.mains).map(sub => (
+          <div class="lrs-menu-section">
+            <h3>{sub.title[lang]}</h3>
+            {sub.items.map(item => (
+              <div class="lrs-menu-item">
+                <p class="lrs-menu-dish">{item[lang]}</p>
+                <span class="lrs-menu-price">{item.price}€</span>
+              </div>
+            ))}
           </div>
-          <div class="lrs-menu-col">
-            <h3>Pour Finir</h3>
-            <p>Tarte au citron, meringue italienne</p>
-            <p>Fondant au chocolat, caramel au beurre salé, glace vanille</p>
-            <p>Sélection de fromages locaux, miel, noix</p>
+        ))}
+
+        <!-- EXTRAS -->
+        <div class="lrs-menu-section lrs-menu-extras">
+          <h3>{menu.a_la_carte.extras.title[lang]}</h3>
+          <div class="lrs-menu-extras-grid">
+            {menu.a_la_carte.extras.items.map(item => (
+              <div class="lrs-menu-item">
+                <p class="lrs-menu-dish">{item[lang]}</p>
+                <span class="lrs-menu-price">{item.price}€</span>
+              </div>
+            ))}
           </div>
         </div>
-        <p class="lrs-menu-note">Les menus sont indicatifs et sujets à des changements quotidiens. Merci de nous informer de toute exigence alimentaire lors de la réservation.</p>
+
+        <!-- DESSERTS -->
+        <div class="lrs-menu-section">
+          <h3>{menu.a_la_carte.desserts.title[lang]}</h3>
+          {menu.a_la_carte.desserts.items.map(item => (
+            <div class="lrs-menu-item">
+              <p class="lrs-menu-dish">{item[lang]}</p>
+              <span class="lrs-menu-price">{item.price}€</span>
+            </div>
+          ))}
+        </div>
+
+        <!-- LEGAL -->
+        <div class="lrs-menu-legal">
+          <p>{menu.legal.meat_origins[lang]}</p>
+          <p>{menu.legal.allergy_note[lang]}</p>
+        </div>
       </div>
     </section>
 
@@ -137,6 +189,96 @@ import Footer from '../../../components/Footer.astro';
 
   <Footer locale="fr" />
 </Layout>
+
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Le Restaurant — Toile Blanche",
+  "description": "Cuisine bistronomique toute en finesse. Tous les plats sont faits maison et mettent en valeur des ingrédients locaux de qualité. Menu d'hiver par les chefs Nicolas Leclair et Melissa Giordano.",
+  "image": "https://www.toileblanche.com/assets/images/page-img-14433f29c9500d.jpg",
+  "url": "https://www.toileblanche.com/fr/le-restaurant",
+  "telephone": "+33493327421",
+  "servesCuisine": ["Méditerranéenne", "Française", "Bistronomique"],
+  "priceRange": "€€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "826, chemin de la Pounchounière",
+    "addressLocality": "Saint-Paul de Vence",
+    "postalCode": "06570",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.6874494,
+    "longitude": 7.1285941
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "19:00",
+    "closes": "22:00"
+  },
+  "acceptsReservations": "True",
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "Menu d'Hiver 2025/26",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Menu Toile Blanche (69€)",
+        "hasMenuItem": [
+          {"@type": "MenuItem", "name": "Langoustines rôties dans une nage de crustacés", "description": "Avocat, citron combawa, céleri et poire nashi, Goma wakamé"},
+          {"@type": "MenuItem", "name": "Tortellinis maison de carotte d'hiver", "description": "Potimarron, gomasio au romarin, écume végétale d'oignons doux des Cévennes"},
+          {"@type": "MenuItem", "name": "Lieu jaune sauvage grillé", "description": "Écume chaude de haddock, chips de riz aux algues nori, pomme de terre fondante"},
+          {"@type": "MenuItem", "name": "Volaille fermière grillée au barbecue", "description": "Panais, cacahuètes, lard de Colonnata et jus de viande"},
+          {"@type": "MenuItem", "name": "Chocolat Ocoa 70%", "description": "Crumble aux amandes, crème glacée mascarpone, fleur de sel et réduction de balsamique"},
+          {"@type": "MenuItem", "name": "Baba au Rhum", "description": "Ananas rôti au poivre de Timut, crème végétale au lait de coco, condiment fruit de la passion"}
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Nos Entrées",
+        "hasMenuItem": [
+          {"@type": "MenuItem", "name": "Langoustines rôties", "offers": {"@type": "Offer", "price": "26", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Pot-au-feu de foie gras et os à moelle", "offers": {"@type": "Offer", "price": "29", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Tortellinis maison de carotte d'hiver", "offers": {"@type": "Offer", "price": "22", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Petits Farcis Niçois", "offers": {"@type": "Offer", "price": "24", "priceCurrency": "EUR"}}
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "La Mer",
+        "hasMenuItem": [
+          {"@type": "MenuItem", "name": "Lieu jaune sauvage grillé", "offers": {"@type": "Offer", "price": "36", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Linguine de Gragnano au homard", "offers": {"@type": "Offer", "price": "48", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Poisson du jour grillé", "offers": {"@type": "Offer", "price": "32", "priceCurrency": "EUR"}}
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "La Terre",
+        "hasMenuItem": [
+          {"@type": "MenuItem", "name": "Volaille fermière grillée au barbecue", "offers": {"@type": "Offer", "price": "32", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Filet de Boeuf Simmenthal", "offers": {"@type": "Offer", "price": "43", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Carré de Porcelet braisé au romarin", "offers": {"@type": "Offer", "price": "37", "priceCurrency": "EUR"}}
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Nos Desserts",
+        "hasMenuItem": [
+          {"@type": "MenuItem", "name": "Sélection de fromages par la maison Mons (MOF)", "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Chocolat Ocoa 70% crumble aux amandes", "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Baba au Rhum", "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "L'agrume dans tous ses états", "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Pain d'épices grillé, glace yaourt", "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR"}}
+        ]
+      }
+    ]
+  }
+}
+</script>
 
 <style>
   /* ─── HERO ─── */
@@ -335,7 +477,7 @@ import Footer from '../../../components/Footer.astro';
     border-bottom: 1px solid #E2D9CC;
   }
   .lrs-menu-inner {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 80px;
   }
@@ -352,50 +494,132 @@ import Footer from '../../../components/Footer.astro';
     font-size: clamp(28px, 3vw, 40px);
     font-weight: 400;
     color: #1C1917;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
   .lrs-menu-intro {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #6B6256;
-    margin-bottom: 48px;
-    max-width: 700px;
-  }
-  .lrs-menu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 40px;
-  }
-  .lrs-menu-col h3 {
     font-family: 'Gilda Display', serif;
     font-style: italic;
-    font-size: 20px;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.55;
+    color: #3D3530;
+    margin-bottom: 8px;
+    max-width: 700px;
+  }
+  .lrs-menu-chefs {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #9C9080;
+    margin-bottom: 56px;
+  }
+
+  /* Set menu */
+  .lrs-menu-set {
+    margin-bottom: 64px;
+    padding: 48px;
+    background: rgba(226, 217, 204, 0.12);
+  }
+  .lrs-menu-set-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .lrs-menu-set-header h3 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 400;
     color: #1C1917;
-    margin-bottom: 20px;
+  }
+  .lrs-menu-set-price {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 18px;
+    color: #9e5c4a;
+    letter-spacing: 0.05em;
+  }
+  .lrs-menu-course {
+    margin-bottom: 28px;
+  }
+  .lrs-menu-course:last-child {
+    margin-bottom: 0;
+  }
+  .lrs-menu-course-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 12px;
+  }
+
+  /* À la carte sections */
+  .lrs-menu-section {
+    margin-bottom: 48px;
+  }
+  .lrs-menu-section:last-of-type {
+    margin-bottom: 40px;
+  }
+  .lrs-menu-section h3 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1C1917;
+    margin-bottom: 24px;
     padding-bottom: 16px;
     border-bottom: 1px solid #E2D9CC;
   }
-  .lrs-menu-col p {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #3D3530;
-    margin-bottom: 16px;
+  .lrs-menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
     padding-bottom: 16px;
+    margin-bottom: 16px;
     border-bottom: 1px solid rgba(226, 217, 204, 0.3);
   }
-  .lrs-menu-col p:last-child {
+  .lrs-menu-item:last-child {
     border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
   }
-  .lrs-menu-note {
+  .lrs-menu-dish {
     font-family: 'Didact Gothic', sans-serif;
-    font-size: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #3D3530;
+    flex: 1;
+  }
+  .lrs-menu-price {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 15px;
     color: #9C9080;
-    font-style: italic;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Extras grid */
+  .lrs-menu-extras-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+  }
+
+  /* Legal */
+  .lrs-menu-legal {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #E2D9CC;
+  }
+  .lrs-menu-legal p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    color: #9C9080;
+    line-height: 1.6;
+    margin-bottom: 4px;
   }
 
   /* ─── QUOTE ─── */
@@ -470,9 +694,11 @@ import Footer from '../../../components/Footer.astro';
     .lrs-menu-inner {
       padding: 48px 24px;
     }
-    .lrs-menu-grid {
+    .lrs-menu-set {
+      padding: 32px 24px;
+    }
+    .lrs-menu-extras-grid {
       grid-template-columns: 1fr;
-      gap: 32px;
     }
     .lrs-quote-inner {
       padding: 64px 24px;

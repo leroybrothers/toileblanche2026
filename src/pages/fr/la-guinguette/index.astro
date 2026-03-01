@@ -2,6 +2,8 @@
 import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
+import menu from '../../../data/menu-guinguette.json';
+const lang = 'fr';
 ---
 
 <Layout
@@ -104,34 +106,26 @@ import Footer from '../../../components/Footer.astro';
       </div>
     </section>
 
-    <!-- SEASONAL MENU -->
+    <!-- LA CARTE -->
     <section class="lgn-menu">
       <div class="lgn-menu-inner">
-        <p class="lgn-menu-label">Saison en Cours</p>
-        <h2>La Table d'Été</h2>
-        <p class="lgn-menu-intro">Le menu évolue chaque semaine. Voici le genre de plats que vous trouverez. Commandez-en quelques-uns pour démarrer, puis continuez.</p>
-        <div class="lgn-menu-grid">
-          <div class="lgn-menu-col">
-            <h3>À Partager</h3>
-            <p>Houmous, pain plat, za'atar, huile d'olive</p>
-            <p>Burrata, pêche, basilic, balsamique vieilli</p>
-            <p>Planche de charcuterie — salaisons locales, cornichons, moutarde</p>
-            <p>Poulpe grillé, chimichurri, citron</p>
+        <p class="lgn-menu-label">{menu.meta.season[lang]}</p>
+        <h2>La Carte</h2>
+        <p class="lgn-menu-intro">{menu.meta.philosophy[lang]}</p>
+
+        {menu.sections.map(section => (
+          <div class="lgn-menu-section">
+            <h3>{section.title[lang]}</h3>
+            {section.items.map(item => (
+              <div class="lgn-menu-item">
+                <p class="lgn-menu-dish">{item[lang]}</p>
+                <span class="lgn-menu-price">{item.price}€</span>
+              </div>
+            ))}
           </div>
-          <div class="lgn-menu-col">
-            <h3>Du Grill</h3>
-            <p>Daurade entière, herbes, beurre à l'ail</p>
-            <p>Côtelettes d'agneau, romarin, poivrons rôtis</p>
-            <p>Légumes grillés, sauce romesco</p>
-          </div>
-          <div class="lgn-menu-col">
-            <h3>Pour Finir</h3>
-            <p>Salade de fruits, menthe fraîche, sorbet</p>
-            <p>Tarte tropézienne</p>
-            <p>Espresso, digestif</p>
-          </div>
-        </div>
-        <p class="lgn-menu-note">Le menu change chaque semaine selon les arrivages du marché. Les régimes alimentaires particuliers sont pris en charge avec plaisir — merci de nous en informer à la réservation.</p>
+        ))}
+
+        <p class="lgn-menu-note">{menu.footer_note[lang]}</p>
       </div>
     </section>
 
@@ -151,6 +145,69 @@ import Footer from '../../../components/Footer.astro';
 
   <Footer locale="fr" />
 </Layout>
+
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "La Guinguette — Toile Blanche",
+  "description": "La Méditerranée s'invite à votre table. Plats à partager sous les platanes, au bord de la piscine à Saint-Paul de Vence. Ouvert de mai à octobre.",
+  "image": "https://www.toileblanche.com/assets/images/page-img-7f72d09199a7a2.jpg",
+  "url": "https://www.toileblanche.com/fr/la-guinguette",
+  "telephone": "+33493327421",
+  "servesCuisine": ["Méditerranéenne", "Provençale", "Plats à partager"],
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "826, chemin de la Pounchounière",
+    "addressLocality": "Saint-Paul de Vence",
+    "postalCode": "06570",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.6874494,
+    "longitude": 7.1285941
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "12:00",
+    "closes": "18:00"
+  },
+  "acceptsReservations": "True",
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "Menu Hiver 2025/26",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Salé",
+        "hasMenuItem": [
+          {"@type": "MenuItem", "name": "Sardines à l'huile d'olive Maison Ferrigno", "offers": {"@type": "Offer", "price": "13", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Jambon à la truffe d'été Maison Bobosse", "offers": {"@type": "Offer", "price": "17", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Tentacule de poulpe à la plancha, butternut, olives taggiasche, tahini", "offers": {"@type": "Offer", "price": "22", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Picanha de bœuf grillé, chimichurri", "offers": {"@type": "Offer", "price": "24", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Côte de veau braisée au romarin (600/700g)", "offers": {"@type": "Offer", "price": "56", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Pêche du Jour fumée au bois de genévrier", "offers": {"@type": "Offer", "price": "21", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Chou farci façon Lu Capoun", "offers": {"@type": "Offer", "price": "19", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Escargots du Var à la bourguignonne", "offers": {"@type": "Offer", "price": "19", "priceCurrency": "EUR"}}
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Sucré",
+        "hasMenuItem": [
+          {"@type": "MenuItem", "name": "Chocolat Ocoa 70%, crumble cacao, fleur de sel", "offers": {"@type": "Offer", "price": "9", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Cheesecake maison, ananas, noix de coco, citron vert", "offers": {"@type": "Offer", "price": "9", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Sélection de fromages Maison Mons (MOF)", "offers": {"@type": "Offer", "price": "16", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Café affogato, noisettes", "offers": {"@type": "Offer", "price": "9", "priceCurrency": "EUR"}}
+        ]
+      }
+    ]
+  }
+}
+</script>
 
 <style>
   /* ─── HERO ─── */
@@ -344,12 +401,12 @@ import Footer from '../../../components/Footer.astro';
     display: block;
   }
 
-  /* ─── SEASONAL MENU ─── */
+  /* ─── THE MENU ─── */
   .lgn-menu {
     border-bottom: 1px solid #E2D9CC;
   }
   .lgn-menu-inner {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 80px;
   }
@@ -366,50 +423,69 @@ import Footer from '../../../components/Footer.astro';
     font-size: clamp(28px, 3vw, 40px);
     font-weight: 400;
     color: #1C1917;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
   .lgn-menu-intro {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #6B6256;
-    margin-bottom: 48px;
-    max-width: 700px;
-  }
-  .lgn-menu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 40px;
-  }
-  .lgn-menu-col h3 {
     font-family: 'Gilda Display', serif;
     font-style: italic;
-    font-size: 20px;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.55;
+    color: #3D3530;
+    margin-bottom: 56px;
+    max-width: 700px;
+  }
+  .lgn-menu-section {
+    margin-bottom: 48px;
+  }
+  .lgn-menu-section:last-of-type {
+    margin-bottom: 40px;
+  }
+  .lgn-menu-section h3 {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 400;
     color: #1C1917;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     padding-bottom: 16px;
     border-bottom: 1px solid #E2D9CC;
   }
-  .lgn-menu-col p {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #3D3530;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
+  .lgn-menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
     border-bottom: 1px solid rgba(226, 217, 204, 0.3);
   }
-  .lgn-menu-col p:last-child {
+  .lgn-menu-item:last-child {
     border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
   }
+  .lgn-menu-dish {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #3D3530;
+    flex: 1;
+  }
+  .lgn-menu-price {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 15px;
+    color: #9C9080;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
   .lgn-menu-note {
     font-family: 'Didact Gothic', sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     color: #9C9080;
-    font-style: italic;
+    line-height: 1.6;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #E2D9CC;
   }
 
   /* ─── QUOTE ─── */
@@ -483,10 +559,6 @@ import Footer from '../../../components/Footer.astro';
     }
     .lgn-menu-inner {
       padding: 48px 24px;
-    }
-    .lgn-menu-grid {
-      grid-template-columns: 1fr;
-      gap: 32px;
     }
     .lgn-quote-inner {
       padding: 64px 24px;
