@@ -717,9 +717,10 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 }
 
 .tb-affil-slh img {
-  height: 48px !important;
-  width: auto !important;
-  max-width: 200px !important;
+  height: 80px !important;
+  width: 78px !important;
+  object-fit: contain !important;
+  object-position: right center !important;
   display: block !important;
 }
 
@@ -736,8 +737,8 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   }
 
   .tb-affil-slh img {
-    height: 36px !important;
-    max-width: 160px !important;
+    height: 64px !important;
+    width: 62px !important;
   }
 }
 
