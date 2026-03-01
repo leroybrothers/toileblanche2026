@@ -670,6 +670,7 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   gap: 0.6rem;
   opacity: 0.85;
   transition: opacity 0.6s ease;
+  max-width: 120px;
 }
 
 .tb-affil-michelin:hover {
@@ -677,10 +678,10 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 }
 
 .tb-affil-michelin img {
-  height: 64px !important;
-  width: auto !important;
-  max-width: 160px !important;
-  display: block;
+  height: auto !important;
+  width: 100% !important;
+  max-width: 120px !important;
+  display: block !important;
 }
 
 .tb-affil-label {
@@ -699,6 +700,8 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   gap: 0.5rem;
   opacity: 0.55;
   transition: opacity 0.6s ease;
+  max-width: 160px;
+  margin-left: auto;
 }
 
 .tb-affil-slh:hover {
@@ -715,10 +718,10 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 }
 
 .tb-affil-slh img {
-  height: 40px !important;
-  width: auto !important;
-  max-width: 180px !important;
-  display: block;
+  height: auto !important;
+  width: 100% !important;
+  max-width: 140px !important;
+  display: block !important;
 }
 
 @media (max-width: 767px) {
@@ -728,14 +731,20 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
     padding-top: 2rem;
   }
 
+  .tb-affil-michelin {
+    max-width: 90px;
+  }
+
   .tb-affil-michelin img {
-    height: 52px !important;
-    max-width: 130px !important;
+    max-width: 90px !important;
+  }
+
+  .tb-affil-slh {
+    max-width: 120px;
   }
 
   .tb-affil-slh img {
-    height: 32px !important;
-    max-width: 140px !important;
+    max-width: 120px !important;
   }
 }
 
