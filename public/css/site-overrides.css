@@ -633,26 +633,26 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  opacity: 0.55;
+  opacity: 0.7;
   transition: opacity 0.6s ease;
 }
 
 .tb-affil-michelin:hover {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .tb-affil-michelin img {
-  width: 36px;
-  height: auto;
+  height: 56px;
+  width: auto;
   display: block;
   filter: grayscale(100%) brightness(0.2);
 }
 
 .tb-affil-label {
   font-family: 'Didact Gothic', sans-serif;
-  font-size: 8px;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.18em;
   color: #2c2a26;
   line-height: 1;
 }
@@ -662,17 +662,17 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   flex-direction: column;
   align-items: flex-end;
   gap: 0.4rem;
-  opacity: 0.3;
+  opacity: 0.4;
   transition: opacity 0.6s ease;
 }
 
 .tb-affil-slh:hover {
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .tb-affil-caption {
   font-family: 'Didact Gothic', sans-serif;
-  font-size: 8px;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: #2c2a26;
@@ -680,7 +680,7 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 }
 
 .tb-affil-slh img {
-  height: 16px;
+  height: 28px;
   width: auto;
   display: block;
   filter: grayscale(100%) brightness(0);
@@ -694,11 +694,11 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   }
 
   .tb-affil-michelin img {
-    width: 30px;
+    height: 44px;
   }
 
   .tb-affil-slh img {
-    height: 13px;
+    height: 22px;
   }
 }
 
