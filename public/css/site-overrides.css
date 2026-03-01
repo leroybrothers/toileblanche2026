@@ -677,8 +677,9 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 }
 
 .tb-affil-michelin img {
-  height: 64px;
-  width: auto;
+  height: 64px !important;
+  width: auto !important;
+  max-width: 160px !important;
   display: block;
 }
 
@@ -714,8 +715,9 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 }
 
 .tb-affil-slh img {
-  height: 40px;
-  width: auto;
+  height: 40px !important;
+  width: auto !important;
+  max-width: 180px !important;
   display: block;
 }
 
@@ -727,11 +729,13 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
   }
 
   .tb-affil-michelin img {
-    height: 52px;
+    height: 52px !important;
+    max-width: 130px !important;
   }
 
   .tb-affil-slh img {
-    height: 32px;
+    height: 32px !important;
+    max-width: 140px !important;
   }
 }
 

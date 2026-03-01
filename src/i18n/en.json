@@ -30,7 +30,7 @@
   "common": {
     "discoverSuite": "Discover the suite",
     "reserve": "Reserve",
-    "exploreSubites": "Explore the Suites",
+    "exploreSuites": "Explore the Suites",
     "reserveTable": "Reserve a Table",
     "viewAll": "View all",
     "readMore": "Read more",
