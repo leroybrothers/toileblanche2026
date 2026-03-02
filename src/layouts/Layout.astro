@@ -8,6 +8,7 @@ export interface Props {
   ogImage?: string;
   canonicalURL?: string;
   locale?: Locale;
+  hideBookingBar?: boolean;
 }
 
 const currentPath = Astro.url.pathname;
@@ -18,6 +19,7 @@ const {
   description = "Twenty-two suites, two restaurants, and a contemporary art collection in Saint-Paul de Vence. A declared artwork on the Côte d'Azur by the Leroy Brothers.",
   ogImage = "https://www.toileblanche.com/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg",
   canonicalURL = Astro.url.href,
+  hideBookingBar = false,
 } = Astro.props;
 
 const GTM_ID = "GTM-52R8BBP";
@@ -219,7 +221,7 @@ const alternates = getAlternateUrls(currentPath);
 
   <slot />
 
-  <BookingBar locale={locale} />
+  {!hideBookingBar && <BookingBar locale={locale} />}
 
   <!-- Site JS -->
   <script src="/js/site.js" defer></script>

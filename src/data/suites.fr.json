@@ -29,13 +29,15 @@
       },
       "extras": [],
       "images": {
-        "hero": "/assets/images/page-img-fc5920b651f35b.jpg",
-        "card": "/assets/images/page-img-eb795e7700a147.jpg",
+        "hero": "/assets/images/penard/hero.jpg",
+        "card": "/assets/images/penard/card.jpg",
         "cardAlt": "Suite Pénard à Toile Blanche",
         "gallery": [
-          "/assets/images/page-img-eb795e7700a147.jpg",
-          "/assets/images/page-img-0d4fab6cd496a8.jpg",
-          "/assets/images/page-img-0bd0acfefc8c5b.jpg"
+          "/assets/images/penard/gallery-1.jpg",
+          "/assets/images/penard/gallery-2.jpg",
+          "/assets/images/penard/gallery-3.jpg",
+          "/assets/images/penard/gallery-4.jpg",
+          "/assets/images/penard/gallery-5.jpg"
         ]
       },
       "hasPool": false,
@@ -58,13 +60,15 @@
       },
       "extras": [],
       "images": {
-        "hero": "/assets/images/page-img-13bfe0acd738c0.jpg",
-        "card": "/assets/images/page-img-833a78c568fe35.jpg",
+        "hero": "/assets/images/petanque/hero.jpg",
+        "card": "/assets/images/petanque/card.jpg",
         "cardAlt": "Suite Pétanque à Toile Blanche",
         "gallery": [
-          "/assets/images/page-img-833a78c568fe35.jpg",
-          "/assets/images/page-img-8c03274d5f9fd2.jpg",
-          "/assets/images/page-img-e203e7177a0fba.jpg"
+          "/assets/images/petanque/gallery-1.jpg",
+          "/assets/images/petanque/gallery-2.jpg",
+          "/assets/images/petanque/gallery-3.jpg",
+          "/assets/images/petanque/gallery-4.jpg",
+          "/assets/images/petanque/gallery-5.jpg"
         ]
       },
       "hasPool": false,
@@ -87,13 +91,15 @@
       },
       "extras": ["Baignoire", "Lit supplémentaire disponible (+80€/nuit)"],
       "images": {
-        "hero": "/assets/images/page-img-cc59a0bcdda081.jpg",
-        "card": "/assets/images/page-img-8626fb58027da5.jpg",
+        "hero": "/assets/images/bronzette/hero.jpg",
+        "card": "/assets/images/bronzette/card.jpg",
         "cardAlt": "Suite de la Bronzette à Toile Blanche",
         "gallery": [
-          "/assets/images/page-img-8626fb58027da5.jpg",
-          "/assets/images/page-img-431877e28efcaf.jpg",
-          "/assets/images/page-img-17e8d97a8dfff6.jpg"
+          "/assets/images/bronzette/gallery-1.jpg",
+          "/assets/images/bronzette/gallery-2.jpg",
+          "/assets/images/bronzette/gallery-3.jpg",
+          "/assets/images/bronzette/gallery-4.jpg",
+          "/assets/images/bronzette/gallery-5.jpg"
         ]
       },
       "hasPool": false,
@@ -116,13 +122,15 @@
       },
       "extras": ["Baignoire", "Douche extérieure"],
       "images": {
-        "hero": "/assets/images/page-img-22b8daa3a98de1.jpg",
-        "card": "/assets/images/page-img-826f21859fa23e.jpg",
+        "hero": "/assets/images/cabanat/hero.jpg",
+        "card": "/assets/images/cabanat/card.jpg",
         "cardAlt": "Suite Cabanat à Toile Blanche",
         "gallery": [
-          "/assets/images/page-img-826f21859fa23e.jpg",
-          "/assets/images/page-img-eecc3519b1d474.jpg",
-          "/assets/images/page-img-be2c0c3fe3d438.jpg"
+          "/assets/images/cabanat/gallery-1.jpg",
+          "/assets/images/cabanat/gallery-2.jpg",
+          "/assets/images/cabanat/gallery-3.jpg",
+          "/assets/images/cabanat/gallery-4.jpg",
+          "/assets/images/cabanat/gallery-5.jpg"
         ]
       },
       "hasPool": false,
@@ -145,13 +153,15 @@
       },
       "extras": ["Baignoire"],
       "images": {
-        "hero": "/assets/images/page-img-6fb08ef94b7be5.jpg",
-        "card": "/assets/images/page-img-e1708f1e9761a9.jpg",
+        "hero": "/assets/images/suite-artiste/hero.jpg",
+        "card": "/assets/images/suite-artiste/card.jpg",
         "cardAlt": "Suite de l'Artiste à Toile Blanche",
         "gallery": [
-          "/assets/images/page-img-e1708f1e9761a9.jpg",
-          "/assets/images/page-img-cd43fba77f9e67.jpg",
-          "/assets/images/page-img-e025d0155b7425.jpg"
+          "/assets/images/suite-artiste/gallery-1.jpg",
+          "/assets/images/suite-artiste/gallery-2.jpg",
+          "/assets/images/suite-artiste/gallery-3.jpg",
+          "/assets/images/suite-artiste/gallery-4.jpg",
+          "/assets/images/suite-artiste/gallery-5.jpg"
         ]
       },
       "hasPool": false,
@@ -174,13 +184,15 @@
       },
       "extras": ["Baignoire", "Lit supplémentaire disponible (+80€/nuit)"],
       "images": {
-        "hero": "/assets/images/page-img-46f7b755735790.jpg",
-        "card": "/assets/images/page-img-6106adc613aeb2.jpg",
+        "hero": "/assets/images/mas-de-l-artiste/hero.jpg",
+        "card": "/assets/images/mas-de-l-artiste/card.jpg",
         "cardAlt": "Mas de l'Artiste à Toile Blanche",
         "gallery": [
-          "/assets/images/page-img-6106adc613aeb2.jpg",
-          "/assets/images/page-img-d9499fe50d6ed6.jpg",
-          "/assets/images/page-img-71d4e99222d050.jpg"
+          "/assets/images/mas-de-l-artiste/gallery-1.jpg",
+          "/assets/images/mas-de-l-artiste/gallery-2.jpg",
+          "/assets/images/mas-de-l-artiste/gallery-3.jpg",
+          "/assets/images/mas-de-l-artiste/gallery-4.jpg",
+          "/assets/images/mas-de-l-artiste/gallery-5.jpg"
         ]
       },
       "hasPool": false,
@@ -203,13 +215,15 @@
       },
       "extras": ["Piscine privée", "Baignoire", "Lit supplémentaire disponible (+80€/nuit)"],
       "images": {
-        "hero": "/assets/images/page-img-59c7e07d15bf91.jpg",
-        "card": "/assets/images/page-img-707417a43d47ee.jpg",
+        "hero": "/assets/images/bon-vivant/hero.jpg",
+        "card": "/assets/images/bon-vivant/card.jpg",
         "cardAlt": "Suite du Bon-Vivant à Toile Blanche",
         "gallery": [
-          "/assets/images/page-img-707417a43d47ee.jpg",
-          "/assets/images/page-img-1c7ae91a066a89.jpg",
-          "/assets/images/page-img-6318088b5c037e.jpg"
+          "/assets/images/bon-vivant/gallery-1.jpg",
+          "/assets/images/bon-vivant/gallery-2.jpg",
+          "/assets/images/bon-vivant/gallery-3.jpg",
+          "/assets/images/bon-vivant/gallery-4.jpg",
+          "/assets/images/bon-vivant/gallery-5.jpg"
         ]
       },
       "hasPool": true,
@@ -232,13 +246,15 @@
       },
       "extras": ["Piscine privée", "Duplex", "Baignoire", "Lit supplémentaire disponible"],
       "images": {
-        "hero": "/assets/images/page-img-8da5a0df461d5d.jpg",
-        "card": "/assets/images/page-img-5f8a45f5b552ed.jpg",
+        "hero": "/assets/images/penequet/hero.jpg",
+        "card": "/assets/images/penequet/card.jpg",
         "cardAlt": "Villa du Pénéquet à Toile Blanche",
         "gallery": [
-          "/assets/images/page-img-5f8a45f5b552ed.jpg",
-          "/assets/images/page-img-9502e1df731900.jpg",
-          "/assets/images/page-img-2288c37159b2c6.jpg"
+          "/assets/images/penequet/gallery-1.jpg",
+          "/assets/images/penequet/gallery-2.jpg",
+          "/assets/images/penequet/gallery-3.jpg",
+          "/assets/images/penequet/gallery-4.jpg",
+          "/assets/images/penequet/gallery-5.jpg"
         ]
       },
       "hasPool": true,

@@ -4,9 +4,16 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import suitesData from '../../data/suites.fr.json';
 
+function srcset(path: string, widths: number[]) {
+  const ext = path.substring(path.lastIndexOf('.'));
+  const base = path.substring(0, path.lastIndexOf('.'));
+  return widths.map(w => `${base}-${w}w${ext} ${w}w`).join(', ') + `, ${path} ${widths[widths.length - 1] * 2}w`;
+}
+
 const suites = suitesData.suites.map(s => ({
   href: `/fr/suites/${s.slug}`,
   image: s.images.card,
+  srcset: srcset(s.images.card, [400]),
   alt: s.images.cardAlt,
   title: s.name,
   description: s.tagline,
@@ -84,7 +91,7 @@ const suites = suitesData.suites.map(s => ({
               <a href={suite.href} class="room-slide-wrapper w-inline-block">
                 <div class="room-slide-image-wrapper">
                   <div class="room-slide-image-container">
-                    <img loading="lazy" alt={suite.alt} src={suite.image} class="room-slide-image" />
+                    <img loading="lazy" alt={suite.alt} src={suite.image} srcset={suite.srcset} sizes="(max-width: 900px) 80vw, 33vw" class="room-slide-image" />
                   </div>
                 </div>
                 <div class="room-slide-content-wrapper">

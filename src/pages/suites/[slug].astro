@@ -19,6 +19,15 @@ export function getStaticPaths() {
 
 const { suite, allSuites, amenities } = Astro.props;
 const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
+
+function srcset(path: string, widths: number[]) {
+  const ext = path.substring(path.lastIndexOf('.'));
+  const base = path.substring(0, path.lastIndexOf('.'));
+  return widths.map(w => `${base}-${w}w${ext} ${w}w`).join(', ') + `, ${path} ${widths[widths.length - 1] * 2}w`;
+}
+const heroSrcset = (p: string) => srcset(p, [800, 1200]);
+const gallerySrcset = (p: string) => srcset(p, [600, 1200]);
+const cardSrcset = (p: string) => srcset(p, [400]);
 ---
 
 <Layout
@@ -32,7 +41,7 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
     <!-- HERO -->
     <section class="sd-hero">
       <div class="sd-hero-image">
-        <img src={suite.images.hero} alt={suite.name} loading="eager" />
+        <img src={suite.images.hero} srcset={heroSrcset(suite.images.hero)} sizes="100vw" alt={suite.name} loading="eager" fetchpriority="high" />
         <div class="sd-hero-overlay"></div>
       </div>
       <div class="sd-hero-content">
@@ -80,7 +89,7 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
     <section class="sd-gallery">
       {suite.images.gallery.map((img, i) => (
         <div class={`sd-gallery-item sd-gallery-item-${i + 1}`}>
-          <img src={img} alt={`${suite.name} — view ${i + 1}`} loading="lazy" />
+          <img src={img} srcset={gallerySrcset(img)} sizes="(max-width: 900px) 100vw, 50vw" alt={`${suite.name} — view ${i + 1}`} loading="lazy" />
         </div>
       ))}
     </section>
@@ -117,7 +126,7 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
         {otherSuites.map(s => (
           <a href={`/suites/${s.slug}`} class="sd-explore-card">
             <div class="sd-explore-img">
-              <img src={s.images.gallery[0]} alt={s.name} loading="lazy" />
+              <img src={s.images.card} srcset={cardSrcset(s.images.card)} sizes="(max-width: 900px) 50vw, 25vw" alt={s.name} loading="lazy" />
             </div>
             <p class="sd-explore-name">{s.name}</p>
           </a>
@@ -313,7 +322,7 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
   .sd-gallery {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
   }
   .sd-gallery-item {
     overflow: hidden;
@@ -341,6 +350,16 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
   .sd-gallery-item-3 {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    aspect-ratio: 4/3;
+  }
+  .sd-gallery-item-4 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    aspect-ratio: 4/3;
+  }
+  .sd-gallery-item-5 {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
     aspect-ratio: 4/3;
   }
 
@@ -487,7 +506,9 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
       aspect-ratio: 4/3;
     }
     .sd-gallery-item-2,
-    .sd-gallery-item-3 {
+    .sd-gallery-item-3,
+    .sd-gallery-item-4,
+    .sd-gallery-item-5 {
       grid-column: 1;
       grid-row: auto;
     }
