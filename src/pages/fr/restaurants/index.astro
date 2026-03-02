@@ -64,15 +64,28 @@ import Footer from '../../../components/Footer.astro';
       </div>
     </section>
 
+    <!-- PETIT-DÉJEUNER -->
+    <section class="rst-breakfast">
+      <div class="rst-breakfast-inner">
+        <div class="rst-breakfast-image">
+          <img src="/assets/images/page-img-881f5ac258ef50.avif" alt="Le Petit-Déjeuner à Toile Blanche" loading="lazy" />
+        </div>
+        <div class="rst-breakfast-content">
+          <p class="rst-breakfast-eyebrow">Chaque Matin</p>
+          <h2>Le Petit-Déjeuner</h2>
+          <p class="rst-breakfast-tagline">Le café, les croissants, et le bruit du jardin qui se réveille. L'un des souvenirs les plus chers de nos hôtes.</p>
+          <p class="rst-breakfast-desc">Pain frais d'un boulanger local. Fruits de saison. Œufs préparés à votre goût. Miel local, confitures et fromages. Jus d'orange pressé le matin même. Servi dans la salle du petit-déjeuner, en terrasse ou livré dans votre suite.</p>
+          <p class="rst-breakfast-hours">Servi tous les jours, 8h00 – 10h30</p>
+          <a href="/fr/breakfast" class="rst-venue-link">En savoir plus &rarr;</a>
+        </div>
+      </div>
+    </section>
+
     <section class="rst-philosophy">
       <div class="rst-philosophy-inner">
         <h2>La carte des vins est une lettre d'amour à la région. Les tomates sont arrivées ce matin.</h2>
         <p>Nos menus sont construits autour du rythme des saisons. Nous travaillons avec des producteurs locaux qui partagent notre obsession pour l'intégrité des produits. Séjourner à Toile Blanche, c'est entrer en conversation avec le paysage — d'abord par l'art, puis par la table.</p>
       </div>
-    </section>
-
-    <section class="rst-full-bleed">
-      <img src="/assets/images/page-img-881f5ac258ef50.avif" alt="Le Petit-Déjeuner à Toile Blanche" loading="lazy" />
     </section>
 
     <section class="rst-cta">
@@ -90,8 +103,8 @@ import Footer from '../../../components/Footer.astro';
   .rst-hero-image img { width: 100%; height: 100%; object-fit: cover; }
   .rst-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%); }
   .rst-hero-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 0 80px 72px; color: #fff; }
-  .rst-hero-eyebrow { font-family: 'Didact Gothic', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.8; margin-bottom: 16px; }
-  .rst-hero-content h1 { font-family: 'Gilda Display', serif; font-size: clamp(36px, 5vw, 72px); font-weight: 400; line-height: 1.1; }
+  .rst-hero-eyebrow { font-family: 'Didact Gothic', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.8; margin-bottom: 16px; color: #fff; }
+  .rst-hero-content h1 { font-family: 'Gilda Display', serif; font-size: clamp(36px, 5vw, 72px); font-weight: 400; line-height: 1.1; color: #fff; }
   .rst-tagline { border-bottom: 1px solid #E2D9CC; }
   .rst-tagline-inner { max-width: 800px; margin: 0 auto; padding: 64px 80px; text-align: center; }
   .rst-tagline-inner p { font-family: 'Gilda Display', serif; font-style: italic; font-size: clamp(20px, 2.5vw, 28px); line-height: 1.55; color: #3D3530; }
@@ -109,11 +122,20 @@ import Footer from '../../../components/Footer.astro';
   .rst-venue-btn:hover { opacity: 0.85; }
   .rst-venue-link { font-family: 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: #9C9080; transition: color 0.2s; }
   .rst-venue-link:hover { color: #3D3530; }
+  .rst-breakfast { border-bottom: 1px solid #E2D9CC; }
+  .rst-breakfast-inner { max-width: 1200px; margin: 0 auto; padding: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .rst-breakfast-image { overflow: hidden; }
+  .rst-breakfast-image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform 0.8s ease; }
+  .rst-breakfast:hover .rst-breakfast-image img { transform: scale(1.02); }
+  .rst-breakfast-eyebrow { font-family: 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #9C9080; margin-bottom: 16px; }
+  .rst-breakfast-content h2 { font-family: 'Gilda Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 400; color: #1C1917; margin-bottom: 16px; }
+  .rst-breakfast-tagline { font-family: 'Gilda Display', serif; font-style: italic; font-size: 18px; line-height: 1.55; color: #9e5c4a; margin-bottom: 20px; }
+  .rst-breakfast-desc { font-family: 'Didact Gothic', sans-serif; font-size: 15px; line-height: 1.8; color: #6B6256; margin-bottom: 24px; }
+  .rst-breakfast-hours { font-family: 'Didact Gothic', sans-serif; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #9C9080; margin-bottom: 20px; }
   .rst-philosophy { border-bottom: 1px solid #E2D9CC; }
   .rst-philosophy-inner { max-width: 900px; margin: 0 auto; padding: 96px 80px; text-align: center; }
   .rst-philosophy-inner h2 { font-family: 'Gilda Display', serif; font-style: italic; font-size: clamp(24px, 3.5vw, 44px); font-weight: 400; line-height: 1.3; color: #1C1917; margin-bottom: 32px; }
   .rst-philosophy-inner p { font-family: 'Didact Gothic', sans-serif; font-size: 16px; line-height: 1.8; color: #6B6256; max-width: 640px; margin: 0 auto; }
-  .rst-full-bleed img { width: 100%; height: 55vh; object-fit: cover; display: block; }
   .rst-cta { padding: 80px; text-align: center; border-bottom: 1px solid #E2D9CC; }
   .rst-cta p { font-family: 'Gilda Display', serif; font-style: italic; font-size: clamp(20px, 2.5vw, 28px); color: #3D3530; margin-bottom: 32px; }
   .rst-cta-btn { display: inline-block; font-family: 'Didact Gothic', sans-serif; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: #FAF8F3; background: #9e5c4a; padding: 16px 36px; transition: opacity 0.2s; }
@@ -123,6 +145,7 @@ import Footer from '../../../components/Footer.astro';
     .rst-tagline-inner { padding: 48px 24px; }
     .rst-venues-inner { grid-template-columns: 1fr; padding: 48px 24px; gap: 48px; }
     .rst-venue-offset { padding-top: 0; }
+    .rst-breakfast-inner { grid-template-columns: 1fr; padding: 48px 24px; gap: 32px; }
     .rst-philosophy-inner { padding: 64px 24px; }
     .rst-cta { padding: 48px 24px; }
   }
