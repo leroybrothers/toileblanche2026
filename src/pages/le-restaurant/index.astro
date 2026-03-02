@@ -8,10 +8,10 @@ const lang = 'en';
 
 <Layout
   title="Le Restaurant | Toile Blanche | Saint-Paul de Vence"
-  description="The evening version: more considered, more intimate, the kitchen at full attention. A love letter to the Var."
+  description="The evening version: more considered, more intimate, the kitchen at full attention. A love letter to the Côte d'Azur."
   ogImage="https://www.toileblanche.com/assets/images/page-img-14433f29c9500d.jpg"
 >
-  <Nav theme="both" ctaText="Book my Table" ctaHref="https://bookings.zenchef.com/results?rid=357953" />
+  <Nav theme="both" ctaText="Book my Table" ctaAction="zenchef" />
 
   <main id="main-content">
     <!-- HERO -->
@@ -23,13 +23,17 @@ const lang = 'en';
       <div class="lrs-hero-content">
         <p class="lrs-hero-eyebrow">Dinner — Year-round</p>
         <h1>Le Restaurant</h1>
+        <a href="https://www.instagram.com/lerestaurant.toileblanche/" target="_blank" rel="noopener noreferrer" class="lrs-insta-ref">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span>@lerestaurant.toileblanche</span>
+        </a>
       </div>
     </section>
 
     <!-- TAGLINE -->
     <section class="lrs-tagline">
       <div class="lrs-tagline-inner">
-        <p>The evening version: more considered, more intimate, the kitchen at full attention. A love letter to the Var.</p>
+        <p>The evening version: more considered, more intimate, the kitchen at full attention. A love letter to the Côte d'Azur.</p>
       </div>
     </section>
 
@@ -41,7 +45,7 @@ const lang = 'en';
           <p>Le Restaurant is where the Mediterranean tradition is reimagined through a contemporary lens. The menu is built around the rhythm of the seasons — what has arrived that morning from the market in Nice, what is growing in the herb garden twenty metres from the kitchen, what the fishermen brought in at dawn.</p>
           <p>The wine list reads like a love letter to the region. The focus is on producers within driving distance — estates in Bellet, Bandol, Cassis, and the hills above Vence. Some bottles are available nowhere else.</p>
           <h2>The Space</h2>
-          <p>Dinner is served on the terrace overlooking the valley, or inside the stone dining room when the mistral has other plans. The setting is informal — no jacket required, no whispered conversations. Just good food in beautiful light.</p>
+          <p>Dinner is served on the terrace overlooking the valley, or inside the dining room when the evening has other plans. The setting is informal — no jacket required, no whispered conversations. Just good food in beautiful light.</p>
         </div>
         <div class="lrs-details">
           <p class="lrs-details-label">Practical</p>
@@ -50,7 +54,6 @@ const lang = 'en';
             <h3>Hours</h3>
             <p>Dinner: 19:00 – 22:00</p>
             <p>Open year-round</p>
-            <p>Closed Tuesdays (low season)</p>
           </div>
 
           <div class="lrs-details-block">
@@ -60,7 +63,7 @@ const lang = 'en';
           </div>
 
           <div class="lrs-details-block lrs-details-cta">
-            <a href="https://bookings.zenchef.com/results?rid=357953" target="_blank" rel="noopener noreferrer" class="lrs-btn">Reserve a Table</a>
+            <button type="button" data-zc-action="open" class="lrs-btn">Reserve a Table</button>
           </div>
 
           <div class="lrs-details-block">
@@ -143,6 +146,7 @@ const lang = 'en';
         <!-- EXTRAS -->
         <div class="lrs-menu-section lrs-menu-extras">
           <h3>{menu.a_la_carte.extras.title[lang]}</h3>
+          <p class="lrs-extras-intro">A touch of indulgence to complement your dish — to enjoy on its own or to share.</p>
           <div class="lrs-menu-extras-grid">
             {menu.a_la_carte.extras.items.map(item => (
               <div class="lrs-menu-item">
@@ -182,7 +186,7 @@ const lang = 'en';
     <!-- CTA -->
     <section class="lrs-cta">
       <p>The table is set.</p>
-      <a href="https://bookings.zenchef.com/results?rid=357953" target="_blank" rel="noopener noreferrer" class="lrs-cta-btn">Reserve a Table</a>
+      <button type="button" data-zc-action="open" class="lrs-cta-btn">Reserve a Table</button>
     </section>
   </main>
 
@@ -323,6 +327,25 @@ const lang = 'en';
     font-size: clamp(40px, 6vw, 80px);
     font-weight: 400;
     line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .lrs-insta-ref {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.55;
+    transition: opacity 0.4s ease;
+  }
+  .lrs-insta-ref:hover {
+    opacity: 1;
+  }
+  .lrs-insta-ref span {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: #fff !important;
     color: #fff;
   }
 
@@ -600,6 +623,15 @@ const lang = 'en';
     color: #9C9080;
     white-space: nowrap;
     flex-shrink: 0;
+  }
+
+  .lrs-extras-intro {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #9C9080;
+    margin-bottom: 32px;
   }
 
   /* Extras grid */

@@ -10,7 +10,7 @@ import Footer from '../../../components/Footer.astro';
   description="Deux tables qui valent le détour. Construites autour de ce qui est de saison, local et honnête."
   ogImage="https://www.toileblanche.com/assets/images/page-img-cc1d88d7ddf7f1.jpg"
 >
-  <Nav theme="both" locale="fr" ctaText="Réserver une table" ctaHref="https://bookings.zenchef.com/results?rid=357953" />
+  <Nav theme="both" locale="fr" ctaText="Réserver une table" ctaAction="zenchef" />
 
   <main id="main-content">
     <section class="rst-hero">
@@ -39,9 +39,9 @@ import Footer from '../../../components/Footer.astro';
           <div class="rst-venue-content">
             <h2>Le Restaurant</h2>
             <p class="rst-venue-tagline">La version du soir : plus attentionné, plus intime, la cuisine à son plein potentiel.</p>
-            <p class="rst-venue-desc">Le Restaurant est une lettre d'amour au Var. Un espace où la tradition méditerranéenne est réinventée à travers un regard contemporain. Ouvert toute l'année pour le dîner.</p>
+            <p class="rst-venue-desc">Le Restaurant est une lettre d'amour à la Côte d'Azur. Un espace où la tradition méditerranéenne est réinventée à travers un regard contemporain. Ouvert toute l'année pour le dîner.</p>
             <div class="rst-venue-actions">
-              <a href="https://bookings.zenchef.com/results?rid=357953" target="_blank" rel="noopener noreferrer" class="rst-venue-btn">Réserver une table</a>
+              <button type="button" data-zc-action="open" class="rst-venue-btn">Réserver une table</button>
               <a href="/fr/le-restaurant" class="rst-venue-link">Découvrir Le Restaurant &rarr;</a>
             </div>
           </div>
@@ -56,7 +56,7 @@ import Footer from '../../../components/Footer.astro';
             <p class="rst-venue-tagline">Le déjeuner sous les platanes — rosé, poisson grillé, le plaisir spécifique de manger dehors en Provence.</p>
             <p class="rst-venue-desc">Ouverte de mai à octobre, La Guinguette est le cœur du jardin. Venez pieds nus ou en espadrilles. Le Sud balayera vos soucis — si vous en aviez.</p>
             <div class="rst-venue-actions">
-              <a href="https://bookings.zenchef.com/results?rid=357953" target="_blank" rel="noopener noreferrer" class="rst-venue-btn">Réserver une table</a>
+              <button type="button" data-zc-action="open" class="rst-venue-btn">Réserver une table</button>
               <a href="/fr/la-guinguette" class="rst-venue-link">Découvrir La Guinguette &rarr;</a>
             </div>
           </div>
@@ -90,7 +90,7 @@ import Footer from '../../../components/Footer.astro';
 
     <section class="rst-cta">
       <p>La table est mise.</p>
-      <a href="https://bookings.zenchef.com/results?rid=357953" target="_blank" rel="noopener noreferrer" class="rst-cta-btn">Réserver une table</a>
+      <button type="button" data-zc-action="open" class="rst-cta-btn">Réserver une table</button>
     </section>
   </main>
 

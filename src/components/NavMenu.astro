@@ -5,9 +5,10 @@ export interface Props {
   currentPath: string;
   ctaText?: string;
   ctaHref?: string;
+  ctaAction?: 'mews' | 'zenchef';
   locale?: Locale;
 }
-const { currentPath, ctaHref, locale = 'en' } = Astro.props;
+const { currentPath, ctaHref, ctaAction, locale = 'en' } = Astro.props;
 const t = useTranslations(locale);
 const ctaText = Astro.props.ctaText ?? t.nav.bookStay;
 const lp = (path: string) => localePath(path, locale);
@@ -15,7 +16,9 @@ const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current'
 ---
 
 <header class="tb-menu-header">
-  {ctaHref ? (
+  {ctaAction === 'zenchef' ? (
+    <button type="button" data-zc-action="open" class="tb-menu-cta">{ctaText}</button>
+  ) : ctaHref ? (
     <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-menu-cta">{ctaText}</a>
   ) : (
     <a href="#" class="tb-menu-cta distributor-open">{ctaText}</a>

@@ -6,14 +6,15 @@ export interface Props {
   theme?: 'dark' | 'light' | 'both';
   ctaText?: string;
   ctaHref?: string;
+  ctaAction?: 'mews' | 'zenchef';
   locale?: Locale;
 }
 
 const currentPath = Astro.url.pathname;
 const locale = Astro.props.locale ?? getLocaleFromPath(currentPath);
 const t = useTranslations(locale);
-const { theme = 'both', ctaText = t.nav.bookStay, ctaHref } = Astro.props;
-const ctaIsLink = !!ctaHref;
+const { theme = 'both', ctaText = t.nav.bookStay, ctaHref, ctaAction } = Astro.props;
+const ctaIsLink = !!ctaHref && ctaAction !== 'zenchef';
 const homePath = localePath('/', locale);
 const altLocale: Locale = locale === 'en' ? 'fr' : 'en';
 const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/fr/, '') || '/';
@@ -33,6 +34,8 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
           <div class="book-button">
             {ctaIsLink ? (
               <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-book-cta tb-book-cta-link">{ctaText}</a>
+            ) : ctaAction === 'zenchef' ? (
+              <button type="button" data-zc-action="open" class="tb-book-cta">{ctaText}</button>
             ) : (
               <button type="button" class="distributor-open tb-book-cta">{ctaText}</button>
             )}
@@ -49,7 +52,7 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
     </div>
 
     <div class="nav-links-container tb-fullpage-menu dark js-nav-links" hidden>
-      <NavMenu currentPath={currentPath} ctaText={ctaText} ctaHref={ctaHref} locale={locale} />
+      <NavMenu currentPath={currentPath} ctaText={ctaText} ctaAction={ctaAction} locale={locale} />
     </div>
   </nav>
 )}
@@ -68,6 +71,8 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
           <div class="book-button">
             {ctaIsLink ? (
               <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-book-cta tb-book-cta-link">{ctaText}</a>
+            ) : ctaAction === 'zenchef' ? (
+              <button type="button" data-zc-action="open" class="tb-book-cta">{ctaText}</button>
             ) : (
               <button type="button" class="distributor-open tb-book-cta">{ctaText}</button>
             )}
@@ -84,7 +89,7 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
     </div>
 
     <div class="nav-links-container tb-fullpage-menu light js-nav-links" hidden>
-      <NavMenu currentPath={currentPath} locale={locale} />
+      <NavMenu currentPath={currentPath} ctaText={ctaText} ctaAction={ctaAction} locale={locale} />
     </div>
   </nav>
 )}

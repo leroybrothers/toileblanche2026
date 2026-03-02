@@ -24,6 +24,21 @@
   top: 16px;
 }
 
+/* ─── Zenchef widget trigger buttons: reset to match link styling ─────────── */
+button[data-zc-action] {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
 /* ─── Accessibility: visible keyboard focus ──────────────────────────────── */
 *:focus-visible {
   outline: 2px solid #AD5D47 !important;

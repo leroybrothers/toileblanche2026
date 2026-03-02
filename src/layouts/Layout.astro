@@ -69,6 +69,7 @@ const alternates = getAlternateUrls(currentPath);
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
   <link rel="preconnect" href="https://static.axept.io" crossorigin />
+  <link rel="preconnect" href="https://sdk.zenchef.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&display=swap" rel="stylesheet" />
 
   <!-- Site Stylesheet -->
@@ -137,6 +138,17 @@ const alternates = getAlternateUrls(currentPath);
 
   <!-- Mews Booking Engine (proxied to avoid CORS) -->
   <script is:inline src="/mews/distributor.min.js"></script>
+
+  <!-- Zenchef Restaurant Booking Widget -->
+  <script
+    id="zc-sdk"
+    data-restaurant="357953"
+    data-hide-button="true"
+    data-lang={locale}
+    data-color="AD5D47"
+    src="https://sdk.zenchef.com/sdk.js"
+    async
+  ></script>
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
