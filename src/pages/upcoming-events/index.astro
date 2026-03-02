@@ -26,8 +26,19 @@ import Footer from '../../components/Footer.astro';
         <div class="evt-gallery-tall">
           <img src="/assets/images/page-img-b37c597837c053.webp" alt="Toile Blanche Sessions — dinner and art" loading="lazy" />
         </div>
-        <div class="evt-gallery-offset">
-          <img src="/assets/images/page-img-d58e25271c8486.webp" alt="Toile Blanche Sessions — live performance" loading="lazy" />
+        <div class="evt-gallery-grid">
+          <div class="evt-gallery-cell">
+            <img src="/assets/images/art/DSCF5047.JPG" alt="Toile Blanche Sessions — live performance" loading="lazy" />
+          </div>
+          <div class="evt-gallery-cell">
+            <img src="/assets/images/art/IMG_4383.jpg" alt="Toile Blanche Sessions — art event" loading="lazy" />
+          </div>
+          <div class="evt-gallery-cell">
+            <img src="/assets/images/art/IMG_4376.jpg" alt="Toile Blanche Sessions — evening gathering" loading="lazy" />
+          </div>
+          <div class="evt-gallery-cell">
+            <img src="/assets/images/art/DSCF4849.JPG" alt="Toile Blanche Sessions — creative experience" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
@@ -137,14 +148,24 @@ import Footer from '../../components/Footer.astro';
     object-fit: cover;
     display: block;
   }
-  .evt-gallery-offset {
+  .evt-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
     padding-top: 140px;
   }
-  .evt-gallery-offset img {
+  .evt-gallery-cell {
+    overflow: hidden;
+  }
+  .evt-gallery-cell img {
     width: 100%;
-    aspect-ratio: 4/5;
+    aspect-ratio: 1/1;
     object-fit: cover;
     display: block;
+    transition: transform 0.8s ease;
+  }
+  .evt-gallery-cell:hover img {
+    transform: scale(1.03);
   }
 
   /* ─── CONCEPT + CALENDAR ─── */
@@ -351,7 +372,7 @@ import Footer from '../../components/Footer.astro';
       padding: 48px 24px;
       gap: 24px;
     }
-    .evt-gallery-offset {
+    .evt-gallery-grid {
       padding-top: 0;
     }
     .evt-concept-inner {
