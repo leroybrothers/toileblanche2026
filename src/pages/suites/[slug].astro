@@ -94,6 +94,18 @@ const cardSrcset = (p: string) => srcset(p, [400]);
       ))}
     </section>
 
+    <!-- LIGHTBOX -->
+    <div class="sd-lightbox" id="sd-lightbox" role="dialog" aria-label="Image gallery" aria-hidden="true">
+      <div class="sd-lightbox-backdrop"></div>
+      <button class="sd-lightbox-close" aria-label="Close">&times;</button>
+      <button class="sd-lightbox-prev" aria-label="Previous image">&#8249;</button>
+      <button class="sd-lightbox-next" aria-label="Next image">&#8250;</button>
+      <div class="sd-lightbox-img-wrap">
+        <img class="sd-lightbox-img" src="" alt="" />
+      </div>
+      <div class="sd-lightbox-counter"></div>
+    </div>
+
     <!-- DIRECT BOOKING ADVANTAGE -->
     <section class="sd-direct">
       <h2 class="sd-direct-title">The Direct Advantage</h2>
@@ -322,10 +334,12 @@ const cardSrcset = (p: string) => srcset(p, [400]);
   .sd-gallery {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 1fr 1fr auto;
+    gap: 4px;
   }
   .sd-gallery-item {
     overflow: hidden;
+    cursor: pointer;
   }
   .sd-gallery-item img {
     width: 100%;
@@ -345,12 +359,10 @@ const cardSrcset = (p: string) => srcset(p, [400]);
   .sd-gallery-item-2 {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    aspect-ratio: 4/3;
   }
   .sd-gallery-item-3 {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    aspect-ratio: 4/3;
   }
   .sd-gallery-item-4 {
     grid-column: 1 / 2;
@@ -361,6 +373,92 @@ const cardSrcset = (p: string) => srcset(p, [400]);
     grid-column: 2 / 3;
     grid-row: 3 / 4;
     aspect-ratio: 4/3;
+  }
+
+  /* ─── LIGHTBOX ─── */
+  .sd-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+  .sd-lightbox.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .sd-lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(8px);
+  }
+  .sd-lightbox-img-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sd-lightbox-img {
+    max-width: 88vw;
+    max-height: 82vh;
+    object-fit: contain;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .sd-lightbox-img.is-loaded {
+    opacity: 1;
+  }
+  .sd-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    z-index: 1;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    line-height: 1;
+    padding: 8px;
+  }
+  .sd-lightbox-close:hover { opacity: 1; }
+  .sd-lightbox-prev,
+  .sd-lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 48px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    padding: 16px;
+    line-height: 1;
+  }
+  .sd-lightbox-prev { left: 16px; }
+  .sd-lightbox-next { right: 16px; }
+  .sd-lightbox-prev:hover,
+  .sd-lightbox-next:hover { opacity: 1; }
+  .sd-lightbox-counter {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.6);
   }
 
   /* ─── DIRECT BOOKING ADVANTAGE ─── */
@@ -499,19 +597,24 @@ const cardSrcset = (p: string) => srcset(p, [400]);
     }
     .sd-gallery {
       grid-template-columns: 1fr;
+      grid-template-rows: auto;
     }
-    .sd-gallery-item-1 {
-      grid-column: 1;
-      grid-row: auto;
-      aspect-ratio: 4/3;
-    }
+    .sd-gallery-item-1,
     .sd-gallery-item-2,
     .sd-gallery-item-3,
     .sd-gallery-item-4,
     .sd-gallery-item-5 {
       grid-column: 1;
       grid-row: auto;
+      aspect-ratio: 4/3;
     }
+    .sd-lightbox-prev,
+    .sd-lightbox-next {
+      font-size: 32px;
+      padding: 12px;
+    }
+    .sd-lightbox-prev { left: 8px; }
+    .sd-lightbox-next { right: 8px; }
     .sd-direct {
       padding: 48px 24px 0;
     }
@@ -530,3 +633,79 @@ const cardSrcset = (p: string) => srcset(p, [400]);
     }
   }
 </style>
+
+<script>
+  (function () {
+    const gallery = document.querySelector('.sd-gallery');
+    if (!gallery) return;
+
+    const lightbox = document.getElementById('sd-lightbox');
+    if (!lightbox) return;
+
+    const lbImg = lightbox.querySelector('.sd-lightbox-img') as HTMLImageElement;
+    const lbCounter = lightbox.querySelector('.sd-lightbox-counter')!;
+    const items = Array.from(gallery.querySelectorAll('.sd-gallery-item img')) as HTMLImageElement[];
+    let current = 0;
+
+    function fullSrc(img: HTMLImageElement) {
+      return img.getAttribute('src')!;
+    }
+
+    function show(index: number) {
+      current = (index + items.length) % items.length;
+      lbImg.classList.remove('is-loaded');
+      lbImg.src = fullSrc(items[current]);
+      lbImg.alt = items[current].alt;
+      lbCounter.textContent = `${current + 1}\u2009/\u2009${items.length}`;
+      preload((current + 1) % items.length);
+      preload((current - 1 + items.length) % items.length);
+    }
+
+    function preload(index: number) {
+      const img = new Image();
+      img.src = fullSrc(items[index]);
+    }
+
+    function open(index: number) {
+      show(index);
+      lightbox.classList.add('is-active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.remove('is-active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    items.forEach((img, i) => {
+      img.closest('.sd-gallery-item')!.addEventListener('click', () => open(i));
+    });
+
+    lightbox.querySelector('.sd-lightbox-close')!.addEventListener('click', close);
+    lightbox.querySelector('.sd-lightbox-backdrop')!.addEventListener('click', close);
+    lightbox.querySelector('.sd-lightbox-prev')!.addEventListener('click', () => show(current - 1));
+    lightbox.querySelector('.sd-lightbox-next')!.addEventListener('click', () => show(current + 1));
+
+    lbImg.addEventListener('load', () => lbImg.classList.add('is-loaded'));
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('is-active')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = (e as TouchEvent).changedTouches[0].screenX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      const diff = (e as TouchEvent).changedTouches[0].screenX - touchStartX;
+      if (Math.abs(diff) > 50) {
+        diff > 0 ? show(current - 1) : show(current + 1);
+      }
+    }, { passive: true });
+  })();
+</script>
