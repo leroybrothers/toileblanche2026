@@ -1,5 +1,6 @@
 ---
 import { getLocaleFromPath, getAlternateUrls, type Locale } from '../i18n/index';
+import BookingBar from '../components/BookingBar.astro';
 
 export interface Props {
   title?: string;
@@ -217,6 +218,8 @@ const alternates = getAlternateUrls(currentPath);
   </noscript>
 
   <slot />
+
+  <BookingBar locale={locale} />
 
   <!-- Site JS -->
   <script src="/js/site.js" defer></script>

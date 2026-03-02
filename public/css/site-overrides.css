@@ -1258,61 +1258,9 @@ a.tb-book-cta-link {
   }
 }
 
-/* ─── Sticky mobile booking bar ──────────────────────────────────────────── */
-.tb-sticky-book {
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .tb-sticky-book {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 900;
-    background: #FAF8F3;
-    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
-    padding: 8px 16px 12px;
-  }
-
-  .tb-sticky-hint {
-    font-family: "Didact Gothic", sans-serif;
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #9e5c4a;
-    margin-bottom: 6px;
-  }
-
-  .tb-sticky-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-family: "Didact Gothic", sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #fff;
-    background-color: #9e5c4a;
-    padding: 14px 0;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .tb-sticky-btn:hover {
-    background-color: #8a4e3e;
-  }
-
-  body {
-    padding-bottom: 72px;
-  }
+/* ─── Global booking bar body padding ────────────────────────────────────── */
+body {
+  padding-bottom: 60px;
 }
 
 /* ─── Print styles ───────────────────────────────────────────────────────── */

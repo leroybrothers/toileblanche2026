@@ -1,0 +1,200 @@
+---
+import { getLocaleFromPath, type Locale } from '../i18n/index';
+
+export interface Props {
+  locale?: Locale;
+}
+
+const currentPath = Astro.url.pathname;
+const locale = Astro.props.locale ?? getLocaleFromPath(currentPath);
+
+const copy = {
+  en: {
+    label: "Reserve at the Source",
+    perks: "Authentic Rate · Included Breakfast · Priority Upgrade",
+    cta: "Check Availability"
+  },
+  fr: {
+    label: "Réservez à la Source",
+    perks: "Le Meilleur Tarif · Petit-Déjeuner Offert · Priorité Surclassement",
+    cta: "Disponibilités"
+  }
+};
+
+const t = copy[locale];
+---
+
+<div class="bb-wrap" id="booking-bar">
+  <div class="bb-inner">
+    <div class="bb-content">
+      <div class="bb-info">
+        <span class="bb-label">{t.label}</span>
+        <p class="bb-perks">{t.perks}</p>
+      </div>
+      <button type="button" class="bb-cta distributor-open">{t.cta}</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .bb-wrap {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: #F9F7F2;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.03);
+    padding: 14px 0;
+    transform: translateY(0);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .bb-wrap.bb-hidden {
+    transform: translateY(100%);
+  }
+
+  .bb-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .bb-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .bb-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .bb-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #AD5D47;
+    font-weight: 500;
+  }
+
+  .bb-perks {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    color: #1C1917;
+    opacity: 0.45;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .bb-cta {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #fff;
+    background: #0A0A0A;
+    border: none;
+    border-radius: 1px;
+    padding: 16px 38px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+  }
+
+  .bb-cta:hover {
+    background: #AD5D47;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 767px) {
+    .bb-inner {
+      padding: 0 20px;
+    }
+
+    .bb-content {
+      gap: 16px;
+    }
+
+    .bb-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+    }
+
+    .bb-perks {
+      font-size: 10px;
+      white-space: normal;
+      line-height: 1.5;
+    }
+
+    .bb-cta {
+      padding: 14px 22px;
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .bb-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+
+    .bb-info {
+      align-items: center;
+    }
+
+    .bb-cta {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const bar = document.getElementById('booking-bar');
+    if (!bar) return;
+
+    let lastScroll = 0;
+    let ticking = false;
+
+    function update() {
+      const y = window.pageYOffset;
+
+      if (y <= 100) {
+        bar.classList.remove('bb-hidden');
+      } else if (y > lastScroll && y > 500) {
+        bar.classList.add('bb-hidden');
+      } else if (y < lastScroll) {
+        bar.classList.remove('bb-hidden');
+      }
+
+      lastScroll = y;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Hide when fullscreen menu is open
+    const toggles = document.querySelectorAll('.js-menu-toggle');
+    toggles.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const isOpen = this.getAttribute('aria-expanded') === 'true';
+        bar.classList.toggle('bb-hidden', isOpen);
+      });
+    });
+  })();
+</script>
