@@ -223,6 +223,11 @@ const alternates = getAlternateUrls(currentPath);
 
   {!hideBookingBar && <BookingBar locale={locale} />}
 
+  <!-- Smooth scroll + scroll reveals (Lenis, GSAP) -->
+  <script>
+    import { initSmoothScroll } from '../scripts/smooth-scroll';
+    initSmoothScroll();
+  </script>
   <!-- Site JS -->
   <script src="/js/site.js" defer></script>
 

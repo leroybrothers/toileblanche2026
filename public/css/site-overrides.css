@@ -66,18 +66,6 @@ h1 { font-size: clamp(2rem, 5vw, 3.5rem) !important; }
 h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem) !important; }
 h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important; }
 
-/* ─── Scroll animations ──────────────────────────────────────────────────── */
-.tb-fade-in {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.tb-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* ─── Page Loader ────────────────────────────────────────────────────────── */
 #page-loader {
   position: fixed;

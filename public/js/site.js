@@ -125,22 +125,6 @@
     });
   }
 
-  // ─── Sticky / Scroll Nav ───────────────────────────────────────────────────
-  function initScrollNav() {
-    const navDark = document.getElementById('nav-dark');
-    const navLight = document.getElementById('nav-light');
-    if (!navDark || !navLight) return;
-
-    // Show dark nav by default on hero pages; show light nav on scroll
-    navLight.style.display = 'none';
-
-    window.addEventListener('scroll', function () {
-      const scrolled = window.scrollY > 80;
-      navDark.style.display = scrolled ? 'none' : '';
-      navLight.style.display = scrolled ? '' : 'none';
-    }, { passive: true });
-  }
-
   // ─── Suite Slider ──────────────────────────────────────────────────────────
   function initSliders() {
     document.querySelectorAll('.js-slider').forEach(function (sliderEl) {
@@ -222,37 +206,12 @@
     });
   }
 
-  // ─── Scroll-triggered Fade-In ──────────────────────────────────────────────
-  function initScrollAnimations() {
-    if (!('IntersectionObserver' in window)) return;
-
-    const targets = document.querySelectorAll(
-      '.overlap-image-wrapper, .card-image-wapper, .heading-wrapper, .feature-paragraph'
-    );
-
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('tb-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    targets.forEach(function (el) {
-      el.classList.add('tb-fade-in');
-      observer.observe(el);
-    });
-  }
-
   // ─── Init ──────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
     initLoader();
     initHeroSlideshow();
     initNavigation();
-    initScrollNav();
     initSliders();
-    initScrollAnimations();
   });
 
 })();
