@@ -28,7 +28,7 @@
   {
     "label": "The Tables",
     "items": [
-      { "q": "Are the restaurants open year-round?", "a": "<strong>Le Restaurant:</strong> Dinner 19:30–21:30. Closed Sundays.<br/><strong>La Guinguette:</strong> Lunch 12:00–15:00 (Winter) / 12:00–22:00 (Summer). Open daily." },
+      { "q": "Are the restaurants open year-round?", "a": "<strong>Le Restaurant:</strong> Dinner 19:30–21:30.<br/><strong>La Guinguette:</strong> Lunch 12:00–15:00 (Winter) / 12:00–22:00 (Summer). Open daily." },
       { "q": "Is breakfast included?", "a": "Breakfast is included as a complimentary gift for all guests who <strong>book directly at the source</strong>. For external bookings, it is served from 08:00–10:30 at €35 per person." },
       { "q": "Can I bring outside food or wine?", "a": "As each suite features a curated <strong>Maxibar</strong> with full bottles from local domains and artisanal provisions, we kindly request that no outside groceries or beverages are consumed in the common areas or suites." }
     ]

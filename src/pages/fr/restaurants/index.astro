@@ -68,9 +68,9 @@ import Footer from '../../../components/Footer.astro';
     <!-- PETIT-DÉJEUNER -->
     <section class="rst-breakfast">
       <div class="rst-breakfast-inner">
-        <div class="rst-breakfast-image">
-          <img src="/assets/images/page-img-881f5ac258ef50.avif" alt="Le Petit-Déjeuner à Toile Blanche" loading="lazy" />
-        </div>
+        <a href="/fr/breakfast" class="rst-breakfast-image">
+          <img src="/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg" alt="Le Petit-Déjeuner à Toile Blanche" loading="lazy" />
+        </a>
         <div class="rst-breakfast-content">
           <p class="rst-breakfast-eyebrow">Chaque Matin</p>
           <h2>Le Petit-Déjeuner</h2>
@@ -112,7 +112,7 @@ import Footer from '../../../components/Footer.astro';
   .rst-venues { border-bottom: 1px solid #E2D9CC; }
   .rst-venues-inner { max-width: 1200px; margin: 0 auto; padding: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
   .rst-venue-offset { padding-top: 140px; }
-  .rst-venue-image { overflow: hidden; margin-bottom: 72px; }
+  .rst-venue-image { overflow: hidden; margin-bottom: 112px; }
   .rst-venue-image img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; transition: transform 0.8s ease; }
   .rst-venue:hover .rst-venue-image img { transform: scale(1.02); }
   .rst-venue-content h2 { font-family: 'Gilda Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 400; color: #1C1917; margin-bottom: 16px; }
@@ -125,7 +125,7 @@ import Footer from '../../../components/Footer.astro';
   .rst-venue-link:hover { color: #3D3530; }
   .rst-breakfast { border-bottom: 1px solid #E2D9CC; }
   .rst-breakfast-inner { max-width: 1200px; margin: 0 auto; padding: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .rst-breakfast-image { overflow: hidden; }
+  .rst-breakfast-image { display: block; overflow: hidden; }
   .rst-breakfast-image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform 0.8s ease; }
   .rst-breakfast:hover .rst-breakfast-image img { transform: scale(1.02); }
   .rst-breakfast-eyebrow { font-family: 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #9C9080; margin-bottom: 16px; }

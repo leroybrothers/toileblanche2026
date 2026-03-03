@@ -74,9 +74,9 @@ import Footer from '../../components/Footer.astro';
     <!-- BREAKFAST -->
     <section class="rst-breakfast">
       <div class="rst-breakfast-inner">
-        <div class="rst-breakfast-image">
-          <img src="/assets/images/page-img-881f5ac258ef50.avif" alt="Breakfast at Toile Blanche" loading="lazy" />
-        </div>
+        <a href="/breakfast" class="rst-breakfast-image">
+          <img src="/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg" alt="Breakfast at Toile Blanche" loading="lazy" />
+        </a>
         <div class="rst-breakfast-content">
           <p class="rst-breakfast-eyebrow">Every Morning</p>
           <h2>Le Petit-Déjeuner</h2>
@@ -256,7 +256,7 @@ import Footer from '../../components/Footer.astro';
   }
   .rst-venue-image {
     overflow: hidden;
-    margin-bottom: 72px;
+    margin-bottom: 112px;
   }
   .rst-venue-image img {
     width: 100%;
@@ -338,6 +338,7 @@ import Footer from '../../components/Footer.astro';
     align-items: center;
   }
   .rst-breakfast-image {
+    display: block;
     overflow: hidden;
   }
   .rst-breakfast-image img {
