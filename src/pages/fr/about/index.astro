@@ -82,10 +82,9 @@ import { gallerySrcset, heroSrcset, singleWidthSrcset } from '../../../utils/ima
   .abt-hero h1 { font-family: 'Gilda Display', serif; font-size: clamp(48px, 7vw, 96px); font-weight: 400; line-height: 1.05; color: #1C1917; margin-bottom: 40px; }
   .abt-hero-tagline { font-family: 'Gilda Display', serif; font-style: italic; font-size: clamp(18px, 2vw, 24px); line-height: 1.55; color: #6B6256; max-width: 700px; }
   .abt-gallery { border-bottom: 1px solid #E2D9CC; }
-  .abt-gallery-inner { max-width: 1200px; margin: 0 auto; padding: 80px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
-  .abt-gallery-tall img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
-  .abt-gallery-offset { padding-top: 140px; }
-  .abt-gallery-offset img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+  .abt-gallery-inner { max-width: 1200px; margin: 0 auto; padding: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .abt-gallery-tall img, .abt-gallery-offset img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  .abt-gallery-offset { padding-top: 0; }
   .abt-narrative { border-bottom: 1px solid #E2D9CC; }
   .abt-narrative-inner { max-width: 1200px; margin: 0 auto; padding: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
   .abt-narrative-left h2, .abt-narrative-right h2 { font-family: 'Gilda Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 400; color: #1C1917; margin-bottom: 24px; }
@@ -111,7 +110,6 @@ import { gallerySrcset, heroSrcset, singleWidthSrcset } from '../../../utils/ima
   @media (max-width: 900px) {
     .abt-hero { padding: 140px 24px 64px; }
     .abt-gallery-inner { grid-template-columns: 1fr; padding: 48px 24px; gap: 24px; }
-    .abt-gallery-offset { padding-top: 0; }
     .abt-narrative-inner { grid-template-columns: 1fr; padding: 48px 24px; gap: 48px; }
     .abt-narrative-right { padding-top: 0; }
     .abt-vision-inner { padding: 64px 24px; }

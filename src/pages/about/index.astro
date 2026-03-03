@@ -123,24 +123,19 @@ import { gallerySrcset, heroSrcset, singleWidthSrcset } from '../../utils/images
     margin: 0 auto;
     padding: 80px;
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: start;
   }
-  .abt-gallery-tall img {
+  .abt-gallery-tall img,
+  .abt-gallery-offset img {
     width: 100%;
-    aspect-ratio: 3/4;
+    aspect-ratio: 4/3;
     object-fit: cover;
     display: block;
   }
   .abt-gallery-offset {
-    padding-top: 140px;
-  }
-  .abt-gallery-offset img {
-    width: 100%;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    display: block;
+    padding-top: 0;
   }
 
   /* ─── NARRATIVE ─── */
@@ -306,9 +301,6 @@ import { gallerySrcset, heroSrcset, singleWidthSrcset } from '../../utils/images
       grid-template-columns: 1fr;
       padding: 48px 24px;
       gap: 24px;
-    }
-    .abt-gallery-offset {
-      padding-top: 0;
     }
     .abt-narrative-inner {
       grid-template-columns: 1fr;
