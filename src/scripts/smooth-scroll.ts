@@ -4,6 +4,7 @@
  */
 
 import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -24,15 +25,26 @@ function initLenis(): void {
     smoothWheel: true,
   });
 
-  lenisInstance.on('scroll', () => {
-    ScrollTrigger.update();
+  // Tell ScrollTrigger to use Lenis scroll position (required for reveals to fire)
+  ScrollTrigger.scrollerProxy(document.body, {
+    scrollTop(value) {
+      if (lenisInstance) {
+        if (arguments.length) lenisInstance.scrollTo(value);
+        return lenisInstance.scroll;
+      }
+      return value;
+    },
+    getBoundingClientRect() {
+      return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+    },
   });
 
-  function raf(time: number): void {
-    lenisInstance?.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
+  lenisInstance.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenisInstance?.raf(time * 1000);
+  });
+  gsap.ticker.lagSmoothing(0);
 
   // Ensure anchor links work with Lenis
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
