@@ -59,7 +59,7 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
 
 <!-- Light Navigation (used on non-hero / scroll-triggered) -->
 {(theme === 'light' || theme === 'both') && (
-  <nav class="navigation-light" id="nav-light">
+  <nav class="navigation-light" id="nav-light" style={theme === 'both' ? 'display:none' : undefined}>
     <div class="navigation-bar">
       <div class="nav-container">
         <a href={homePath} class={`nav-logo w-nav-brand${currentPath === homePath ? ' w--current' : ''}`} aria-current={currentPath === homePath ? 'page' : undefined}>

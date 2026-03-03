@@ -22,25 +22,27 @@ import { gallerySrcset } from '../../../utils/images';
       </div>
     </section>
 
-    <!-- GALLERY PAIR -->
+    <!-- GALLERY: 8-image grid centered -->
     <section class="evt-gallery">
       <div class="evt-gallery-inner">
-        <div class="evt-gallery-tall">
-          <img src="/assets/images/page-img-b37c597837c053.webp" alt="Les Sessions Toile Blanche — dîner et art" loading="lazy" />
-        </div>
         <div class="evt-gallery-grid">
           <div class="evt-gallery-cell">
-            <img src="/assets/images/art/DSCF5047.JPG" srcset={gallerySrcset('/assets/images/art/DSCF5047.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="2080" height="3120" alt="Les Sessions Toile Blanche — performance live" loading="lazy" />
+            <img src="/assets/images/art/DSCF5047.JPG" srcset={gallerySrcset('/assets/images/art/DSCF5047.JPG')} sizes="(max-width: 900px) 50vw, 25vw" width="2080" height="3120" alt="Les Sessions Toile Blanche — performance live" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/art/IMG_4383.jpg" srcset={gallerySrcset('/assets/images/art/IMG_4383.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="3024" height="4032" alt="Les Sessions Toile Blanche — événement artistique" loading="lazy" />
+            <img src="/assets/images/art/IMG_4383.jpg" srcset={gallerySrcset('/assets/images/art/IMG_4383.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="3024" height="4032" alt="Les Sessions Toile Blanche — événement artistique" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/art/IMG_4376.jpg" srcset={gallerySrcset('/assets/images/art/IMG_4376.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="3024" height="4032" alt="Les Sessions Toile Blanche — soirée" loading="lazy" />
+            <img src="/assets/images/art/IMG_4376.jpg" srcset={gallerySrcset('/assets/images/art/IMG_4376.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="3024" height="4032" alt="Les Sessions Toile Blanche — soirée" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/art/DSCF4849.JPG" srcset={gallerySrcset('/assets/images/art/DSCF4849.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="4160" height="6240" alt="Les Sessions Toile Blanche — expérience créative" loading="lazy" />
+            <img src="/assets/images/art/DSCF4849.JPG" srcset={gallerySrcset('/assets/images/art/DSCF4849.JPG')} sizes="(max-width: 900px) 50vw, 25vw" width="4160" height="6240" alt="Les Sessions Toile Blanche — expérience créative" loading="lazy" />
           </div>
+          <!-- 4 placeholder cells — add images when ready -->
+          <div class="evt-gallery-cell evt-gallery-placeholder"></div>
+          <div class="evt-gallery-cell evt-gallery-placeholder"></div>
+          <div class="evt-gallery-cell evt-gallery-placeholder"></div>
+          <div class="evt-gallery-cell evt-gallery-placeholder"></div>
         </div>
       </div>
     </section>
@@ -125,56 +127,40 @@ import { gallerySrcset } from '../../../utils/images';
     max-width: 650px;
   }
 
-  /* ─── GALLERY ─── */
+  /* ─── GALLERY: 8-image grid centered ─── */
   .evt-gallery {
     border-bottom: 1px solid #E2D9CC;
   }
   .evt-gallery-inner {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 80px;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 40px;
-    align-items: stretch;
-  }
-  .evt-gallery-tall {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding-top: 70px;
-    padding-bottom: 70px;
-  }
-  .evt-gallery-tall img {
-    width: auto;
-    height: 100%;
-    max-width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: contain;
-    display: block;
   }
   .evt-gallery-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 8px;
-    padding-top: 140px;
     min-height: 0;
   }
   .evt-gallery-cell {
     overflow: hidden;
     min-height: 0;
+    aspect-ratio: 1/1;
   }
   .evt-gallery-cell img {
     width: 100%;
     height: 100%;
-    aspect-ratio: 1/1;
     object-fit: cover;
     display: block;
     transition: transform 0.8s ease;
   }
   .evt-gallery-cell:hover img {
     transform: scale(1.03);
+  }
+  .evt-gallery-placeholder {
+    background: rgba(226, 217, 204, 0.2);
   }
 
   /* ─── CONCEPT + CALENDAR ─── */
@@ -381,19 +367,11 @@ import { gallerySrcset } from '../../../utils/images';
       padding: 140px 24px 48px;
     }
     .evt-gallery-inner {
-      grid-template-columns: 1fr;
       padding: 48px 24px;
-      gap: 24px;
-    }
-    .evt-gallery-tall {
-      padding: 0;
-    }
-    .evt-gallery-tall img {
-      width: 100%;
-      height: auto;
     }
     .evt-gallery-grid {
-      padding-top: 0;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
     }
     .evt-concept-inner {
       grid-template-columns: 1fr;
