@@ -12,7 +12,13 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { frontmatter, default: Content } = post as { frontmatter: { slug: string; date: string; title: string; excerpt: string; image: string }; default: import('astro').Component };
+const { frontmatter, default: Content } = post as { frontmatter: { slug: string; date: string; title: string; excerpt: string; image: string; author?: string }; default: import('astro').Component };
+
+const formatDate = (d: string) => {
+  const date = new Date(d);
+  if (isNaN(date.getTime())) return d;
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+};
 ---
 
 <Layout
@@ -29,7 +35,10 @@ const { frontmatter, default: Content } = post as { frontmatter: { slug: string;
       </div>
       <div class="arc-post-body">
         <a href="/blog" class="arc-post-back">← The Archive</a>
-        <span class="arc-post-date">{frontmatter.date}</span>
+        <div class="arc-post-meta">
+          <span class="arc-post-date">{formatDate(frontmatter.date)}</span>
+          {frontmatter.author && <span class="arc-post-author">{frontmatter.author}</span>}
+        </div>
         <h1>{frontmatter.title}</h1>
         <p class="arc-post-excerpt">{frontmatter.excerpt}</p>
         <div class="arc-post-content">
@@ -73,14 +82,18 @@ const { frontmatter, default: Content } = post as { frontmatter: { slug: string;
   .arc-post-back:hover {
     color: #1C1917;
   }
-  .arc-post-date {
+  .arc-post-meta {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .arc-post-date,
+  .arc-post-author {
     font-family: 'Didact Gothic', sans-serif;
     font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #9C9080;
-    display: block;
-    margin-bottom: 24px;
   }
   .arc-post-body h1 {
     font-family: 'Gilda Display', serif;
