@@ -85,27 +85,34 @@ const lang = 'en';
       </div>
     </section>
 
-    <!-- GALLERY PAIR -->
+    <!-- GALLERY (masonry, bon-vivant style) -->
     <section class="lrs-gallery">
-      <div class="lrs-gallery-inner">
-        <div class="lrs-gallery-tall">
-          <img src="/assets/images/restaurant/IMG_7598.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_7598.jpg')} sizes="(max-width: 900px) 100vw, 55vw" width="4032" height="3024" alt="Le Restaurant terrace at Toile Blanche" loading="lazy" />
-        </div>
-        <div class="lrs-gallery-offset">
-          <img src="/assets/images/restaurant/DSCF4081 2.JPG" alt="Seasonal dish at Le Restaurant" loading="lazy" />
-        </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/IMG_7598.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_7598.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="4032" height="3024" alt="Le Restaurant terrace at Toile Blanche" loading="lazy" />
       </div>
-    </section>
-
-    <!-- GALLERY GRID (additional images) -->
-    <section class="lrs-gallery-grid">
-      <div class="lrs-gallery-grid-inner">
-        <div class="lrs-gallery-grid-item">
-          <img src="/assets/images/restaurant/IMG_5342.jpg" alt="Outdoor dining terrace at Le Restaurant" loading="lazy" />
-        </div>
-        <div class="lrs-gallery-grid-item">
-          <img src="/assets/images/restaurant/IMG_7598.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_7598.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="4032" height="3024" alt="Terrace view at Le Restaurant" loading="lazy" />
-        </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/DSCF4081 2.JPG" alt="Seasonal dish at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/DSCF4129 2.JPG" alt="Evening dining at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/DSCF5782 2.JPG" alt="Cuisine at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/DSCF6210 2.JPG" alt="Dining experience at Toile Blanche" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/IMG_4608.jpg" alt="Restaurant terrace" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/IMG_4849.jpg" alt="Dinner at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/IMG_5342.jpg" alt="Outdoor dining terrace at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/IMG_9454.jpg" alt="Terrace view at Le Restaurant" loading="lazy" />
       </div>
     </section>
 
@@ -482,58 +489,27 @@ const lang = 'en';
     opacity: 0.85;
   }
 
-  /* ─── GALLERY ─── */
+  /* ─── GALLERY (masonry, bon-vivant style) ─── */
   .lrs-gallery {
     border-bottom: 1px solid #E2D9CC;
-  }
-  .lrs-gallery-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 40px;
-    align-items: start;
-  }
-  .lrs-gallery-tall img {
-    width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    display: block;
-  }
-  .lrs-gallery-offset {
-    padding-top: 120px;
-  }
-  .lrs-gallery-offset img {
-    width: 100%;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* ─── GALLERY GRID ─── */
-  .lrs-gallery-grid {
-    border-bottom: 1px solid #E2D9CC;
-  }
-  .lrs-gallery-grid-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 80px 80px;
     columns: 2;
     column-gap: 4px;
     line-height: 0;
   }
-  .lrs-gallery-grid-item {
+  .lrs-gallery-item {
     break-inside: avoid;
     margin-bottom: 4px;
     overflow: hidden;
     line-height: 0;
   }
-  .lrs-gallery-grid-item img {
+  .lrs-gallery-item img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+  .lrs-gallery-item:hover img {
+    transform: scale(1.03);
   }
 
   /* ─── SEASONAL MENU ─── */
@@ -756,16 +732,8 @@ const lang = 'en';
       padding: 48px 24px;
       gap: 40px;
     }
-    .lrs-gallery-inner {
-      grid-template-columns: 1fr;
-      padding: 48px 24px;
-      gap: 24px;
-    }
-    .lrs-gallery-offset {
-      padding-top: 0;
-    }
-    .lrs-gallery-grid-inner {
-      padding: 0 24px 48px;
+    .lrs-gallery {
+      columns: 1;
     }
     .lrs-menu-inner {
       padding: 48px 24px;
