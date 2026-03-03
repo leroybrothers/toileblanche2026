@@ -113,7 +113,8 @@ import { gallerySrcset, heroSrcset } from '../../../utils/images';
   .rst-venues { border-bottom: 1px solid #E2D9CC; }
   .rst-venues-inner { max-width: 1200px; margin: 0 auto; padding: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
   .rst-venue-offset { padding-top: 140px; }
-  .rst-venue-image { overflow: hidden; margin-bottom: 112px; }
+  .rst-venue-image { display: block; overflow: hidden; margin-bottom: 0; }
+  .rst-venue-content { padding-top: 80px; }
   .rst-venue-image img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; transition: transform 0.8s ease; }
   .rst-venue:hover .rst-venue-image img { transform: scale(1.02); }
   .rst-venue-content h2 { font-family: 'Gilda Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 400; color: #1C1917; margin-bottom: 16px; }

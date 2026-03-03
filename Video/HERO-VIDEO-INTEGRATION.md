@@ -4,10 +4,18 @@
 
 ```
 public/assets/videos/
-  hero-landscape.mp4         12 MB · 1280×720 · 21s · desktop/tablet
-  hero-portrait.mp4           7 MB · 720×1280 · 18s · mobile
+  hero-landscape.webm        ~8–9 MB · VP9 · desktop/tablet (Chromium 80%+)
+  hero-landscape.mp4         12 MB · H.264 · fallback (Safari, etc.)
+  hero-portrait.webm         ~5 MB · VP9 · mobile (Chromium)
+  hero-portrait.mp4           7 MB · H.264 · fallback
   hero-landscape-poster.jpg 108 KB · poster frame (LCP fallback, landscape)
   hero-portrait-poster.jpg   65 KB · poster frame (LCP fallback, portrait)
+```
+
+**WebM/VP9 encoding** (20–30% smaller at equivalent quality; Chromium uses it natively):
+```bash
+ffmpeg -i hero-landscape.mp4 -c:v libvpx-vp9 -crf 30 -b:v 0 hero-landscape.webm
+ffmpeg -i hero-portrait.mp4  -c:v libvpx-vp9 -crf 30 -b:v 0 hero-portrait.webm
 ```
 
 ---
@@ -38,6 +46,7 @@ public/assets/videos/
     poster="/assets/videos/hero-landscape-poster.jpg"
     aria-label="Toile Blanche, Saint-Paul de Vence"
   >
+    <source src="/assets/videos/hero-landscape.webm" type="video/webm">
     <source src="/assets/videos/hero-landscape.mp4" type="video/mp4">
   </video>
 
@@ -49,6 +58,7 @@ public/assets/videos/
     poster="/assets/videos/hero-portrait-poster.jpg"
     aria-hidden="true"
   >
+    <source src="/assets/videos/hero-portrait.webm" type="video/webm">
     <source src="/assets/videos/hero-portrait.mp4" type="video/mp4">
   </video>
 ```

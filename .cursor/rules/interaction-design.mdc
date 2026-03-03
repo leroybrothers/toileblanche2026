@@ -1,0 +1,44 @@
+---
+description: Interaction design standards for 2026 — hovers, focus, reduced motion
+globs: **/*.css, **/*.astro
+alwaysApply: false
+---
+
+# Interaction Design Standards (2026)
+
+All interactive elements must meet these requirements.
+
+## Required for every clickable element
+
+- **Hover**: Visible feedback (opacity, color, or transform). Use `transition` with `var(--transition-fast)` or `0.2s ease`.
+- **Active/pressed**: `:active` state — e.g. `transform: translateY(0)` to reverse hover lift, or `scale(0.98)`.
+- **Focus-visible**: Global `*:focus-visible` in site-overrides.css covers this. Do not override with `outline: none` without providing alternative.
+- **cursor: pointer**: Explicit on buttons, links, and any element with `onclick` or `role="button"`.
+
+## Use design tokens
+
+```css
+/* Use from tokens.css */
+transition: opacity var(--transition-fast);
+transition: background-color var(--transition-std);
+color: var(--color-terracotta-deep);  /* hover/pressed states */
+```
+
+## prefers-reduced-motion
+
+Any decorative motion (image zoom on hover, CTA lift, hero fade) must have a `@media (prefers-reduced-motion: reduce)` override that removes or disables it. Site-overrides.css includes a block for common elements — extend it when adding new animated components.
+
+## CTA pattern (terracotta buttons)
+
+```css
+.cta-btn {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.cta-btn:hover {
+  background-color: var(--color-terracotta-deep);
+  transform: translateY(-1px);
+}
+.cta-btn:active {
+  transform: translateY(0);
+}
+```

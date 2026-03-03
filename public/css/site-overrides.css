@@ -1292,3 +1292,59 @@ body {
     display: block;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   INTERACTION DESIGN — 2026 standards
+   - Active/pressed states for tactile feedback
+   - prefers-reduced-motion support for all transitions
+   - Explicit cursor on interactive elements
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Primary CTAs: pressed state (tactile feedback on click/tap) */
+.hero-cta:active,
+.tb-dp-cta:active,
+.tb-book-cta:active,
+button[data-zc-action]:active,
+.distributor-open:active {
+  transform: translateY(0);
+}
+.hero-cta:active { background-color: #7a4335 !important; }
+.tb-dp-cta:active { background-color: #7a4335 !important; }
+.tb-book-cta:active { opacity: 0.9; }
+
+/* Ensure all clickable elements have pointer cursor */
+a, button, [role="button"], [data-zc-action], .distributor-open,
+.tb-menu-link, .tb-menu-info-link, .room-slider-dot, .suites-view-all-btn {
+  cursor: pointer;
+}
+
+/* Respect prefers-reduced-motion: remove decorative motion, keep functional transitions */
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta:hover,
+  .tb-dp-cta:hover,
+  .hero-cta:active,
+  .tb-dp-cta:active,
+  .tb-book-cta:hover {
+    transform: none;
+  }
+  .hero-bg-slide { transition: none; }
+  #hero-content,
+  #hero-arrow {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  /* Image zoom on hover — disable decorative scale */
+  .arc-entry:hover .arc-entry-image img,
+  .lrs-gallery-item:hover img,
+  .lgn-gallery-item:hover img,
+  .sd-gallery-item:hover img,
+  .suite-card:hover .card-image img,
+  .sd-explore-card:hover .sd-explore-img img,
+  .rst-venue:hover .rst-venue-image img,
+  .rst-breakfast:hover .rst-breakfast-image img,
+  .prs-clipping:hover img,
+  .evt-gallery-cell:hover img {
+    transform: none;
+  }
+}
