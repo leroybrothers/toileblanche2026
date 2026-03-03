@@ -66,14 +66,8 @@ import { gallerySrcset } from '../../utils/images';
     <section class="evt-past">
       <div class="evt-past-inner">
         <p class="evt-past-label">Past Sessions</p>
-        <div class="evt-past-grid">
-          <a href="https://www.toileblanchecontemporary.com/events/2/" target="_blank" rel="noopener noreferrer" class="evt-past-card">
-            <img src="/assets/images/page-img-621f7e97a4739b.webp" alt="Past Toile Blanche Session" loading="lazy" />
-          </a>
-          <a href="https://www.toileblanchecontemporary.com/events/4/" target="_blank" rel="noopener noreferrer" class="evt-past-card">
-            <img src="/assets/images/page-img-71783986edfe3a.webp" alt="Past Toile Blanche Session" loading="lazy" />
-          </a>
-        </div>
+        <p class="evt-past-intro">Our full archive of sessions, residencies, and exhibitions — always up to date.</p>
+        <a href="https://www.toileblanchecontemporary.com/events/" target="_blank" rel="noopener noreferrer" class="evt-past-btn">View the full events calendar &rarr;</a>
       </div>
     </section>
 
@@ -285,26 +279,30 @@ import { gallerySrcset } from '../../utils/images';
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #9C9080;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
   }
-  .evt-past-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
+  .evt-past-intro {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #6B6256;
+    margin-bottom: 28px;
+    max-width: 480px;
   }
-  .evt-past-card {
-    overflow: hidden;
-    display: block;
+  .evt-past-btn {
+    display: inline-block;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FAF8F3;
+    background: #9e5c4a;
+    padding: 16px 36px;
+    transition: opacity 0.2s;
   }
-  .evt-past-card img {
-    width: 100%;
-    aspect-ratio: 16/10;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.8s ease;
-  }
-  .evt-past-card:hover img {
-    transform: scale(1.03);
+  .evt-past-btn:hover {
+    opacity: 0.85;
   }
 
   /* ─── PRIVATE TAKEOVERS ─── */
@@ -403,9 +401,6 @@ import { gallerySrcset } from '../../utils/images';
     }
     .evt-past-inner {
       padding: 48px 24px;
-    }
-    .evt-past-grid {
-      grid-template-columns: 1fr;
     }
     .evt-private-inner {
       padding: 64px 24px;
