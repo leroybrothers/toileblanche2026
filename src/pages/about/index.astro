@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import { gallerySrcset, heroSrcset, singleWidthSrcset } from '../../utils/images';
 ---
 
 <Layout
@@ -25,10 +26,10 @@ import Footer from '../../components/Footer.astro';
     <section class="abt-gallery">
       <div class="abt-gallery-inner">
         <div class="abt-gallery-tall">
-          <img src="/assets/images/ambiance/IMG_3081.jpg" alt="The original 200-year-old farmhouse at Toile Blanche" loading="lazy" />
+          <img src="/assets/images/ambiance/IMG_3081.jpg" srcset={singleWidthSrcset('/assets/images/ambiance/IMG_3081.jpg', 800)} sizes="(max-width: 900px) 100vw, 55vw" width="1170" height="1749" alt="The original 200-year-old farmhouse at Toile Blanche" loading="lazy" />
         </div>
         <div class="abt-gallery-offset">
-          <img src="/assets/images/ambiance/IMG_2234.jpg" alt="Sculptures in the gardens of Toile Blanche" loading="lazy" />
+          <img src="/assets/images/ambiance/IMG_2234.jpg" srcset={gallerySrcset('/assets/images/ambiance/IMG_2234.jpg')} sizes="(max-width: 900px) 100vw, 45vw" width="3024" height="4032" alt="Sculptures in the gardens of Toile Blanche" loading="lazy" />
         </div>
       </div>
     </section>
@@ -54,7 +55,7 @@ import Footer from '../../components/Footer.astro';
 
     <!-- FULL BLEED IMAGE -->
     <section class="abt-full-bleed">
-      <img src="/assets/images/ambiance/StP25-ToileBlanche-c-GaelleSimon-38.jpg" alt="The domain of Toile Blanche in Saint-Paul de Vence" loading="lazy" />
+      <img src="/assets/images/ambiance/StP25-ToileBlanche-c-GaelleSimon-38.jpg" srcset={heroSrcset('/assets/images/ambiance/StP25-ToileBlanche-c-GaelleSimon-38.jpg')} sizes="100vw" width="4899" height="3266" alt="The domain of Toile Blanche in Saint-Paul de Vence" loading="lazy" />
     </section>
 
     <!-- THE VISION -->

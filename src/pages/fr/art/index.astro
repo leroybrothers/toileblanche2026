@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
+import { gallerySrcset, heroSrcset } from '../../../utils/images';
 ---
 
 <Layout
@@ -15,7 +16,7 @@ import Footer from '../../../components/Footer.astro';
   <main id="main-content">
     <section class="art-hero">
       <div class="art-hero-image">
-        <img src="/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg" alt="L'art à Toile Blanche" loading="eager" />
+        <img src="/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg" srcset={heroSrcset('/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg')} sizes="100vw" width="4898" height="3265" alt="L'art à Toile Blanche" loading="eager" fetchpriority="high" />
         <div class="art-hero-overlay"></div>
       </div>
       <div class="art-hero-content">
@@ -59,10 +60,10 @@ import Footer from '../../../components/Footer.astro';
     <section class="art-gallery-pair">
       <div class="art-gallery-pair-inner">
         <div class="art-gallery-tall">
-          <img src="/assets/images/art/ervinck-1.jpg" alt="Installation artistique à Toile Blanche" loading="lazy" />
+          <img src="/assets/images/art/ervinck-1.jpg" srcset={gallerySrcset('/assets/images/art/ervinck-1.jpg')} sizes="(max-width: 900px) 100vw, 55vw" width="2917" height="3898" alt="Installation artistique à Toile Blanche" loading="lazy" />
         </div>
         <div class="art-gallery-offset">
-          <img src="/assets/images/art/aerts-6.jpg" alt="Sculpture dans les jardins de Toile Blanche" loading="lazy" />
+          <img src="/assets/images/art/aerts-6.jpg" srcset={gallerySrcset('/assets/images/art/aerts-6.jpg')} sizes="(max-width: 900px) 100vw, 45vw" width="4032" height="2717" alt="Sculpture dans les jardins de Toile Blanche" loading="lazy" />
           <p class="art-gallery-caption">Des œuvres empilées, cachées dans les recoins de l'hôtel. Gardez les yeux ouverts.</p>
         </div>
       </div>

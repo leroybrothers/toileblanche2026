@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
 import menu from '../../../data/menu-guinguette.json';
+import { gallerySrcset } from '../../../utils/images';
 const lang = 'fr';
 ---
 
@@ -103,10 +104,10 @@ const lang = 'fr';
     <section class="lgn-gallery">
       <div class="lgn-gallery-inner">
         <div class="lgn-gallery-tall">
-          <img src="/assets/images/guinguette/IMG_9122.jpg" alt="Plats à partager à La Guinguette" loading="lazy" />
+          <img src="/assets/images/guinguette/IMG_9122.jpg" srcset={gallerySrcset('/assets/images/guinguette/IMG_9122.jpg')} sizes="(max-width: 900px) 100vw, 55vw" width="3024" height="4032" alt="Plats à partager à La Guinguette" loading="lazy" />
         </div>
         <div class="lgn-gallery-offset">
-          <img src="/assets/images/guinguette/IMG_7301.jpg" alt="Déjeuner au bord de la piscine à Toile Blanche" loading="lazy" />
+          <img src="/assets/images/guinguette/IMG_7301.jpg" srcset={gallerySrcset('/assets/images/guinguette/IMG_7301.jpg')} sizes="(max-width: 900px) 100vw, 45vw" width="4032" height="3024" alt="Déjeuner au bord de la piscine à Toile Blanche" loading="lazy" />
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import menu from '../../data/menu-restaurant.json';
+import { gallerySrcset } from '../../utils/images';
 const lang = 'en';
 ---
 
@@ -88,7 +89,7 @@ const lang = 'en';
     <section class="lrs-gallery">
       <div class="lrs-gallery-inner">
         <div class="lrs-gallery-tall">
-          <img src="/assets/images/restaurant/IMG_7598.jpg" alt="Le Restaurant terrace at Toile Blanche" loading="lazy" />
+          <img src="/assets/images/restaurant/IMG_7598.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_7598.jpg')} sizes="(max-width: 900px) 100vw, 55vw" width="4032" height="3024" alt="Le Restaurant terrace at Toile Blanche" loading="lazy" />
         </div>
         <div class="lrs-gallery-offset">
           <img src="/assets/images/restaurant/DSCF4081 2.JPG" alt="Seasonal dish at Le Restaurant" loading="lazy" />

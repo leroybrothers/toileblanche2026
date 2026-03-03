@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
 import experiences from '../../../data/experiences.fr.json';
+import { heroSrcset } from '../../../utils/images';
 ---
 
 <Layout
@@ -15,7 +16,7 @@ import experiences from '../../../data/experiences.fr.json';
 
   <section class="exp-hero">
     <div class="exp-hero-image">
-      <img src="/assets/images/pools/toile-blanche-pool.jpg" alt="Vue des jardins de Toile Blanche" />
+      <img src="/assets/images/pools/toile-blanche-pool.jpg" srcset={heroSrcset('/assets/images/pools/toile-blanche-pool.jpg')} sizes="100vw" width="4897" height="3267" alt="Vue des jardins de Toile Blanche" loading="eager" fetchpriority="high" />
     </div>
     <div class="exp-hero-overlay"></div>
     <div class="exp-hero-content">

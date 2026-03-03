@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
+import { heroSrcset } from '../../../utils/images';
 ---
 
 <Layout
@@ -21,7 +22,7 @@ import Footer from '../../../components/Footer.astro';
     </section>
 
     <section class="bkf-image">
-      <img src="/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg" alt="Petit-déjeuner à Toile Blanche" />
+      <img src="/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg" srcset={heroSrcset('/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg')} sizes="100vw" width="4898" height="3265" alt="Petit-déjeuner à Toile Blanche" loading="eager" fetchpriority="high" />
     </section>
 
     <section class="info-body">

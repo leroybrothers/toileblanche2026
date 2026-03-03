@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
+import { gallerySrcset, heroSrcset } from '../../../utils/images';
 ---
 
 <Layout
@@ -16,7 +17,7 @@ import Footer from '../../../components/Footer.astro';
   <main id="main-content">
     <section class="rst-hero">
       <div class="rst-hero-image">
-        <img src="/assets/images/restaurant/IMG_7598.jpg" alt="Dîner à Toile Blanche" loading="eager" />
+        <img src="/assets/images/restaurant/IMG_7598.jpg" srcset={heroSrcset('/assets/images/restaurant/IMG_7598.jpg')} sizes="100vw" width="4032" height="3024" alt="Dîner à Toile Blanche" loading="eager" fetchpriority="high" />
         <div class="rst-hero-overlay"></div>
       </div>
       <div class="rst-hero-content">
@@ -69,7 +70,7 @@ import Footer from '../../../components/Footer.astro';
     <section class="rst-breakfast">
       <div class="rst-breakfast-inner">
         <a href="/fr/breakfast" class="rst-breakfast-image">
-          <img src="/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg" alt="Le Petit-Déjeuner à Toile Blanche" loading="lazy" />
+          <img src="/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg" srcset={gallerySrcset('/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1170" height="1422" alt="Le Petit-Déjeuner à Toile Blanche" loading="lazy" />
         </a>
         <div class="rst-breakfast-content">
           <p class="rst-breakfast-eyebrow">Chaque Matin</p>

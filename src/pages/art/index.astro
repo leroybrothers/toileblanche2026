@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import { heroSrcset, gallerySrcset } from '../../utils/images';
 ---
 
 <Layout
@@ -15,7 +16,7 @@ import Footer from '../../components/Footer.astro';
     <!-- HERO -->
     <section class="art-hero">
       <div class="art-hero-image">
-        <img src="/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg" alt="Art at Toile Blanche" loading="eager" />
+        <img src="/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg" srcset={heroSrcset('/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg')} sizes="100vw" width="4898" height="3265" alt="Art at Toile Blanche" loading="eager" fetchpriority="high" />
         <div class="art-hero-overlay"></div>
       </div>
       <div class="art-hero-content">
@@ -62,10 +63,10 @@ import Footer from '../../components/Footer.astro';
     <section class="art-gallery-pair">
       <div class="art-gallery-pair-inner">
         <div class="art-gallery-tall">
-          <img src="/assets/images/art/ervinck-1.jpg" alt="Art installation at Toile Blanche" loading="lazy" />
+          <img src="/assets/images/art/ervinck-1.jpg" srcset={gallerySrcset('/assets/images/art/ervinck-1.jpg')} sizes="(max-width: 900px) 100vw, 55vw" width="2917" height="3898" alt="Art installation at Toile Blanche" loading="lazy" />
         </div>
         <div class="art-gallery-offset">
-          <img src="/assets/images/art/aerts-6.jpg" alt="Sculpture in the gardens of Toile Blanche" loading="lazy" />
+          <img src="/assets/images/art/aerts-6.jpg" srcset={gallerySrcset('/assets/images/art/aerts-6.jpg')} sizes="(max-width: 900px) 100vw, 45vw" width="4032" height="2717" alt="Sculpture in the gardens of Toile Blanche" loading="lazy" />
           <p class="art-gallery-caption">Stacked artworks hidden in corners of the hotel. Keep your eyes open.</p>
         </div>
       </div>
