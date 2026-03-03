@@ -19,46 +19,49 @@ function getScrollY(): number {
 function initLenis(): void {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  lenisInstance = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-  });
-
-  // Tell ScrollTrigger to use Lenis scroll position (required for reveals to fire)
-  ScrollTrigger.scrollerProxy(document.body, {
-    scrollTop(value) {
-      if (lenisInstance) {
-        if (arguments.length) lenisInstance.scrollTo(value);
-        return lenisInstance.scroll;
-      }
-      return value;
-    },
-    getBoundingClientRect() {
-      return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-    },
-  });
-
-  lenisInstance.on('scroll', ScrollTrigger.update);
-
-  gsap.ticker.add((time) => {
-    lenisInstance?.raf(time * 1000);
-  });
-  gsap.ticker.lagSmoothing(0);
-
-  // Ensure anchor links work with Lenis
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (e) => {
-      const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
-      if (href && href !== '#') {
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          lenisInstance?.scrollTo(target, { offset: 0 });
-        }
-      }
+  try {
+    lenisInstance = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
     });
-  });
+
+    ScrollTrigger.scrollerProxy(document.body, {
+      scrollTop(value) {
+        if (lenisInstance) {
+          if (arguments.length) lenisInstance.scrollTo(value);
+          return lenisInstance.scroll;
+        }
+        return value;
+      },
+      getBoundingClientRect() {
+        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+      },
+    });
+
+    lenisInstance.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenisInstance?.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', (e) => {
+        const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+        if (href && href !== '#') {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            lenisInstance?.scrollTo(target, { offset: 0 });
+          }
+        }
+      });
+    });
+  } catch (err) {
+    console.warn('[Toile Blanche] Lenis smooth scroll failed, using native scroll:', err);
+    lenisInstance = null;
+  }
 }
 
 function initScrollNav(): void {
@@ -144,7 +147,16 @@ function initScrollReveals(): void {
 }
 
 export function initSmoothScroll(): void {
-  initLenis();
-  initScrollNav();
-  initScrollReveals();
+  // Wait for full load so loader is gone and layout is stable
+  if (document.readyState !== 'complete') {
+    window.addEventListener('load', () => {
+      initLenis();
+      initScrollNav();
+      initScrollReveals();
+    });
+  } else {
+    initLenis();
+    initScrollNav();
+    initScrollReveals();
+  }
 }
