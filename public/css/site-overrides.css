@@ -1255,7 +1255,40 @@ body {
 @media print {
   #page-loader,
   .hero-bg-image,
-  .hero-bg-overlay {
+  .hero-bg-overlay,
+  .hero-bg-video {
     display: none !important;
+  }
+}
+
+/* ─── Hero video background ──────────────────────────────────────────────── */
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Desktop default: landscape visible, portrait hidden */
+.hero-video--portrait {
+  display: none;
+}
+
+/* Mobile portrait orientation: swap to portrait video */
+@media (max-width: 768px) and (orientation: portrait) {
+  .hero-video--landscape {
+    display: none;
+  }
+  .hero-video--portrait {
+    display: block;
   }
 }
