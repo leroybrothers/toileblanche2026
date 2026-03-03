@@ -10,21 +10,24 @@ const SUITE_DIRS = [
   'suite-artiste', 'mas-de-l-artiste', 'bon-vivant', 'penequet'
 ];
 
+const GALLERY_ONLY_DIRS = ['restaurant', 'guinguette'];
+
 const SIZES = {
   hero:    [2400, 1200, 800],
   card:    [800, 400],
   gallery: [1800, 1200, 600],
 };
 
-function getSizeSet(name) {
+function getSizeSet(name, isGalleryOnlyDir) {
+  if (isGalleryOnlyDir) return SIZES.gallery;
   if (name === 'hero') return SIZES.hero;
   if (name === 'card') return SIZES.card;
   if (name.startsWith('gallery')) return SIZES.gallery;
   return null;
 }
 
-async function processImage(filePath, role) {
-  const widths = getSizeSet(role);
+async function processImage(filePath, role, isGalleryOnlyDir = false) {
+  const widths = getSizeSet(role, isGalleryOnlyDir);
   if (!widths) return;
 
   const dir = join(filePath, '..');
@@ -75,9 +78,11 @@ async function run() {
   let totalBefore = 0;
   let totalAfter = 0;
 
-  for (const dir of SUITE_DIRS) {
+  const allDirs = [...SUITE_DIRS, ...GALLERY_ONLY_DIRS];
+  for (const dir of allDirs) {
     const dirPath = join(BASE, dir);
-    console.log(`\n── ${dir} ──`);
+    const isGalleryOnly = GALLERY_ONLY_DIRS.includes(dir);
+    console.log(`\n── ${dir} ${isGalleryOnly ? '(gallery only)' : ''} ──`);
 
     const files = await readdir(dirPath);
     const images = files.filter(f =>
@@ -93,7 +98,7 @@ async function run() {
       const sizeBefore = (await stat(fullPath)).size;
       totalBefore += sizeBefore;
 
-      await processImage(fullPath, role);
+      await processImage(fullPath, role, isGalleryOnly);
 
       const sizeAfter = (await stat(fullPath)).size;
       totalAfter += sizeAfter;

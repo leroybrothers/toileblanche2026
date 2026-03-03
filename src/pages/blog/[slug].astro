@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+export function getStaticPaths() {
+  const archiveFiles = import.meta.glob('../../content/archive/*.md', { eager: true });
+  return Object.values(archiveFiles).map((file: any) => ({
+    params: { slug: file.frontmatter.slug },
+    props: { post: file },
+  }));
+}
+
+const { post } = Astro.props;
+const { frontmatter, default: Content } = post as { frontmatter: { slug: string; date: string; title: string; excerpt: string; image: string }; default: import('astro').Component };
+---
+
+<Layout
+  title={`${frontmatter.title} | The Archive | Toile Blanche`}
+  description={frontmatter.excerpt}
+  ogImage={frontmatter.image.startsWith('/') ? `https://www.toileblanche.com${frontmatter.image}` : frontmatter.image}
+>
+  <Nav theme="light" />
+
+  <main id="main-content">
+    <article class="arc-post">
+      <div class="arc-post-hero">
+        <img src={frontmatter.image} alt={frontmatter.title} />
+      </div>
+      <div class="arc-post-body">
+        <a href="/blog" class="arc-post-back">← The Archive</a>
+        <span class="arc-post-date">{frontmatter.date}</span>
+        <h1>{frontmatter.title}</h1>
+        <p class="arc-post-excerpt">{frontmatter.excerpt}</p>
+        <div class="arc-post-content">
+          <Content />
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .arc-post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 120px;
+  }
+  .arc-post-hero {
+    margin-bottom: 64px;
+  }
+  .arc-post-hero img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    display: block;
+  }
+  .arc-post-body {
+    padding: 0 80px;
+  }
+  .arc-post-back {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #9C9080;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 32px;
+  }
+  .arc-post-back:hover {
+    color: #1C1917;
+  }
+  .arc-post-date {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    display: block;
+    margin-bottom: 24px;
+  }
+  .arc-post-body h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: #1C1917;
+    margin-bottom: 24px;
+  }
+  .arc-post-excerpt {
+    font-family: 'Gilda Display', serif;
+    font-style: italic;
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.55;
+    color: #6B6256;
+    margin-bottom: 48px;
+  }
+  .arc-post-content {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #3D3530;
+  }
+  .arc-post-content :global(p) {
+    margin-bottom: 20px;
+  }
+  .arc-post-content :global(h2) {
+    font-family: 'Gilda Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    color: #1C1917;
+  }
+
+  @media (max-width: 900px) {
+    .arc-post-body {
+      padding: 0 24px;
+    }
+  }
+</style>

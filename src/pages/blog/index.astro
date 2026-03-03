@@ -28,7 +28,7 @@ const entries = Object.values(archiveFiles)
     <!-- ENTRIES -->
     <section class="arc-feed">
       {entries.map((entry, i) => (
-        <article class="arc-entry">
+        <a href={`/blog/${entry.slug}`} class="arc-entry">
           <div class="arc-entry-image">
             <img src={entry.image} alt={entry.title} loading="lazy" />
           </div>
@@ -37,7 +37,7 @@ const entries = Object.values(archiveFiles)
             <h2>{entry.title}</h2>
             <p>{entry.excerpt}</p>
           </div>
-        </article>
+        </a>
       ))}
     </section>
 
