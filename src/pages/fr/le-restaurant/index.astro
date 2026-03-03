@@ -98,6 +98,18 @@ const lang = 'fr';
       </div>
     </section>
 
+    <!-- GALLERY GRID (additional images) -->
+    <section class="lrs-gallery-grid">
+      <div class="lrs-gallery-grid-inner">
+        <div class="lrs-gallery-grid-item">
+          <img src="/assets/images/restaurant/IMG_5342.jpg" alt="Terrasse du Restaurant en plein air" loading="lazy" />
+        </div>
+        <div class="lrs-gallery-grid-item">
+          <img src="/assets/images/restaurant/IMG_7598.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_7598.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="4032" height="3024" alt="Vue de la terrasse du Restaurant" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
     <!-- SEASONAL MENU -->
     <section class="lrs-menu">
       <div class="lrs-menu-inner">
@@ -500,6 +512,31 @@ const lang = 'fr';
     display: block;
   }
 
+  /* ─── GALLERY GRID ─── */
+  .lrs-gallery-grid {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .lrs-gallery-grid-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px 80px;
+    columns: 2;
+    column-gap: 4px;
+    line-height: 0;
+  }
+  .lrs-gallery-grid-item {
+    break-inside: avoid;
+    margin-bottom: 4px;
+    overflow: hidden;
+    line-height: 0;
+  }
+  .lrs-gallery-grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
   /* ─── SEASONAL MENU ─── */
   .lrs-menu {
     border-bottom: 1px solid #E2D9CC;
@@ -727,6 +764,9 @@ const lang = 'fr';
     }
     .lrs-gallery-offset {
       padding-top: 0;
+    }
+    .lrs-gallery-grid-inner {
+      padding: 0 24px 48px;
     }
     .lrs-menu-inner {
       padding: 48px 24px;

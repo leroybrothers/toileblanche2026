@@ -112,6 +112,24 @@ const lang = 'fr';
       </div>
     </section>
 
+    <!-- GALLERY GRID (additional images) -->
+    <section class="lgn-gallery-grid">
+      <div class="lgn-gallery-grid-inner">
+        <div class="lgn-gallery-grid-item">
+          <img src="/assets/images/guinguette/IMG_7094.jpg" alt="Cadre du jardin à La Guinguette" loading="lazy" />
+        </div>
+        <div class="lgn-gallery-grid-item">
+          <img src="/assets/images/guinguette/IMG_8142.jpg" alt="Déjeuner en plein air à La Guinguette" loading="lazy" />
+        </div>
+        <div class="lgn-gallery-grid-item">
+          <img src="/assets/images/guinguette/IMG_0346.jpg" alt="Terrasse au bord de la piscine à Toile Blanche" loading="lazy" />
+        </div>
+        <div class="lgn-gallery-grid-item">
+          <img src="/assets/images/guinguette/IMG_4191.jpg" alt="Plats à partager à La Guinguette" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
     <!-- LA CARTE -->
     <section class="lgn-menu">
       <div class="lgn-menu-inner">
@@ -428,6 +446,31 @@ const lang = 'fr';
     display: block;
   }
 
+  /* ─── GALLERY GRID ─── */
+  .lgn-gallery-grid {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .lgn-gallery-grid-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px 80px;
+    columns: 2;
+    column-gap: 4px;
+    line-height: 0;
+  }
+  .lgn-gallery-grid-item {
+    break-inside: avoid;
+    margin-bottom: 4px;
+    overflow: hidden;
+    line-height: 0;
+  }
+  .lgn-gallery-grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
   /* ─── THE MENU ─── */
   .lgn-menu {
     border-bottom: 1px solid #E2D9CC;
@@ -583,6 +626,9 @@ const lang = 'fr';
     }
     .lgn-gallery-offset {
       padding-top: 0;
+    }
+    .lgn-gallery-grid-inner {
+      padding: 0 24px 48px;
     }
     .lgn-menu-inner {
       padding: 48px 24px;
