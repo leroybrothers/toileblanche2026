@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
-import { gallerySrcset, heroSrcset, singleWidthSrcset } from '../../utils/images';
+import { gallerySrcset, heroSrcset } from '../../utils/images';
 ---
 
 <Layout
@@ -22,14 +22,34 @@ import { gallerySrcset, heroSrcset, singleWidthSrcset } from '../../utils/images
       </div>
     </section>
 
-    <!-- GALLERY PAIR: The Farmhouse -->
+    <!-- GALLERY: Events-style grid -->
     <section class="abt-gallery">
       <div class="abt-gallery-inner">
-        <div class="abt-gallery-tall">
-          <img src="/assets/images/ambiance/IMG_3081.jpg" srcset={singleWidthSrcset('/assets/images/ambiance/IMG_3081.jpg', 800)} sizes="(max-width: 900px) 100vw, 55vw" width="1170" height="1749" alt="The original 200-year-old farmhouse at Toile Blanche" loading="lazy" />
-        </div>
-        <div class="abt-gallery-offset">
-          <img src="/assets/images/ambiance/IMG_2234.jpg" srcset={gallerySrcset('/assets/images/ambiance/IMG_2234.jpg')} sizes="(max-width: 900px) 100vw, 45vw" width="3024" height="4032" alt="Sculptures in the gardens of Toile Blanche" loading="lazy" />
+        <div class="abt-gallery-grid">
+          <div class="abt-gallery-cell">
+            <img src="/assets/images/ambiance/IMG_3081.jpg" srcset={gallerySrcset('/assets/images/ambiance/IMG_3081.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="1170" height="1749" alt="The original 200-year-old farmhouse at Toile Blanche" loading="lazy" />
+          </div>
+          <div class="abt-gallery-cell">
+            <img src="/assets/images/ambiance/IMG_2234.jpg" srcset={gallerySrcset('/assets/images/ambiance/IMG_2234.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="3024" height="4032" alt="Sculptures in the gardens of Toile Blanche" loading="lazy" />
+          </div>
+          <div class="abt-gallery-cell">
+            <img src="/assets/images/garden/71abbd24-cc1b-4ff7-8f33-4fa21a912bef.jpg" srcset={gallerySrcset('/assets/images/garden/71abbd24-cc1b-4ff7-8f33-4fa21a912bef.jpg')} sizes="(max-width: 900px) 50vw, 25vw" alt="Gardens at Toile Blanche" loading="lazy" />
+          </div>
+          <div class="abt-gallery-cell">
+            <img src="/assets/images/garden/IMG_8223.jpg" srcset={gallerySrcset('/assets/images/garden/IMG_8223.jpg')} sizes="(max-width: 900px) 50vw, 25vw" alt="The estate at Toile Blanche" loading="lazy" />
+          </div>
+          <div class="abt-gallery-cell">
+            <img src="/assets/images/art/DSCF5047.JPG" srcset={gallerySrcset('/assets/images/art/DSCF5047.JPG')} sizes="(max-width: 900px) 50vw, 25vw" width="2080" height="3120" alt="Toile Blanche estate" loading="lazy" />
+          </div>
+          <div class="abt-gallery-cell">
+            <img src="/assets/images/art/DSCF4849.JPG" srcset={gallerySrcset('/assets/images/art/DSCF4849.JPG')} sizes="(max-width: 900px) 50vw, 25vw" width="4160" height="6240" alt="The domain at Toile Blanche" loading="lazy" />
+          </div>
+          <div class="abt-gallery-cell">
+            <img src="/assets/images/art/IMG_4376.jpg" srcset={gallerySrcset('/assets/images/art/IMG_4376.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="3024" height="4032" alt="Saint-Paul de Vence" loading="lazy" />
+          </div>
+          <div class="abt-gallery-cell">
+            <img src="/assets/images/ambiance/StP25-ToileBlanche-c-GaelleSimon-38.jpg" srcset={gallerySrcset('/assets/images/ambiance/StP25-ToileBlanche-c-GaelleSimon-38.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="4899" height="3266" alt="The domain of Toile Blanche" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
@@ -110,28 +130,37 @@ import { gallerySrcset, heroSrcset, singleWidthSrcset } from '../../utils/images
     max-width: 700px;
   }
 
-  /* ─── GALLERY PAIR ─── */
+  /* ─── GALLERY: Events-style grid ─── */
   .abt-gallery {
     border-bottom: 1px solid #E2D9CC;
   }
   .abt-gallery-inner {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 64px 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
+    display: flex;
+    justify-content: center;
   }
-  .abt-gallery-tall img,
-  .abt-gallery-offset img {
+  .abt-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    min-height: 0;
+  }
+  .abt-gallery-cell {
+    overflow: hidden;
+    min-height: 0;
+    aspect-ratio: 1/1;
+  }
+  .abt-gallery-cell img {
     width: 100%;
-    aspect-ratio: 16/9;
+    height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.8s ease;
   }
-  .abt-gallery-offset {
-    padding-top: 0;
+  .abt-gallery-cell:hover img {
+    transform: scale(1.03);
   }
 
   /* ─── NARRATIVE ─── */
@@ -198,12 +227,16 @@ import { gallerySrcset, heroSrcset, singleWidthSrcset } from '../../utils/images
   }
 
   /* ─── FULL BLEED ─── */
+  .abt-full-bleed {
+    background: #F5F2ED;
+  }
   .abt-full-bleed img {
     width: 100%;
-    height: 45vh;
-    min-height: 320px;
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
     display: block;
+    object-fit: contain;
+    object-position: center;
   }
 
   /* ─── VISION ─── */
@@ -295,9 +328,11 @@ import { gallerySrcset, heroSrcset, singleWidthSrcset } from '../../utils/images
       padding: 140px 24px 64px;
     }
     .abt-gallery-inner {
-      grid-template-columns: 1fr;
       padding: 48px 24px;
-      gap: 24px;
+    }
+    .abt-gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
     }
     .abt-narrative-inner {
       grid-template-columns: 1fr;
