@@ -406,6 +406,23 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   overflow: hidden;
 }
 
+.tb-feature-block-image-link {
+  display: block;
+  height: 100%;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.tb-feature-block-image-link:hover {
+  opacity: 0.9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tb-feature-block-image-link:hover {
+    opacity: 1;
+  }
+}
+
 .tb-feature-block-image img {
   width: 100%;
   height: 100%;
