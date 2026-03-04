@@ -58,6 +58,13 @@ body {
   font-family: var(--font-body);
 }
 
+@media (max-width: 767px) {
+  body,
+  p {
+    line-height: var(--leading-loose);
+  }
+}
+
 /* ─── Titles: Gilda Display, larger sizes ─────────────────────────────────── */
 h1, h2, h3, .hero4 h1, .hero3 h1, .subtitle {
   font-family: var(--font-display) !important;
@@ -930,8 +937,8 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   font-family: var(--font-editorial);
   font-style: italic;
   font-weight: var(--weight-regular);
-  font-size: clamp(var(--text-base), 2vw, 1.35rem);
-  line-height: var(--leading-normal);
+  font-size: var(--text-hero-body);
+  line-height: var(--leading-relaxed);
   margin: 1.25em 0 1.5em;
   opacity: 0.95;
 }

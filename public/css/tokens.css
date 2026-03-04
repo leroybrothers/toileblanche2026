@@ -108,7 +108,8 @@
   --text-2xl:   2rem;       /*  32px — card titles, smaller headings */
   --text-3xl:   2.5rem;     /*  40px — page headings */
   --text-4xl:   3.5rem;     /*  56px — hero sub-headings */
-  --text-hero:  clamp(3rem, 6vw, 5.5rem); /* fluid hero headline */
+  --text-hero:      clamp(3rem, 6vw, 9rem);   /* fluid hero headline — scales at ultra-wide */
+  --text-hero-body: clamp(1rem, 2vw, 1.5rem); /* fluid hero paragraph */
 
 
   /* ── Typography — Weight Scale ─────────────────────────────────────────── */

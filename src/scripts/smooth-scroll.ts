@@ -146,17 +146,49 @@ function initScrollReveals(): void {
   });
 }
 
+function initSuiteGalleryReveals(): void {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const gallery = document.querySelector('.sd-gallery');
+  const items = gallery?.querySelectorAll('.sd-gallery-item');
+  if (!gallery || !items?.length) return;
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: gallery,
+      start: 'top 75%',
+      end: 'bottom 25%',
+      scrub: 1,
+    },
+  });
+
+  items.forEach((item, i) => {
+    tl.from(
+      item,
+      {
+        y: 48,
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+      },
+      i * 0.1
+    );
+  });
+}
+
 export function initSmoothScroll(): void {
-  // Wait for full load so loader is gone and layout is stable
-  if (document.readyState !== 'complete') {
-    window.addEventListener('load', () => {
-      initLenis();
-      initScrollNav();
-      initScrollReveals();
-    });
-  } else {
+  function run(): void {
     initLenis();
     initScrollNav();
     initScrollReveals();
+    initSuiteGalleryReveals();
+    // Refresh ScrollTrigger after Lenis and reveals are set up
+    ScrollTrigger.refresh();
+  }
+  // Wait for full load so loader is gone and layout is stable
+  if (document.readyState !== 'complete') {
+    window.addEventListener('load', run);
+  } else {
+    run();
   }
 }

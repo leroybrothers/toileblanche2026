@@ -80,6 +80,19 @@ const alternates = getAlternateUrls(currentPath);
   <link rel="stylesheet" href="/css/toile-blanche.min.css" />
   <link rel="stylesheet" href="/css/site-overrides.css?v=2" />
 
+  <!-- Restaurant/breakfast overrides (inline in Layout, IDs for max specificity) -->
+  <style is:global>
+    #rst-title-restaurant,
+    #rst-title-guinguette,
+    #rst-title-breakfast,
+    #rst-title-restaurant a,
+    #rst-title-guinguette a,
+    #rst-title-breakfast a { font-size: clamp(36px, 4.5vw, 52px) !important; font-family: 'Gilda Display', Georgia, serif !important; font-weight: 400 !important; }
+    .rst-breakfast-image-fixed img { aspect-ratio: 2/1 !important; object-fit: cover !important; object-position: center 35% !important; }
+    .bkf-image { aspect-ratio: 2/1 !important; max-height: 320px !important; }
+    .bkf-image img { height: 100% !important; object-fit: cover !important; object-position: center 40% !important; }
+  </style>
+
   <!-- Google Site Verification -->
   <meta name="google-site-verification" content="ybV56V__njW0TIX5AEH_299IVdVUSQYtEk-I8KSaeQQ" />
 
