@@ -39,7 +39,7 @@ import { gallerySrcset, heroSrcset } from '../../../utils/images';
             <img src="/assets/images/page-img-14433f29c9500d.jpg" alt="Le Restaurant de Toile Blanche" loading="lazy" />
           </a>
           <div class="rst-venue-content">
-            <h2>Le Restaurant</h2>
+            <h2><a href="/fr/le-restaurant" class="rst-venue-title-link">Le Restaurant</a></h2>
             <p class="rst-venue-tagline">La version du soir : plus attentionné, plus intime, la cuisine à son plein potentiel.</p>
             <p class="rst-venue-desc">Le Restaurant est une lettre d'amour à la Côte d'Azur. Un espace où la tradition méditerranéenne est réinventée à travers un regard contemporain. Ouvert toute l'année pour le dîner.</p>
             <div class="rst-venue-actions">
@@ -54,7 +54,7 @@ import { gallerySrcset, heroSrcset } from '../../../utils/images';
             <img src="/assets/images/page-img-7f72d09199a7a2.jpg" alt="La Guinguette de Toile Blanche" loading="lazy" />
           </a>
           <div class="rst-venue-content">
-            <h2>La Guinguette</h2>
+            <h2><a href="/fr/la-guinguette" class="rst-venue-title-link">La Guinguette</a></h2>
             <p class="rst-venue-tagline">Le déjeuner sous les platanes — rosé, poisson grillé, le plaisir spécifique de manger dehors en Provence.</p>
             <p class="rst-venue-desc">Ouverte de mai à octobre, La Guinguette est le cœur du jardin. Venez pieds nus ou en espadrilles. Le Sud balayera vos soucis — si vous en aviez.</p>
             <div class="rst-venue-actions">
@@ -74,7 +74,7 @@ import { gallerySrcset, heroSrcset } from '../../../utils/images';
         </a>
         <div class="rst-breakfast-content">
           <p class="rst-breakfast-eyebrow">Chaque Matin</p>
-          <h2>Le Petit-Déjeuner</h2>
+          <h2><a href="/fr/breakfast" class="rst-venue-title-link">Le Petit-Déjeuner</a></h2>
           <p class="rst-breakfast-tagline">Le café, les croissants, et le bruit du jardin qui se réveille. L'un des souvenirs les plus chers de nos hôtes.</p>
           <p class="rst-breakfast-desc">Pain frais d'un boulanger local. Fruits de saison. Œufs préparés à votre goût. Miel local, confitures et fromages. Jus d'orange pressé le matin même. Servi dans la salle du petit-déjeuner, en terrasse ou livré dans votre suite.</p>
           <p class="rst-breakfast-hours">Servi tous les jours, 8h00 – 10h30</p>
@@ -117,6 +117,8 @@ import { gallerySrcset, heroSrcset } from '../../../utils/images';
   .rst-venue-image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform 0.8s ease; }
   .rst-venue:hover .rst-venue-image img { transform: scale(1.02); }
   .rst-venue-content h2 { font-family: 'Gilda Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 400; color: #1C1917; margin-bottom: 16px; }
+  .rst-venue-title-link { color: inherit; text-decoration: none; cursor: pointer; transition: color 0.2s; }
+  .rst-venue-title-link:hover { color: #9e5c4a; }
   .rst-venue-tagline { font-family: 'Gilda Display', serif; font-style: italic; font-size: 18px; line-height: 1.55; color: #9e5c4a; margin-bottom: 20px; }
   .rst-venue-desc { font-family: 'Didact Gothic', sans-serif; font-size: 16px; line-height: 1.8; color: #6B6256; margin-bottom: 32px; }
   .rst-venue-actions { display: flex; flex-direction: column; gap: 16px; }

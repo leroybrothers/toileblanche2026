@@ -43,7 +43,7 @@ import { gallerySrcset, heroSrcset } from '../../utils/images';
             <img src="/assets/images/page-img-14433f29c9500d.jpg" alt="Le Restaurant de Toile Blanche" loading="lazy" />
           </a>
           <div class="rst-venue-content">
-            <h2>Le Restaurant</h2>
+            <h2><a href="/le-restaurant" class="rst-venue-title-link">Le Restaurant</a></h2>
             <p class="rst-venue-tagline">The evening version: more considered, more intimate, the kitchen at full attention.</p>
             <p class="rst-venue-desc">Le Restaurant is a love letter to the Côte d'Azur. A space where the Mediterranean tradition is reimagined through a contemporary lens. Open year-round for dinner.</p>
             <div class="rst-venue-actions">
@@ -59,7 +59,7 @@ import { gallerySrcset, heroSrcset } from '../../utils/images';
             <img src="/assets/images/page-img-7f72d09199a7a2.jpg" alt="La Guinguette de Toile Blanche" loading="lazy" />
           </a>
           <div class="rst-venue-content">
-            <h2>La Guinguette</h2>
+            <h2><a href="/la-guinguette" class="rst-venue-title-link">La Guinguette</a></h2>
             <p class="rst-venue-tagline">Lunch under the plane trees — rosé, grilled fish, the specific joy of eating outside in Provence.</p>
             <p class="rst-venue-desc">Open from May to October, La Guinguette is the heart of the garden. Come barefoot or in espadrilles. The South will sweep your worries away — if you had any to begin with.</p>
             <div class="rst-venue-actions">
@@ -80,7 +80,7 @@ import { gallerySrcset, heroSrcset } from '../../utils/images';
         </a>
         <div class="rst-breakfast-content">
           <p class="rst-breakfast-eyebrow">Every Morning</p>
-          <h2>Le Petit-Déjeuner</h2>
+          <h2><a href="/breakfast" class="rst-venue-title-link">Le Petit-Déjeuner</a></h2>
           <p class="rst-breakfast-tagline">Coffee, croissants, and the sound of the garden waking up. One of the things guests remember most.</p>
           <p class="rst-breakfast-desc">Fresh bread from a local bakery. Seasonal fruit. Eggs as you like them. Local honey, jams, and cheeses. Orange juice pressed that morning. Served in the breakfast room, on the terrace, or delivered to your suite.</p>
           <p class="rst-breakfast-hours">Served daily, 8:00 – 10:30</p>
@@ -276,6 +276,15 @@ import { gallerySrcset, heroSrcset } from '../../utils/images';
     font-weight: 400;
     color: #1C1917;
     margin-bottom: 16px;
+  }
+  .rst-venue-title-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .rst-venue-title-link:hover {
+    color: #9e5c4a;
   }
   .rst-venue-tagline {
     font-family: 'Gilda Display', serif;
