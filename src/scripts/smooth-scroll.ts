@@ -1,25 +1,31 @@
 /**
  * Lenis smooth scroll + GSAP ScrollTrigger homepage reveals.
  * Respects prefers-reduced-motion. Restrained, brand-appropriate animations.
+ * Lenis is loaded via dynamic import to isolate production load failures.
  */
 
-import Lenis from 'lenis';
-import 'lenis/dist/lenis.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-let lenisInstance: Lenis | null = null;
+type LenisInstance = import('lenis').default;
+let lenisInstance: LenisInstance | null = null;
 
 function getScrollY(): number {
   return lenisInstance ? lenisInstance.scroll : window.scrollY;
 }
 
-function initLenis(): void {
+async function initLenis(): Promise<void> {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   try {
+    const [lenisMod] = await Promise.all([
+      import('lenis'),
+      import('lenis/dist/lenis.css'),
+    ]);
+    const Lenis = lenisMod.default;
+
     lenisInstance = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -58,9 +64,12 @@ function initLenis(): void {
         }
       });
     });
+
+    document.documentElement.dataset.lenis = 'active';
   } catch (err) {
     console.warn('[Toile Blanche] Lenis smooth scroll failed, using native scroll:', err);
     lenisInstance = null;
+    document.documentElement.dataset.lenis = 'fallback';
   }
 }
 
@@ -176,19 +185,17 @@ function initSuiteGalleryReveals(): void {
   });
 }
 
-export function initSmoothScroll(): void {
-  function run(): void {
-    initLenis();
+export async function initSmoothScroll(): Promise<void> {
+  async function run(): Promise<void> {
+    await initLenis();
     initScrollNav();
     initScrollReveals();
     initSuiteGalleryReveals();
-    // Refresh ScrollTrigger after Lenis and reveals are set up
     ScrollTrigger.refresh();
   }
-  // Wait for full load so loader is gone and layout is stable
   if (document.readyState !== 'complete') {
-    window.addEventListener('load', run);
+    window.addEventListener('load', () => run().catch((err) => console.error('[Toile Blanche] Smooth scroll init error:', err)));
   } else {
-    run();
+    run().catch((err) => console.error('[Toile Blanche] Smooth scroll init error:', err));
   }
 }
