@@ -1235,6 +1235,14 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   border: none !important;
 }
 
+/* ─── Restaurant venue titles (override global h2) ───────────────────────── */
+.rst-venues .rst-venue-content h2,
+.rst-breakfast .rst-breakfast-content h2,
+.rst-venue-content h2,
+.rst-breakfast-content h2 {
+  font-size: clamp(36px, 4.5vw, 52px) !important;
+}
+
 /* ─── Nav CTA link variant (used on restaurant pages) ────────────────────── */
 a.tb-book-cta-link {
   text-decoration: none;

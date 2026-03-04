@@ -174,7 +174,7 @@ import { gallerySrcset, heroSrcset } from '../../utils/images';
 ]
 </script>
 
-<style>
+<style is:global>
   /* ─── HERO ─── */
   .rst-hero {
     position: relative;
@@ -272,7 +272,7 @@ import { gallerySrcset, heroSrcset } from '../../utils/images';
   }
   .rst-venue-content h2 {
     font-family: 'Gilda Display', serif;
-    font-size: clamp(28px, 3vw, 40px) !important;
+    font-size: clamp(36px, 4.5vw, 52px) !important;
     font-weight: 400;
     color: #1C1917;
     margin-bottom: 16px;
@@ -354,9 +354,9 @@ import { gallerySrcset, heroSrcset } from '../../utils/images';
   }
   .rst-breakfast-image img {
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
     object-fit: cover;
-    object-position: center center;
+    object-position: center 35%;
     display: block;
     transition: transform 0.8s ease;
   }
@@ -373,7 +373,7 @@ import { gallerySrcset, heroSrcset } from '../../utils/images';
   }
   .rst-breakfast-content h2 {
     font-family: 'Gilda Display', serif;
-    font-size: clamp(28px, 3vw, 40px) !important;
+    font-size: clamp(36px, 4.5vw, 52px) !important;
     font-weight: 400;
     color: #1C1917;
     margin-bottom: 16px;
