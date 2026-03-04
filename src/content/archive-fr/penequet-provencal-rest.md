@@ -3,7 +3,7 @@ slug: penequet-provencal-rest
 title: "Pénéquet : L'Art provençal du repos"
 date: "2026-04-01"
 author: "Leroy Brothers"
-image: "/assets/images/archive/penequet-ritual.jpg"
+image: "/assets/images/archive/penequet-ritual.jpeg"
 excerpt: "Définition du mot local « Pénéquet » (la sieste) et comment le design des suites facilite l'art de ne rien faire."
 lang: "fr"
 ---
