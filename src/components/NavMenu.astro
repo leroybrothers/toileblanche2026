@@ -1,5 +1,8 @@
 ---
 import { useTranslations, localePath, type Locale } from '../i18n/index';
+import SuiteExplorer from './SuiteExplorer.astro';
+import suitesEn from '../data/suites.json';
+import suitesFr from '../data/suites.fr.json';
 
 export interface Props {
   currentPath: string;
@@ -13,6 +16,7 @@ const t = useTranslations(locale);
 const ctaText = Astro.props.ctaText ?? t.nav.bookStay;
 const lp = (path: string) => localePath(path, locale);
 const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current' : '';
+const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
 ---
 
 <header class="tb-menu-header">
@@ -25,6 +29,10 @@ const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current'
   )}
   <button type="button" class="tb-menu-close js-menu-toggle" aria-label={t.nav.closeMenu}>×</button>
 </header>
+
+<div class="tb-menu-suite-explorer">
+  <SuiteExplorer suites={suites} locale={locale} />
+</div>
 
 <div class="tb-menu-inner">
   <nav class="tb-menu-nav" aria-label="Main menu">

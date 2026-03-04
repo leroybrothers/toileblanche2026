@@ -24,10 +24,17 @@
   /* Terracotta — the brand accent; use for CTAs, highlights, key UI moments */
   --color-terracotta:     #9e5c4a;
   --color-terracotta-mid: #AD5D47;   /* slightly brighter; Zenchef widget match */
-  --color-terracotta-deep:#8a4e3e;   /* hover / pressed states */
+  --color-terracotta-deep:#8a4e3e;   /* hover states */
+  --color-terracotta-active: #7a4335; /* pressed/active states */
+  --color-terracotta-30:  rgba(158, 92, 74, 0.30); /* link underline */
 
   /* Stone — secondary text, labels, captions, borders */
   --color-stone:          #6B6256;
+  --color-stone-muted:    #9C9080;   /* eyebrow, muted labels */
+  --color-border-warm:    #C4B9AA;   /* list bullets, subtle accents */
+
+  /* Ink mid — body copy on light backgrounds where full ink is too strong */
+  --color-ink-mid:        #3D3530;
 
   /* Warm greens — sage accent used sparingly (e.g. score indicators, tags) */
   --color-sage:           #4a7c59;
@@ -52,6 +59,11 @@
   --color-ink-40:   rgba(44, 42, 38, 0.40);
   --color-ink-50:   rgba(44, 42, 38, 0.50);
   --color-ink-60:   rgba(44, 42, 38, 0.60);
+  --color-ink-75:   rgba(44, 42, 38, 0.75);
+
+  /* Ink-deep overlays (for navigation, language switcher) */
+  --color-ink-deep-30:   rgba(28, 25, 23, 0.30);
+  --color-ink-deep-60:   rgba(28, 25, 23, 0.60);
 
   /* White overlays (over dark/image backgrounds — e.g. hero content protection) */
   --color-white-08:  rgba(255, 255, 255, 0.08);

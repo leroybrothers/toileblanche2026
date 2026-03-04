@@ -1,0 +1,56 @@
+---
+import { localePath, type Locale } from '../i18n/index';
+
+export interface Props {
+  suites: Array<{
+    slug: string;
+    name: string;
+    tagline: string;
+    images: { card: string; cardAlt: string };
+    hasPool?: boolean;
+  }>;
+  locale?: Locale;
+}
+const { suites, locale = 'en' } = Astro.props;
+const lp = (path: string) => localePath(path, locale);
+---
+
+<div class="tb-suite-explorer js-suite-explorer" aria-label="Explore our suites">
+  <div class="tb-suite-explorer-track js-suite-explorer-track">
+    {suites.map((suite, i) => (
+      <a
+        href={lp(`/suites/${suite.slug}`)}
+        class="tb-suite-explorer-slide js-suite-explorer-slide"
+        data-index={i}
+        aria-hidden={i !== 0}
+      >
+        <div class="tb-suite-explorer-image">
+          <img
+            src={suite.images.card}
+            alt={suite.images.cardAlt}
+            loading={i < 3 ? 'eager' : 'lazy'}
+            fetchpriority={i === 0 ? 'high' : undefined}
+          />
+          {suite.hasPool && <span class="tb-suite-explorer-pool">Private pool</span>}
+        </div>
+        <div class="tb-suite-explorer-content">
+          <span class="tb-suite-explorer-index">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="tb-suite-explorer-name">{suite.name}</h3>
+          <p class="tb-suite-explorer-tagline">{suite.tagline}</p>
+          <span class="tb-suite-explorer-cta">Discover →</span>
+        </div>
+      </a>
+    ))}
+  </div>
+  <nav class="tb-suite-explorer-dots" aria-label="Suite pagination">
+    {suites.map((_, i) => (
+      <button
+        type="button"
+        class="tb-suite-explorer-dot js-suite-explorer-dot"
+        data-index={i}
+        aria-label={`Suite ${i + 1}`}
+        aria-current={i === 0 ? 'true' : undefined}
+      />
+    ))}
+  </nav>
+</div>
