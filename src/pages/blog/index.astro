@@ -30,7 +30,7 @@ const entries = Object.values(archiveFiles)
       {entries.map((entry, i) => (
         <a href={`/blog/${entry.slug}`} class="arc-entry">
           <div class="arc-entry-image">
-            <img src={entry.image} alt={entry.title} loading="lazy" />
+            <img src={entry.image?.startsWith('/') ? `${import.meta.env.SITE}${entry.image}` : entry.image} alt={entry.title} loading="lazy" />
           </div>
           <div class="arc-entry-content">
             <span class="arc-entry-date">{entry.date}</span>

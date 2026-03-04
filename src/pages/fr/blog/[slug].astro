@@ -32,7 +32,7 @@ const formatDate = (d: string) => {
   <main id="main-content">
     <article class="arc-post">
       <div class="arc-post-hero">
-        <img src={frontmatter.image} alt={frontmatter.title} />
+        <img src={frontmatter.image?.startsWith('/') ? `${import.meta.env.SITE}${frontmatter.image}` : frontmatter.image} alt={frontmatter.title} />
       </div>
       <div class="arc-post-body">
         <a href="/fr/blog" class="arc-post-back">← Les Archives</a>
