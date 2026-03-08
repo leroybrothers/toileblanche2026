@@ -156,17 +156,6 @@ const alternates = getAlternateUrls(currentPath);
   <!-- Mews Booking Engine (proxied to avoid CORS) -->
   <script is:inline src="/mews/distributor.min.js"></script>
 
-  <!-- Zenchef Restaurant Booking Widget -->
-  <script
-    id="zc-sdk"
-    data-restaurant="357953"
-    data-hide-button="true"
-    data-lang={locale}
-    data-color="AD5D47"
-    src="https://sdk.zenchef.com/sdk.js"
-    async
-  ></script>
-
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
     {
@@ -256,6 +245,17 @@ const alternates = getAlternateUrls(currentPath);
     import { injectSpeedInsights } from '@vercel/speed-insights';
     injectSpeedInsights();
   </script>
+
+  <!-- Zenchef Restaurant Booking Widget (before </body> per Zenchef docs) -->
+  <script
+    id="zc-sdk"
+    data-restaurant="357953"
+    data-hide-button="true"
+    data-lang={locale}
+    data-color="AD5D47"
+    src="https://sdk.zenchef.com/sdk.js"
+    async
+  ></script>
 
   <!-- Mews Booking Engine Init (overlay) -->
   <script is:inline>

@@ -21,7 +21,7 @@ const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
 
 <header class="tb-menu-header">
   {ctaAction === 'zenchef' ? (
-    <button type="button" data-zc-action="open" class="tb-menu-cta">{ctaText}</button>
+    <a href={`https://bookings.zenchef.com/results?rid=357953&lang=${locale}`} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-menu-cta">{ctaText}</a>
   ) : ctaHref ? (
     <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-menu-cta">{ctaText}</a>
   ) : (

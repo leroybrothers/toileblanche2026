@@ -15,6 +15,7 @@ const locale = Astro.props.locale ?? getLocaleFromPath(currentPath);
 const t = useTranslations(locale);
 const { theme = 'both', ctaText = t.nav.bookStay, ctaHref, ctaAction } = Astro.props;
 const ctaIsLink = !!ctaHref && ctaAction !== 'zenchef';
+const zenchefUrl = `https://bookings.zenchef.com/results?rid=357953&lang=${locale}`;
 const homePath = localePath('/', locale);
 const altLocale: Locale = locale === 'en' ? 'fr' : 'en';
 const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/fr/, '') || '/';
@@ -35,7 +36,7 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
             {ctaIsLink ? (
               <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-book-cta tb-book-cta-link">{ctaText}</a>
             ) : ctaAction === 'zenchef' ? (
-              <button type="button" data-zc-action="open" class="tb-book-cta">{ctaText}</button>
+              <a href={zenchefUrl} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-book-cta">{ctaText}</a>
             ) : (
               <button type="button" class="distributor-open tb-book-cta">{ctaText}</button>
             )}
@@ -72,7 +73,7 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
             {ctaIsLink ? (
               <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-book-cta tb-book-cta-link">{ctaText}</a>
             ) : ctaAction === 'zenchef' ? (
-              <button type="button" data-zc-action="open" class="tb-book-cta">{ctaText}</button>
+              <a href={zenchefUrl} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-book-cta">{ctaText}</a>
             ) : (
               <button type="button" class="distributor-open tb-book-cta">{ctaText}</button>
             )}
