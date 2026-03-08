@@ -166,6 +166,29 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
     color: var(--color-ink) !important;
     border-color: var(--color-ink-40);
   }
+  /* Hide Book my Stay on mobile — sticky booking bar handles CTA */
+  .book-button {
+    display: none !important;
+  }
+  /* Mobile nav layout: logo centered, lang left, hamburger right */
+  .navigation-bar .nav-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navigation-bar .nav-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  .navigation-bar .nav-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .navigation-light .nav-link-light,

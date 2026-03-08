@@ -13,7 +13,8 @@ type LenisInstance = import('lenis').default;
 let lenisInstance: LenisInstance | null = null;
 
 function getScrollY(): number {
-  return lenisInstance ? lenisInstance.scroll : window.scrollY;
+  if (lenisInstance) return lenisInstance.scroll;
+  return window.scrollY ?? document.documentElement.scrollTop ?? document.body.scrollTop ?? 0;
 }
 
 async function initLenis(): Promise<void> {

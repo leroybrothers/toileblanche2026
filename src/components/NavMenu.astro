@@ -9,9 +9,11 @@ export interface Props {
   ctaText?: string;
   ctaHref?: string;
   ctaAction?: 'mews' | 'zenchef';
+  zenchefRid?: string;
+  zenchefPid?: string;
   locale?: Locale;
 }
-const { currentPath, ctaHref, ctaAction, locale = 'en' } = Astro.props;
+const { currentPath, ctaHref, ctaAction, zenchefRid = '357953', zenchefPid, locale = 'en' } = Astro.props;
 const t = useTranslations(locale);
 const ctaText = Astro.props.ctaText ?? t.nav.bookStay;
 const lp = (path: string) => localePath(path, locale);
@@ -21,7 +23,7 @@ const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
 
 <header class="tb-menu-header">
   {ctaAction === 'zenchef' ? (
-    <a href={`https://bookings.zenchef.com/results?rid=357953&lang=${locale}`} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-menu-cta">{ctaText}</a>
+    <a href={zenchefPid ? `https://bookings.zenchef.com/results?rid=${zenchefRid}&pid=${zenchefPid}&lang=${locale}` : `https://bookings.zenchef.com/results?rid=${zenchefRid}&lang=${locale}`} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-menu-cta">{ctaText}</a>
   ) : ctaHref ? (
     <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-menu-cta">{ctaText}</a>
   ) : (

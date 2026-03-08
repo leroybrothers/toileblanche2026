@@ -7,15 +7,19 @@ export interface Props {
   ctaText?: string;
   ctaHref?: string;
   ctaAction?: 'mews' | 'zenchef';
+  zenchefRid?: string;
+  zenchefPid?: string;
   locale?: Locale;
 }
 
 const currentPath = Astro.url.pathname;
 const locale = Astro.props.locale ?? getLocaleFromPath(currentPath);
 const t = useTranslations(locale);
-const { theme = 'both', ctaText = t.nav.bookStay, ctaHref, ctaAction } = Astro.props;
+const { theme = 'both', ctaText = t.nav.bookStay, ctaHref, ctaAction, zenchefRid = '357953', zenchefPid } = Astro.props;
 const ctaIsLink = !!ctaHref && ctaAction !== 'zenchef';
-const zenchefUrl = `https://bookings.zenchef.com/results?rid=357953&lang=${locale}`;
+const zenchefUrl = zenchefPid
+  ? `https://bookings.zenchef.com/results?rid=${zenchefRid}&pid=${zenchefPid}&lang=${locale}`
+  : `https://bookings.zenchef.com/results?rid=${zenchefRid}&lang=${locale}`;
 const homePath = localePath('/', locale);
 const altLocale: Locale = locale === 'en' ? 'fr' : 'en';
 const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/fr/, '') || '/';
@@ -53,7 +57,7 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
     </div>
 
     <div class="nav-links-container tb-fullpage-menu dark js-nav-links" hidden>
-      <NavMenu currentPath={currentPath} ctaText={ctaText} ctaAction={ctaAction} locale={locale} />
+      <NavMenu currentPath={currentPath} ctaText={ctaText} ctaAction={ctaAction} zenchefRid={zenchefRid} zenchefPid={zenchefPid} locale={locale} />
     </div>
   </nav>
 )}
@@ -90,7 +94,7 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
     </div>
 
     <div class="nav-links-container tb-fullpage-menu light js-nav-links" hidden>
-      <NavMenu currentPath={currentPath} ctaText={ctaText} ctaAction={ctaAction} locale={locale} />
+      <NavMenu currentPath={currentPath} ctaText={ctaText} ctaAction={ctaAction} zenchefRid={zenchefRid} zenchefPid={zenchefPid} locale={locale} />
     </div>
   </nav>
 )}
