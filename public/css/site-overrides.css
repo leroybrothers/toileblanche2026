@@ -192,10 +192,10 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   .book-button {
     display: none !important;
   }
-  /* Mobile nav: 3-column grid, equal edge padding — lang left, logo center, hamburger right */
+  /* Mobile nav: 3-column grid — lang and hamburger closer to screen edges */
   .navigation-bar {
-    padding-left: var(--space-3) !important;
-    padding-right: var(--space-3) !important;
+    padding-left: var(--space-1) !important;
+    padding-right: var(--space-1) !important;
   }
   .navigation-bar .nav-container {
     display: grid;
@@ -229,7 +229,7 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
     font-family: 'Heebo', var(--font-body), sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 17px;
+    font-size: 20px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
