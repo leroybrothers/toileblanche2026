@@ -25,7 +25,8 @@
 }
 
 /* ─── Zenchef widget trigger buttons: reset to match link styling ─────────── */
-button[data-zc-action] {
+/* Exclude .button so homepage "Book My Table" keeps proper button styling */
+button[data-zc-action]:not(.button) {
   background: none;
   border: none;
   padding: 0;
