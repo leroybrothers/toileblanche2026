@@ -80,19 +80,21 @@ function initScrollNav(): void {
 
   navLight.style.display = 'none';
 
-  function updateNav(): void {
-    const scrollY = getScrollY();
-    const scrolled = scrollY > 80;
+  function updateNav(scrollY?: number): void {
+    const y = scrollY ?? getScrollY();
+    const scrolled = y > 80;
     navDark.style.display = scrolled ? 'none' : '';
     navLight.style.display = scrolled ? '' : 'none';
   }
 
   if (lenisInstance) {
-    lenisInstance.on('scroll', updateNav);
+    lenisInstance.on('scroll', () => {
+      requestAnimationFrame(() => updateNav(lenisInstance!.scroll));
+    });
   } else {
     window.addEventListener('scroll', updateNav, { passive: true });
   }
-  updateNav();
+  requestAnimationFrame(() => updateNav());
 }
 
 function initScrollReveals(): void {
