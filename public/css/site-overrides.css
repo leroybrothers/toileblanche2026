@@ -192,11 +192,7 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   .book-button {
     display: none !important;
   }
-  /* Mobile nav: 3-column grid — lang and hamburger closer to screen edges */
-  .navigation-bar {
-    padding-left: var(--space-1) !important;
-    padding-right: var(--space-1) !important;
-  }
+  /* Mobile nav: 3-column grid — lang at same inset from left as hamburger from right */
   .navigation-bar .nav-container {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -207,6 +203,7 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   }
   .navigation-bar .nav-left {
     justify-self: start;
+    margin-left: calc(-1 * var(--space-2));
   }
   .navigation-bar .nav-right {
     justify-self: end;
