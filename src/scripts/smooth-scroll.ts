@@ -77,25 +77,49 @@ async function initLenis(): Promise<void> {
 function initScrollNav(): void {
   const navDark = document.getElementById('nav-dark');
   const navLight = document.getElementById('nav-light');
+  const hero = document.getElementById('hero') ?? document.querySelector('.art-hero, .exp-hero, .rst-hero, .lgn-hero, .lrs-hero');
   if (!navDark || !navLight) return;
 
   navLight.style.display = 'none';
 
-  function updateNav(scrollY?: number): void {
-    const y = scrollY ?? getScrollY();
-    const scrolled = y > 80;
-    navDark.style.display = scrolled ? 'none' : '';
-    navLight.style.display = scrolled ? '' : 'none';
+  function showLightNav(): void {
+    navDark!.style.display = 'none';
+    navLight!.style.display = '';
+  }
+  function showDarkNav(): void {
+    navDark!.style.display = '';
+    navLight!.style.display = 'none';
   }
 
-  if (lenisInstance) {
-    lenisInstance.on('scroll', () => {
-      requestAnimationFrame(() => updateNav(lenisInstance!.scroll));
-    });
-  } else {
-    window.addEventListener('scroll', updateNav, { passive: true });
+  function updateFromScroll(scrollY?: number): void {
+    const y = scrollY ?? getScrollY();
+    if (y > 80) showLightNav();
+    else showDarkNav();
   }
-  requestAnimationFrame(() => updateNav());
+
+  if (hero) {
+    // IntersectionObserver — reliable on mobile & desktop, no scroll-position quirks
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+        if (entry.intersectionRatio < 0.2) showLightNav();
+        else showDarkNav();
+      },
+      { threshold: [0, 0.2, 0.5, 1] }
+    );
+    observer.observe(hero);
+    // Initial state
+    requestAnimationFrame(updateFromScroll);
+  } else {
+    // Scroll-based for pages without hero
+    if (lenisInstance) {
+      lenisInstance.on('scroll', () => requestAnimationFrame(() => updateFromScroll(lenisInstance!.scroll)));
+    } else {
+      window.addEventListener('scroll', () => requestAnimationFrame(updateFromScroll), { passive: true });
+    }
+    requestAnimationFrame(updateFromScroll);
+  }
 }
 
 function initScrollReveals(): void {

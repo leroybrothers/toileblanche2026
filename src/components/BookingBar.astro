@@ -190,8 +190,8 @@ const t = copy[locale];
 
     // Hide when fullscreen menu is open (keeps Michelin key & SLH logos visible)
     function syncBarWithMenu() {
-      const nav = document.querySelector('.js-nav-links');
-      const menuOpen = nav && !nav.hasAttribute('hidden');
+      const menus = document.querySelectorAll('.js-nav-links');
+      const menuOpen = Array.from(menus).some(function (m) { return !m.hasAttribute('hidden'); });
       bar.classList.toggle('bb-hidden', menuOpen);
     }
     const toggles = document.querySelectorAll('.js-menu-toggle');
@@ -206,10 +206,9 @@ const t = copy[locale];
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') syncBarWithMenu();
     });
-    const navLinks = document.querySelector('.js-nav-links');
-    if (navLinks) {
-      new MutationObserver(syncBarWithMenu).observe(navLinks, { attributes: true, attributeFilter: ['hidden'] });
-    }
+    document.querySelectorAll('.js-nav-links').forEach(function (m) {
+      new MutationObserver(syncBarWithMenu).observe(m, { attributes: true, attributeFilter: ['hidden'] });
+    });
     syncBarWithMenu();
   })();
 </script>

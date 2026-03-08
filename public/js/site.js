@@ -68,6 +68,21 @@
     const toggleBtns = document.querySelectorAll('.js-menu-toggle');
     const navLinks = document.querySelectorAll('.js-nav-links');
 
+    // Move fullpage menus to body so they stack above hero/suites/footer (escape stacking context)
+    navLinks.forEach(function (menu) {
+      if (menu.classList.contains('tb-fullpage-menu') && menu.parentNode !== document.body) {
+        document.body.appendChild(menu);
+      }
+    });
+
+    function getVisibleMenuTheme() {
+      const navDark = document.getElementById('nav-dark');
+      const navLight = document.getElementById('nav-light');
+      if (!navDark) return 'light';
+      if (!navLight) return 'dark';
+      return navDark.style.display === 'none' ? 'light' : 'dark';
+    }
+
     toggleBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         const isOpen = this.getAttribute('aria-expanded') === 'true';
@@ -81,8 +96,16 @@
 
         navLinks.forEach(function (nav) {
           if (newState) {
-            nav.removeAttribute('hidden');
-            nav.style.display = 'grid';
+            const theme = getVisibleMenuTheme();
+            const isDark = nav.classList.contains('dark');
+            const match = (theme === 'dark' && isDark) || (theme === 'light' && !isDark);
+            if (match) {
+              nav.removeAttribute('hidden');
+              nav.style.display = 'grid';
+            } else {
+              nav.setAttribute('hidden', '');
+              nav.style.display = '';
+            }
           } else {
             nav.setAttribute('hidden', '');
             nav.style.display = '';

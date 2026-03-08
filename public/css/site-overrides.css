@@ -226,7 +226,7 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
     font-family: 'Heebo', var(--font-body), sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 20px;
+    font-size: 22px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
@@ -567,7 +567,7 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
 
 .nav-links-container.tb-fullpage-menu.js-nav-links {
   position: fixed;
-  z-index: var(--z-overlay);
+  z-index: 9998;
 }
 
 .tb-fullpage-menu.js-nav-links {
@@ -744,7 +744,7 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   .tb-suite-explorer {
     position: relative;
     width: 100%;
-    height: min(65vh, 520px);
+    height: min(50vh, 380px);
     overflow: hidden;
     touch-action: pan-y pinch-zoom;
   }
@@ -869,14 +869,20 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
 
   .tb-fullpage-menu.js-nav-links {
     padding: 2rem 5vw 3rem;
-    grid-template-rows: auto 1fr auto auto;
+    grid-template-rows: auto minmax(0, min(50vh, 380px)) auto auto;
     gap: 2rem 0;
+    align-content: start;
+  }
+
+  .tb-menu-suite-explorer {
+    min-height: 0;
   }
 
   .tb-menu-inner {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     gap: 2.5rem 0;
+    min-height: 0;
   }
 
   .tb-menu-divider {
