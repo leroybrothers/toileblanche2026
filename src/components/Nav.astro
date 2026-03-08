@@ -30,12 +30,14 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
   <nav class="navigation-dark" id="nav-dark">
     <div class="navigation-bar dark">
       <div class="nav-container">
-        <a href={homePath} class={`nav-logo w-nav-brand${currentPath === homePath ? ' w--current' : ''}`} aria-current={currentPath === homePath ? 'page' : undefined}>
-          <img src="/assets/images/63a19dac0c5c8e779178fddf_Toile%20Blanche%20Logo%202022%20light.webp" loading="lazy" alt="Toile Blanche Logo" class="nav-logo mobile-none" />
-          <img src="/assets/images/63a19dac0c5c8e779178fddf_Toile%20Blanche%20Logo%202022%20light.webp" loading="eager" alt="Toile Blanche Logo" class="nav-logo mobile-only" />
-        </a>
-        <div class="nav-buttons">
+        <div class="nav-left">
           <a href={altPath} class="tb-lang-switch" aria-label={altLocale === 'fr' ? 'Version française' : 'English version'}>{altLocale.toUpperCase()}</a>
+        </div>
+        <a href={homePath} class={`nav-logo w-nav-brand${currentPath === homePath ? ' w--current' : ''}`} aria-current={currentPath === homePath ? 'page' : undefined}>
+          <img src="/assets/images/63a19dac0c5c8e779178fddf_Toile%20Blanche%20Logo%202022%20light.webp" loading="lazy" alt="Toile Blanche" class="nav-logo-img" />
+          <span class="nav-logo-text">TOILE BLANCHE</span>
+        </a>
+        <div class="nav-right">
           <div class="book-button">
             {ctaIsLink ? (
               <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-book-cta tb-book-cta-link">{ctaText}</a>
@@ -67,12 +69,14 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
   <nav class="navigation-light" id="nav-light" style={theme === 'both' ? 'display:none' : undefined}>
     <div class="navigation-bar">
       <div class="nav-container">
-        <a href={homePath} class={`nav-logo w-nav-brand${currentPath === homePath ? ' w--current' : ''}`} aria-current={currentPath === homePath ? 'page' : undefined}>
-          <img src="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" loading="lazy" alt="Toile Blanche Logo" class="logo-light mobile-none" />
-          <img src="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" loading="eager" alt="Toile Blanche Logo" class="logo-light mobile-only" />
-        </a>
-        <div class="nav-buttons">
+        <div class="nav-left">
           <a href={altPath} class="tb-lang-switch" aria-label={altLocale === 'fr' ? 'Version française' : 'English version'}>{altLocale.toUpperCase()}</a>
+        </div>
+        <a href={homePath} class={`nav-logo w-nav-brand${currentPath === homePath ? ' w--current' : ''}`} aria-current={currentPath === homePath ? 'page' : undefined}>
+          <img src="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" loading="lazy" alt="Toile Blanche" class="nav-logo-img nav-logo-img--light" />
+          <span class="nav-logo-text">TOILE BLANCHE</span>
+        </a>
+        <div class="nav-right">
           <div class="book-button">
             {ctaIsLink ? (
               <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-book-cta tb-book-cta-link">{ctaText}</a>

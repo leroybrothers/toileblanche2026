@@ -117,6 +117,28 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   background-color: var(--color-ink-08) !important;
 }
 
+/* ─── Nav structure: desktop logo image, mobile text ─── */
+.nav-logo-text {
+  display: none;
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-left: auto;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
 /* ─── Hero: white logo, Book my Stay, hamburger → Scroll: black ─── */
 .navigation-dark .nav-link-dark,
 .navigation-dark .menu-button {
@@ -170,24 +192,46 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   .book-button {
     display: none !important;
   }
-  /* Mobile nav layout: logo centered, lang left, hamburger right */
+  /* Mobile nav: 3-column grid for true center — lang left, logo center, hamburger right */
   .navigation-bar .nav-container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
+    justify-items: center;
+    gap: var(--space-2);
+  }
+  .navigation-bar .nav-left {
+    justify-self: start;
+  }
+  .navigation-bar .nav-right {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
   }
   .navigation-bar .nav-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-  }
-  .navigation-bar .nav-buttons {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  /* Mobile: text logo instead of image */
+  .navigation-bar .nav-logo-img {
+    display: none !important;
+  }
+  .navigation-bar .nav-logo-text {
+    display: block;
+    font-family: 'Heebo', var(--font-body), sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .navigation-dark .nav-logo-text {
+    color: #fff !important;
+  }
+  .navigation-light .nav-logo-text {
+    color: var(--color-ink) !important;
   }
 }
 
