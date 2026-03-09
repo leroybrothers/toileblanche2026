@@ -139,6 +139,24 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   gap: var(--space-3);
 }
 
+/* Desktop (≥768px): logo left, lang + Book + hamburger right */
+@media (min-width: 768px) {
+  .nav-container {
+    justify-content: flex-start;
+  }
+  .nav-logo {
+    order: 1;
+    margin-right: auto;
+  }
+  .nav-left {
+    order: 2;
+    margin-left: 0;
+  }
+  .nav-right {
+    order: 3;
+  }
+}
+
 /* ─── Hero: white logo, Book my Stay, hamburger → Scroll: black ─── */
 .navigation-dark .nav-link-dark,
 .navigation-dark .menu-button {
