@@ -21,72 +21,107 @@ const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current'
 const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
 ---
 
-<header class="tb-menu-header">
-  {ctaAction === 'zenchef' ? (
-    <a href={zenchefPid ? `https://bookings.zenchef.com/results?rid=${zenchefRid}&pid=${zenchefPid}&lang=${locale}` : `https://bookings.zenchef.com/results?rid=${zenchefRid}&lang=${locale}`} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-menu-cta">{ctaText}</a>
-  ) : ctaHref ? (
-    <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-menu-cta">{ctaText}</a>
-  ) : (
-    <a href="#" class="tb-menu-cta distributor-open">{ctaText}</a>
-  )}
-  <button type="button" class="tb-menu-close js-menu-toggle" aria-label={t.nav.closeMenu}>×</button>
-</header>
+<!-- Desktop menu (≥768px): full layout with Suite Explorer -->
+<div class="tb-menu-desktop">
+  <header class="tb-menu-header">
+    {ctaAction === 'zenchef' ? (
+      <a href={zenchefPid ? `https://bookings.zenchef.com/results?rid=${zenchefRid}&pid=${zenchefPid}&lang=${locale}` : `https://bookings.zenchef.com/results?rid=${zenchefRid}&lang=${locale}`} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-menu-cta">{ctaText}</a>
+    ) : ctaHref ? (
+      <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-menu-cta">{ctaText}</a>
+    ) : (
+      <a href="#" class="tb-menu-cta distributor-open">{ctaText}</a>
+    )}
+    <button type="button" class="tb-menu-close js-menu-toggle" aria-label={t.nav.closeMenu}>×</button>
+  </header>
 
-<div class="tb-menu-suite-explorer">
-  <SuiteExplorer suites={suites} locale={locale} />
+  <div class="tb-menu-suite-explorer">
+    <SuiteExplorer suites={suites} locale={locale} />
+  </div>
+
+  <div class="tb-menu-inner">
+    <nav class="tb-menu-nav" aria-label="Main menu">
+      <a href={lp('/suites')} class={`tb-menu-link${linkClass(lp('/suites'))}`}>{t.nav.suites}</a>
+      <a href={lp('/restaurants')} class={`tb-menu-link${linkClass(lp('/restaurants'))}`}>{t.nav.restaurants}</a>
+      <a href={lp('/art')} class={`tb-menu-link${linkClass(lp('/art'))}`}>{t.nav.theArt}</a>
+      <a href={lp('/experiences')} class={`tb-menu-link tb-menu-link-last${linkClass(lp('/experiences'))}`}>{t.nav.experiences}</a>
+    </nav>
+
+    <div class="tb-menu-divider" aria-hidden="true"></div>
+
+    <div class="tb-menu-info">
+      <div class="tb-menu-info-cell">
+        <p class="tb-menu-info-title">{t.nav.contact}</p>
+        <a href="tel:+33493327421" class="tb-menu-info-link">+33 4 93 32 74 21</a>
+        <a href="mailto:info@toileblanche.com" class="tb-menu-info-link">info@toileblanche.com</a>
+      </div>
+      <div class="tb-menu-info-cell">
+        <p class="tb-menu-info-title">{t.nav.giftVouchers}</p>
+        <a href={lp('/gift-vouchers')} class="tb-menu-info-link">{t.nav.giftVouchersLink}</a>
+      </div>
+      <div class="tb-menu-info-cell">
+        <p class="tb-menu-info-title">{t.nav.findUs}</p>
+        <a href="https://goo.gl/maps/VoKrme28X62qbvTk7" target="_blank" rel="noopener noreferrer" class="tb-menu-info-link">
+          826, chemin de la Pounchounière<br />06570 Saint-Paul de Vence
+        </a>
+      </div>
+      <div class="tb-menu-info-cell tb-menu-info-footer">
+        <a href={lp('/about')} class="tb-menu-info-link">{t.nav.about}</a>
+        <a href={lp('/upcoming-events')} class="tb-menu-info-link">{t.nav.events}</a>
+        <a href={lp('/blog')} class="tb-menu-info-link">{t.nav.archive}</a>
+        <a href={lp('/press')} class="tb-menu-info-link">{t.nav.press}</a>
+        <a href={lp('/careers')} class="tb-menu-info-link">{t.nav.careers}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tb-menu-affiliations">
+    <div class="tb-affil-michelin">
+      <img src="/assets/images/affiliations/michelin-key.png" alt="MICHELIN Key" loading="lazy" />
+      <span class="tb-affil-label">Michelin Key</span>
+    </div>
+    <div class="tb-affil-slh">
+      <img src="/assets/images/affiliations/logo-slh.svg" alt="Small Luxury Hotels of the World" loading="lazy" />
+      <span class="tb-affil-caption">{locale === 'fr' ? 'Affilié' : 'Affiliated'}</span>
+    </div>
+  </div>
 </div>
 
-<div class="tb-menu-inner">
-  <nav class="tb-menu-nav" aria-label="Main menu">
-    <a href={lp('/suites')} class={`tb-menu-link${linkClass(lp('/suites'))}`}>{t.nav.suites}</a>
-    <a href={lp('/restaurants')} class={`tb-menu-link${linkClass(lp('/restaurants'))}`}>{t.nav.restaurants}</a>
-    <a href={lp('/art')} class={`tb-menu-link${linkClass(lp('/art'))}`}>{t.nav.theArt}</a>
-    <a href={lp('/experiences')} class={`tb-menu-link tb-menu-link-last${linkClass(lp('/experiences'))}`}>{t.nav.experiences}</a>
+<!-- Mobile menu (<768px): simplified, readable layout -->
+<div class="tb-menu-mobile">
+  <header class="tb-menu-mobile-header">
+    {ctaAction === 'zenchef' ? (
+      <a href={zenchefPid ? `https://bookings.zenchef.com/results?rid=${zenchefRid}&pid=${zenchefPid}&lang=${locale}` : `https://bookings.zenchef.com/results?rid=${zenchefRid}&lang=${locale}`} target="_blank" rel="noopener noreferrer" class="tb-menu-mobile-cta">{ctaText}</a>
+    ) : ctaHref ? (
+      <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-menu-mobile-cta">{ctaText}</a>
+    ) : (
+      <a href="#" class="tb-menu-mobile-cta distributor-open">{ctaText}</a>
+    )}
+    <button type="button" class="tb-menu-close js-menu-toggle" aria-label={t.nav.closeMenu}>×</button>
+  </header>
+
+  <nav class="tb-menu-mobile-nav" aria-label="Main menu">
+    <a href={lp('/suites')} class={`tb-menu-mobile-link${linkClass(lp('/suites'))}`}>{t.nav.suites}</a>
+    <a href={lp('/restaurants')} class={`tb-menu-mobile-link${linkClass(lp('/restaurants'))}`}>{t.nav.restaurants}</a>
+    <a href={lp('/art')} class={`tb-menu-mobile-link${linkClass(lp('/art'))}`}>{t.nav.theArt}</a>
+    <a href={lp('/experiences')} class={`tb-menu-mobile-link${linkClass(lp('/experiences'))}`}>{t.nav.experiences}</a>
   </nav>
 
-  <div class="tb-menu-divider" aria-hidden="true"></div>
-
-  <div class="tb-menu-info">
-    <div class="tb-menu-info-cell">
-      <p class="tb-menu-info-title">{t.nav.contact}</p>
-      <a href="tel:+33493327421" class="tb-menu-info-link">+33 4 93 32 74 21</a>
-      <a href="mailto:info@toileblanche.com" class="tb-menu-info-link">info@toileblanche.com</a>
-    </div>
-    <div class="tb-menu-info-cell">
-      <p class="tb-menu-info-title">{t.nav.giftVouchers}</p>
-      <a href={lp('/gift-vouchers')} class="tb-menu-info-link">{t.nav.giftVouchersLink}</a>
-    </div>
-    <div class="tb-menu-info-cell">
-      <p class="tb-menu-info-title">{t.nav.findUs}</p>
-      <a href="https://goo.gl/maps/VoKrme28X62qbvTk7" target="_blank" rel="noopener noreferrer" class="tb-menu-info-link">
-        826, chemin de la Pounchounière<br />06570 Saint-Paul de Vence
-      </a>
-    </div>
-    <div class="tb-menu-info-cell tb-menu-info-footer">
-      <a href={lp('/about')} class="tb-menu-info-link">{t.nav.about}</a>
-      <a href={lp('/upcoming-events')} class="tb-menu-info-link">{t.nav.events}</a>
-      <a href={lp('/blog')} class="tb-menu-info-link">{t.nav.archive}</a>
-      <a href={lp('/press')} class="tb-menu-info-link">{t.nav.press}</a>
-      <a href={lp('/careers')} class="tb-menu-info-link">{t.nav.careers}</a>
-    </div>
+  <div class="tb-menu-mobile-contact">
+    <a href="tel:+33493327421" class="tb-menu-mobile-contact-link">+33 4 93 32 74 21</a>
+    <a href="mailto:info@toileblanche.com" class="tb-menu-mobile-contact-link">info@toileblanche.com</a>
   </div>
-</div>
 
-<div class="tb-menu-affiliations">
-  <div class="tb-affil-michelin">
-    <img
-      src="/assets/images/affiliations/michelin-key.png"
-      alt="MICHELIN Key"
-      loading="lazy"
-    />
-    <span class="tb-affil-label">Michelin Key</span>
+  <div class="tb-menu-mobile-secondary">
+    <a href={lp('/gift-vouchers')} class="tb-menu-mobile-secondary-link">{t.nav.giftVouchers}</a>
+    <a href={lp('/about')} class="tb-menu-mobile-secondary-link">{t.nav.about}</a>
+    <a href={lp('/upcoming-events')} class="tb-menu-mobile-secondary-link">{t.nav.events}</a>
+    <a href={lp('/blog')} class="tb-menu-mobile-secondary-link">{t.nav.archive}</a>
+    <a href={lp('/press')} class="tb-menu-mobile-secondary-link">{t.nav.press}</a>
+    <a href={lp('/careers')} class="tb-menu-mobile-secondary-link">{t.nav.careers}</a>
   </div>
-  <div class="tb-affil-slh">
-    <img
-      src="/assets/images/affiliations/logo-slh.svg"
-      alt="Small Luxury Hotels of the World"
-      loading="lazy"
-    />
-    <span class="tb-affil-caption">{locale === 'fr' ? 'Affilié' : 'Affiliated'}</span>
+
+  <div class="tb-menu-mobile-affiliations">
+    <img src="/assets/images/affiliations/michelin-key.png" alt="MICHELIN Key" loading="lazy" class="tb-menu-mobile-affil-img" />
+    <img src="/assets/images/affiliations/logo-slh.svg" alt="SLH" loading="lazy" class="tb-menu-mobile-affil-img" />
   </div>
 </div>

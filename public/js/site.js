@@ -114,6 +114,7 @@
 
         // Prevent body scroll when menu is open
         document.body.style.overflow = newState ? 'hidden' : '';
+        document.body.classList.toggle('tb-menu-open', newState);
       });
     });
 
@@ -129,6 +130,7 @@
           nav.style.display = '';
         });
         document.body.style.overflow = '';
+        document.body.classList.remove('tb-menu-open');
       }
     });
 
@@ -144,6 +146,7 @@
           nav.style.display = '';
         });
         document.body.style.overflow = '';
+        document.body.classList.remove('tb-menu-open');
       });
     });
   }
