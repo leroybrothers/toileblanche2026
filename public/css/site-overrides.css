@@ -607,7 +607,9 @@ body.tb-menu-open .overlap-section-top {
   background-color: var(--color-bg-warm);
   display: grid !important;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: minmax(0, 1fr);
+  align-items: start;
+  justify-items: stretch;
   gap: 0;
   overflow-y: auto;
 }
@@ -615,10 +617,12 @@ body.tb-menu-open .overlap-section-top {
 .tb-menu-desktop {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto minmax(0, min(50vh, 400px)) minmax(0, 1fr) auto;
   align-content: start;
   gap: var(--space-6) 0;
-  min-height: 0;
+  min-height: min-content;
+  width: 100%;
+  max-width: 100%;
 }
 
 .tb-menu-mobile {
@@ -790,6 +794,7 @@ body.tb-menu-open .overlap-section-top {
   margin-inline: auto;
   align-items: stretch;
   align-self: start;
+  min-height: 0;
 }
 
 .tb-menu-nav {
@@ -887,13 +892,17 @@ body.tb-menu-open .overlap-section-top {
   .tb-menu-suite-explorer {
     display: block;
     min-height: 0;
+    max-height: min(50vh, 400px);
     width: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
   }
 
   .tb-suite-explorer {
     position: relative;
     width: 100%;
-    height: min(50vh, 400px);
+    height: 100%;
+    max-height: min(50vh, 400px);
     overflow: hidden;
     touch-action: pan-y pinch-zoom;
   }
