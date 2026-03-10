@@ -617,7 +617,7 @@ body.tb-menu-open .overlap-section-top {
 .tb-menu-desktop {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto minmax(0, min(50vh, 400px)) minmax(0, 1fr) auto;
+  grid-template-rows: auto 1fr auto;
   align-content: start;
   gap: var(--space-6) 0;
   min-height: min-content;
@@ -883,21 +883,12 @@ body.tb-menu-open .overlap-section-top {
   font-size: 0.9rem;
 }
 
-/* ─── Suite Explorer (desktop menu only) ───────────────────────────────────── */
+/* ─── Suite Explorer: hidden in menu (desktop menu = clean nav only, like mobile) ─── */
 .tb-menu-suite-explorer {
-  display: none;
+  display: none !important;
 }
 
 @media (min-width: 768px) {
-  .tb-menu-suite-explorer {
-    display: block;
-    min-height: 0;
-    max-height: min(50vh, 400px);
-    width: 100%;
-    flex-shrink: 0;
-    overflow: hidden;
-  }
-
   .tb-suite-explorer {
     position: relative;
     width: 100%;
