@@ -63,6 +63,46 @@
     }, 5000);
   }
 
+  // ─── Nav color toggle (white on hero, black when scrolled) ─────────────────
+  function initNavColorToggle() {
+    var navDark = document.getElementById('nav-dark');
+    var navLight = document.getElementById('nav-light');
+    var hero = document.getElementById('hero') || document.querySelector('.art-hero, .exp-hero, .rst-hero, .lgn-hero, .lrs-hero');
+    if (!navDark || !navLight) {
+      if (navLight) document.body.classList.add('tb-nav-light');
+      return;
+    }
+    navLight.style.display = 'none';
+    document.body.classList.add('tb-nav-dark');
+    function showLight() {
+      navDark.style.display = 'none';
+      navLight.style.display = '';
+      document.body.classList.add('tb-nav-light');
+      document.body.classList.remove('tb-nav-dark');
+    }
+    function showDark() {
+      navDark.style.display = '';
+      navLight.style.display = 'none';
+      document.body.classList.add('tb-nav-dark');
+      document.body.classList.remove('tb-nav-light');
+    }
+    function update() {
+      var y = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      if (y > 80) showLight(); else showDark();
+    }
+    if (hero) {
+      var observer = new IntersectionObserver(function (entries) {
+        var r = entries[0] && entries[0].intersectionRatio;
+        if (r !== undefined && r < 0.2) showLight(); else showDark();
+      }, { threshold: [0, 0.2, 0.5, 1] });
+      observer.observe(hero);
+      requestAnimationFrame(update);
+    } else {
+      window.addEventListener('scroll', function () { requestAnimationFrame(update); }, { passive: true });
+      requestAnimationFrame(update);
+    }
+  }
+
   // ─── Navigation Menu ───────────────────────────────────────────────────────
   function initNavigation() {
     const toggleBtns = document.querySelectorAll('.js-menu-toggle');
@@ -316,6 +356,7 @@
 
   // ─── Init ──────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
+    initNavColorToggle();
     initLoader();
     initHeroSlideshow();
     initNavigation();

@@ -74,69 +74,7 @@ async function initLenis(): Promise<void> {
   }
 }
 
-function initScrollNav(): void {
-  const navDark = document.getElementById('nav-dark');
-  const navLight = document.getElementById('nav-light');
-  const hero = document.getElementById('hero') ?? document.querySelector('.art-hero, .exp-hero, .rst-hero, .lgn-hero, .lrs-hero');
-
-  if (!navDark || !navLight) {
-    if (navLight) document.body.classList.add('tb-nav-light');
-    return;
-  }
-
-  navLight.style.display = 'none';
-  document.body.classList.add('tb-nav-dark');
-
-  function showLightNav(): void {
-    navDark!.style.display = 'none';
-    navLight!.style.display = '';
-    document.body.classList.add('tb-nav-light');
-    document.body.classList.remove('tb-nav-dark');
-  }
-  function showDarkNav(): void {
-    navDark!.style.display = '';
-    navLight!.style.display = 'none';
-    document.body.classList.add('tb-nav-dark');
-    document.body.classList.remove('tb-nav-light');
-  }
-
-  function updateFromScroll(scrollY?: number): void {
-    const y = scrollY ?? getScrollY();
-    if (y > 80) showLightNav();
-    else showDarkNav();
-  }
-
-  if (hero) {
-    // IntersectionObserver + scroll fallback (some browsers need both)
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (!entry) return;
-        if (entry.intersectionRatio < 0.2) showLightNav();
-        else showDarkNav();
-      },
-      { threshold: [0, 0.2, 0.5, 1] }
-    );
-    observer.observe(hero);
-    // Scroll fallback: Lenis/native scroll also triggers toggle
-    const onScroll = () => requestAnimationFrame(updateFromScroll);
-    if (lenisInstance) {
-      lenisInstance.on('scroll', onScroll);
-    } else {
-      window.addEventListener('scroll', onScroll, { passive: true });
-    }
-    // Initial state
-    requestAnimationFrame(updateFromScroll);
-  } else {
-    // Scroll-based for pages without hero
-    if (lenisInstance) {
-      lenisInstance.on('scroll', () => requestAnimationFrame(() => updateFromScroll(lenisInstance!.scroll)));
-    } else {
-      window.addEventListener('scroll', () => requestAnimationFrame(updateFromScroll), { passive: true });
-    }
-    requestAnimationFrame(updateFromScroll);
-  }
-}
+/* Nav color toggle moved to site.js (runs on DOMContentLoaded, no Lenis dependency) */
 
 function initScrollReveals(): void {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -231,7 +169,6 @@ function initSuiteGalleryReveals(): void {
 export async function initSmoothScroll(): Promise<void> {
   async function run(): Promise<void> {
     await initLenis();
-    initScrollNav();
     initScrollReveals();
     initSuiteGalleryReveals();
     ScrollTrigger.refresh();
