@@ -265,15 +265,28 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
 }
 
 /* Light nav: black logo, lang, hamburger on white backgrounds (when scrolled) */
+/* body.tb-nav-light ensures these apply when JS has switched to light nav */
+body.tb-nav-light .navigation-light .nav-link-light,
+body.tb-nav-light .navigation-light .menu-button,
+body.tb-nav-light .navigation-light .menu-icon-wrap,
 .navigation-light .nav-link-light,
 .navigation-light .menu-button,
-.navigation-light .menu-icon-wrap,
-.navigation-light .menu-bar {
+.navigation-light .menu-icon-wrap {
   color: var(--color-ink) !important;
   background-color: transparent !important;
 }
+body.tb-nav-light .navigation-light .menu-bar,
 .navigation-light .menu-bar {
   background-color: var(--color-ink) !important;
+}
+body.tb-nav-light .navigation-light .tb-lang-switch,
+.navigation-light .tb-lang-switch {
+  color: var(--color-ink-deep) !important;
+  border-color: var(--color-ink-deep-30) !important;
+}
+body.tb-nav-light .navigation-light .nav-logo-text,
+.navigation-light .nav-logo-text {
+  color: var(--color-ink) !important;
 }
 
 /* ─── Navigation Menu Icon ───────────────────────────────────────────────── */

@@ -78,17 +78,26 @@ function initScrollNav(): void {
   const navDark = document.getElementById('nav-dark');
   const navLight = document.getElementById('nav-light');
   const hero = document.getElementById('hero') ?? document.querySelector('.art-hero, .exp-hero, .rst-hero, .lgn-hero, .lrs-hero');
-  if (!navDark || !navLight) return;
+
+  if (!navDark || !navLight) {
+    if (navLight) document.body.classList.add('tb-nav-light');
+    return;
+  }
 
   navLight.style.display = 'none';
+  document.body.classList.add('tb-nav-dark');
 
   function showLightNav(): void {
     navDark!.style.display = 'none';
     navLight!.style.display = '';
+    document.body.classList.add('tb-nav-light');
+    document.body.classList.remove('tb-nav-dark');
   }
   function showDarkNav(): void {
     navDark!.style.display = '';
     navLight!.style.display = 'none';
+    document.body.classList.add('tb-nav-dark');
+    document.body.classList.remove('tb-nav-light');
   }
 
   function updateFromScroll(scrollY?: number): void {
@@ -98,7 +107,7 @@ function initScrollNav(): void {
   }
 
   if (hero) {
-    // IntersectionObserver — reliable on mobile & desktop, no scroll-position quirks
+    // IntersectionObserver + scroll fallback (some browsers need both)
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
@@ -109,6 +118,13 @@ function initScrollNav(): void {
       { threshold: [0, 0.2, 0.5, 1] }
     );
     observer.observe(hero);
+    // Scroll fallback: Lenis/native scroll also triggers toggle
+    const onScroll = () => requestAnimationFrame(updateFromScroll);
+    if (lenisInstance) {
+      lenisInstance.on('scroll', onScroll);
+    } else {
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
     // Initial state
     requestAnimationFrame(updateFromScroll);
   } else {
