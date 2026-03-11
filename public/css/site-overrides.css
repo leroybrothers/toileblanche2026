@@ -157,10 +157,18 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   }
 }
 
-/* ─── Hero: white logo, Book my Stay, hamburger → Scroll: black ─── */
+/* ─── Hero: white logo, lang, hamburger on dark background ─── */
 .navigation-dark .nav-link-dark,
-.navigation-dark .menu-button {
+.navigation-dark .menu-button,
+.navigation-dark .menu-icon-wrap {
   color: #fff !important;
+}
+.navigation-dark .menu-bar {
+  background-color: #fff !important;
+}
+.navigation-dark .tb-lang-switch {
+  color: #fff !important;
+  border-color: var(--color-white-40) !important;
 }
 
 /* Book My Stay — Argile terracotta CTA, Mews overlay trigger ─── */
@@ -256,9 +264,16 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   }
 }
 
+/* Light nav: black logo, lang, hamburger on white backgrounds (when scrolled) */
 .navigation-light .nav-link-light,
-.navigation-light .menu-button {
+.navigation-light .menu-button,
+.navigation-light .menu-icon-wrap,
+.navigation-light .menu-bar {
   color: var(--color-ink) !important;
+  background-color: transparent !important;
+}
+.navigation-light .menu-bar {
+  background-color: var(--color-ink) !important;
 }
 
 /* ─── Navigation Menu Icon ───────────────────────────────────────────────── */
@@ -1484,20 +1499,20 @@ a.tb-book-cta-link {
   transition: all var(--transition-std);
 }
 .navigation-dark .tb-lang-switch {
-  color: #fff;
-  border: 1px solid var(--color-white-40);
+  color: #fff !important;
+  border: 1px solid var(--color-white-40) !important;
 }
 .navigation-dark .tb-lang-switch:hover {
-  background: var(--color-white-15);
-  border-color: var(--color-white-80);
+  background: var(--color-white-15) !important;
+  border-color: var(--color-white-80) !important;
 }
 .navigation-light .tb-lang-switch {
-  color: var(--color-ink-deep);
-  border: 1px solid var(--color-ink-deep-30);
+  color: var(--color-ink-deep) !important;
+  border: 1px solid var(--color-ink-deep-30) !important;
 }
 .navigation-light .tb-lang-switch:hover {
-  background: var(--color-ink-06);
-  border-color: var(--color-ink-deep-60);
+  background: var(--color-ink-06) !important;
+  border-color: var(--color-ink-deep-60) !important;
 }
 
 /* ─── Hero micro-copy (direct booking reassurance) ───────────────────────── */
