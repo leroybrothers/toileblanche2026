@@ -1,0 +1,278 @@
+---
+import { getLocaleFromPath, getAlternateUrls, type Locale } from '../i18n/index';
+import BookingBar from '../components/BookingBar.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+  locale?: Locale;
+  hideBookingBar?: boolean;
+}
+
+const currentPath = Astro.url.pathname;
+const locale = Astro.props.locale ?? getLocaleFromPath(currentPath);
+
+const {
+  title = "Toile Blanche | Suites & Restaurant",
+  description = "Twenty-two suites, two restaurants, and a contemporary art collection in Saint-Paul de Vence. A declared artwork on the Côte d'Azur by the Leroy Brothers.",
+  ogImage = "https://www.toileblanche.com/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg",
+  canonicalURL = Astro.url.href,
+  hideBookingBar = false,
+} = Astro.props;
+
+const GTM_ID = "GTM-52R8BBP";
+const AXEPTIO_ID = "63ce737f6a87883d8a3d1f79";
+const alternates = getAlternateUrls(currentPath);
+---
+
+<!DOCTYPE html>
+<html lang={locale}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:locale" content={locale === 'fr' ? 'fr_FR' : 'en_GB'} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Canonical & Alternates -->
+  <link rel="canonical" href={canonicalURL} />
+  {alternates.map(alt => (
+    <link rel="alternate" hreflang={alt.locale} href={alt.href} />
+  ))}
+  <link rel="alternate" hreflang="x-default" href={alternates.find(a => a.locale === 'en')?.href} />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#FAF8F3" />
+
+  <!-- Preload hero LCP image -->
+  <link rel="preload" as="image" href="/assets/videos/hero-landscape-poster.jpg" fetchpriority="high" />
+
+  <!-- Preconnect third-party origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://static.axept.io" crossorigin />
+  <link rel="preconnect" href="https://sdk.zenchef.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&family=Heebo:wght@400&display=swap" rel="stylesheet" />
+
+  <!-- Site Stylesheet -->
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/toile-blanche.min.css" />
+  <link rel="stylesheet" href="/css/site-overrides.css?v=10" />
+
+  <!-- Restaurant/breakfast overrides (inline in Layout, IDs for max specificity) -->
+  <style is:global>
+    #rst-title-restaurant,
+    #rst-title-guinguette,
+    #rst-title-breakfast,
+    #rst-title-restaurant a,
+    #rst-title-guinguette a,
+    #rst-title-breakfast a { font-size: clamp(36px, 4.5vw, 52px) !important; font-family: 'Gilda Display', Georgia, serif !important; font-weight: 400 !important; }
+    .rst-breakfast-image-fixed img { aspect-ratio: 2/1 !important; object-fit: cover !important; object-position: center 35% !important; }
+    .bkf-image { aspect-ratio: 2/1 !important; max-height: 320px !important; }
+    .bkf-image img { height: 100% !important; object-fit: cover !important; object-position: center 40% !important; }
+  </style>
+
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="ybV56V__njW0TIX5AEH_299IVdVUSQYtEk-I8KSaeQQ" />
+
+  <!-- Consent Mode V2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 500
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script define:vars={{ GTM_ID }}>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer', GTM_ID);
+  </script>
+
+  <!-- Axeptio Consent Manager -->
+  <script define:vars={{ AXEPTIO_ID, locale }}>
+    window.axeptioSettings = {
+      clientId: AXEPTIO_ID,
+      cookiesVersion: locale === 'fr' ? 'toileblanche-fr' : 'toileblanche-en'
+    };
+
+    (function(d, s) {
+      var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+      e.async = true;
+      e.src = "//static.axept.io/sdk.js";
+      t.parentNode.insertBefore(e, t);
+    })(document, "script");
+
+    void 0 === window._axcb && (window._axcb = []);
+    window._axcb.push(function(axeptio) {
+      axeptio.on("cookies:complete", function(choices) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+
+        gtag('consent', 'update', {
+          'analytics_storage': choices.google_analytics ? 'granted' : 'denied',
+          'ad_storage': choices.google_ads ? 'granted' : 'denied',
+          'ad_user_data': choices.google_ads ? 'granted' : 'denied',
+          'ad_personalization': choices.google_ads ? 'granted' : 'denied'
+        });
+      });
+    });
+  </script>
+
+  <!-- Mews Booking Engine (proxied to avoid CORS) -->
+  <script is:inline src="/mews/distributor.min.js"></script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["Hotel", "ArtGallery"],
+      "name": "Toile Blanche",
+      "description": "22 suites, two restaurants, and a contemporary art collection in Saint-Paul de Vence. A declared artwork by the Leroy Brothers on the Côte d'Azur.",
+      "image": "https://www.toileblanche.com/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg",
+      "@id": "https://www.toileblanche.com#hotel",
+      "url": "https://www.toileblanche.com",
+      "telephone": "+33493327421",
+      "email": "info@toileblanche.com",
+      "priceRange": "€€€€",
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "4"
+      },
+      "numberOfRooms": 22,
+      "checkinTime": "16:00",
+      "checkoutTime": "11:00",
+      "petsAllowed": false,
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Outdoor Pool", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Restaurant", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "EV Charging", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Spa Services", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Electric Bike Rental", "value": true }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "826, chemin de la Pounchounière",
+        "addressLocality": "Saint-Paul de Vence",
+        "postalCode": "06570",
+        "addressRegion": "Provence-Alpes-Côte d'Azur",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.6874494,
+        "longitude": 7.1285941
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "08:00",
+        "closes": "22:00"
+      },
+      "hasMap": "https://goo.gl/maps/VoKrme28X62qbvTk7",
+      "sameAs": [
+        "https://www.instagram.com/toileblanche/"
+      ]
+    }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tb-skip-link">{locale === 'fr' ? 'Aller au contenu' : 'Skip to content'}</a>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  <slot />
+
+  {!hideBookingBar && <BookingBar locale={locale} />}
+
+  <!-- Smooth scroll + scroll reveals (Lenis, GSAP) -->
+  <script>
+    import { initSmoothScroll } from '../scripts/smooth-scroll';
+    initSmoothScroll();
+  </script>
+  <!-- Site JS -->
+  <script src="/js/site.js" defer></script>
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    import { inject } from '@vercel/analytics';
+    inject();
+  </script>
+
+  <!-- Vercel Speed Insights -->
+  <script>
+    import { injectSpeedInsights } from '@vercel/speed-insights';
+    injectSpeedInsights();
+  </script>
+
+  <!-- Zenchef Restaurant Booking Widget (before </body> per Zenchef docs) -->
+  <script
+    id="zc-sdk"
+    data-restaurant="357953"
+    data-hide-button="true"
+    data-lang={locale}
+    data-color="AD5D47"
+    src="https://sdk.zenchef.com/sdk.js"
+    async
+  ></script>
+
+  <!-- Mews Booking Engine Init (overlay) -->
+  <script is:inline>
+    window.addEventListener('load', function() {
+      var attempts = 0;
+      function tryInit() {
+        if (typeof Mews !== 'undefined') {
+          Mews.Distributor({
+            configurationIds: ['150bd326-7c63-4a24-b668-abcf00c6bb22'],
+            openElements: '.distributor-open'
+          });
+        } else if (attempts++ < 30) {
+          setTimeout(tryInit, 100);
+        }
+      }
+      tryInit();
+    });
+  </script>
+</body>
+</html>
