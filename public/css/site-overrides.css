@@ -1137,6 +1137,12 @@ body.tb-menu-open .overlap-section-top {
   }
 }
 
+/* Temporary: hide SLH logo in menu — remove this block to restore */
+.tb-affil-slh,
+.tb-menu-mobile-affiliations .tb-menu-mobile-affil-img:last-child {
+  display: none !important;
+}
+
 /* ─── Hero text color: white over images, dark on plain backgrounds ────────── */
 .rst-hero-content h1,
 .rst-hero-content p,
@@ -1232,6 +1238,12 @@ body.tb-menu-open .overlap-section-top {
 /* ─── Hero structure (video visible, proper stacking) ─────────────────────── */
 .hero1 {
   overflow: hidden;
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 /* Hero text: lower-middle positioning (more air above and below) ───────────── */
@@ -1675,7 +1687,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  /* Frame the video so the centre fills the viewport (avoids "only top" on shallow screens) */
+  object-position: center 42%;
 }
 
 /* Desktop default: landscape visible, portrait hidden */
