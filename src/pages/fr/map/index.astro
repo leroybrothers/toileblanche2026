@@ -1,0 +1,83 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout
+  locale="fr"
+  title="Plan du domaine | Toile Blanche | Saint-Paul de Vence"
+  description="Plan du domaine Toile Blanche — suites, restaurants, sculptures et jardins à Saint-Paul de Vence."
+  ogImage="https://www.toileblanche.com/assets/images/estate-map.png"
+>
+  <Nav theme="light" locale="fr" />
+
+  <main id="main-content">
+    <section class="map-page">
+      <div class="map-page-inner">
+        <h1 class="map-page-title">Plan du domaine</h1>
+        <p class="map-page-intro">Explorez le domaine : 22 suites dans sept bâtiments, deux restaurants, les jardins et le parcours des sculptures.</p>
+        <div class="map-page-image-wrap">
+          <img
+            src="/assets/images/estate-map.png"
+            alt="Plan du domaine Toile Blanche — Le Restaurant, L'Hôtel, La Guinguette, suites, sculptures et jardins"
+            class="map-page-image"
+            width="1200"
+            height="800"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <p class="map-page-caption">Toile Blanche, 826 chemin de la Pounchounière — Saint-Paul de Vence</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style>
+  .map-page {
+    padding: 120px 24px 80px;
+    background: var(--color-bg-warm, #FAF8F3);
+    min-height: 100vh;
+  }
+  .map-page-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .map-page-title {
+    font-family: var(--font-display), 'Gilda Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    color: var(--color-ink, #1C1917);
+    margin-bottom: 16px;
+  }
+  .map-page-intro {
+    font-family: var(--font-body), 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-ink-muted, #6B6256);
+    margin-bottom: 40px;
+    max-width: 560px;
+  }
+  .map-page-image-wrap {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+  .map-page-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: middle;
+  }
+  .map-page-caption {
+    font-family: var(--font-body), 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted, #9C9080);
+    margin-top: 24px;
+  }
+</style>

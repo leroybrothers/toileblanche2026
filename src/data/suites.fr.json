@@ -185,7 +185,7 @@
       "extras": ["Baignoire", "Lit supplémentaire disponible (+80€/nuit)"],
       "images": {
         "hero": "/assets/images/mas-de-l-artiste/hero.jpg",
-        "card": "/assets/images/Homepage/Mas de l'artist.jpeg",
+        "card": "/assets/images/Homepage/mas-de-l-artiste.png",
         "cardAlt": "Mas de l'Artiste à Toile Blanche",
         "gallery": [
           "/assets/images/mas-de-l-artiste/gallery-1.jpg",
