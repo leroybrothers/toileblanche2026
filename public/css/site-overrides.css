@@ -1504,7 +1504,7 @@ body.tb-menu-open .overlap-section-top {
   border-top: none !important;
 }
 
-/* Footer logo block: brand line, tagline, stay-in-canvas */
+/* Footer logo block: tagline + stay-in-canvas (logo only once, no repeated brand line) */
 .footer-logo-text {
   display: flex;
   flex-direction: column;
@@ -1514,25 +1514,17 @@ body.tb-menu-open .overlap-section-top {
   display: block;
   margin-bottom: 0.25rem;
 }
-.footer-brand-line {
-  font-family: var(--font-body);
-  font-size: var(--text-xs);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-ink-deep);
-  margin: 0;
-}
 .footer-tagline {
   font-family: var(--font-editorial);
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.6;
   color: var(--color-ink-mid);
   margin: 0;
-  max-width: 320px;
+  max-width: 360px;
 }
 .footer-stay-canvas {
   font-family: var(--font-editorial);
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   font-style: italic;
   color: var(--color-ink-mid);
   margin: 0;
