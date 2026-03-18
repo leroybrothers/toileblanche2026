@@ -4,17 +4,42 @@ import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
 import { heroSrcset } from '../../../utils/images';
 
-const refList = [
-  'Pétanque',
-  'La baignade à 7h',
-  'Le vélo dans la vallée du Loup',
-  "L'apéritif du vendredi — avec les artistes",
-  'La conversation sur les œuvres',
-  'Fondation Maeght et Fondation CAB',
-  'Le marché, avec un panier',
-  "Le massage d'Amandine",
-  'Le tour des galeries',
-  'Les routes que personne ne prend',
+const refItems: { title: string; sub: string | null }[] = [
+  { title: 'Pétanque', sub: 'Le terrain est là. Les boules sont à la réception.' },
+  { title: 'La baignade à 7h', sub: 'Avant que le domaine ne se réveille.' },
+  {
+    title: 'Le vélo dans la vallée du Loup',
+    sub: 'Vélos disponibles. Nous vous suggérerons un itinéraire qui évite la route principale.',
+  },
+  {
+    title: "L'apéritif du vendredi — avec les artistes",
+    sub: '18 h. Quelque part sur le domaine. Venez si le cœur vous en dit.',
+  },
+  {
+    title: 'La conversation sur les œuvres',
+    sub: "D'où vient chaque pièce, et pourquoi elle se trouve exactement là où elle est.",
+  },
+  {
+    title: 'Fondation Maeght et Fondation CAB',
+    sub: "À cinq minutes en voiture. Deux des plus grands fonds privés d'Europe.",
+  },
+  {
+    title: 'Le marché, avec un panier',
+    sub: 'Nous préparons le panier la veille au soir et vous indiquons les étals.',
+  },
+  {
+    title: "Le massage d'Amandine",
+    sub: 'Sur rendez-vous. Renseignez-vous à la réception.',
+  },
+  {
+    title: 'Le tour des galeries',
+    sub: 'Les ateliers entre Saint-Paul et Vence que la plupart des visiteurs ne trouvent jamais.',
+  },
+  {
+    title: 'Les routes que personne ne prend',
+    sub: 'La vallée à vélo. Les villages au-dessus de la côte. Nous avons une carte.',
+  },
+  { title: "Et le plaisir particulier de n'en faire aucun.", sub: null },
 ];
 ---
 
@@ -36,10 +61,12 @@ const refList = [
     <section class="exp-ref-list">
       <h2 class="exp-ref-title">Œuvres disponibles pendant votre séjour</h2>
       <div class="exp-ref-items">
-        {refList.map((line) => (
-          <p class="exp-ref-line">{line}</p>
+        {refItems.map((item) => (
+          <div class:list={['exp-ref-item', { 'exp-ref-item--final': !item.sub }]}>
+            <p class="exp-ref-line">{item.title}</p>
+            {item.sub && <p class="exp-ref-sub">{item.sub}</p>}
+          </div>
         ))}
-        <p class="exp-ref-line exp-ref-line--final">Et le plaisir particulier de n'en faire aucun.</p>
       </div>
       <p class="exp-ref-note">La réception peut tout organiser. Ou écrivez-nous avant votre arrivée.</p>
     </section>
@@ -81,18 +108,32 @@ const refList = [
   }
   .exp-ref-items {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(20px, 2vw, 24px);
-    font-weight: 400;
-    line-height: 1.4;
     color: var(--color-ink-deep);
   }
-  .exp-ref-line {
-    margin: 0 0 2.5em 0;
+  .exp-ref-item {
+    margin-bottom: 2.5em;
   }
-  .exp-ref-line--final {
-    margin-top: 0.5em;
+  .exp-ref-item--final {
     margin-bottom: 0;
+    margin-top: 0.25em;
+  }
+  .exp-ref-line {
+    margin: 0;
+    font-size: clamp(20px, 2vw, 24px);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.35;
+  }
+  .exp-ref-sub {
+    margin: 0.45em 0 0 0;
+    max-width: 28em;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: clamp(16px, 1.55vw, 18px);
+    font-weight: 400;
     font-style: italic;
+    line-height: 1.55;
+    color: var(--color-stone);
   }
   .exp-ref-note {
     margin-top: clamp(72px, 10vw, 120px);
@@ -108,7 +149,7 @@ const refList = [
       min-height: 50vh;
     }
     .exp-ref-list {
-      padding: 60px 24px; /* wide margins only on desktop */
+      padding: 60px 24px;
     }
   }
 </style>

@@ -4,17 +4,39 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { heroSrcset } from '../../utils/images';
 
-const refList = [
-  'Pétanque',
-  'Swimming at 7am',
-  'Cycling the Loup valley',
-  'Friday aperitif — with the artists',
-  'A conversation about the works',
-  'Fondation Maeght and Fondation CAB',
-  'The market, with a basket',
-  "Amadine's massage",
-  'The gallery circuit',
-  'The roads nobody takes',
+const refItems: { title: string; sub: string | null }[] = [
+  { title: 'Pétanque', sub: 'The court is there. The boules are at reception.' },
+  { title: 'Swimming at 7am', sub: 'Before the estate wakes up.' },
+  {
+    title: 'Cycling the Loup valley',
+    sub: "Bikes available. We'll suggest a route that avoids the main road.",
+  },
+  {
+    title: 'Friday aperitif — with the artists',
+    sub: '18h. Somewhere on the estate. Come if you feel like it.',
+  },
+  {
+    title: 'A conversation about the works',
+    sub: 'Where each piece came from, and why it is exactly where it is.',
+  },
+  {
+    title: 'Fondation Maeght and Fondation CAB',
+    sub: 'Five minutes by car. Two of the great private collections in Europe.',
+  },
+  {
+    title: 'The market, with a basket',
+    sub: 'We pack it the evening before and tell you which stalls to find.',
+  },
+  { title: "Amandine's massage", sub: 'By appointment. Ask at reception.' },
+  {
+    title: 'The gallery circuit',
+    sub: 'The studios between Saint-Paul and Vence that most visitors never find.',
+  },
+  {
+    title: 'The roads nobody takes',
+    sub: 'The valley on a bicycle. The villages above the coast. We have a map.',
+  },
+  { title: 'And the particular pleasure of doing none of it.', sub: null },
 ];
 ---
 
@@ -35,10 +57,12 @@ const refList = [
     <section class="exp-ref-list">
       <h2 class="exp-ref-title">Works Available During Your Stay</h2>
       <div class="exp-ref-items">
-        {refList.map((line) => (
-          <p class="exp-ref-line">{line}</p>
+        {refItems.map((item) => (
+          <div class:list={['exp-ref-item', { 'exp-ref-item--final': !item.sub }]}>
+            <p class="exp-ref-line">{item.title}</p>
+            {item.sub && <p class="exp-ref-sub">{item.sub}</p>}
+          </div>
         ))}
-        <p class="exp-ref-line exp-ref-line--final">And the particular pleasure of doing none of it.</p>
       </div>
       <p class="exp-ref-note">Reception can arrange everything. Or write to us before you arrive.</p>
     </section>
@@ -80,18 +104,32 @@ const refList = [
   }
   .exp-ref-items {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(20px, 2vw, 24px);
-    font-weight: 400;
-    line-height: 1.4;
     color: var(--color-ink-deep);
   }
-  .exp-ref-line {
-    margin: 0 0 2.5em 0;
+  .exp-ref-item {
+    margin-bottom: 2.5em;
   }
-  .exp-ref-line--final {
-    margin-top: 0.5em;
+  .exp-ref-item--final {
     margin-bottom: 0;
+    margin-top: 0.25em;
+  }
+  .exp-ref-line {
+    margin: 0;
+    font-size: clamp(20px, 2vw, 24px);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.35;
+  }
+  .exp-ref-sub {
+    margin: 0.45em 0 0 0;
+    max-width: 28em;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: clamp(16px, 1.55vw, 18px);
+    font-weight: 400;
     font-style: italic;
+    line-height: 1.55;
+    color: var(--color-stone);
   }
   .exp-ref-note {
     margin-top: clamp(72px, 10vw, 120px);
@@ -107,7 +145,7 @@ const refList = [
       min-height: 50vh;
     }
     .exp-ref-list {
-      padding: 60px 24px; /* wide margins only on desktop */
+      padding: 60px 24px;
     }
   }
 </style>
