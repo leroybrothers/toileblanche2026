@@ -2,6 +2,40 @@
 import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
+
+const hotspots = [
+  { label: 'Réception', href: null },
+  { label: 'Toile Blanche Contemporary', href: 'https://toileblanchecontemporary.com' },
+  { label: 'Le Restaurant', href: '/fr/le-restaurant' },
+  { label: 'Suites', href: '/fr/suites' },
+  { label: 'La Guinguette', href: '/fr/la-guinguette' },
+  { label: 'Pétanque', href: null },
+  { label: 'Parking', href: null },
+  { label: 'Piscines', href: '/fr/experiences' },
+  { label: 'Massage', href: '/fr/experiences' },
+  { label: 'Les Vélos', href: '/fr/experiences' },
+  { label: 'Ora Ïto (2024)', href: 'https://www.toileblanchecontemporary.com/artworks/9475-ora-ito-2024/' },
+  { label: 'Gao Brothers', href: 'https://www.toileblanchecontemporary.com/artists/32-gao-brothers/overview/' },
+  { label: 'Leroy Brothers — Lerneaen Strouthion', href: 'https://www.toileblanchecontemporary.com/artists/29-leroy-brothers/works/9410-leroy-brothers-lerneaen-strouthion-2010/' },
+  { label: 'Leroy Brothers — Art for Money, Money for Art', href: 'https://www.toileblanchecontemporary.com/artists/29-leroy-brothers/works/9422-leroy-brothers-art-for-money-money-for-art-the-2010/' },
+];
+
+const hotspotPositions: Record<string, { left: number; top: number }> = {
+  'Réception': { left: 22, top: 28 },
+  'Toile Blanche Contemporary': { left: 28, top: 35 },
+  'Le Restaurant': { left: 18, top: 22 },
+  'Suites': { left: 50, top: 48 },
+  'La Guinguette': { left: 78, top: 32 },
+  'Pétanque': { left: 72, top: 52 },
+  'Parking': { left: 48, top: 88 },
+  'Piscines': { left: 52, top: 62 },
+  'Massage': { left: 45, top: 72 },
+  'Les Vélos': { left: 58, top: 78 },
+  'Ora Ïto (2024)': { left: 72, top: 42 },
+  'Gao Brothers': { left: 26, top: 58 },
+  'Leroy Brothers — Lerneaen Strouthion': { left: 38, top: 52 },
+  'Leroy Brothers — Art for Money, Money for Art': { left: 62, top: 48 },
+};
 ---
 
 <Layout
@@ -17,16 +51,59 @@ import Footer from '../../../components/Footer.astro';
       <div class="map-page-inner">
         <h1 class="map-page-title">Plan du domaine</h1>
         <p class="map-page-intro">Explorez le domaine : 22 suites dans sept bâtiments, deux restaurants, les jardins et le parcours des sculptures.</p>
+
+        <div class="map-page-legend">
+          <h2 class="map-page-legend-title">Sur le plan</h2>
+          <ul class="map-page-legend-list">
+            {hotspots.map(({ label, href }) => (
+              <li>
+                {href ? (
+                  <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>{label}</a>
+                ) : (
+                  <span class="map-page-legend-none">{label}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <div class="map-page-image-wrap">
-          <img
-            src="/assets/images/estate-map.png"
-            alt="Plan du domaine Toile Blanche — Le Restaurant, L'Hôtel, La Guinguette, suites, sculptures et jardins"
-            class="map-page-image"
-            width="1200"
-            height="800"
-            loading="eager"
-            fetchpriority="high"
-          />
+          <div class="map-page-image-inner">
+            <img
+              src="/assets/images/estate-map.png"
+              alt="Plan du domaine Toile Blanche — Le Restaurant, L'Hôtel, La Guinguette, suites, sculptures et jardins"
+              class="map-page-image"
+              width="768"
+              height="1024"
+              loading="eager"
+              fetchpriority="high"
+            />
+            {hotspots.map(({ label, href }) => {
+              const pos = hotspotPositions[label];
+              if (!pos) return null;
+              const size = 10;
+              const left = pos.left - size / 2;
+              const top = pos.top - size / 2;
+              return href ? (
+                <a
+                  href={href}
+                  class="map-hotspot"
+                  style={`left: ${left}%; top: ${top}%; width: ${size}%; height: ${size}%`}
+                  title={label}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  aria-label={`${label} — aller à la page`}
+                />
+              ) : (
+                <span
+                  class="map-hotspot map-hotspot--none"
+                  style={`left: ${left}%; top: ${top}%; width: ${size}%; height: ${size}%`}
+                  title={label}
+                  aria-hidden="true"
+                />
+              );
+            })}
+          </div>
         </div>
         <p class="map-page-caption">Toile Blanche, 826 chemin de la Pounchounière — Saint-Paul de Vence</p>
       </div>
@@ -61,18 +138,28 @@ import Footer from '../../../components/Footer.astro';
     margin-bottom: 40px;
     max-width: 560px;
   }
+  .map-page-legend { margin-bottom: 32px; }
+  .map-page-legend-title { font-family: var(--font-body), 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #9C9080; margin-bottom: 16px; }
+  .map-page-legend-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 24px; }
+  .map-page-legend-list a { font-family: var(--font-body), 'Didact Gothic', sans-serif; font-size: 14px; color: #9e5c4a; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; transition: opacity 0.2s; }
+  .map-page-legend-list a:hover { opacity: 0.8; }
+  .map-page-legend-none { font-family: var(--font-body), 'Didact Gothic', sans-serif; font-size: 14px; color: #9C9080; }
   .map-page-image-wrap {
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   }
+  .map-page-image-inner { position: relative; width: 100%; line-height: 0; }
   .map-page-image {
     width: 100%;
     height: auto;
     display: block;
     vertical-align: middle;
   }
+  .map-hotspot { position: absolute; display: block; border-radius: 50%; z-index: 1; cursor: pointer; transition: background 0.2s, transform 0.2s; }
+  .map-hotspot[href]:hover { background: rgba(158, 92, 74, 0.25); transform: scale(1.15); }
+  .map-hotspot--none { background: rgba(156, 144, 128, 0.2); cursor: default; pointer-events: none; }
   .map-page-caption {
     font-family: var(--font-body), 'Didact Gothic', sans-serif;
     font-size: 12px;
