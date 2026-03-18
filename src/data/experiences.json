@@ -3,15 +3,8 @@
     "title": "Wellness",
     "tagline": "Massages in the garden, or in your suite.",
     "body": "Amandine and Eve, our resident therapists, offer a range of treatments — deep tissue, relaxation, and signature rituals — designed to restore you completely. Book a session on arrival and forget everything outside the walls.",
-    "image": "page-img-1bc07c2749c20d.avif",
+    "image": "wellness.png",
     "cta": { "text": "Inquire or Book a Treatment", "href": "https://toileblanche.bowo.app/pages/2826" }
-  },
-  {
-    "title": "The Art Route",
-    "tagline": "10 art places worth visiting from here.",
-    "body": "A curated walking and driving itinerary through Saint-Paul de Vence and the surrounding area — from the Fondation Maeght to our own sculpture gardens. Available as a printed map at reception.",
-    "image": "page-img-7f21ae1bc9a088.png",
-    "cta": { "text": "Explore the Route", "href": "https://www.canva.com/design/DAGh41XVur0/SkdE6UHqFwKSUe5ud1AIKg/view" }
   },
   {
     "title": "The Leroy Brothers Studio",

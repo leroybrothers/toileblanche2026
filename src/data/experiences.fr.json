@@ -3,15 +3,8 @@
     "title": "Bien-être",
     "tagline": "Massages dans le jardin ou dans votre suite.",
     "body": "Amandine et Eve, nos thérapeutes résidentes, proposent une gamme de soins — massage profond, relaxation et rituels signature — conçus pour vous restaurer complètement. Réservez une séance dès votre arrivée et oubliez tout ce qui se passe hors des murs.",
-    "image": "page-img-1bc07c2749c20d.avif",
+    "image": "wellness.png",
     "cta": { "text": "Se renseigner ou réserver un soin", "href": "https://toileblanche.bowo.app/pages/2826" }
-  },
-  {
-    "title": "La Route de l'Art",
-    "tagline": "10 lieux d'art à visiter depuis ici.",
-    "body": "Un itinéraire à pied et en voiture à travers Saint-Paul de Vence et ses environs — de la Fondation Maeght à nos propres jardins de sculptures. Disponible en carte imprimée à la réception.",
-    "image": "page-img-7f21ae1bc9a088.png",
-    "cta": { "text": "Explorer la route", "href": "https://www.canva.com/design/DAGh41XVur0/SkdE6UHqFwKSUe5ud1AIKg/view" }
   },
   {
     "title": "L'Atelier des Leroy Brothers",
