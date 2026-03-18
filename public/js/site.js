@@ -45,6 +45,7 @@
   }
 
   // ─── Hero slideshow ────────────────────────────────────────────────────────
+  // 6s per image, 1.5s cross-dissolve (CSS). No dots or arrows — silent cycle.
   function initHeroSlideshow() {
     const slides = document.querySelectorAll('.hero-bg-slide');
     if (slides.length === 0) return;
@@ -60,7 +61,7 @@
       } else {
         slides[current].removeAttribute('aria-label');
       }
-    }, 5000);
+    }, 6000);
   }
 
   // ─── Nav color toggle (white on hero, black when scrolled) ─────────────────

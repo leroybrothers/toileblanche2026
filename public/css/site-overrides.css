@@ -1255,6 +1255,15 @@ body.tb-menu-open .overlap-section-top {
   position: absolute;
   inset: 0;
 }
+/* Subtle colour-unification overlay: pulls all five slides toward one temperature (warm canvas). Replace with consistently graded assets for best result. */
+.hero-bg-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 248, 243, 0.11);
+  pointer-events: none;
+  z-index: 0;
+}
 
 .hero-bg-slide {
   position: absolute;
@@ -1264,7 +1273,8 @@ body.tb-menu-open .overlap-section-top {
   background-repeat: no-repeat;
   background-attachment: fixed;
   opacity: 0;
-  transition: opacity 1.2s ease;
+  /* 1.5s cross-dissolve — images breathe into each other, no hard cut */
+  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-bg-slide.is-active {
@@ -1281,6 +1291,7 @@ body.tb-menu-open .overlap-section-top {
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-slide {
     background-attachment: scroll;
+    transition-duration: 0.8s;
   }
 }
 

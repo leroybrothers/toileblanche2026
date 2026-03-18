@@ -36,29 +36,12 @@ const suites = suitesData.suites.map(s => ({
   <!-- Hero Section -->
   <main id="main-content">
   <header class="hero1" id="hero" style="opacity:0">
-    <div class="hero-bg-wrapper hero-bg-parallax hero-bg-video">
-
-      <!-- Desktop & tablet (≥ 769px) — landscape 16:9 -->
-      <video
-        class="hero-video hero-video--landscape"
-        autoplay muted loop playsinline
-        preload="auto"
-        poster="/assets/videos/hero-landscape-poster.jpg"
-        aria-label="Toile Blanche, Saint-Paul de Vence"
-      >
-        <source src="/assets/videos/Toile Blanche Hero Video.mp4" type="video/mp4">
-      </video>
-
-      <!-- Mobile (≤ 768px portrait) — portrait 9:16 (lazy loaded) -->
-      <video
-        class="hero-video hero-video--portrait"
-        autoplay muted loop playsinline
-        preload="none"
-        poster="/assets/videos/hero-portrait-poster.jpg"
-        aria-hidden="true"
-      >
-        <source src="/assets/videos/Toile Blanche Hero Video.mp4" type="video/mp4">
-      </video>
+    <div class="hero-bg-wrapper hero-bg-parallax">
+      <div class="hero-bg-slide hero-bg-slide-1 is-active" aria-label="Toile Blanche, Saint-Paul de Vence" aria-hidden="false"></div>
+      <div class="hero-bg-slide hero-bg-slide-2" aria-hidden="true"></div>
+      <div class="hero-bg-slide hero-bg-slide-3" aria-hidden="true"></div>
+      <div class="hero-bg-slide hero-bg-slide-4" aria-hidden="true"></div>
+      <div class="hero-bg-slide hero-bg-slide-5" aria-hidden="true"></div>
     </div>
     <div class="hero-bg-overlay"></div>
 
