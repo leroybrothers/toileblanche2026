@@ -43,14 +43,6 @@ const refList = [
       </div>
       <p class="exp-ref-note">La réception peut tout organiser. Ou écrivez-nous avant votre arrivée.</p>
     </section>
-
-    <section class="exp-cta">
-      <h2 class="exp-cta-title">Restez dans la toile</h2>
-      <div class="exp-cta-links">
-        <a href="/fr/suites" class="exp-cta-primary">Réservez votre séjour</a>
-        <a href="/fr/upcoming-events" class="exp-cta-secondary">Événements à venir</a>
-      </div>
-    </section>
   </main>
 
   <Footer locale="fr" />
@@ -75,91 +67,39 @@ const refList = [
   }
 
   .exp-ref-list {
-    max-width: 42rem;
     margin: 0 auto;
-    padding: clamp(80px, 12vw, 140px) clamp(24px, 6vw, 80px);
+    padding: clamp(80px, 12vw, 140px) 30%;
+    text-align: center;
   }
   .exp-ref-title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(18px, 2vw, 22px);
+    font-size: clamp(22px, 2.2vw, 30px);
     font-weight: 400;
     color: var(--color-ink-mid);
-    margin-bottom: clamp(32px, 4vw, 48px);
+    margin-bottom: clamp(48px, 6vw, 72px);
     letter-spacing: 0.02em;
   }
   .exp-ref-items {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(22px, 2.5vw, 28px);
+    font-size: clamp(20px, 2vw, 24px);
     font-weight: 400;
-    line-height: 2;
+    line-height: 3;
     color: var(--color-ink-deep);
   }
   .exp-ref-line {
     margin: 0;
   }
   .exp-ref-line--final {
-    margin-top: 1em;
+    margin-top: 0.5em;
     font-style: italic;
   }
   .exp-ref-note {
-    margin-top: clamp(48px, 6vw, 72px);
-    padding: 1.25rem 1.5rem;
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 14px;
+    margin-top: clamp(72px, 10vw, 120px);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(16px, 1.5vw, 18px);
+    font-style: italic;
     line-height: 1.6;
     color: var(--color-ink-mid);
-    background: var(--color-bg-warm);
-    border: 1px solid var(--color-border);
-    border-radius: 2px;
-  }
-
-  .exp-cta {
-    text-align: center;
-    padding: 120px 24px;
-    border-top: 1px solid var(--color-border);
-  }
-  .exp-cta-title {
-    font-family: 'Gilda Display', serif;
-    font-size: clamp(28px, 3vw, 42px);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--color-ink-deep);
-    margin-bottom: 32px;
-  }
-  .exp-cta-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-  .exp-cta-primary {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    background: var(--color-terracotta-mid);
-    color: #fff;
-    text-decoration: none;
-    padding: 16px 40px;
-    transition: background 0.3s;
-  }
-  .exp-cta-primary:hover {
-    background: var(--color-terracotta-deep);
-  }
-  .exp-cta-secondary {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--color-stone);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    padding-bottom: 2px;
-    transition: border-color 0.2s;
-  }
-  .exp-cta-secondary:hover {
-    border-color: var(--color-ink-deep);
   }
 
   @media (max-width: 900px) {
@@ -167,10 +107,7 @@ const refList = [
       min-height: 50vh;
     }
     .exp-ref-list {
-      padding: 60px 24px;
-    }
-    .exp-cta {
-      padding: 80px 24px;
+      padding: 60px 24px; /* wide margins only on desktop */
     }
   }
 </style>
