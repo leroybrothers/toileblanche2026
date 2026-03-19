@@ -35,29 +35,12 @@ const suites = suitesData.suites.map(s => ({
 
   <main id="main-content">
   <header class="hero1" id="hero" style="opacity:0">
-    <div class="hero-bg-wrapper hero-bg-parallax hero-bg-video">
-
-      <!-- Desktop & tablet (≥ 769px) — landscape 16:9 -->
-      <video
-        class="hero-video hero-video--landscape"
-        autoplay muted loop playsinline
-        preload="auto"
-        poster="/assets/videos/hero-landscape-poster.jpg"
-        aria-label="Toile Blanche, Saint-Paul de Vence"
-      >
-        <source src="/assets/videos/ToileBlancheHeroShort2.mp4?v=2" type="video/mp4">
-      </video>
-
-      <!-- Mobile (≤ 768px portrait) — portrait 9:16 (lazy loaded) -->
-      <video
-        class="hero-video hero-video--portrait"
-        autoplay muted loop playsinline
-        preload="none"
-        poster="/assets/videos/hero-portrait-poster.jpg"
-        aria-hidden="true"
-      >
-        <source src="/assets/videos/ToileBlancheHeroShort2.mp4?v=2" type="video/mp4">
-      </video>
+    <div class="hero-bg-wrapper hero-bg-parallax">
+      <div class="hero-bg-slide hero-bg-slide-1 is-active" aria-label="Toile Blanche, Saint-Paul de Vence" aria-hidden="false"></div>
+      <div class="hero-bg-slide hero-bg-slide-2" aria-hidden="true"></div>
+      <div class="hero-bg-slide hero-bg-slide-3" aria-hidden="true"></div>
+      <div class="hero-bg-slide hero-bg-slide-4" aria-hidden="true"></div>
+      <div class="hero-bg-slide hero-bg-slide-5" aria-hidden="true"></div>
     </div>
     <div class="hero-bg-overlay"></div>
 
@@ -87,7 +70,7 @@ const suites = suitesData.suites.map(s => ({
           <p>Les Leroy Brothers — trois artistes — sont arrivés à Saint-Paul de Vence en 2004 avec trois chambres et une vision à long terme.</p>
           <p>En vingt ans, ils ont racheté les maisons voisines une par une — à des voisins devenus amis. Puis, quand le moment fut venu, ils se sont arrêtés et ont construit la version qu'ils avaient toujours eue en tête.</p>
           <p>Le résultat est quelque chose de véritablement difficile à catégoriser.</p>
-          <p>22 suites. Deux restaurants. Trois piscines. 20 000m² de jardins. Saint-Paul de Vence.</p>
+          <p>22 suites. Deux restaurants. Beaucoup de sculptures. Trois piscines. 20 000m² de jardins. Saint-Paul de Vence.</p>
         </div>
         <div class="tb-intro-block">
           <h2 class="tb-intro-block-title">Le Ressenti</h2>
@@ -155,7 +138,7 @@ const suites = suitesData.suites.map(s => ({
         <div class="tb-feature-block tb-feature-block--reverse">
           <div class="tb-feature-block-image">
             <a href="/fr/restaurants" class="tb-feature-block-image-link">
-              <img src="/assets/images/twotable2.jpg" loading="lazy" width="524" sizes="(max-width: 767px) 100vw, 524px" alt="Restaurants de Toile Blanche" />
+              <img src="/assets/images/restaurants-terrace.png" loading="lazy" width="524" sizes="(max-width: 767px) 100vw, 524px" alt="Terrasse du restaurant à Toile Blanche — Le Restaurant et La Guinguette" />
             </a>
           </div>
           <div class="tb-feature-block-content">
@@ -199,8 +182,8 @@ const suites = suitesData.suites.map(s => ({
         <p class="tb-dp-desc">Nos clients directs sont prioritaires pour les surclassements de suite.</p>
       </div>
       <div class="tb-dp-item">
-        <p class="tb-dp-label">Petit-Déjeuner Inclus</p>
-        <p class="tb-dp-desc">Notre rituel provençal du matin est toujours offert.</p>
+        <p class="tb-dp-label">Réservez direct</p>
+        <p class="tb-dp-desc">Les mêmes conditions qu'ailleurs. Sauf que vous parlez directement avec nous. Pas de frais cachés. Et quelqu'un qui connaît vraiment le domaine au bout du fil.</p>
       </div>
     </div>
     <div class="tb-dp-cta-wrap">

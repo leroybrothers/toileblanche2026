@@ -64,8 +64,8 @@ const alternates = getAlternateUrls(currentPath);
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#FAF8F3" />
 
-  <!-- Preload hero LCP image (first slideshow slide) -->
-  <link rel="preload" as="image" href="/assets/images/slideshow1.jpg" fetchpriority="high" />
+  <!-- Preload hero LCP image -->
+  <link rel="preload" as="image" href="/assets/videos/hero-landscape-poster.jpg" fetchpriority="high" />
 
   <!-- Preconnect third-party origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -78,7 +78,7 @@ const alternates = getAlternateUrls(currentPath);
   <!-- Site Stylesheet -->
   <link rel="stylesheet" href="/css/tokens.css" />
   <link rel="stylesheet" href="/css/toile-blanche.min.css" />
-  <link rel="stylesheet" href="/css/site-overrides.css?v=13" />
+  <link rel="stylesheet" href="/css/site-overrides.css?v=10" />
 
   <!-- Restaurant/breakfast overrides (inline in Layout, IDs for max specificity) -->
   <style is:global>
@@ -153,7 +153,8 @@ const alternates = getAlternateUrls(currentPath);
     });
   </script>
 
-  <!-- Mews Booking Engine: loaded on demand when user clicks Book (saves ~1.2MB initial payload) -->
+  <!-- Mews Booking Engine (proxied to avoid CORS) -->
+  <script is:inline src="/mews/distributor.min.js"></script>
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -231,7 +232,7 @@ const alternates = getAlternateUrls(currentPath);
     initSmoothScroll();
   </script>
   <!-- Site JS -->
-  <script src="/js/site.js?v=2" defer></script>
+  <script src="/js/site.js" defer></script>
 
   <!-- Vercel Web Analytics -->
   <script>
@@ -256,40 +257,22 @@ const alternates = getAlternateUrls(currentPath);
     async
   ></script>
 
-  <!-- Mews Booking Engine: lazy-load on first click (saves ~1.2MB on initial load) -->
+  <!-- Mews Booking Engine Init (overlay) -->
   <script is:inline>
-    (function() {
-      var mewsLoaded = false;
-      var mewsInitialized = false;
-
-      function loadAndInitMews(elementToOpen) {
-        if (mewsInitialized) {
-          if (elementToOpen) elementToOpen.click();
-          return;
-        }
-        if (!mewsLoaded) {
-          mewsLoaded = true;
-          var s = document.createElement('script');
-          s.src = '/mews/distributor.min.js';
-          s.onload = function() {
-            Mews.Distributor({ configurationIds: ['150bd326-7c63-4a24-b668-abcf00c6bb22'], openElements: '.distributor-open' });
-            mewsInitialized = true;
-            if (elementToOpen) elementToOpen.click();
-          };
-          document.body.appendChild(s);
+    window.addEventListener('load', function() {
+      var attempts = 0;
+      function tryInit() {
+        if (typeof Mews !== 'undefined') {
+          Mews.Distributor({
+            configurationIds: ['150bd326-7c63-4a24-b668-abcf00c6bb22'],
+            openElements: '.distributor-open'
+          });
+        } else if (attempts++ < 30) {
+          setTimeout(tryInit, 100);
         }
       }
-
-      document.addEventListener('click', function(e) {
-        var target = e.target.closest('.distributor-open');
-        if (!target) return;
-        if (!mewsInitialized) {
-          e.preventDefault();
-          e.stopPropagation();
-          loadAndInitMews(target);
-        }
-      }, true);
-    })();
+      tryInit();
+    });
   </script>
 </body>
 </html>

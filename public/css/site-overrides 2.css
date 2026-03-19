@@ -157,18 +157,10 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   }
 }
 
-/* ─── Hero: white logo, lang, hamburger on dark background ─── */
+/* ─── Hero: white logo, Book my Stay, hamburger → Scroll: black ─── */
 .navigation-dark .nav-link-dark,
-.navigation-dark .menu-button,
-.navigation-dark .menu-icon-wrap {
+.navigation-dark .menu-button {
   color: #fff !important;
-}
-.navigation-dark .menu-bar {
-  background-color: #fff !important;
-}
-.navigation-dark .tb-lang-switch {
-  color: #fff !important;
-  border-color: var(--color-white-40) !important;
 }
 
 /* Book My Stay — Argile terracotta CTA, Mews overlay trigger ─── */
@@ -264,28 +256,8 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   }
 }
 
-/* Light nav: black logo, lang, hamburger on white backgrounds (when scrolled) */
-/* body.tb-nav-light ensures these apply when JS has switched to light nav */
-body.tb-nav-light .navigation-light .nav-link-light,
-body.tb-nav-light .navigation-light .menu-button,
-body.tb-nav-light .navigation-light .menu-icon-wrap,
 .navigation-light .nav-link-light,
-.navigation-light .menu-button,
-.navigation-light .menu-icon-wrap {
-  color: var(--color-ink) !important;
-  background-color: transparent !important;
-}
-body.tb-nav-light .navigation-light .menu-bar,
-.navigation-light .menu-bar {
-  background-color: var(--color-ink) !important;
-}
-body.tb-nav-light .navigation-light .tb-lang-switch,
-.navigation-light .tb-lang-switch {
-  color: var(--color-ink-deep) !important;
-  border-color: var(--color-ink-deep-30) !important;
-}
-body.tb-nav-light .navigation-light .nav-logo-text,
-.navigation-light .nav-logo-text {
+.navigation-light .menu-button {
   color: var(--color-ink) !important;
 }
 
@@ -1137,12 +1109,6 @@ body.tb-menu-open .overlap-section-top {
   }
 }
 
-/* Temporary: hide SLH logo in menu — remove this block to restore */
-.tb-affil-slh,
-.tb-menu-mobile-affiliations .tb-menu-mobile-affil-img:last-child {
-  display: none !important;
-}
-
 /* ─── Hero text color: white over images, dark on plain backgrounds ────────── */
 .rst-hero-content h1,
 .rst-hero-content p,
@@ -1238,12 +1204,6 @@ body.tb-menu-open .overlap-section-top {
 /* ─── Hero structure (video visible, proper stacking) ─────────────────────── */
 .hero1 {
   overflow: hidden;
-  height: 100vh;
-  max-height: 100vh;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
 }
 
 /* Hero text: lower-middle positioning (more air above and below) ───────────── */
@@ -1255,17 +1215,34 @@ body.tb-menu-open .overlap-section-top {
   position: absolute;
   inset: 0;
 }
-/* Subtle colour-unification overlay: pulls all five slides toward one temperature (warm canvas). Replace with consistently graded assets for best result. */
-.hero-bg-wrapper::after {
-  content: '';
+
+.hero-bg-slide {
   position: absolute;
   inset: 0;
-  background: rgba(250, 248, 243, 0.11);
-  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.hero-bg-slide.is-active {
+  opacity: 1;
   z-index: 0;
 }
 
-/* hero-bg-slide removed: homepage uses video hero; slideshow CSS was loading 5 large images (~6MB) */
+.hero-bg-slide-1 { background-image: url("/assets/images/slideshow1.jpg"); }
+.hero-bg-slide-2 { background-image: url("/assets/images/slideshow2.JPG"); }
+.hero-bg-slide-3 { background-image: url("/assets/images/slideshow3.jpg"); }
+.hero-bg-slide-4 { background-image: url("/assets/images/slideshow4.JPG"); }
+.hero-bg-slide-5 { background-image: url("/assets/images/slideshow5.jpg"); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-slide {
+    background-attachment: scroll;
+  }
+}
 
 /* ─── Newsletter section ──────────────────────────────────────────────────── */
 /* Force dark text — override any light inheritance */
@@ -1476,32 +1453,6 @@ body.tb-menu-open .overlap-section-top {
   border-top: none !important;
 }
 
-/* Footer logo block: tagline + stay-in-canvas (logo only once, no repeated brand line) */
-.footer-logo-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.footer-logo-text .footer-logo-link {
-  display: block;
-  margin-bottom: 0.25rem;
-}
-.footer-tagline {
-  font-family: var(--font-editorial);
-  font-size: 1.25rem;
-  line-height: 1.6;
-  color: var(--color-ink-mid);
-  margin: 0;
-  max-width: 360px;
-}
-.footer-stay-canvas {
-  font-family: var(--font-editorial);
-  font-size: 1.2rem;
-  font-style: italic;
-  color: var(--color-ink-mid);
-  margin: 0;
-}
-
 .divider._96px {
   border: none !important;
 }
@@ -1533,20 +1484,20 @@ a.tb-book-cta-link {
   transition: all var(--transition-std);
 }
 .navigation-dark .tb-lang-switch {
-  color: #fff !important;
-  border: 1px solid var(--color-white-40) !important;
+  color: #fff;
+  border: 1px solid var(--color-white-40);
 }
 .navigation-dark .tb-lang-switch:hover {
-  background: var(--color-white-15) !important;
-  border-color: var(--color-white-80) !important;
+  background: var(--color-white-15);
+  border-color: var(--color-white-80);
 }
 .navigation-light .tb-lang-switch {
-  color: var(--color-ink-deep) !important;
-  border: 1px solid var(--color-ink-deep-30) !important;
+  color: var(--color-ink-deep);
+  border: 1px solid var(--color-ink-deep-30);
 }
 .navigation-light .tb-lang-switch:hover {
-  background: var(--color-ink-06) !important;
-  border-color: var(--color-ink-deep-60) !important;
+  background: var(--color-ink-06);
+  border-color: var(--color-ink-deep-60);
 }
 
 /* ─── Hero micro-copy (direct booking reassurance) ───────────────────────── */
@@ -1696,8 +1647,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Frame the video so the centre fills the viewport (avoids "only top" on shallow screens) */
-  object-position: center 42%;
+  object-position: center center;
 }
 
 /* Desktop default: landscape visible, portrait hidden */
@@ -1749,6 +1699,7 @@ a, button, [role="button"], [data-zc-action], .distributor-open,
   .tb-book-cta:hover {
     transform: none;
   }
+  .hero-bg-slide { transition: none; }
   #hero-content,
   #hero-arrow {
     transition: none;

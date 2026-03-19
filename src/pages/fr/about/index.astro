@@ -82,7 +82,10 @@ import { heroSrcset } from '../../../utils/images';
     <section class="abt-cta">
       <p class="abt-cta-tagline">Entrez dans l'œuvre.</p>
       <div class="abt-cta-actions">
-        <a href="/fr/suites" class="abt-cta-btn">Explorer les Suites</a>
+        <a href="/fr/map" class="abt-cta-map-link" aria-label="Voir le plan du domaine">
+          <img src="/assets/images/estate-map.png" alt="Plan du domaine Toile Blanche — voir le plan interactif" class="abt-cta-map-img" width="1200" height="800" loading="lazy" />
+          <span class="abt-cta-map-label">Voir le plan du domaine</span>
+        </a>
         <a href="/fr/restaurants" class="abt-cta-link">Découvrir les Tables &rarr;</a>
       </div>
     </section>
@@ -122,6 +125,10 @@ import { heroSrcset } from '../../../utils/images';
   .abt-cta { padding: 64px 80px; text-align: center; border-bottom: 1px solid #E2D9CC; }
   .abt-cta-tagline { font-family: 'Gilda Display', serif; font-style: italic; font-size: clamp(20px, 2.5vw, 28px); color: #3D3530; margin-bottom: 32px; }
   .abt-cta-actions { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .abt-cta-map-link { display: block; max-width: 900px; width: 100%; text-decoration: none; color: inherit; transition: opacity 0.2s; }
+  .abt-cta-map-link:hover { opacity: 0.92; }
+  .abt-cta-map-img { width: 100%; height: auto; display: block; border-radius: 4px; }
+  .abt-cta-map-label { display: block; font-family: 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #9C9080; margin-top: 12px; text-align: center; }
   .abt-cta-btn { display: inline-block; font-family: 'Didact Gothic', sans-serif; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: #FAF8F3; background: #9e5c4a; padding: 16px 36px; transition: opacity 0.2s; }
   .abt-cta-btn:hover { opacity: 0.85; }
   .abt-cta-link { font-family: 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: #9C9080; transition: color 0.2s; }
