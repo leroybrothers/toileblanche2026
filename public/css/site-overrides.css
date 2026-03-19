@@ -357,6 +357,11 @@ body.tb-nav-light .navigation-light .nav-logo-text,
   color: var(--color-ink) !important;
 }
 
+.tb-suites-section .room-slide-description p {
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
 /* One card at full width — no peek of next slide */
 .tb-suites-section .home-room-slider-wrapper {
   width: 100%;
@@ -465,7 +470,7 @@ body.tb-nav-light .navigation-light .nav-logo-text,
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem 4rem;
-  align-items: start;
+  align-items: center;
 }
 
 .tb-intro-block-title {
