@@ -465,7 +465,7 @@ body.tb-nav-light .navigation-light .nav-logo-text,
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem 4rem;
-  align-items: center;
+  align-items: start;
 }
 
 .tb-intro-block-title {
@@ -562,6 +562,12 @@ body.tb-nav-light .navigation-light .nav-logo-text,
   line-height: var(--leading-relaxed);
   margin: 0 0 var(--space-3);
   color: var(--color-ink) !important;
+}
+
+.tb-feature-block-content .button.secondary {
+  font-size: var(--text-xs);
+  padding: 10px 20px;
+  letter-spacing: 0.12em;
 }
 
 .tb-feature-closing {
@@ -1287,6 +1293,11 @@ body.tb-menu-open .overlap-section-top {
 .hero-bg-slide-3 { background-image: url("/assets/images/slideshow3.jpg"); }
 .hero-bg-slide-4 { background-image: url("/assets/images/slideshow4.JPG"); }
 .hero-bg-slide-5 { background-image: url("/assets/images/slideshow5.jpg"); }
+
+/* Homepage full-frame image at bottom — dining terrace (replaces hero duplicate) */
+.full-frame-image-wrapper.homepage-one {
+  background-image: url("/assets/images/homepage-fullframe.png") !important;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-slide {

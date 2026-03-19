@@ -33,6 +33,8 @@
         "card": "/assets/images/Homepage/suite-penard.png",
         "cardAlt": "Suite Pénard at Toile Blanche",
         "gallery": [
+          "/assets/images/penard/DSCF6952.JPG",
+          "/assets/images/penard/DSCF7369.JPG",
           "/assets/images/penard/gallery-1.jpg",
           "/assets/images/penard/gallery-2.jpg",
           "/assets/images/penard/gallery-3.jpg",
@@ -64,6 +66,7 @@
         "card": "/assets/images/Homepage/Suite pétanque.jpg",
         "cardAlt": "Suite Pétanque at Toile Blanche",
         "gallery": [
+          "/assets/images/petanque/DSCF7369.JPG",
           "/assets/images/petanque/gallery-1.jpg",
           "/assets/images/petanque/gallery-2.jpg",
           "/assets/images/petanque/gallery-3.jpg",
@@ -95,11 +98,15 @@
         "card": "/assets/images/Homepage/Suite bronzette.JPG",
         "cardAlt": "Suite de la Bronzette at Toile Blanche",
         "gallery": [
+          "/assets/images/bronzette/DSCF7473.JPG",
+          "/assets/images/bronzette/DSCF7481.JPG",
+          "/assets/images/bronzette/DSCF7369.JPG",
+          "/assets/images/bronzette/DSCF7508.jpg",
+          "/assets/images/bronzette/DSCF7633.jpg",
           "/assets/images/bronzette/gallery-1.jpg",
           "/assets/images/bronzette/gallery-2.jpg",
           "/assets/images/bronzette/gallery-3.jpg",
-          "/assets/images/bronzette/gallery-4.jpg",
-          "/assets/images/bronzette/gallery-5.jpg"
+          "/assets/images/bronzette/gallery-4.jpg"
         ]
       },
       "hasPool": false,
@@ -126,6 +133,9 @@
         "card": "/assets/images/Homepage/Suite cabanat.jpg",
         "cardAlt": "Suite Cabanat at Toile Blanche",
         "gallery": [
+          "/assets/images/cabanat/DSCF7158.JPG",
+          "/assets/images/cabanat/DSCF7143 (1).JPG",
+          "/assets/images/cabanat/DSCF7190.jpg",
           "/assets/images/cabanat/gallery-1.jpg",
           "/assets/images/cabanat/gallery-2.jpg",
           "/assets/images/cabanat/gallery-3.jpg",
@@ -188,11 +198,15 @@
         "card": "/assets/images/Homepage/mas-de-l-artiste.png",
         "cardAlt": "Mas de l'Artiste at Toile Blanche",
         "gallery": [
+          "/assets/images/mas-de-l-artiste/IMG_7713.jpg",
+          "/assets/images/mas-de-l-artiste/IMG_7647.jpg",
+          "/assets/images/mas-de-l-artiste/245C35A1-AD87-46D2-8CC5-A8D9A0755317.jpeg",
           "/assets/images/mas-de-l-artiste/gallery-1.jpg",
           "/assets/images/mas-de-l-artiste/gallery-2.jpg",
           "/assets/images/mas-de-l-artiste/gallery-3.jpg",
           "/assets/images/mas-de-l-artiste/gallery-4.jpg",
-          "/assets/images/mas-de-l-artiste/gallery-5.jpg"
+          "/assets/images/mas-de-l-artiste/gallery-5.jpg",
+          "/assets/images/mas-de-l-artiste/gallery-6.png"
         ]
       },
       "hasPool": false,
@@ -219,6 +233,10 @@
         "card": "/assets/images/Homepage/Suite bon vivant.JPG",
         "cardAlt": "Suite du Bon-Vivant at Toile Blanche",
         "gallery": [
+          "/assets/images/bon-vivant/DSCF1023 (2).JPG",
+          "/assets/images/bon-vivant/DSCF6129.JPG",
+          "/assets/images/bon-vivant/DSCF6681.JPG",
+          "/assets/images/bon-vivant/DSCF5799.JPG",
           "/assets/images/bon-vivant/gallery-1.jpg",
           "/assets/images/bon-vivant/gallery-2.jpg",
           "/assets/images/bon-vivant/gallery-3.jpg",
@@ -250,6 +268,10 @@
         "card": "/assets/images/Homepage/Villa pénéquet.jpg",
         "cardAlt": "Villa du Pénéquet at Toile Blanche",
         "gallery": [
+          "/assets/images/penequet/IMG_0093.jpg",
+          "/assets/images/penequet/IMG_2248.jpg",
+          "/assets/images/penequet/IMG_3771.jpg",
+          "/assets/images/penequet/DSCF6738.JPG",
           "/assets/images/penequet/gallery-1.jpg",
           "/assets/images/penequet/gallery-2.jpg",
           "/assets/images/penequet/gallery-3.jpg",

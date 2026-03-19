@@ -86,28 +86,32 @@ import { heroSrcset, gallerySrcset } from '../../utils/images';
       </div>
     </section>
 
-    <!-- THREE COLUMN IMAGES -->
-    <section class="art-triptych">
-      <div class="art-triptych-inner">
-        <div class="art-triptych-item">
-          <img src="/assets/images/page-img-dd3867b14283dc.webp" alt="Lying Child sculpture by Gao Brothers" loading="lazy" />
-          <p class="art-triptych-caption">Leroy Brothers & Friends residency program — each artist leaves a trace of their presence.</p>
-        </div>
-        <div class="art-triptych-item">
-          <img src="/assets/images/art/IMG_4383-800w.jpg" alt="Expert Talks at Toile Blanche" loading="lazy" />
-          <p class="art-triptych-caption">Expert Talks — professionals in the art world share insights with our guests.</p>
-        </div>
-        <div class="art-triptych-item">
-          <img src="/assets/images/page-img-6c3a209baf61b2.webp" alt="Art tour in Saint-Paul de Vence" loading="lazy" />
-          <p class="art-triptych-caption">Art tours designed to reshape your understanding of Saint-Paul de Vence.</p>
-        </div>
+    <!-- GALLERY (masonry, artgallery images) -->
+    <section class="art-gallery">
+      <div class="art-gallery-item">
+        <img src="/assets/images/art/artgallery/DSCF1307.jpeg" srcset={gallerySrcset('/assets/images/art/artgallery/DSCF1307.jpeg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Sculpture in the gardens of Toile Blanche" loading="lazy" />
       </div>
-    </section>
-
-    <!-- FULL BLEED IMAGE -->
-    <section class="art-full-bleed">
-      <img src="/assets/images/page-img-35c2647b126261.avif" alt="Resin Text Messages installation at Toile Blanche" loading="lazy" />
-      <p class="art-full-bleed-caption">Resin Text Messages, installed throughout the domain.</p>
+      <div class="art-gallery-item">
+        <img src="/assets/images/art/artgallery/DSCF1318.jpeg" srcset={gallerySrcset('/assets/images/art/artgallery/DSCF1318.jpeg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Contemporary art at Toile Blanche" loading="lazy" />
+      </div>
+      <div class="art-gallery-item">
+        <img src="/assets/images/art/artgallery/DSCF1343.jpeg" srcset={gallerySrcset('/assets/images/art/artgallery/DSCF1343.jpeg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Art installation in Saint-Paul de Vence" loading="lazy" />
+      </div>
+      <div class="art-gallery-item">
+        <img src="/assets/images/art/artgallery/DSCF1385.jpeg" srcset={gallerySrcset('/assets/images/art/artgallery/DSCF1385.jpeg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Sculpture garden at Toile Blanche" loading="lazy" />
+      </div>
+      <div class="art-gallery-item">
+        <img src="/assets/images/art/artgallery/DSCF4517.JPG" srcset={gallerySrcset('/assets/images/art/artgallery/DSCF4517.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Artwork at Toile Blanche" loading="lazy" />
+      </div>
+      <div class="art-gallery-item">
+        <img src="/assets/images/art/artgallery/DSCF4566.JPG" srcset={gallerySrcset('/assets/images/art/artgallery/DSCF4566.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Gardens and sculptures at Toile Blanche" loading="lazy" />
+      </div>
+      <div class="art-gallery-item">
+        <img src="/assets/images/art/artgallery/IMG_9658.jpg" srcset={gallerySrcset('/assets/images/art/artgallery/IMG_9658.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Mediterranean landscape and art" loading="lazy" />
+      </div>
+      <div class="art-gallery-item">
+        <img src="/assets/images/art/artgallery/StP25-ToileBlanche-c-GaelleSimon-8.jpg" srcset={gallerySrcset('/assets/images/art/artgallery/StP25-ToileBlanche-c-GaelleSimon-8.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Toile Blanche sculpture gardens" loading="lazy" />
+      </div>
     </section>
 
     <!-- CTA -->
@@ -326,52 +330,27 @@ import { heroSrcset, gallerySrcset } from '../../utils/images';
     margin: 0 auto;
   }
 
-  /* ─── TRIPTYCH ─── */
-  .art-triptych {
+  /* ─── GALLERY (masonry, like guinguette/restaurant) ─── */
+  .art-gallery {
     border-bottom: 1px solid #E2D9CC;
+    columns: 2;
+    column-gap: 4px;
+    line-height: 0;
   }
-  .art-triptych-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 32px;
+  .art-gallery-item {
+    break-inside: avoid;
+    margin-bottom: 4px;
+    overflow: hidden;
+    line-height: 0;
   }
-  .art-triptych-item img {
+  .art-gallery-item img {
     width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
+    height: auto;
     display: block;
+    transition: transform 0.8s ease;
   }
-  .art-triptych-caption {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 13px;
-    color: #9C9080;
-    margin-top: 16px;
-    line-height: 1.5;
-  }
-
-  /* ─── FULL BLEED ─── */
-  .art-full-bleed {
-    position: relative;
-  }
-  .art-full-bleed img {
-    width: 100%;
-    height: 60vh;
-    object-fit: cover;
-    display: block;
-  }
-  .art-full-bleed-caption {
-    position: absolute;
-    bottom: 24px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.7);
+  .art-gallery-item:hover img {
+    transform: scale(1.03);
   }
 
   /* ─── CTA ─── */
@@ -426,10 +405,6 @@ import { heroSrcset, gallerySrcset } from '../../utils/images';
     }
     .art-quote-inner {
       padding: 64px 24px;
-    }
-    .art-triptych-inner {
-      grid-template-columns: 1fr;
-      padding: 48px 24px;
     }
     .art-cta {
       padding: 48px 24px;
