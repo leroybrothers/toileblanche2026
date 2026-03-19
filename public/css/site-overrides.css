@@ -1244,33 +1244,7 @@ body.tb-menu-open .overlap-section-top {
   inset: 0;
 }
 
-.hero-bg-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-
-.hero-bg-slide.is-active {
-  opacity: 1;
-  z-index: 0;
-}
-
-.hero-bg-slide-1 { background-image: url("/assets/images/slideshow1.jpg"); }
-.hero-bg-slide-2 { background-image: url("/assets/images/slideshow2.JPG"); }
-.hero-bg-slide-3 { background-image: url("/assets/images/slideshow3.jpg"); }
-.hero-bg-slide-4 { background-image: url("/assets/images/slideshow4.JPG"); }
-.hero-bg-slide-5 { background-image: url("/assets/images/slideshow5.jpg"); }
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-bg-slide {
-    background-attachment: scroll;
-  }
-}
+/* hero-bg-slide removed: homepage uses video hero; slideshow CSS was loading 5 large images (~6MB) */
 
 /* ─── Newsletter section ──────────────────────────────────────────────────── */
 /* Force dark text — override any light inheritance */
@@ -1727,7 +1701,6 @@ a, button, [role="button"], [data-zc-action], .distributor-open,
   .tb-book-cta:hover {
     transform: none;
   }
-  .hero-bg-slide { transition: none; }
   #hero-content,
   #hero-arrow {
     transition: none;
