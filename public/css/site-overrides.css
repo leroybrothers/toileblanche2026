@@ -395,6 +395,11 @@ body.tb-nav-light .navigation-light .nav-logo-text,
   object-position: center 48%;
 }
 
+/* Mas de l'Artiste suite hero — shift focal point down (image was too high) */
+.sd-hero-masartiste .sd-hero-image img {
+  object-position: center 40%;
+}
+
 .room-slider-left-arrow,
 .room-slider-right-arrow {
   background: none;
@@ -470,7 +475,7 @@ body.tb-nav-light .navigation-light .nav-logo-text,
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem 4rem;
-  align-items: center;
+  align-items: start;
 }
 
 .tb-intro-block-title {
