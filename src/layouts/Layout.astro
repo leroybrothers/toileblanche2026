@@ -153,8 +153,7 @@ const alternates = getAlternateUrls(currentPath);
     });
   </script>
 
-  <!-- Mews Booking Engine (proxied to avoid CORS) -->
-  <script is:inline src="/mews/distributor.min.js"></script>
+  <!-- Mews Booking Engine: loaded on demand when user clicks Book (saves ~1.2MB initial payload) -->
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -257,22 +256,40 @@ const alternates = getAlternateUrls(currentPath);
     async
   ></script>
 
-  <!-- Mews Booking Engine Init (overlay) -->
+  <!-- Mews Booking Engine: lazy-load on first click (saves ~1.2MB on initial load) -->
   <script is:inline>
-    window.addEventListener('load', function() {
-      var attempts = 0;
-      function tryInit() {
-        if (typeof Mews !== 'undefined') {
-          Mews.Distributor({
-            configurationIds: ['150bd326-7c63-4a24-b668-abcf00c6bb22'],
-            openElements: '.distributor-open'
-          });
-        } else if (attempts++ < 30) {
-          setTimeout(tryInit, 100);
+    (function() {
+      var mewsLoaded = false;
+      var mewsInitialized = false;
+
+      function loadAndInitMews(elementToOpen) {
+        if (mewsInitialized) {
+          if (elementToOpen) elementToOpen.click();
+          return;
+        }
+        if (!mewsLoaded) {
+          mewsLoaded = true;
+          var s = document.createElement('script');
+          s.src = '/mews/distributor.min.js';
+          s.onload = function() {
+            Mews.Distributor({ configurationIds: ['150bd326-7c63-4a24-b668-abcf00c6bb22'], openElements: '.distributor-open' });
+            mewsInitialized = true;
+            if (elementToOpen) elementToOpen.click();
+          };
+          document.body.appendChild(s);
         }
       }
-      tryInit();
-    });
+
+      document.addEventListener('click', function(e) {
+        var target = e.target.closest('.distributor-open');
+        if (!target) return;
+        if (!mewsInitialized) {
+          e.preventDefault();
+          e.stopPropagation();
+          loadAndInitMews(target);
+        }
+      }, true);
+    })();
   </script>
 </body>
 </html>

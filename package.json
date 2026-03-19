@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "optimize-images": "node scripts/optimize-suite-images.mjs"
+    "optimize-images": "node scripts/optimize-suite-images.mjs",
+    "optimize-slideshow": "node scripts/optimize-slideshow-images.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
