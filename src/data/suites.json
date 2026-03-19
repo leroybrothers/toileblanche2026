@@ -33,13 +33,15 @@
         "card": "/assets/images/Homepage/suite-penard.png",
         "cardAlt": "Suite Pénard at Toile Blanche",
         "gallery": [
-          "/assets/images/penard/DSCF6952.JPG",
-          "/assets/images/penard/DSCF7369.JPG",
           "/assets/images/penard/gallery-1.jpg",
           "/assets/images/penard/gallery-2.jpg",
-          "/assets/images/penard/gallery-3.jpg",
+          "/assets/images/penard/Gallery3.JPG",
           "/assets/images/penard/gallery-4.jpg",
-          "/assets/images/penard/gallery-5.jpg"
+          "/assets/images/penard/gallery-5.jpg",
+          "/assets/images/penard/gallery6.JPG",
+          "/assets/images/penard/gallery7.JPG",
+          "/assets/images/penard/gallery8.JPG",
+          "/assets/images/penard/gallery9.JPG"
         ]
       },
       "hasPool": false,
@@ -66,12 +68,14 @@
         "card": "/assets/images/Homepage/Suite pétanque.jpg",
         "cardAlt": "Suite Pétanque at Toile Blanche",
         "gallery": [
-          "/assets/images/petanque/DSCF7369.JPG",
           "/assets/images/petanque/gallery-1.jpg",
           "/assets/images/petanque/gallery-2.jpg",
           "/assets/images/petanque/gallery-3.jpg",
           "/assets/images/petanque/gallery-4.jpg",
-          "/assets/images/petanque/gallery-5.jpg"
+          "/assets/images/petanque/gallery-5.jpg",
+          "/assets/images/petanque/gallery6.jpg",
+          "/assets/images/petanque/gallery7.JPG",
+          "/assets/images/petanque/gallery8.jpg"
         ]
       },
       "hasPool": false,
@@ -198,15 +202,15 @@
         "card": "/assets/images/Homepage/mas-de-l-artiste.png",
         "cardAlt": "Mas de l'Artiste at Toile Blanche",
         "gallery": [
-          "/assets/images/mas-de-l-artiste/IMG_7713.jpg",
-          "/assets/images/mas-de-l-artiste/IMG_7647.jpg",
           "/assets/images/mas-de-l-artiste/245C35A1-AD87-46D2-8CC5-A8D9A0755317.jpeg",
           "/assets/images/mas-de-l-artiste/gallery-1.jpg",
           "/assets/images/mas-de-l-artiste/gallery-2.jpg",
           "/assets/images/mas-de-l-artiste/gallery-3.jpg",
           "/assets/images/mas-de-l-artiste/gallery-4.jpg",
           "/assets/images/mas-de-l-artiste/gallery-5.jpg",
-          "/assets/images/mas-de-l-artiste/gallery-6.png"
+          "/assets/images/mas-de-l-artiste/gallery-7.jpg",
+          "/assets/images/mas-de-l-artiste/gallery-8.jpg",
+          "/assets/images/mas-de-l-artiste/galleery-9.jpg"
         ]
       },
       "hasPool": false,
@@ -233,15 +237,19 @@
         "card": "/assets/images/Homepage/Suite bon vivant.JPG",
         "cardAlt": "Suite du Bon-Vivant at Toile Blanche",
         "gallery": [
-          "/assets/images/bon-vivant/DSCF1023 (2).JPG",
-          "/assets/images/bon-vivant/DSCF6129.JPG",
-          "/assets/images/bon-vivant/DSCF6681.JPG",
-          "/assets/images/bon-vivant/DSCF5799.JPG",
           "/assets/images/bon-vivant/gallery-1.jpg",
           "/assets/images/bon-vivant/gallery-2.jpg",
-          "/assets/images/bon-vivant/gallery-3.jpg",
           "/assets/images/bon-vivant/gallery-4.jpg",
-          "/assets/images/bon-vivant/gallery-5.jpg"
+          "/assets/images/bon-vivant/gallery-5.jpg",
+          "/assets/images/bon-vivant/gallery-6.JPG",
+          "/assets/images/bon-vivant/gallery-7.JPG",
+          "/assets/images/bon-vivant/gallery-8.JPG",
+          "/assets/images/bon-vivant/gallery-9.JPG",
+          "/assets/images/bon-vivant/DSCF5652.JPG",
+          "/assets/images/bon-vivant/DSCF6129.JPG",
+          "/assets/images/bon-vivant/DSCF6632.JPG",
+          "/assets/images/bon-vivant/DSCF6646.JPG",
+          "/assets/images/bon-vivant/DSCF6681.JPG"
         ]
       },
       "hasPool": true,
