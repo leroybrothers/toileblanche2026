@@ -26,10 +26,12 @@ async function* walk(dir, prefix = '') {
 }
 
 async function addWebpAvif(imgPath) {
-  const ext = extname(imgPath).toLowerCase();
+  const rawExt = extname(imgPath);
+  const ext = rawExt.toLowerCase();
   if (!['.jpg', '.jpeg', '.png'].includes(ext)) return 0;
   const dir = dirname(imgPath);
-  const name = basename(imgPath, ext);
+  const fullName = basename(imgPath);
+  const name = fullName.slice(0, -rawExt.length);
   const match = name.match(/^(.+)-(\d+)w$/);
   if (!match) return 0;
   const baseName = match[1];
