@@ -15,7 +15,9 @@
     "preview": "astro preview",
     "optimize-images": "node scripts/optimize-suite-images.mjs",
     "optimize-slideshow": "node scripts/optimize-slideshow-images.mjs",
-    "optimize-all": "npm run optimize-slideshow && npm run optimize-images && node scripts/optimize-archive-images.mjs"
+    "optimize-homepage-cards": "node scripts/optimize-homepage-cards.mjs",
+    "generate-favicons": "node scripts/generate-favicons.mjs",
+    "optimize-all": "npm run optimize-slideshow && npm run optimize-images && npm run optimize-homepage-cards && node scripts/optimize-archive-images.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",

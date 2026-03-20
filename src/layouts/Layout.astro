@@ -11,6 +11,8 @@ export interface Props {
   hideBookingBar?: boolean;
   /** When true, preloads first homepage slideshow frame at a size matching viewport (LCP). */
   homeHeroPreload?: boolean;
+  /** When true, loads Zenchef SDK (restaurant booking). Omit on non-restaurant pages to avoid CORS errors. */
+  loadZenchef?: boolean;
 }
 
 const currentPath = Astro.url.pathname;
@@ -23,6 +25,7 @@ const {
   canonicalURL = Astro.url.href,
   hideBookingBar = false,
   homeHeroPreload = false,
+  loadZenchef = false,
 } = Astro.props;
 
 const GTM_ID = "GTM-52R8BBP";
@@ -144,6 +147,7 @@ const alternates = getAlternateUrls(currentPath);
     };
 
     function loadAxeptio() {
+      if (document.querySelector('script[src*="axept.io"]') || window.axeptio) return;
       var d = document, s = 'script', t = d.getElementsByTagName(s)[0], e = d.createElement(s);
       e.async = true;
       e.src = "//static.axept.io/sdk.js";
@@ -272,16 +276,17 @@ const alternates = getAlternateUrls(currentPath);
     injectSpeedInsights();
   </script>
 
-  <!-- Zenchef Restaurant Booking Widget (before </body> per Zenchef docs) -->
-  <script
-    id="zc-sdk"
-    data-restaurant="357953"
-    data-hide-button="true"
-    data-lang={locale}
-    data-color="AD5D47"
-    src="https://sdk.zenchef.com/sdk.js"
-    async
-  ></script>
+  {loadZenchef && (
+    <script
+      id="zc-sdk"
+      data-restaurant="357953"
+      data-hide-button="true"
+      data-lang={locale}
+      data-color="AD5D47"
+      src="https://sdk.zenchef.com/sdk.js"
+      async
+    ></script>
+  )}
 
   <!-- Mews Booking Engine: lazy-load on first hover/focus (saves ~1.2MB until user shows intent) -->
   <script is:inline>

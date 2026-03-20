@@ -30,7 +30,7 @@
       "extras": [],
       "images": {
         "hero": "/assets/images/penard/hero.jpg",
-        "card": "/assets/images/Homepage/suite-penard.png",
+        "card": "/assets/images/Homepage/suite-penard.jpg",
         "cardAlt": "Suite Pénard à Toile Blanche",
         "gallery": [
           "/assets/images/penard/gallery-1.jpg",
@@ -99,7 +99,7 @@
       "extras": ["Baignoire", "Lit supplémentaire disponible (+80€/nuit)"],
       "images": {
         "hero": "/assets/images/bronzette/hero.jpg",
-        "card": "/assets/images/Homepage/Suite bronzette.JPG",
+        "card": "/assets/images/Homepage/Suite bronzette.jpg",
         "cardAlt": "Suite de la Bronzette à Toile Blanche",
         "gallery": [
           "/assets/images/bronzette/DSCF7473.JPG",
@@ -168,7 +168,7 @@
       "extras": ["Baignoire"],
       "images": {
         "hero": "/assets/images/suite-artiste/hero.jpg",
-        "card": "/assets/images/Homepage/suite de l'artiste.JPG",
+        "card": "/assets/images/Homepage/suite de l'artiste.jpg",
         "cardAlt": "Suite de l'Artiste à Toile Blanche",
         "gallery": [
           "/assets/images/suite-artiste/gallery-1.jpg",
@@ -199,7 +199,7 @@
       "extras": ["Baignoire", "Lit supplémentaire disponible (+80€/nuit)"],
       "images": {
         "hero": "/assets/images/mas-de-l-artiste/hero.jpg",
-        "card": "/assets/images/Homepage/mas-de-l-artiste.png",
+        "card": "/assets/images/Homepage/mas-de-l-artiste.jpg",
         "cardAlt": "Mas de l'Artiste à Toile Blanche",
         "gallery": [
           "/assets/images/mas-de-l-artiste/245C35A1-AD87-46D2-8CC5-A8D9A0755317.jpeg",
