@@ -1,0 +1,10 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Newsletter API: redirect /api/newsletter to Netlify Function
+[[redirects]]
+  from = "/api/newsletter"
+  to = "/.netlify/functions/newsletter"
+  status = 200
+  force = true

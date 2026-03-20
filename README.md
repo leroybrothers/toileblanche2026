@@ -76,26 +76,36 @@ toileblanche-astro/
 |---|---|---|
 | **Mews** (booking) | ✅ Active | Configured in `Layout.astro`. Opens on `.distributor-open` clicks. |
 | **Google Tag Manager** | ✅ Active | GTM ID: `GTM-52R8BBP`. Consent Mode V2 included. |
+| **Flodesk** (newsletter) | ✅ Active | `api/newsletter.js` (Vercel) or `netlify/functions/newsletter.js` (Netlify). Requires `FLODESK_API_KEY`. |
 | **Weglot** (translations) | ❌ Removed | Re-add if needed: install Weglot script in `Layout.astro` |
-| **Flodesk** (newsletter) | ❌ Removed | Newsletter form is now a plain HTML form — wire up to your email provider |
 | **Elfsight** (reviews) | ❌ Removed | Re-add the Elfsight embed script if needed |
+
+## Environment Variables
+
+Set these in your deployment platform (Vercel / Netlify):
+
+| Variable | Required | Notes |
+|---|---|---|
+| `FLODESK_API_KEY` | Yes | Flodesk API key for newsletter signups. Get from [Flodesk Settings → Integrations → API](https://app.flodesk.com/integrations). |
+| `FLODESK_SEGMENT_ID` | No | Optional segment ID to add subscribers to a specific Flodesk segment. |
 
 ## Deploying
 
-### Netlify (recommended — free tier)
-1. Push this repo to GitHub
-2. Connect to Netlify → "New site from Git"
-3. Build command: `npm run build`
-4. Publish directory: `dist`
+### Vercel (recommended — newsletter API works out of the box)
+1. Push to GitHub and connect to Vercel
+2. Build command: `npm run build`
+3. Output directory: `dist`
+4. Set `FLODESK_API_KEY` in Vercel → Settings → Environment Variables
 
-### Vercel
-```bash
-npm i -g vercel
-vercel
-```
+### Netlify
+1. Push to GitHub and connect to Netlify
+2. Build command: `npm run build`
+3. Publish directory: `dist`
+4. Set `FLODESK_API_KEY` in Netlify → Site settings → Environment variables
+5. Newsletter API is served by `netlify/functions/newsletter.js` (redirect configured in `netlify.toml`)
 
 ### Any static host
-Run `npm run build` and deploy the `dist/` folder.
+Run `npm run build` and deploy the `dist/` folder. Newsletter will not work unless you add a serverless function or proxy to Flodesk.
 
 ## Adding Content to Stub Pages
 

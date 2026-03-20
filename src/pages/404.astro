@@ -19,8 +19,12 @@ import Footer from '../components/Footer.astro';
 
 <script is:inline>
 (function () {
-  if (window.location.pathname.indexOf('/fr') !== 0) return;
+  var isFr = window.location.pathname.indexOf('/fr') === 0;
+  if (!isFr) return;
   document.documentElement.lang = 'fr';
+  document.title = 'Page introuvable | Toile Blanche';
+  var metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', 'La page que vous recherchez n\'existe pas ou a été déplacée.');
   var els = document.querySelectorAll('[data-fr]');
   for (var i = 0; i < els.length; i++) {
     els[i].textContent = els[i].getAttribute('data-fr');

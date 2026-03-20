@@ -94,18 +94,26 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   background-color: var(--color-white-08) !important;
 }
 
-/* ─── Hamburger menu button: remove stray background, fit icon ─────────────── */
+/* ─── Hamburger menu button: 44×44px touch target (a11y), visual icon 24×18 ─── */
 .menu-button,
 .navigation-dark .menu-button,
 .navigation-light .menu-button {
   background: none !important;
   background-color: transparent !important;
-  padding: 0 !important;
-  min-width: unset !important;
-  width: 24px !important;
-  height: 18px !important;
+  padding: 13px 10px !important; /* 44×44px min touch target */
+  min-width: 44px !important;
+  min-height: 44px !important;
+  width: 44px !important;
+  height: 44px !important;
   border: none !important;
   box-shadow: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.menu-icon-wrap {
+  width: 24px !important;
+  height: 18px !important;
 }
 .menu-button:hover {
   background-color: transparent !important;
@@ -1460,10 +1468,11 @@ body.tb-menu-open .overlap-section-top {
   outline-offset: 2px !important;
 }
 
-/* Submit: clear dark button, dark text */
+/* Submit: clear dark button, dark text — 44px min touch target (a11y) */
 .tb-newsletter-submit {
   flex-shrink: 0;
   padding: 0.65rem 1.75rem;
+  min-height: 44px;
   font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: var(--weight-medium);
