@@ -2,7 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
-import { gallerySrcset, srcset } from '../../../utils/images';
+import OptimizedImage from '../../../components/OptimizedImage.astro';
 ---
 
 <Layout
@@ -27,28 +27,28 @@ import { gallerySrcset, srcset } from '../../../utils/images';
       <div class="evt-gallery-inner">
         <div class="evt-gallery-grid">
           <div class="evt-gallery-cell">
-            <img src="/assets/images/art/DSCF5047.JPG" srcset={gallerySrcset('/assets/images/art/DSCF5047.JPG')} sizes="(max-width: 900px) 50vw, 25vw" width="2080" height="3120" alt="Les Sessions Toile Blanche — performance live" loading="lazy" />
+            <OptimizedImage src="/assets/images/art/DSCF5047.JPG" sizes="(max-width: 900px) 50vw, 25vw" width={2080} height={3120} alt="Les Sessions Toile Blanche — performance live" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/art/evt-IMG_0268.jpg" srcset={gallerySrcset('/assets/images/art/evt-IMG_0268.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="1200" height="800" alt="Les Sessions Toile Blanche — événement artistique" loading="lazy" />
+            <OptimizedImage src="/assets/images/art/evt-IMG_0268.jpg" sizes="(max-width: 900px) 50vw, 25vw" width={1200} height={800} alt="Les Sessions Toile Blanche — événement artistique" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/art/IMG_4376.jpg" srcset={gallerySrcset('/assets/images/art/IMG_4376.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="3024" height="4032" alt="Les Sessions Toile Blanche — soirée" loading="lazy" />
+            <OptimizedImage src="/assets/images/art/IMG_4376.jpg" sizes="(max-width: 900px) 50vw, 25vw" width={3024} height={4032} alt="Les Sessions Toile Blanche — soirée" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/art/DSCF4849.JPG" srcset={gallerySrcset('/assets/images/art/DSCF4849.JPG')} sizes="(max-width: 900px) 50vw, 25vw" width="4160" height="6240" alt="Les Sessions Toile Blanche — expérience créative" loading="lazy" />
+            <OptimizedImage src="/assets/images/art/DSCF4849.JPG" sizes="(max-width: 900px) 50vw, 25vw" width={4160} height={6240} alt="Les Sessions Toile Blanche — expérience créative" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/art/etoileblanche48.jpg" srcset={gallerySrcset('/assets/images/art/etoileblanche48.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="1200" height="800" alt="Les Sessions Toile Blanche — art culinaire" loading="lazy" />
+            <OptimizedImage src="/assets/images/art/etoileblanche48.jpg" sizes="(max-width: 900px) 50vw, 25vw" width={1200} height={800} alt="Les Sessions Toile Blanche — art culinaire" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/art/evt-IMG_0554.jpg" srcset={gallerySrcset('/assets/images/art/evt-IMG_0554.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="1200" height="800" alt="Les Sessions Toile Blanche — installation artistique" loading="lazy" />
+            <OptimizedImage src="/assets/images/art/evt-IMG_0554.jpg" sizes="(max-width: 900px) 50vw, 25vw" width={1200} height={800} alt="Les Sessions Toile Blanche — installation artistique" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-12-800w.jpg" srcset={srcset('/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-12.jpg', [800, 1200])} sizes="(max-width: 900px) 50vw, 25vw" width="1200" height="800" alt="Les Sessions Toile Blanche — galerie" loading="lazy" />
+            <OptimizedImage src="/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-12.jpg" sizes="(max-width: 900px) 50vw, 25vw" width={1200} height={800} alt="Les Sessions Toile Blanche — galerie" loading="lazy" widths={[800, 1200]} />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/art/DSCF4033.JPG" srcset={gallerySrcset('/assets/images/art/DSCF4033.JPG')} sizes="(max-width: 900px) 50vw, 25vw" width="1200" height="800" alt="Les Sessions Toile Blanche — soirée en plein air" loading="lazy" />
+            <OptimizedImage src="/assets/images/art/DSCF4033.JPG" sizes="(max-width: 900px) 50vw, 25vw" width={1200} height={800} alt="Les Sessions Toile Blanche — soirée en plein air" loading="lazy" />
           </div>
         </div>
       </div>
@@ -95,28 +95,28 @@ import { gallerySrcset, srcset } from '../../../utils/images';
       <div class="evt-gallery-inner">
         <div class="evt-gallery-grid">
           <div class="evt-gallery-cell">
-            <img src="/assets/images/sessions/IMG_0184.jpg" srcset={gallerySrcset('/assets/images/sessions/IMG_0184.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="600" height="600" alt="Les Sessions Toile Blanche — événement privé" loading="lazy" />
+            <OptimizedImage src="/assets/images/sessions/IMG_0184.jpg" sizes="(max-width: 900px) 50vw, 25vw" width={600} height={600} alt="Les Sessions Toile Blanche — événement privé" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/sessions/DSCF3883.JPG" srcset={gallerySrcset('/assets/images/sessions/DSCF3883.JPG')} sizes="(max-width: 900px) 50vw, 25vw" width="600" height="600" alt="Les Sessions Toile Blanche — soirée sur mesure" loading="lazy" />
+            <OptimizedImage src="/assets/images/sessions/DSCF3883.JPG" sizes="(max-width: 900px) 50vw, 25vw" width={600} height={600} alt="Les Sessions Toile Blanche — soirée sur mesure" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/sessions/IMG_0011.jpg" srcset={gallerySrcset('/assets/images/sessions/IMG_0011.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="600" height="600" alt="Les Sessions Toile Blanche — retraite créative" loading="lazy" />
+            <OptimizedImage src="/assets/images/sessions/IMG_0011.jpg" sizes="(max-width: 900px) 50vw, 25vw" width={600} height={600} alt="Les Sessions Toile Blanche — retraite créative" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/sessions/IMG_3259.jpg" srcset={gallerySrcset('/assets/images/sessions/IMG_3259.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="600" height="600" alt="Les Sessions Toile Blanche — privatisation" loading="lazy" />
+            <OptimizedImage src="/assets/images/sessions/IMG_3259.jpg" sizes="(max-width: 900px) 50vw, 25vw" width={600} height={600} alt="Les Sessions Toile Blanche — privatisation" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/sessions/DSCF4881.JPG" srcset={gallerySrcset('/assets/images/sessions/DSCF4881.JPG')} sizes="(max-width: 900px) 50vw, 25vw" width="600" height="600" alt="Les Sessions Toile Blanche — soirée au domaine" loading="lazy" />
+            <OptimizedImage src="/assets/images/sessions/DSCF4881.JPG" sizes="(max-width: 900px) 50vw, 25vw" width={600} height={600} alt="Les Sessions Toile Blanche — soirée au domaine" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/sessions/IMG_3539.jpg" srcset={gallerySrcset('/assets/images/sessions/IMG_3539.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="600" height="600" alt="Les Sessions Toile Blanche — moment exclusif" loading="lazy" />
+            <OptimizedImage src="/assets/images/sessions/IMG_3539.jpg" sizes="(max-width: 900px) 50vw, 25vw" width={600} height={600} alt="Les Sessions Toile Blanche — moment exclusif" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/sessions/etoileblanche45.jpg" srcset={gallerySrcset('/assets/images/sessions/etoileblanche45.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="600" height="600" alt="Les Sessions Toile Blanche — jardins et art" loading="lazy" />
+            <OptimizedImage src="/assets/images/sessions/etoileblanche45.jpg" sizes="(max-width: 900px) 50vw, 25vw" width={600} height={600} alt="Les Sessions Toile Blanche — jardins et art" loading="lazy" />
           </div>
           <div class="evt-gallery-cell">
-            <img src="/assets/images/sessions/IMG_0051.jpg" srcset={gallerySrcset('/assets/images/sessions/IMG_0051.jpg')} sizes="(max-width: 900px) 50vw, 25vw" width="600" height="600" alt="Les Sessions Toile Blanche — toile vivante" loading="lazy" />
+            <OptimizedImage src="/assets/images/sessions/IMG_0051.jpg" sizes="(max-width: 900px) 50vw, 25vw" width={600} height={600} alt="Les Sessions Toile Blanche — toile vivante" loading="lazy" />
           </div>
         </div>
       </div>
@@ -188,6 +188,7 @@ import { gallerySrcset, srcset } from '../../../utils/images';
     min-height: 0;
     aspect-ratio: 1/1;
   }
+  .evt-gallery-cell picture { display: block; width: 100%; height: 100%; }
   .evt-gallery-cell img {
     width: 100%;
     height: 100%;

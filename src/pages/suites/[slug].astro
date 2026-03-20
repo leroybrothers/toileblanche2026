@@ -89,7 +89,7 @@ const cardSrcset = (p: string) => srcset(p, [400]);
     <section class="sd-gallery">
       {suite.images.gallery.map((img, i) => (
         <div class={`sd-gallery-item sd-gallery-item-${i + 1}`}>
-          <img src={img} srcset={gallerySrcset(img)} sizes="(max-width: 900px) 100vw, 50vw" alt={`${suite.name} — view ${i + 1}`} loading="lazy" />
+          <img src={img} srcset={gallerySrcset(img)} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt={`${suite.name} — view ${i + 1}`} loading="lazy" />
         </div>
       ))}
     </section>
@@ -138,7 +138,7 @@ const cardSrcset = (p: string) => srcset(p, [400]);
         {otherSuites.map(s => (
           <a href={`/suites/${s.slug}`} class="sd-explore-card">
             <div class="sd-explore-img">
-              <img src={s.images.card} srcset={cardSrcset(s.images.card)} sizes="(max-width: 900px) 50vw, 25vw" alt={s.name} loading="lazy" />
+              <img src={s.images.card} srcset={cardSrcset(s.images.card)} sizes="(max-width: 900px) 50vw, 25vw" width="533" height="400" alt={s.name} loading="lazy" />
             </div>
             <p class="sd-explore-name">{s.name}</p>
           </a>
