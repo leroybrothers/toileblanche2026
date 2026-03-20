@@ -84,6 +84,15 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   align-items: center;
   justify-content: center;
 }
+
+/* Mobile: skip loader, show hero immediately for LCP; scroll bg for scroll performance */
+@media (max-width: 640px) {
+  #page-loader { display: none !important; }
+  #hero { opacity: 1 !important; }
+  #hero-content { opacity: 1 !important; transform: none !important; }
+  #hero-arrow { transform: translateY(0) !important; }
+  .hero-bg-slide { background-attachment: scroll !important; }
+}
 #page-loader .loader-logo-wrapper img {
   display: block;
   width: auto;

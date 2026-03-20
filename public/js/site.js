@@ -7,27 +7,33 @@
   'use strict';
 
   // ─── Page Loader ───────────────────────────────────────────────────────────
-  // Reveal hero quickly to avoid LCP delay. Hero text is the LCP element — don't wait for the
-  // background image. Max 200ms loader, then reveal. Background loads in parallel.
+  // Mobile: skip loader, reveal hero immediately for better LCP (3G/slow connections).
+  // Desktop: brief loader, reveal when LCP image loads or after 100ms.
   function initLoader() {
     const loader = document.getElementById('page-loader');
     if (!loader) return;
+
+    var isMobile = window.innerWidth <= 640;
+    if (isMobile) {
+      loader.style.display = 'none';
+      revealHero(true);
+      return;
+    }
+
     var revealed = false;
     function hideLoaderAndReveal() {
       if (revealed) return;
       revealed = true;
       loader.style.opacity = '0';
-      loader.style.transition = 'opacity 0.3s ease';
+      loader.style.transition = 'opacity 0.25s ease';
       setTimeout(function () {
         loader.style.display = 'none';
-        revealHero();
-      }, 320);
+        revealHero(false);
+      }, 280);
     }
-    // Reveal hero after brief loader (max 200ms) — don't block LCP on image load
-    var minReveal = setTimeout(hideLoaderAndReveal, 200);
-    // Also reveal when LCP image loads, if sooner
+    var minReveal = setTimeout(hideLoaderAndReveal, 100);
     requestAnimationFrame(function () {
-      var lcpSrc = window.innerWidth >= 1280 ? '/assets/images/slideshow1.avif' : window.innerWidth >= 640 ? '/assets/images/slideshow1-1200w.avif' : '/assets/images/slideshow1-800w.avif';
+      var lcpSrc = window.innerWidth >= 1280 ? '/assets/images/slideshow1.avif' : '/assets/images/slideshow1-1200w.avif';
       var lcpImg = new Image();
       lcpImg.onload = lcpImg.onerror = function () {
         clearTimeout(minReveal);
@@ -41,21 +47,23 @@
     }, { once: true });
   }
 
-  function revealHero() {
+  function revealHero(instant) {
     const hero = document.getElementById('hero');
     const heroContent = document.getElementById('hero-content');
     const heroArrow = document.getElementById('hero-arrow');
+    var t = instant ? '0.15s' : '0.5s';
+    var d = instant ? '0s' : '0.2s';
     if (hero) {
-      hero.style.transition = 'opacity 0.8s ease';
+      hero.style.transition = 'opacity ' + t + ' ease';
       hero.style.opacity = '1';
     }
     if (heroContent) {
-      heroContent.style.transition = 'opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s';
+      heroContent.style.transition = 'opacity ' + t + ' ease ' + d + ', transform ' + t + ' ease ' + d;
       heroContent.style.opacity = '1';
       heroContent.style.transform = 'none';
     }
     if (heroArrow) {
-      heroArrow.style.transition = 'transform 1s ease 0.8s';
+      heroArrow.style.transition = 'transform ' + (instant ? '0.2s' : '0.6s') + ' ease ' + (instant ? '0.05s' : '0.4s');
       heroArrow.style.transform = 'translateY(0)';
     }
   }
