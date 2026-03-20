@@ -56,7 +56,7 @@ import { gallerySrcset, heroSrcset } from '../../utils/images';
         <!-- La Guinguette -->
         <div class="rst-venue">
           <a href="/la-guinguette" class="rst-venue-image">
-            <img src="/assets/images/page-img-7f72d09199a7a2.jpg" alt="La Guinguette de Toile Blanche" width="1170" height="1702" loading="lazy" />
+            <img src="/assets/images/page-img-7f72d09199a7a2.jpg" alt="La Guinguette de Toile Blanche" width="1170" height="878" loading="lazy" />
           </a>
           <div class="rst-venue-content">
             <h2 id="rst-title-guinguette"><a href="/la-guinguette" class="rst-venue-title-link">La Guinguette</a></h2>
@@ -254,13 +254,14 @@ import { gallerySrcset, heroSrcset } from '../../utils/images';
     display: block;
     overflow: hidden;
     margin-bottom: 0;
+    aspect-ratio: 4/3;
   }
   .rst-venue-content {
     padding-top: 80px;
   }
   .rst-venue-image img {
     width: 100%;
-    aspect-ratio: 4/3;
+    height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.8s ease;
@@ -349,10 +350,11 @@ import { gallerySrcset, heroSrcset } from '../../utils/images';
   .rst-breakfast-image {
     display: block;
     overflow: hidden;
+    aspect-ratio: 2/1;
   }
   .rst-breakfast-image img {
     width: 100%;
-    aspect-ratio: 16/9;
+    height: 100%;
     object-fit: cover;
     object-position: center 35%;
     display: block;

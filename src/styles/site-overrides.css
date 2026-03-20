@@ -84,6 +84,15 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   align-items: center;
   justify-content: center;
 }
+#page-loader .loader-logo-wrapper img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 200px;
+  max-height: 60px;
+  object-fit: contain;
+  object-position: center;
+}
 
 /* ─── Transparent menu button on hero ─────────────────────────────────────── */
 .navigation-dark .navigation-bar.dark,
