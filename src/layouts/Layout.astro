@@ -9,6 +9,8 @@ export interface Props {
   canonicalURL?: string;
   locale?: Locale;
   hideBookingBar?: boolean;
+  /** When true, preloads first homepage slideshow frame at a size matching viewport (LCP). */
+  homeHeroPreload?: boolean;
 }
 
 const currentPath = Astro.url.pathname;
@@ -20,6 +22,7 @@ const {
   ogImage = "https://www.toileblanche.com/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg",
   canonicalURL = Astro.url.href,
   hideBookingBar = false,
+  homeHeroPreload = false,
 } = Astro.props;
 
 const GTM_ID = "GTM-52R8BBP";
@@ -64,8 +67,10 @@ const alternates = getAlternateUrls(currentPath);
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#FAF8F3" />
 
-  <!-- Preload hero LCP image (first slideshow slide) -->
-  <link rel="preload" as="image" href="/assets/images/slideshow1.jpg" fetchpriority="high" />
+  <!-- Homepage only: LCP preload matches responsive hero backgrounds in site-overrides.css -->
+  {homeHeroPreload && <link rel="preload" as="image" href="/assets/images/slideshow1-800w.jpg" media="(max-width: 639px)" fetchpriority="high" />}
+  {homeHeroPreload && <link rel="preload" as="image" href="/assets/images/slideshow1-1200w.jpg" media="(min-width: 640px) and (max-width: 1279px)" fetchpriority="high" />}
+  {homeHeroPreload && <link rel="preload" as="image" href="/assets/images/slideshow1.jpg" media="(min-width: 1280px)" fetchpriority="high" />}
 
   <!-- Preconnect third-party origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -78,7 +83,7 @@ const alternates = getAlternateUrls(currentPath);
   <!-- Site Stylesheet -->
   <link rel="stylesheet" href="/css/tokens.css" />
   <link rel="stylesheet" href="/css/toile-blanche.min.css" />
-  <link rel="stylesheet" href="/css/site-overrides.css?v=13" />
+  <link rel="stylesheet" href="/css/site-overrides.css?v=14" />
 
   <!-- Restaurant/breakfast overrides (inline in Layout, IDs for max specificity) -->
   <style is:global>
