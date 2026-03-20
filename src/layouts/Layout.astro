@@ -37,6 +37,13 @@ const alternates = getAlternateUrls(currentPath);
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  {homeHeroPreload && (
+    <>
+      <link rel="preload" as="image" href="/assets/images/slideshow1-800w.avif" type="image/avif" media="(max-width: 639px)" fetchpriority="high" />
+      <link rel="preload" as="image" href="/assets/images/slideshow1-1200w.avif" type="image/avif" media="(min-width: 640px) and (max-width: 1279px)" fetchpriority="high" />
+      <link rel="preload" as="image" href="/assets/images/slideshow1.avif" type="image/avif" media="(min-width: 1280px)" fetchpriority="high" />
+    </>
+  )}
 
   <!-- Open Graph -->
   <meta property="og:title" content={title} />
@@ -67,23 +74,19 @@ const alternates = getAlternateUrls(currentPath);
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#FAF8F3" />
 
-  <!-- Homepage only: LCP preload matches responsive hero backgrounds in site-overrides.css -->
-  {homeHeroPreload && <link rel="preload" as="image" href="/assets/images/slideshow1-800w.jpg" media="(max-width: 639px)" fetchpriority="high" />}
-  {homeHeroPreload && <link rel="preload" as="image" href="/assets/images/slideshow1-1200w.jpg" media="(min-width: 640px) and (max-width: 1279px)" fetchpriority="high" />}
-  {homeHeroPreload && <link rel="preload" as="image" href="/assets/images/slideshow1.jpg" media="(min-width: 1280px)" fetchpriority="high" />}
-
-  <!-- Preconnect third-party origins -->
+  <!-- Preconnect: max 4 origins (fonts, GTM, Axeptio). Zenchef omitted — loads async, not LCP-critical -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
   <link rel="preconnect" href="https://static.axept.io" crossorigin />
-  <link rel="preconnect" href="https://sdk.zenchef.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&family=Heebo:wght@400&display=swap" rel="stylesheet" />
+  <!-- Fonts: load async to avoid render blocking (display=swap already in URL) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&family=Heebo:wght@400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&family=Heebo:wght@400&display=swap" rel="stylesheet" /></noscript>
 
   <!-- Site Stylesheet -->
   <link rel="stylesheet" href="/css/tokens.css" />
   <link rel="stylesheet" href="/css/toile-blanche.min.css" />
-  <link rel="stylesheet" href="/css/site-overrides.css?v=14" />
+  <link rel="stylesheet" href="/css/site-overrides.css?v=16" />
 
   <!-- Restaurant/breakfast overrides (inline in Layout, IDs for max specificity) -->
   <style is:global>
@@ -114,48 +117,53 @@ const alternates = getAlternateUrls(currentPath);
     });
   </script>
 
-  <!-- Google Tag Manager -->
+  <!-- Google Tag Manager: deferred until after LCP to reduce initial JS -->
   <script define:vars={{ GTM_ID }}>
     (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
+      function loadGTM(){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+      }
+      if (w.requestIdleCallback) {
+        w.requestIdleCallback(loadGTM, { timeout: 2000 });
+      } else {
+        setTimeout(loadGTM, 1500);
+      }
     })(window,document,'script','dataLayer', GTM_ID);
   </script>
 
-  <!-- Axeptio Consent Manager -->
+  <!-- Axeptio Consent Manager: deferred 1.5s to reduce initial JS payload -->
   <script define:vars={{ AXEPTIO_ID, locale }}>
     window.axeptioSettings = {
       clientId: AXEPTIO_ID,
       cookiesVersion: locale === 'fr' ? 'toileblanche-fr' : 'toileblanche-en'
     };
 
-    (function(d, s) {
-      var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+    function loadAxeptio() {
+      var d = document, s = 'script', t = d.getElementsByTagName(s)[0], e = d.createElement(s);
       e.async = true;
       e.src = "//static.axept.io/sdk.js";
       t.parentNode.insertBefore(e, t);
-    })(document, "script");
 
-    void 0 === window._axcb && (window._axcb = []);
-    window._axcb.push(function(axeptio) {
-      axeptio.on("cookies:complete", function(choices) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-
-        gtag('consent', 'update', {
-          'analytics_storage': choices.google_analytics ? 'granted' : 'denied',
-          'ad_storage': choices.google_ads ? 'granted' : 'denied',
-          'ad_user_data': choices.google_ads ? 'granted' : 'denied',
-          'ad_personalization': choices.google_ads ? 'granted' : 'denied'
+      void 0 === window._axcb && (window._axcb = []);
+      window._axcb.push(function(axeptio) {
+        axeptio.on("cookies:complete", function(choices) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('consent', 'update', {
+            'analytics_storage': choices.google_analytics ? 'granted' : 'denied',
+            'ad_storage': choices.google_ads ? 'granted' : 'denied',
+            'ad_user_data': choices.google_ads ? 'granted' : 'denied',
+            'ad_personalization': choices.google_ads ? 'granted' : 'denied'
+          });
         });
       });
-    });
+    }
+    setTimeout(loadAxeptio, 1500);
   </script>
 
   <!-- Mews Booking Engine: loaded on demand when user clicks Book (saves ~1.2MB initial payload) -->
@@ -230,13 +238,27 @@ const alternates = getAlternateUrls(currentPath);
 
   {!hideBookingBar && <BookingBar locale={locale} />}
 
-  <!-- Smooth scroll + scroll reveals (Lenis, GSAP) -->
+  <!-- Smooth scroll + scroll reveals: deferred until idle to reduce main-thread blocking -->
   <script>
-    import { initSmoothScroll } from '../scripts/smooth-scroll';
-    initSmoothScroll();
+    function deferSmoothScroll() {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(function() {
+          import('../scripts/smooth-scroll').then(function(m) { m.initSmoothScroll(); }).catch(function() {});
+        }, { timeout: 2500 });
+      } else {
+        setTimeout(function() {
+          import('../scripts/smooth-scroll').then(function(m) { m.initSmoothScroll(); }).catch(function() {});
+        }, 1500);
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', deferSmoothScroll);
+    } else {
+      deferSmoothScroll();
+    }
   </script>
   <!-- Site JS -->
-  <script src="/js/site.js?v=2" defer></script>
+  <script src="/js/site.js?v=3" defer></script>
 
   <!-- Vercel Web Analytics -->
   <script>
@@ -261,17 +283,14 @@ const alternates = getAlternateUrls(currentPath);
     async
   ></script>
 
-  <!-- Mews Booking Engine: lazy-load on first click (saves ~1.2MB on initial load) -->
+  <!-- Mews Booking Engine: lazy-load on first hover/focus (saves ~1.2MB until user shows intent) -->
   <script is:inline>
     (function() {
       var mewsLoaded = false;
       var mewsInitialized = false;
 
-      function loadAndInitMews(elementToOpen) {
-        if (mewsInitialized) {
-          if (elementToOpen) elementToOpen.click();
-          return;
-        }
+      function loadAndInitMews() {
+        if (mewsInitialized) return;
         if (!mewsLoaded) {
           mewsLoaded = true;
           var s = document.createElement('script');
@@ -279,21 +298,46 @@ const alternates = getAlternateUrls(currentPath);
           s.onload = function() {
             Mews.Distributor({ configurationIds: ['150bd326-7c63-4a24-b668-abcf00c6bb22'], openElements: '.distributor-open' });
             mewsInitialized = true;
-            if (elementToOpen) elementToOpen.click();
           };
           document.body.appendChild(s);
         }
       }
 
+      // Preload on hover/focus so first click opens immediately (programmatic click is untrusted and fails)
+      document.addEventListener('mouseover', function(e) {
+        if (e.target.closest && e.target.closest('.distributor-open')) loadAndInitMews();
+      }, true);
+      document.addEventListener('focusin', function(e) {
+        if (e.target.closest && e.target.closest('.distributor-open')) loadAndInitMews();
+      }, true);
+      document.addEventListener('touchstart', function(e) {
+        if (e.target.closest && e.target.closest('.distributor-open')) loadAndInitMews();
+      }, { passive: true, capture: true });
+
+      // Fallback: if user clicks before hover (e.g. keyboard), load; user may need to click again
       document.addEventListener('click', function(e) {
         var target = e.target.closest('.distributor-open');
         if (!target) return;
         if (!mewsInitialized) {
           e.preventDefault();
           e.stopPropagation();
-          loadAndInitMews(target);
+          loadAndInitMews();
         }
       }, true);
+
+      // Broader preload: after 2s idle, or on first scroll, so keyboard/fast-click users often get it ready
+      var preloadScheduled = false;
+      function schedulePreload() {
+        if (preloadScheduled || mewsLoaded) return;
+        preloadScheduled = true;
+        setTimeout(loadAndInitMews, 2000);
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(schedulePreload, { timeout: 3000 });
+      } else {
+        setTimeout(schedulePreload, 2000);
+      }
+      window.addEventListener('scroll', function() { loadAndInitMews(); }, { passive: true, once: true });
     })();
   </script>
 </body>

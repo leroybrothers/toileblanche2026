@@ -582,9 +582,14 @@ body.tb-nav-light .navigation-light .nav-logo-text,
   color: var(--color-ink) !important;
 }
 
-/* .button.secondary: do not override padding/font-size here — Webflow uses
-   padding-right (~96px) + background-position for the arrow; shrinking padding
-   or font broke the “Discover the art” style (tiny text, arrow on the text). */
+/* Feature CTAs (Discover the art / Reserve / Explore): Webflow sets .button to
+   small vw sizes on narrow viewports — bump type without touching padding or
+   background so the arrow graphic still aligns. */
+.tb-feature-block-content a.button.secondary.w-button {
+  font-family: var(--font-body);
+  font-size: clamp(var(--text-base), 1.1rem + 0.35vw, 1.375rem);
+  line-height: 1.3;
+}
 
 .tb-feature-closing {
   font-family: var(--font-display);
@@ -1304,27 +1309,27 @@ body.tb-menu-open .overlap-section-top {
   z-index: 0;
 }
 
-/* Responsive hero slideshow — uses -800w / -1200w from npm run optimize-slideshow */
-.hero-bg-slide-1 { background-image: url("/assets/images/slideshow1-800w.jpg"); }
-.hero-bg-slide-2 { background-image: url("/assets/images/slideshow2-800w.JPG"); }
-.hero-bg-slide-3 { background-image: url("/assets/images/slideshow3-800w.jpg"); }
-.hero-bg-slide-4 { background-image: url("/assets/images/slideshow4-800w.JPG"); }
-.hero-bg-slide-5 { background-image: url("/assets/images/slideshow5-800w.jpg"); }
+/* Responsive hero slideshow — image-set() lets browser pick AVIF > WebP > JPEG (npm run optimize-slideshow) */
+.hero-bg-slide-1 { background-image: url("/assets/images/slideshow1-800w.jpg"); background-image: image-set(url("/assets/images/slideshow1-800w.avif") type("image/avif"), url("/assets/images/slideshow1-800w.webp") type("image/webp"), url("/assets/images/slideshow1-800w.jpg") type("image/jpeg")); }
+.hero-bg-slide-2 { background-image: url("/assets/images/slideshow2-800w.JPG"); background-image: image-set(url("/assets/images/slideshow2-800w.avif") type("image/avif"), url("/assets/images/slideshow2-800w.webp") type("image/webp"), url("/assets/images/slideshow2-800w.JPG") type("image/jpeg")); }
+.hero-bg-slide-3 { background-image: url("/assets/images/slideshow3-800w.jpg"); background-image: image-set(url("/assets/images/slideshow3-800w.avif") type("image/avif"), url("/assets/images/slideshow3-800w.webp") type("image/webp"), url("/assets/images/slideshow3-800w.jpg") type("image/jpeg")); }
+.hero-bg-slide-4 { background-image: url("/assets/images/slideshow4-800w.JPG"); background-image: image-set(url("/assets/images/slideshow4-800w.avif") type("image/avif"), url("/assets/images/slideshow4-800w.webp") type("image/webp"), url("/assets/images/slideshow4-800w.JPG") type("image/jpeg")); }
+.hero-bg-slide-5 { background-image: url("/assets/images/slideshow5-800w.jpg"); background-image: image-set(url("/assets/images/slideshow5-800w.avif") type("image/avif"), url("/assets/images/slideshow5-800w.webp") type("image/webp"), url("/assets/images/slideshow5-800w.jpg") type("image/jpeg")); }
 
 @media (min-width: 640px) {
-  .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1-1200w.jpg"); }
-  .hero-bg-slide-2 { background-image: url("/assets/images/slideshow2-1200w.JPG"); }
-  .hero-bg-slide-3 { background-image: url("/assets/images/slideshow3-1200w.jpg"); }
-  .hero-bg-slide-4 { background-image: url("/assets/images/slideshow4-1200w.JPG"); }
-  .hero-bg-slide-5 { background-image: url("/assets/images/slideshow5-1200w.jpg"); }
+  .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1-1200w.jpg"); background-image: image-set(url("/assets/images/slideshow1-1200w.avif") type("image/avif"), url("/assets/images/slideshow1-1200w.webp") type("image/webp"), url("/assets/images/slideshow1-1200w.jpg") type("image/jpeg")); }
+  .hero-bg-slide-2 { background-image: url("/assets/images/slideshow2-1200w.JPG"); background-image: image-set(url("/assets/images/slideshow2-1200w.avif") type("image/avif"), url("/assets/images/slideshow2-1200w.webp") type("image/webp"), url("/assets/images/slideshow2-1200w.JPG") type("image/jpeg")); }
+  .hero-bg-slide-3 { background-image: url("/assets/images/slideshow3-1200w.jpg"); background-image: image-set(url("/assets/images/slideshow3-1200w.avif") type("image/avif"), url("/assets/images/slideshow3-1200w.webp") type("image/webp"), url("/assets/images/slideshow3-1200w.jpg") type("image/jpeg")); }
+  .hero-bg-slide-4 { background-image: url("/assets/images/slideshow4-1200w.JPG"); background-image: image-set(url("/assets/images/slideshow4-1200w.avif") type("image/avif"), url("/assets/images/slideshow4-1200w.webp") type("image/webp"), url("/assets/images/slideshow4-1200w.JPG") type("image/jpeg")); }
+  .hero-bg-slide-5 { background-image: url("/assets/images/slideshow5-1200w.jpg"); background-image: image-set(url("/assets/images/slideshow5-1200w.avif") type("image/avif"), url("/assets/images/slideshow5-1200w.webp") type("image/webp"), url("/assets/images/slideshow5-1200w.jpg") type("image/jpeg")); }
 }
 
 @media (min-width: 1280px) {
-  .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1.jpg"); }
-  .hero-bg-slide-2 { background-image: url("/assets/images/slideshow2.JPG"); }
-  .hero-bg-slide-3 { background-image: url("/assets/images/slideshow3.jpg"); }
-  .hero-bg-slide-4 { background-image: url("/assets/images/slideshow4.JPG"); }
-  .hero-bg-slide-5 { background-image: url("/assets/images/slideshow5.jpg"); }
+  .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1.jpg"); background-image: image-set(url("/assets/images/slideshow1.avif") type("image/avif"), url("/assets/images/slideshow1.webp") type("image/webp"), url("/assets/images/slideshow1.jpg") type("image/jpeg")); }
+  .hero-bg-slide-2 { background-image: url("/assets/images/slideshow2.JPG"); background-image: image-set(url("/assets/images/slideshow2.avif") type("image/avif"), url("/assets/images/slideshow2.webp") type("image/webp"), url("/assets/images/slideshow2.JPG") type("image/jpeg")); }
+  .hero-bg-slide-3 { background-image: url("/assets/images/slideshow3.jpg"); background-image: image-set(url("/assets/images/slideshow3.avif") type("image/avif"), url("/assets/images/slideshow3.webp") type("image/webp"), url("/assets/images/slideshow3.jpg") type("image/jpeg")); }
+  .hero-bg-slide-4 { background-image: url("/assets/images/slideshow4.JPG"); background-image: image-set(url("/assets/images/slideshow4.avif") type("image/avif"), url("/assets/images/slideshow4.webp") type("image/webp"), url("/assets/images/slideshow4.JPG") type("image/jpeg")); }
+  .hero-bg-slide-5 { background-image: url("/assets/images/slideshow5.jpg"); background-image: image-set(url("/assets/images/slideshow5.avif") type("image/avif"), url("/assets/images/slideshow5.webp") type("image/webp"), url("/assets/images/slideshow5.jpg") type("image/jpeg")); }
 }
 
 /* Homepage full-frame image at bottom — dining terrace (replaces hero duplicate) */

@@ -7,22 +7,30 @@
   'use strict';
 
   // ─── Page Loader ───────────────────────────────────────────────────────────
+  // Reveal hero as soon as LCP image loads (not window.load) to avoid ~1.2s resource load delay
   function initLoader() {
     const loader = document.getElementById('page-loader');
     if (!loader) return;
-    window.addEventListener('load', function () {
+    var revealed = false;
+    function hideLoaderAndReveal() {
+      if (revealed) return;
+      revealed = true;
       loader.style.opacity = '0';
       loader.style.transition = 'opacity 0.5s ease';
       setTimeout(function () {
         loader.style.display = 'none';
         revealHero();
       }, 500);
-    });
-    // Fallback in case load fires before script
-    if (document.readyState === 'complete') {
-      loader.style.display = 'none';
-      revealHero();
     }
+    var lcpSrc = window.innerWidth >= 1280 ? '/assets/images/slideshow1.avif' : window.innerWidth >= 640 ? '/assets/images/slideshow1-1200w.avif' : '/assets/images/slideshow1-800w.avif';
+    var lcpImg = new Image();
+    lcpImg.onload = hideLoaderAndReveal;
+    lcpImg.onerror = hideLoaderAndReveal;
+    lcpImg.src = lcpSrc;
+    window.addEventListener('load', function () {
+      setTimeout(hideLoaderAndReveal, 100);
+    }, { once: true });
+    if (document.readyState === 'complete') setTimeout(hideLoaderAndReveal, 50);
   }
 
   function revealHero() {

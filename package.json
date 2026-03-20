@@ -2,6 +2,12 @@
   "name": "toileblanche",
   "type": "module",
   "version": "1.0.0",
+  "browserslist": [
+    "Chrome >= 111",
+    "Firefox >= 114",
+    "Safari >= 16.4",
+    "Edge >= 111"
+  ],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

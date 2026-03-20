@@ -234,7 +234,7 @@
       "extras": ["Piscine privée", "Baignoire", "Lit supplémentaire disponible (+80€/nuit)"],
       "images": {
         "hero": "/assets/images/bon-vivant/hero.jpg",
-        "card": "/assets/images/Homepage/Suite bon vivant.JPG",
+        "card": "/assets/images/bon-vivant/gallery-7.JPG",
         "cardAlt": "Suite du Bon-Vivant à Toile Blanche",
         "gallery": [
           "/assets/images/bon-vivant/gallery-1.jpg",
@@ -242,7 +242,7 @@
           "/assets/images/bon-vivant/gallery-4.jpg",
           "/assets/images/bon-vivant/gallery-5.jpg",
           "/assets/images/bon-vivant/gallery-6.JPG",
-          "/assets/images/bon-vivant/gallery-7.JPG",
+          "/assets/images/Homepage/Suite bon vivant.JPG",
           "/assets/images/bon-vivant/gallery-8.JPG",
           "/assets/images/bon-vivant/gallery-9.JPG",
           "/assets/images/bon-vivant/DSCF5652.JPG",

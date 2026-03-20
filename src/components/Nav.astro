@@ -34,7 +34,7 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
           <a href={altPath} class="tb-lang-switch" aria-label={altLocale === 'fr' ? 'Version française' : 'English version'}>{altLocale.toUpperCase()}</a>
         </div>
         <a href={homePath} class={`nav-logo w-nav-brand${currentPath === homePath ? ' w--current' : ''}`} aria-current={currentPath === homePath ? 'page' : undefined}>
-          <img src="/assets/images/63a19dac0c5c8e779178fddf_Toile%20Blanche%20Logo%202022%20light.webp" loading="lazy" alt="Toile Blanche" class="nav-logo-img" />
+          <img src="/assets/images/63a19dac0c5c8e779178fddf_Toile%20Blanche%20Logo%202022%20light.webp" alt="Toile Blanche" class="nav-logo-img" fetchpriority="high" />
           <span class="nav-logo-text">TOILE BLANCHE</span>
         </a>
         <div class="nav-right">
@@ -73,7 +73,7 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
           <a href={altPath} class="tb-lang-switch" aria-label={altLocale === 'fr' ? 'Version française' : 'English version'}>{altLocale.toUpperCase()}</a>
         </div>
         <a href={homePath} class={`nav-logo w-nav-brand${currentPath === homePath ? ' w--current' : ''}`} aria-current={currentPath === homePath ? 'page' : undefined}>
-          <img src="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" loading="lazy" alt="Toile Blanche" class="nav-logo-img nav-logo-img--light" />
+          <img src="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" alt="Toile Blanche" class="nav-logo-img nav-logo-img--light" fetchpriority="high" />
           <span class="nav-logo-text">TOILE BLANCHE</span>
         </a>
         <div class="nav-right">

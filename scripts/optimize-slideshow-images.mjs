@@ -1,14 +1,16 @@
 /**
  * Optimize slideshow images for hero use.
- * Creates -800w and -1200w variants for heroSrcset, and resizes base to max 1920px.
- * Run: node scripts/optimize-slideshow-images.mjs
+ * Creates -800w and -1200w variants (JPEG + WebP + AVIF), resizes base to max 1920px.
+ * AVIF ~40% smaller than JPEG. Run: node scripts/optimize-slideshow-images.mjs
  */
 import sharp from 'sharp';
 import { stat, rename, unlink } from 'fs/promises';
 import { join, basename, extname } from 'path';
 
 const BASE = 'public/assets/images';
-const QUALITY = 82;
+const JPEG_QUALITY = 78;
+const WEBP_QUALITY = 72;
+const AVIF_QUALITY = 50;
 const MAX_BASE_WIDTH = 1920;
 const HERO_WIDTHS = [800, 1200];
 
@@ -42,14 +44,15 @@ async function processSlideshow(fileName) {
   const dir = join(filePath, '..');
   let afterTotal = 0;
 
-  // 1. Resize base to max 1920px and compress
+  const img = sharp(filePath).rotate();
+  const meta = await img.metadata();
+  const origW = meta.width || 0;
+
+  // 1. Resize base to max 1920px, output JPEG and WebP
   const baseOutPath = join(dir, `${name}${ext}`);
-  const pipeline = sharp(filePath)
-    .rotate()
-    .resize(MAX_BASE_WIDTH, null, { withoutEnlargement: true })
-    .jpeg({ quality: QUALITY, mozjpeg: true });
+  const basePipeline = img.clone().resize(MAX_BASE_WIDTH, null, { withoutEnlargement: true });
   const tmpBase = baseOutPath + '.tmp';
-  await pipeline.toFile(tmpBase);
+  await basePipeline.jpeg({ quality: JPEG_QUALITY, mozjpeg: true }).toFile(tmpBase);
   const baseSize = (await stat(tmpBase)).size;
   if (baseSize < beforeTotal) {
     await rename(tmpBase, baseOutPath);
@@ -59,20 +62,54 @@ async function processSlideshow(fileName) {
   }
   afterTotal += (await stat(baseOutPath)).size;
 
-  // 2. Create -800w and -1200w variants
+  const baseWebpPath = join(dir, `${name}.webp`);
+  await img.clone()
+    .resize(MAX_BASE_WIDTH, null, { withoutEnlargement: true })
+    .webp({ quality: WEBP_QUALITY })
+    .toFile(baseWebpPath);
+  afterTotal += (await stat(baseWebpPath)).size;
+  console.log(`  + ${name}.webp  ${kb((await stat(baseWebpPath)).size)}  (base)`);
+
+  const baseAvifPath = join(dir, `${name}.avif`);
+  await img.clone()
+    .resize(MAX_BASE_WIDTH, null, { withoutEnlargement: true })
+    .avif({ quality: AVIF_QUALITY })
+    .toFile(baseAvifPath);
+  afterTotal += (await stat(baseAvifPath)).size;
+  console.log(`  + ${name}.avif  ${kb((await stat(baseAvifPath)).size)}  (base)`);
+
+  // 2. Create -800w and -1200w variants (JPEG + WebP + AVIF)
   for (const w of HERO_WIDTHS) {
+    const resizeW = origW > 0 ? Math.min(w, origW) : w;
     const outName = `${name}-${w}w${ext}`;
     const outPath = join(dir, outName);
     const tmp = outPath + '.tmp';
-    await sharp(filePath)
-      .rotate()
-      .resize(w, null, { withoutEnlargement: true })
-      .jpeg({ quality: QUALITY, mozjpeg: true })
+    await img.clone()
+      .resize(resizeW, null, { withoutEnlargement: true })
+      .jpeg({ quality: JPEG_QUALITY, mozjpeg: true })
       .toFile(tmp);
     const size = (await stat(tmp)).size;
     await rename(tmp, outPath);
     afterTotal += size;
     console.log(`  + ${outName}  ${kb(size)}`);
+
+    const webpName = `${name}-${w}w.webp`;
+    const webpPath = join(dir, webpName);
+    await img.clone()
+      .resize(resizeW, null, { withoutEnlargement: true })
+      .webp({ quality: WEBP_QUALITY })
+      .toFile(webpPath);
+    afterTotal += (await stat(webpPath)).size;
+    console.log(`  + ${webpName}  ${kb((await stat(webpPath)).size)}`);
+
+    const avifName = `${name}-${w}w.avif`;
+    const avifPath = join(dir, avifName);
+    await img.clone()
+      .resize(resizeW, null, { withoutEnlargement: true })
+      .avif({ quality: AVIF_QUALITY })
+      .toFile(avifPath);
+    afterTotal += (await stat(avifPath)).size;
+    console.log(`  + ${avifName}  ${kb((await stat(avifPath)).size)}`);
   }
 
   return { before: beforeTotal, after: afterTotal };
