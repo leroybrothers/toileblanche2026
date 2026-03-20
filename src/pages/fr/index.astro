@@ -4,16 +4,21 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import suitesData from '../../data/suites.fr.json';
 
+function cardBase(path: string) {
+  return path.replace(/\.[^.]+$/, '');
+}
+
 function srcset(path: string, widths: number[]) {
   const ext = path.substring(path.lastIndexOf('.'));
   const base = path.substring(0, path.lastIndexOf('.'));
-  return widths.map(w => `${base}-${w}w${ext} ${w}w`).join(', ') + `, ${path} ${widths[widths.length - 1] * 2}w`;
+  return widths.map(w => `${base}-${w}w${ext} ${w}w`).join(', ') + `, ${path} ${widths[widths.length - 1]! * 2}w`;
 }
 
 const suites = suitesData.suites.map(s => ({
   href: `/fr/suites/${s.slug}`,
   image: s.images.card,
-  srcset: srcset(s.images.card, [400]),
+  base: cardBase(s.images.card),
+  hasOptimized: s.images.card.includes('/Homepage/'),
   alt: s.images.cardAlt,
   title: s.name,
   description: s.tagline,
@@ -92,7 +97,15 @@ const suites = suitesData.suites.map(s => ({
               <a href={suite.href} class="room-slide-wrapper w-inline-block">
                 <div class="room-slide-image-wrapper">
                   <div class="room-slide-image-container">
-                    <img loading="lazy" alt={suite.alt} src={suite.image} srcset={suite.srcset} sizes="(max-width: 900px) 80vw, 33vw" class="room-slide-image" />
+                    {suite.hasOptimized ? (
+                    <picture>
+                      <source type="image/avif" srcset={`${suite.base}-400w.avif 400w, ${suite.base}-800w.avif 800w`} sizes="(max-width: 900px) 80vw, 33vw" />
+                      <source type="image/webp" srcset={`${suite.base}-400w.webp 400w, ${suite.base}-800w.webp 800w`} sizes="(max-width: 900px) 80vw, 33vw" />
+                      <img loading="lazy" alt={suite.alt} src={`${suite.base}-400w.jpg`} srcset={`${suite.base}-400w.jpg 400w, ${suite.base}-800w.jpg 800w`} sizes="(max-width: 900px) 80vw, 33vw" class="room-slide-image" width="533" height="400" />
+                    </picture>
+                  ) : (
+                    <img loading="lazy" alt={suite.alt} src={suite.image} srcset={srcset(suite.image, [400])} sizes="(max-width: 900px) 80vw, 33vw" class="room-slide-image" />
+                  )}
                   </div>
                 </div>
                 <div class="room-slide-content-wrapper">
@@ -125,7 +138,11 @@ const suites = suitesData.suites.map(s => ({
         <div class="tb-feature-block">
           <div class="tb-feature-block-image">
             <a href="/fr/art" class="tb-feature-block-image-link">
-              <img src="/assets/images/677ce5a0ffdffd79d9f89e13_Aerts 6 (1)-p-1600.jpg" loading="lazy" width="524" sizes="(max-width: 767px) 100vw, 524px" alt="Art contemporain à Toile Blanche" />
+              <picture>
+                <source type="image/avif" srcset="/assets/images/677ce5a0ffdffd79d9f89e13_Aerts 6 (1)-p-1600-524w.avif 524w, /assets/images/677ce5a0ffdffd79d9f89e13_Aerts 6 (1)-p-1600-800w.avif 800w" sizes="(max-width: 767px) 100vw, 524px" />
+                <source type="image/webp" srcset="/assets/images/677ce5a0ffdffd79d9f89e13_Aerts 6 (1)-p-1600-524w.webp 524w, /assets/images/677ce5a0ffdffd79d9f89e13_Aerts 6 (1)-p-1600-800w.webp 800w" sizes="(max-width: 767px) 100vw, 524px" />
+                <img src="/assets/images/677ce5a0ffdffd79d9f89e13_Aerts 6 (1)-p-1600-524w.jpg" srcset="/assets/images/677ce5a0ffdffd79d9f89e13_Aerts 6 (1)-p-1600-524w.jpg 524w, /assets/images/677ce5a0ffdffd79d9f89e13_Aerts 6 (1)-p-1600-800w.jpg 800w" sizes="(max-width: 767px) 100vw, 524px" alt="Art contemporain à Toile Blanche" width="524" height="654" loading="lazy" />
+              </picture>
             </a>
           </div>
           <div class="tb-feature-block-content">
@@ -140,7 +157,11 @@ const suites = suitesData.suites.map(s => ({
         <div class="tb-feature-block tb-feature-block--reverse">
           <div class="tb-feature-block-image">
             <a href="/fr/restaurants" class="tb-feature-block-image-link">
-              <img src="/assets/images/restaurants-terrace.png" loading="lazy" width="524" sizes="(max-width: 767px) 100vw, 524px" alt="Terrasse du restaurant à Toile Blanche — Le Restaurant et La Guinguette" />
+              <picture>
+                <source type="image/avif" srcset="/assets/images/restaurants-terrace-524w.avif 524w, /assets/images/restaurants-terrace-800w.avif 800w" sizes="(max-width: 767px) 100vw, 524px" />
+                <source type="image/webp" srcset="/assets/images/restaurants-terrace-524w.webp 524w, /assets/images/restaurants-terrace-800w.webp 800w" sizes="(max-width: 767px) 100vw, 524px" />
+                <img src="/assets/images/restaurants-terrace-524w.jpg" srcset="/assets/images/restaurants-terrace-524w.jpg 524w, /assets/images/restaurants-terrace-800w.jpg 800w" sizes="(max-width: 767px) 100vw, 524px" alt="Terrasse du restaurant à Toile Blanche — Le Restaurant et La Guinguette" width="524" height="656" loading="lazy" />
+              </picture>
             </a>
           </div>
           <div class="tb-feature-block-content">
@@ -153,7 +174,11 @@ const suites = suitesData.suites.map(s => ({
         <div class="tb-feature-block">
           <div class="tb-feature-block-image">
             <a href="/fr/experiences" class="tb-feature-block-image-link">
-              <img src="/assets/images/Experiences.jpg" loading="lazy" width="524" sizes="(max-width: 767px) 100vw, 524px" alt="Expériences à Toile Blanche" />
+              <picture>
+                <source type="image/avif" srcset="/assets/images/Experiences-524w.avif 524w, /assets/images/Experiences-800w.avif 800w" sizes="(max-width: 767px) 100vw, 524px" />
+                <source type="image/webp" srcset="/assets/images/Experiences-524w.webp 524w, /assets/images/Experiences-800w.webp 800w" sizes="(max-width: 767px) 100vw, 524px" />
+                <img src="/assets/images/Experiences-524w.jpg" srcset="/assets/images/Experiences-524w.jpg 524w, /assets/images/Experiences-800w.jpg 800w" sizes="(max-width: 767px) 100vw, 524px" alt="Expériences à Toile Blanche" width="524" height="656" loading="lazy" />
+              </picture>
             </a>
           </div>
           <div class="tb-feature-block-content">

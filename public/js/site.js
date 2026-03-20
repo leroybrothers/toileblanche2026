@@ -7,7 +7,8 @@
   'use strict';
 
   // ─── Page Loader ───────────────────────────────────────────────────────────
-  // Reveal hero as soon as LCP image loads (not window.load) to avoid ~1.2s resource load delay
+  // Reveal hero quickly to avoid LCP delay. Hero text is the LCP element — don't wait for the
+  // background image. Max 200ms loader, then reveal. Background loads in parallel.
   function initLoader() {
     const loader = document.getElementById('page-loader');
     if (!loader) return;
@@ -16,21 +17,28 @@
       if (revealed) return;
       revealed = true;
       loader.style.opacity = '0';
-      loader.style.transition = 'opacity 0.5s ease';
+      loader.style.transition = 'opacity 0.3s ease';
       setTimeout(function () {
         loader.style.display = 'none';
         revealHero();
-      }, 500);
+      }, 320);
     }
-    var lcpSrc = window.innerWidth >= 1280 ? '/assets/images/slideshow1.avif' : window.innerWidth >= 640 ? '/assets/images/slideshow1-1200w.avif' : '/assets/images/slideshow1-800w.avif';
-    var lcpImg = new Image();
-    lcpImg.onload = hideLoaderAndReveal;
-    lcpImg.onerror = hideLoaderAndReveal;
-    lcpImg.src = lcpSrc;
+    // Reveal hero after brief loader (max 200ms) — don't block LCP on image load
+    var minReveal = setTimeout(hideLoaderAndReveal, 200);
+    // Also reveal when LCP image loads, if sooner
+    requestAnimationFrame(function () {
+      var lcpSrc = window.innerWidth >= 1280 ? '/assets/images/slideshow1.avif' : window.innerWidth >= 640 ? '/assets/images/slideshow1-1200w.avif' : '/assets/images/slideshow1-800w.avif';
+      var lcpImg = new Image();
+      lcpImg.onload = lcpImg.onerror = function () {
+        clearTimeout(minReveal);
+        hideLoaderAndReveal();
+      };
+      lcpImg.src = lcpSrc;
+    });
     window.addEventListener('load', function () {
-      setTimeout(hideLoaderAndReveal, 100);
+      clearTimeout(minReveal);
+      hideLoaderAndReveal();
     }, { once: true });
-    if (document.readyState === 'complete') setTimeout(hideLoaderAndReveal, 50);
   }
 
   function revealHero() {
@@ -230,12 +238,13 @@
         if (index < 0) index = slides.length - 1;
         if (index >= slides.length) index = 0;
 
+        // Read layout before DOM writes to avoid forced reflow
+        const slideWidth = slides[0].getBoundingClientRect().width;
+
         slides[current].classList.remove('is-active');
         current = index;
         slides[current].classList.add('is-active');
 
-        // Translate the track
-        const slideWidth = slides[0].getBoundingClientRect().width;
         track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         track.style.transform = 'translateX(-' + (current * slideWidth) + 'px)';
 
@@ -296,6 +305,7 @@
       let pointerStartY = 0;
 
       function updateUI() {
+        // Read layout before DOM writes to avoid forced reflow
         const slideWidth = explorer.getBoundingClientRect().width;
         track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         track.style.transform = 'translateX(-' + current * slideWidth + 'px)';
@@ -359,7 +369,8 @@
         track.style.transform = 'translateX(-' + current * slideWidth + 'px)';
       }, { passive: true });
 
-      updateUI();
+      // Defer initial layout read to avoid forced reflow during DOMContentLoaded
+      requestAnimationFrame(function () { updateUI(); });
     });
   }
 
@@ -370,7 +381,8 @@
     initHeroSlideshow();
     initNavigation();
     initSliders();
-    initSuiteExplorer();
+    // Defer Suite Explorer init so layout reads run after browser has laid out
+    requestAnimationFrame(function () { initSuiteExplorer(); });
   });
 
 })();

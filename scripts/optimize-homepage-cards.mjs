@@ -11,15 +11,16 @@ const HOMEPAGE = 'public/assets/images/Homepage';
 const JPEG_QUALITY = 78;
 const CARD_WIDTHS = [800, 400];
 
-// Suite card files from suites.json (card field)
+// Suite card files from suites.json (card field) — use existing .jpg sources
 const CARD_FILES = [
-  'suite-penard.png',
+  'suite-penard.jpg',
   'Suite pétanque.jpg',
   'Suite bronzette.JPG',
   'Suite cabanat.jpg',
   "suite de l'artiste.JPG",
-  'mas-de-l-artiste.png',
+  'mas-de-l-artiste.jpg',
   'Villa pénéquet.jpg',
+  'Suite bon vivant.JPG',
 ];
 
 function kb(bytes) {
@@ -50,23 +51,25 @@ async function processCard(fileName) {
 
   for (const w of CARD_WIDTHS) {
     const resizeW = origW > 0 ? Math.min(w, origW) : w;
-    const outName = `${name}-${w}w${outExt}`;
-    const outPath = join(dir, outName);
-    const tmp = outPath + '.tmp';
+    const resized = img.clone().resize(resizeW, null, { withoutEnlargement: true });
 
-    await img
-      .clone()
-      .resize(resizeW, null, { withoutEnlargement: true })
-      .jpeg({ quality: JPEG_QUALITY, mozjpeg: true })
-      .toFile(tmp);
+    const outName = `${name}-${w}w`;
+    const jpgPath = join(dir, `${outName}.jpg`);
+    await resized.clone().jpeg({ quality: JPEG_QUALITY, mozjpeg: true }).toFile(jpgPath);
+    afterTotal += (await stat(jpgPath)).size;
 
-    const size = (await stat(tmp)).size;
-    await rename(tmp, outPath);
-    afterTotal += size;
-    console.log(`  + ${outName}  ${kb(size)}`);
+    const webpPath = join(dir, `${outName}.webp`);
+    await resized.clone().webp({ quality: 80 }).toFile(webpPath);
+    afterTotal += (await stat(webpPath)).size;
+
+    const avifPath = join(dir, `${outName}.avif`);
+    await resized.clone().avif({ quality: 65 }).toFile(avifPath);
+    afterTotal += (await stat(avifPath)).size;
+
+    console.log(`  + ${outName}.jpg/.webp/.avif`);
   }
 
-  // Resize base to 800w, output as .jpg (converts PNG)
+  // Resize base to 800w, output as .jpg
   const baseOutPath = join(dir, `${name}.jpg`);
   const baseResizeW = origW > 0 ? Math.min(800, origW) : 800;
   const tmpBase = baseOutPath + '.tmp';
@@ -77,12 +80,9 @@ async function processCard(fileName) {
     .toFile(tmpBase);
 
   const baseSize = (await stat(tmpBase)).size;
-  if (ext.toLowerCase() === '.png') {
-    await unlink(filePath).catch(() => {});
-  }
   await rename(tmpBase, baseOutPath);
   afterTotal += baseSize;
-  console.log(`  ✓ ${name}${ext} → ${name}.jpg  ${kb(beforeTotal)} → ${kb(baseSize)}  (base)`);
+  console.log(`  ✓ ${name}.jpg  ${kb(baseSize)}  (base)`);
 
   return { before: beforeTotal, after: afterTotal };
 }

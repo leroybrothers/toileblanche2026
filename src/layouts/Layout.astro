@@ -126,10 +126,13 @@ const alternates = getAlternateUrls(currentPath);
     });
   </script>
 
-  <!-- Google Tag Manager: deferred until after LCP to reduce initial JS -->
+  <!-- Google Tag Manager: load on first scroll/click to reduce unused JS on initial load -->
   <script define:vars={{ GTM_ID }}>
     (function(w,d,s,l,i){
+      var loaded = false;
       function loadGTM(){
+        if (loaded) return;
+        loaded = true;
         w[l]=w[l]||[];
         w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
         var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
@@ -137,11 +140,16 @@ const alternates = getAlternateUrls(currentPath);
         j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
         f.parentNode.insertBefore(j,f);
       }
-      if (w.requestIdleCallback) {
-        w.requestIdleCallback(loadGTM, { timeout: 2000 });
-      } else {
-        setTimeout(loadGTM, 1500);
+      function onInteraction() {
+        loadGTM();
+        w.removeEventListener('scroll', onInteraction, true);
+        w.removeEventListener('click', onInteraction, true);
+        w.removeEventListener('keydown', onInteraction, true);
       }
+      w.addEventListener('scroll', onInteraction, { passive: true, capture: true });
+      w.addEventListener('click', onInteraction, true);
+      w.addEventListener('keydown', onInteraction, true);
+      setTimeout(loadGTM, 4000);
     })(window,document,'script','dataLayer', GTM_ID);
   </script>
 
@@ -248,27 +256,28 @@ const alternates = getAlternateUrls(currentPath);
 
   {!hideBookingBar && <BookingBar locale={locale} />}
 
-  <!-- Smooth scroll + scroll reveals: deferred until idle to reduce main-thread blocking -->
+  <!-- Smooth scroll + scroll reveals: load on first scroll to avoid unused JS on initial load -->
   <script>
-    function deferSmoothScroll() {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(function() {
-          import('../scripts/smooth-scroll').then(function(m) { m.initSmoothScroll(); }).catch(function() {});
-        }, { timeout: 2500 });
-      } else {
-        setTimeout(function() {
-          import('../scripts/smooth-scroll').then(function(m) { m.initSmoothScroll(); }).catch(function() {});
-        }, 1500);
+    (function() {
+      var loaded = false;
+      function load() {
+        if (loaded) return;
+        loaded = true;
+        import('../scripts/smooth-scroll').then(function(m) { m.initSmoothScroll(); }).catch(function() {});
       }
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', deferSmoothScroll);
-    } else {
-      deferSmoothScroll();
-    }
+      function onScroll() {
+        load();
+        window.removeEventListener('scroll', onScroll, { passive: true });
+        window.removeEventListener('touchstart', onScroll, { passive: true });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('touchstart', onScroll, { passive: true });
+      // Fallback: load after 6s if user hasn't scrolled (e.g. reading above fold)
+      setTimeout(load, 6000);
+    })();
   </script>
   <!-- Site JS -->
-  <script src="/js/site.js?v=3" defer></script>
+  <script src="/js/site.js?v=5" defer></script>
 
   <!-- Vercel Web Analytics -->
   <script>
