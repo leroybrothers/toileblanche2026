@@ -381,8 +381,12 @@
     initHeroSlideshow();
     initNavigation();
     initSliders();
-    // Defer Suite Explorer init so layout reads run after browser has laid out
-    requestAnimationFrame(function () { initSuiteExplorer(); });
+    // Suite Explorer (mobile menu carousel): defer to idle to avoid long main-thread tasks
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(initSuiteExplorer, { timeout: 600 });
+    } else {
+      requestAnimationFrame(initSuiteExplorer);
+    }
   });
 
 })();

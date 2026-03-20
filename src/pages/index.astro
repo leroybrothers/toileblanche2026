@@ -34,7 +34,7 @@ const suites = suitesData.suites.map(s => ({
   <!-- Page Loader -->
   <div class="loader" id="page-loader">
     <div class="loader-logo-wrapper">
-      <img src="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" loading="lazy" alt="Toile Blanche" />
+      <img src="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif" loading="lazy" alt="Toile Blanche" width="200" height="60" />
       <div class="loader-line"></div>
     </div>
   </div>
@@ -69,6 +69,8 @@ const suites = suitesData.suites.map(s => ({
             alt="Scroll down"
             class="hero-arrow-image"
             id="hero-arrow"
+            width="24"
+            height="24"
           />
         </div>
       </div>
@@ -113,7 +115,7 @@ const suites = suitesData.suites.map(s => ({
                       <img loading="lazy" alt={suite.alt} src={`${suite.base}-400w.jpg`} srcset={`${suite.base}-400w.jpg 400w, ${suite.base}-800w.jpg 800w`} sizes="(max-width: 900px) 80vw, 33vw" class="room-slide-image" width="533" height="400" />
                     </picture>
                   ) : (
-                    <img loading="lazy" alt={suite.alt} src={suite.image} srcset={srcset(suite.image, [400])} sizes="(max-width: 900px) 80vw, 33vw" class="room-slide-image" />
+                    <img loading="lazy" alt={suite.alt} src={suite.image} srcset={srcset(suite.image, [400])} sizes="(max-width: 900px) 80vw, 33vw" class="room-slide-image" width="533" height="400" />
                   )}
                   </div>
                 </div>

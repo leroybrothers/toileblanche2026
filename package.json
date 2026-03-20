@@ -18,7 +18,8 @@
     "optimize-homepage-cards": "node scripts/optimize-homepage-cards.mjs",
     "optimize-homepage-features": "node scripts/optimize-homepage-features.mjs",
     "generate-favicons": "node scripts/generate-favicons.mjs",
-    "optimize-all": "npm run optimize-slideshow && npm run optimize-images && npm run optimize-homepage-cards && npm run optimize-homepage-features && node scripts/optimize-archive-images.mjs"
+    "optimize-gallery-webp": "node scripts/optimize-gallery-webp.mjs",
+    "optimize-all": "npm run optimize-slideshow && npm run optimize-images && npm run optimize-homepage-cards && npm run optimize-homepage-features && npm run optimize-gallery-webp && node scripts/optimize-archive-images.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
