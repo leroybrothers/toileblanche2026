@@ -4,6 +4,8 @@ title: "The Mons Selection: A Critical Tasting"
 date: "2026-06-20"
 author: "Leroy Brothers"
 image: "/assets/images/archive/mons-cheese.jpg"
+imageWidth: 654
+imageHeight: 523
 excerpt: "Highlighting our partnership with Mons (MOF). A study on the Comté 24 mois, Langres, and the art of the perfect plateau."
 lang: "en"
 ---

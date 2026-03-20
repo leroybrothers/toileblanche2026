@@ -4,6 +4,8 @@ title: "The Arrival: Arik Levy"
 date: "2025-11-20"
 author: "Leroy Brothers"
 image: "/assets/images/archive/arik-levy-arrival.jpg"
+imageWidth: 1200
+imageHeight: 1800
 excerpt: "Documenting the installation of the new structural sculpture in the lower gardens and its dialogue with the Provençal landscape."
 lang: "en"
 ---

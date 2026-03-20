@@ -4,6 +4,8 @@ title: "Light & Shadow: 14:00 at the South Pool"
 date: "2026-07-15"
 author: "Leroy Brothers"
 image: "/assets/images/archive/light-shadow.jpg"
+imageWidth: 1170
+imageHeight: 1174
 excerpt: "A visual study on high-contrast architecture and the shifting Mediterranean light during the peak of summer."
 lang: "en"
 ---

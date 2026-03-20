@@ -30,6 +30,8 @@
       "extras": [],
       "images": {
         "hero": "/assets/images/penard/hero.jpg",
+        "heroWidth": 2400,
+        "heroHeight": 1423,
         "card": "/assets/images/Homepage/suite-penard.jpg",
         "cardAlt": "Suite Pénard at Toile Blanche",
         "gallery": [
@@ -65,6 +67,8 @@
       "extras": [],
       "images": {
         "hero": "/assets/images/petanque/hero.jpg",
+        "heroWidth": 2400,
+        "heroHeight": 1800,
         "card": "/assets/images/Homepage/Suite pétanque.jpg",
         "cardAlt": "Suite Pétanque at Toile Blanche",
         "gallery": [
@@ -99,7 +103,9 @@
       "extras": ["Bathtub", "Extra bed available (+€80/night)"],
       "images": {
         "hero": "/assets/images/bronzette/hero.jpg",
-        "card": "/assets/images/Homepage/Suite bronzette.jpg",
+        "heroWidth": 2400,
+        "heroHeight": 1351,
+        "card": "/assets/images/Homepage/Suite bronzette.JPG",
         "cardAlt": "Suite de la Bronzette at Toile Blanche",
         "gallery": [
           "/assets/images/bronzette/DSCF7473.JPG",
@@ -134,6 +140,8 @@
       "extras": ["Bathtub", "Outdoor shower"],
       "images": {
         "hero": "/assets/images/cabanat/hero.jpg",
+        "heroWidth": 2400,
+        "heroHeight": 1410,
         "card": "/assets/images/Homepage/Suite cabanat.jpg",
         "cardAlt": "Suite Cabanat at Toile Blanche",
         "gallery": [
@@ -168,7 +176,9 @@
       "extras": ["Bathtub"],
       "images": {
         "hero": "/assets/images/suite-artiste/hero.jpg",
-        "card": "/assets/images/Homepage/suite de l'artiste.jpg",
+        "heroWidth": 2400,
+        "heroHeight": 1627,
+        "card": "/assets/images/Homepage/suite de l'artiste.JPG",
         "cardAlt": "Suite de l'Artiste at Toile Blanche",
         "gallery": [
           "/assets/images/suite-artiste/gallery-1.jpg",
@@ -199,6 +209,8 @@
       "extras": ["Bathtub", "Extra bed available (+€80/night)"],
       "images": {
         "hero": "/assets/images/mas-de-l-artiste/hero.jpg",
+        "heroWidth": 2400,
+        "heroHeight": 2648,
         "card": "/assets/images/Homepage/mas-de-l-artiste.jpg",
         "cardAlt": "Mas de l'Artiste at Toile Blanche",
         "gallery": [
@@ -234,6 +246,8 @@
       "extras": ["Private pool", "Bathtub", "Extra bed available (+€80/night)"],
       "images": {
         "hero": "/assets/images/bon-vivant/hero.jpg",
+        "heroWidth": 2400,
+        "heroHeight": 1916,
         "card": "/assets/images/bon-vivant/gallery-7.JPG",
         "cardAlt": "Suite du Bon-Vivant at Toile Blanche",
         "gallery": [
@@ -273,6 +287,8 @@
       "extras": ["Private pool", "Two-floor layout", "Bathtub", "Extra bed available"],
       "images": {
         "hero": "/assets/images/penequet/hero.jpg",
+        "heroWidth": 800,
+        "heroHeight": 927,
         "card": "/assets/images/Homepage/Villa pénéquet.jpg",
         "cardAlt": "Villa du Pénéquet at Toile Blanche",
         "gallery": [

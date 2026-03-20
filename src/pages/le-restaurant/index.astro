@@ -20,7 +20,7 @@ const lang = 'en';
     <!-- HERO -->
     <section class="lrs-hero">
       <div class="lrs-hero-image">
-        <img src="/assets/images/page-img-14433f29c9500d.jpg" alt="Le Restaurant de Toile Blanche" loading="eager" />
+        <img src="/assets/images/page-img-14433f29c9500d.jpg" alt="Le Restaurant de Toile Blanche" width="1800" height="2700" loading="eager" fetchpriority="high" />
         <div class="lrs-hero-overlay"></div>
       </div>
       <div class="lrs-hero-content">
@@ -83,67 +83,6 @@ const lang = 'en';
             <a href="mailto:restaurant@toileblanche.com" class="lrs-details-link">restaurant@toileblanche.com</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- GALLERY (masonry, bon-vivant style) -->
-    <section class="lrs-gallery">
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/IMG_7598.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_7598.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="4032" height="3024" alt="Le Restaurant terrace at Toile Blanche" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/DSCF4081 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF4081 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Seasonal dish at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/DSCF4129 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF4129 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Evening dining at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/DSCF5782 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF5782 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Cuisine at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/DSCF6210 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF6210 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dining experience at Toile Blanche" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/IMG_4608.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_4608.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Restaurant terrace" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/IMG_4849.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_4849.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dinner at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/IMG_5342.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_5342.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Outdoor dining terrace at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/IMG_9454.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_9454.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Terrace view at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/DSCF5723.JPG" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF5723.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant dining" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Evening at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant terrace" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_0377.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0377.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dining at Toile Blanche" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_0588.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0588.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant dishes" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_0597.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0597.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Terrace dining at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_0611.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0611.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant atmosphere" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_0676.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0676.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dinner at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_3983.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_3983.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant table" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_4015.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_4015.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant evening" loading="lazy" />
       </div>
     </section>
 
@@ -225,6 +164,67 @@ const lang = 'en';
           <p>{menu.legal.meat_origins[lang]}</p>
           <p>{menu.legal.allergy_note[lang]}</p>
         </div>
+      </div>
+    </section>
+
+    <!-- GALLERY (masonry, bon-vivant style) -->
+    <section class="lrs-gallery">
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/IMG_7598.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_7598.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="4032" height="3024" alt="Le Restaurant terrace at Toile Blanche" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/DSCF4081 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF4081 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Seasonal dish at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/DSCF4129 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF4129 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Evening dining at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/DSCF5782 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF5782 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Cuisine at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/DSCF6210 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF6210 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dining experience at Toile Blanche" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/IMG_4608.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_4608.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Restaurant terrace" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/IMG_4849.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_4849.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dinner at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/IMG_5342.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_5342.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Outdoor dining terrace at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/IMG_9454.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_9454.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Terrace view at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/restaurantgallery/DSCF5723.JPG" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF5723.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant dining" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Evening at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant terrace" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_0377.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0377.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dining at Toile Blanche" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_0588.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0588.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant dishes" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_0597.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0597.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Terrace dining at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_0611.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0611.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant atmosphere" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_0676.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0676.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dinner at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_3983.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_3983.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant table" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_4015.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_4015.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant evening" loading="lazy" />
       </div>
     </section>
 

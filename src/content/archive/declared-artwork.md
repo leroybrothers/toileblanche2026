@@ -4,6 +4,8 @@ date: "2026-02-15"
 title: "Toile Blanche: The Declared Artwork"
 author: "Leroy Brothers"
 image: "/assets/images/archive/declared-artwork.png"
+imageWidth: 1200
+imageHeight: 770
 excerpt: "A formal note on the transition from hospitality domain to a recognized work by the Leroy Brothers."
 lang: "en"
 ---

@@ -4,6 +4,8 @@ title: "Inside the Studio: The Post-Internet Art of the Leroy Brothers"
 date: "2026-06-05"
 author: "Leroy Brothers"
 image: "/assets/images/archive/leroy-studio.jpg"
+imageWidth: 1200
+imageHeight: 800
 excerpt: "A rare look inside the on-site studio where the estate's 'Declared Artwork' status was conceived."
 lang: "en"
 ---

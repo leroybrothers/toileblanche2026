@@ -4,6 +4,8 @@ title: "Seven Houses: The Architectural Decentralization of Toile Blanche"
 date: "2026-03-15"
 author: "Leroy Brothers"
 image: "/assets/images/archive/seven-houses.jpg"
+imageWidth: 1200
+imageHeight: 800
 excerpt: "Why the estate is built as a village of separate houses rather than a single hotel block. A study on privacy, light, and the 'Mews' layout."
 lang: "en"
 ---

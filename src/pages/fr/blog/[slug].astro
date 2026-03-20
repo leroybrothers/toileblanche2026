@@ -12,7 +12,7 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { frontmatter, default: Content } = post as { frontmatter: { slug: string; date: string; title: string; excerpt: string; image: string; author?: string }; default: import('astro').Component };
+const { frontmatter, default: Content } = post as { frontmatter: { slug: string; date: string; title: string; excerpt: string; image: string; imageWidth?: number; imageHeight?: number; author?: string }; default: import('astro').Component };
 
 const formatDate = (d: string) => {
   const date = new Date(d);
@@ -32,7 +32,7 @@ const formatDate = (d: string) => {
   <main id="main-content">
     <article class="arc-post">
       <div class="arc-post-hero">
-        <img src={frontmatter.image} alt={frontmatter.title} />
+        <img src={frontmatter.image} alt={frontmatter.title} width={frontmatter.imageWidth} height={frontmatter.imageHeight} />
       </div>
       <div class="arc-post-body">
         <a href="/fr/blog" class="arc-post-back">← Les Archives</a>

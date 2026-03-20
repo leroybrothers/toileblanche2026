@@ -4,6 +4,8 @@ title: "The Maxibar: Provisions as a Curated Record"
 date: "2026-04-15"
 author: "Leroy Brothers"
 image: "/assets/images/archive/maxibar-detail.jpg"
+imageWidth: 600
+imageHeight: 337
 excerpt: "Why we moved away from the 'mini-bar.' A spotlight on the specific producers and the philosophy of the full bottle."
 lang: "en"
 ---

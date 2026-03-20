@@ -4,6 +4,8 @@ date: "2026-03-01"
 title: "The Winter Harvest: A Conversation with Nicolas Leclair"
 author: "Leroy Brothers"
 image: "/assets/images/archive/winter-harvest.jpg"
+imageWidth: 1200
+imageHeight: 800
 excerpt: "A look at the winter 2025/26 menu and why 'Bistronomy' is the culinary equivalent of a sketch."
 lang: "en"
 ---

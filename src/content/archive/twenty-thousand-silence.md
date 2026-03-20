@@ -4,6 +4,8 @@ title: "20,000m² of Silence: The Garden as a Living Medium"
 date: "2026-05-10"
 author: "Leroy Brothers"
 image: "/assets/images/archive/garden-silence.jpg"
+imageWidth: 1170
+imageHeight: 1237
 excerpt: "A forensic look at the garden design—how the sculpture route interacts with the wild flora of Saint-Paul de Vence."
 lang: "en"
 ---

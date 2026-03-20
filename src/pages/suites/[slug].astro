@@ -41,7 +41,7 @@ const cardSrcset = (p: string) => srcset(p, [400]);
     <!-- HERO -->
     <section class:list={['sd-hero', { 'sd-hero-masartiste': suite.slug === 'mas-artiste' }]}>
       <div class="sd-hero-image">
-        <img src={suite.images.hero} srcset={heroSrcset(suite.images.hero)} sizes="100vw" alt={suite.name} loading="eager" fetchpriority="high" />
+        <img src={suite.images.hero} srcset={heroSrcset(suite.images.hero)} sizes="100vw" width={suite.images.heroWidth} height={suite.images.heroHeight} alt={suite.name} loading="eager" fetchpriority="high" />
         <div class="sd-hero-overlay"></div>
       </div>
       <div class="sd-hero-content">

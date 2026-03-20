@@ -21,7 +21,7 @@ const lang = 'fr';
     <!-- HERO -->
     <section class="lgn-hero">
       <div class="lgn-hero-image">
-        <img src="/assets/images/page-img-7f72d09199a7a2.jpg" alt="La Guinguette de Toile Blanche" loading="eager" />
+        <img src="/assets/images/page-img-7f72d09199a7a2.jpg" alt="La Guinguette de Toile Blanche" width="1170" height="1702" loading="eager" fetchpriority="high" />
         <div class="lgn-hero-overlay"></div>
       </div>
       <div class="lgn-hero-content">
@@ -101,6 +101,29 @@ const lang = 'fr';
       </div>
     </section>
 
+    <!-- LA CARTE -->
+    <section class="lgn-menu">
+      <div class="lgn-menu-inner">
+        <p class="lgn-menu-label">{menu.meta.season[lang]}</p>
+        <h2>La Carte</h2>
+        <p class="lgn-menu-intro">{menu.meta.philosophy[lang]}</p>
+
+        {menu.sections.map(section => (
+          <div class="lgn-menu-section">
+            <h3>{section.title[lang]}</h3>
+            {section.items.map(item => (
+              <div class="lgn-menu-item">
+                <p class="lgn-menu-dish">{item[lang]}</p>
+                <span class="lgn-menu-price">{item.price}€</span>
+              </div>
+            ))}
+          </div>
+        ))}
+
+        <p class="lgn-menu-note">{menu.footer_note[lang]}</p>
+      </div>
+    </section>
+
     <!-- GALLERY (masonry, bon-vivant style) -->
     <section class="lgn-gallery">
       <div class="lgn-gallery-item">
@@ -150,29 +173,6 @@ const lang = 'fr';
       </div>
       <div class="lgn-gallery-item">
         <img src="/assets/images/guinguette/IMG_9344.jpg" srcset={gallerySrcset('/assets/images/guinguette/IMG_9344.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Jardin de La Guinguette" loading="lazy" />
-      </div>
-    </section>
-
-    <!-- LA CARTE -->
-    <section class="lgn-menu">
-      <div class="lgn-menu-inner">
-        <p class="lgn-menu-label">{menu.meta.season[lang]}</p>
-        <h2>La Carte</h2>
-        <p class="lgn-menu-intro">{menu.meta.philosophy[lang]}</p>
-
-        {menu.sections.map(section => (
-          <div class="lgn-menu-section">
-            <h3>{section.title[lang]}</h3>
-            {section.items.map(item => (
-              <div class="lgn-menu-item">
-                <p class="lgn-menu-dish">{item[lang]}</p>
-                <span class="lgn-menu-price">{item.price}€</span>
-              </div>
-            ))}
-          </div>
-        ))}
-
-        <p class="lgn-menu-note">{menu.footer_note[lang]}</p>
       </div>
     </section>
 
