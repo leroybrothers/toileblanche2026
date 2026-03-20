@@ -25,42 +25,41 @@ import { heroSrcset, gallerySrcset } from '../../utils/images';
       </div>
     </section>
 
-    <!-- STATEMENT -->
-    <section class="art-statement">
-      <div class="art-statement-inner">
-        <p>That line contains everything worth knowing about this place's relationship with art. It is not a hotel that has acquired some paintings. It is an artwork that also happens to have twenty-two suites, two restaurants, and exceptional rosé.</p>
-      </div>
-    </section>
-
-    <!-- VISION + COLLECTION -->
+    <!-- VISION + COLLECTION + BROTHERS + ECOSYSTEM -->
     <section class="art-narrative">
       <div class="art-narrative-inner">
         <div class="art-narrative-text">
           <h2>The Vision</h2>
-          <p>The works here are chosen, not accumulated. Each piece was selected by the Leroy Brothers — who are themselves artists — in conversation with the people who made them. Some were created specifically for the property. Others arrived because they belonged here.</p>
-          <p>The result is a collection without a fixed boundary. It is not the sort of thing you finish looking at.</p>
+          <p>In 2026, Toile Blanche was declared a work by the Leroy Brothers. It continues to operate normally.</p>
+          <p>This is not a hotel that has acquired some paintings. It is an artwork that also happens to have twenty-two suites, two restaurants, and exceptional rosé. The distinction matters.</p>
+          <p>The works here are chosen, not accumulated. Each piece was selected in conversation with the people who made them. Some were created specifically for the property. Others arrived because there was nowhere else they belonged.</p>
           <h2>The Collection</h2>
-          <p>The collection spans painting, sculpture, photography, and installation. It is a living entity — not in the way hotels use that phrase to mean they occasionally rotate the lobby prints, but in the sense that new work arrives each season, existing work is reconsidered, and the conversation between the pieces and the rooms they inhabit is ongoing.</p>
-          <p>Staying here more than once means encountering a different property. The architecture does not change. The light does not change. But the works do, and they are the walls.</p>
+          <p>Painting, sculpture, photography, installation. A living entity that changes with the seasons. Staying here more than once means a different conversation with the same rooms.</p>
+          <p>Across 20,000m² of Provençal gardens, the property is also a permanent sculpture trail. From Arik Levy to Gregory Orekhov to Raymond Leroy, each work tells a story of resistance, light, and Mediterranean landscape.</p>
+          <p>The collection is not finished. New works arrive each season.</p>
+          <h2>The Brothers</h2>
+          <p>Nicolas, Gilles and Gregory Leroy have worked as a collective since 1997, moving between post-internet art, painting, sculpture, and installation. Nicolas studied at Villa Arson in Nice. Gilles and Gregory are self-taught. Their work has been shown at the Shanghai World Expo, the Moscow Museum of Modern Art, and the New Digital Art Biennale.</p>
+          <p>They are also the architects of this place. Their works are in the suites, their sculptures are in the gardens, and they invite artists in residence throughout the year.</p>
+          <p>A quiet cultural programme runs through the season. Most events are not announced in advance.</p>
         </div>
         <div class="art-ecosystem">
           <p class="art-ecosystem-label">The Ecosystem</p>
 
           <div class="art-ecosystem-block">
             <h3>Leroy Brothers</h3>
-            <p>Nicolas, Gilles and Gregory Leroy have worked as a collective since 1997, always moving between studios in the South of France and beyond. Their practice intertwines art, technology, and the evolving concept of artistic identity — work that has always refused to stay on a screen, insisting instead on a physical presence in the world. Toile Blanche is the fullest expression of that instinct.</p>
+            <p>The collective behind the vision. Nicolas, Gilles and Gregory have worked together since 1997, across post-internet art, painting, installation, and new media. Toile Blanche is the fullest expression of that practice.</p>
             <a href="https://leroybrothers.com" target="_blank" rel="noopener noreferrer">The artist website &rarr;</a>
           </div>
 
           <div class="art-ecosystem-block">
             <h3>Toile Blanche Contemporary</h3>
-            <p>The studio and gallery at the heart of the estate. A working space, not a showroom — where new pieces are made, exhibited, and archived. Open to guests.</p>
+            <p>The studio and gallery at the heart of the estate. A working space, not a showroom. New pieces are made here, exhibited, and archived. Open to guests throughout the season.</p>
             <a href="https://toileblanchecontemporary.com" target="_blank" rel="noopener noreferrer">Explore the gallery &rarr;</a>
           </div>
 
           <div class="art-ecosystem-block">
             <h3>RAD/ART</h3>
-            <p>The contemporary art trail for Saint-Paul de Vence. The village has a rich artistic history, and contemporary art has earned its place here again — through the Fondation Maeght, the CAB Foundation, the Biennale of Saint-Paul, and the galleries that have made the village a working part of the art world rather than a monument to it. RAD/ART maps what is worth seeing, updated for people who already know the obvious names.</p>
+            <p>The contemporary art trail for Saint-Paul de Vence. The village has a rich artistic history, and contemporary art has earned its place here again. RAD/ART maps what is worth seeing, for people who already know the obvious names.</p>
             <a href="https://radart.net/" target="_blank" rel="noopener noreferrer">Visit RAD/ART &rarr;</a>
           </div>
         </div>
@@ -76,14 +75,6 @@ import { heroSrcset, gallerySrcset } from '../../utils/images';
         <div class="art-gallery-offset">
           <img src="/assets/images/art/IMG_0365.jpg" srcset={gallerySrcset('/assets/images/art/IMG_0365.jpg')} sizes="(max-width: 900px) 100vw, 45vw" width="4032" height="2717" alt="Gallery interior at Toile Blanche" loading="lazy" />
         </div>
-      </div>
-    </section>
-
-    <!-- SCULPTURE GARDEN -->
-    <section class="art-quote">
-      <div class="art-quote-inner">
-        <h2>A living gallery of contemporary sculptures scattered across 20,000m² of Provençal gardens.</h2>
-        <p>From Arik Levy to Gregory Orekhov, and the foundational works of Raymond Leroy. Each piece tells a story of resistance, light, and the Mediterranean landscape.</p>
       </div>
     </section>
 
@@ -170,24 +161,6 @@ import { heroSrcset, gallerySrcset } from '../../utils/images';
     font-weight: 400;
     line-height: 1.1;
     color: #fff;
-  }
-
-  /* ─── STATEMENT ─── */
-  .art-statement {
-    border-bottom: 1px solid #E2D9CC;
-  }
-  .art-statement-inner {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 64px 80px;
-    text-align: center;
-  }
-  .art-statement-inner p {
-    font-family: 'Gilda Display', serif;
-    font-style: italic;
-    font-size: clamp(20px, 2.5vw, 28px);
-    line-height: 1.55;
-    color: #3D3530;
   }
 
   /* ─── NARRATIVE + ECOSYSTEM ─── */
@@ -303,34 +276,6 @@ import { heroSrcset, gallerySrcset } from '../../utils/images';
     line-height: 1.5;
   }
 
-  /* ─── QUOTE / SCULPTURE GARDEN ─── */
-  .art-quote {
-    border-bottom: 1px solid #E2D9CC;
-  }
-  .art-quote-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 96px 80px;
-    text-align: center;
-  }
-  .art-quote-inner h2 {
-    font-family: 'Gilda Display', serif;
-    font-style: italic;
-    font-size: clamp(24px, 3.5vw, 44px);
-    font-weight: 400;
-    line-height: 1.3;
-    color: #1C1917;
-    margin-bottom: 32px;
-  }
-  .art-quote-inner p {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
-    color: #6B6256;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
   /* ─── GALLERY (masonry, like guinguette/restaurant) ─── */
   .art-gallery {
     border-bottom: 1px solid #E2D9CC;
@@ -388,9 +333,6 @@ import { heroSrcset, gallerySrcset } from '../../utils/images';
     .art-hero-content {
       padding: 0 24px 48px;
     }
-    .art-statement-inner {
-      padding: 48px 24px;
-    }
     .art-narrative-inner {
       grid-template-columns: 1fr;
       padding: 48px 24px;
@@ -403,9 +345,6 @@ import { heroSrcset, gallerySrcset } from '../../utils/images';
     }
     .art-gallery-offset {
       padding-top: 0;
-    }
-    .art-quote-inner {
-      padding: 64px 24px;
     }
     .art-cta {
       padding: 48px 24px;
