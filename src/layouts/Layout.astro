@@ -315,7 +315,7 @@ const alternates = getAlternateUrls(currentPath);
         if (!mewsLoaded) {
           mewsLoaded = true;
           var s = document.createElement('script');
-          s.src = '/mews/distributor.min.js';
+          s.src = 'https://api.mews.com/distributor/distributor.min.js';
           s.onload = function() {
             Mews.Distributor({ configurationIds: ['150bd326-7c63-4a24-b668-abcf00c6bb22'], openElements: '.distributor-open' });
             mewsInitialized = true;

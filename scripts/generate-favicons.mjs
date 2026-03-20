@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PUBLIC = join(__dirname, '..', 'public');
 
-const SOURCE = process.argv[2] || join(__dirname, '..', 'public', 'assets', 'images', 'favicon-source.png');
+const SOURCE = process.argv[2] || join(__dirname, '..', 'public', 'assets', 'images', '63a19dacd6b229843a52a138_Toile Blanche Logo 2022 black.avif');
 
 const SIZES = [
   { name: 'favicon-16x16.png', size: 16 },
