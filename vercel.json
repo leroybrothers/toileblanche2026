@@ -1,4 +1,18 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{"type": "host", "value": "restaurant.toileblanche.com"}],
+      "destination": "https://toileblanche.com/le-restaurant",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{"type": "host", "value": "guinguette.toileblanche.com"}],
+      "destination": "https://toileblanche.com/la-guinguette",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/robots.txt",
