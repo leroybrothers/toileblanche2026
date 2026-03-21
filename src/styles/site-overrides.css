@@ -1335,27 +1335,21 @@ body.tb-menu-open .overlap-section-top {
   z-index: 0;
 }
 
-/* Responsive hero slideshow — image-set() lets browser pick AVIF > WebP > JPEG (npm run optimize-slideshow) */
+/* Responsive hero slideshow — 3 images (slideshow1, slideshow5, slideshow3) */
 .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1-800w.jpg"); background-image: image-set(url("/assets/images/slideshow1-800w.avif") type("image/avif"), url("/assets/images/slideshow1-800w.webp") type("image/webp"), url("/assets/images/slideshow1-800w.jpg") type("image/jpeg")); }
-.hero-bg-slide-2 { background-image: url("/assets/images/slideshow2-800w.JPG"); background-image: image-set(url("/assets/images/slideshow2-800w.avif") type("image/avif"), url("/assets/images/slideshow2-800w.webp") type("image/webp"), url("/assets/images/slideshow2-800w.JPG") type("image/jpeg")); }
+.hero-bg-slide-2 { background-image: url("/assets/images/slideshow5-800w.jpg"); background-image: image-set(url("/assets/images/slideshow5-800w.avif") type("image/avif"), url("/assets/images/slideshow5-800w.webp") type("image/webp"), url("/assets/images/slideshow5-800w.jpg") type("image/jpeg")); }
 .hero-bg-slide-3 { background-image: url("/assets/images/slideshow3-800w.jpg"); background-image: image-set(url("/assets/images/slideshow3-800w.avif") type("image/avif"), url("/assets/images/slideshow3-800w.webp") type("image/webp"), url("/assets/images/slideshow3-800w.jpg") type("image/jpeg")); }
-.hero-bg-slide-4 { background-image: url("/assets/images/slideshow4-800w.JPG"); background-image: image-set(url("/assets/images/slideshow4-800w.avif") type("image/avif"), url("/assets/images/slideshow4-800w.webp") type("image/webp"), url("/assets/images/slideshow4-800w.JPG") type("image/jpeg")); }
-.hero-bg-slide-5 { background-image: url("/assets/images/slideshow5-800w.jpg"); background-image: image-set(url("/assets/images/slideshow5-800w.avif") type("image/avif"), url("/assets/images/slideshow5-800w.webp") type("image/webp"), url("/assets/images/slideshow5-800w.jpg") type("image/jpeg")); }
 
 @media (min-width: 640px) {
   .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1-1200w.jpg"); background-image: image-set(url("/assets/images/slideshow1-1200w.avif") type("image/avif"), url("/assets/images/slideshow1-1200w.webp") type("image/webp"), url("/assets/images/slideshow1-1200w.jpg") type("image/jpeg")); }
-  .hero-bg-slide-2 { background-image: url("/assets/images/slideshow2-1200w.JPG"); background-image: image-set(url("/assets/images/slideshow2-1200w.avif") type("image/avif"), url("/assets/images/slideshow2-1200w.webp") type("image/webp"), url("/assets/images/slideshow2-1200w.JPG") type("image/jpeg")); }
+  .hero-bg-slide-2 { background-image: url("/assets/images/slideshow5-1200w.jpg"); background-image: image-set(url("/assets/images/slideshow5-1200w.avif") type("image/avif"), url("/assets/images/slideshow5-1200w.webp") type("image/webp"), url("/assets/images/slideshow5-1200w.jpg") type("image/jpeg")); }
   .hero-bg-slide-3 { background-image: url("/assets/images/slideshow3-1200w.jpg"); background-image: image-set(url("/assets/images/slideshow3-1200w.avif") type("image/avif"), url("/assets/images/slideshow3-1200w.webp") type("image/webp"), url("/assets/images/slideshow3-1200w.jpg") type("image/jpeg")); }
-  .hero-bg-slide-4 { background-image: url("/assets/images/slideshow4-1200w.JPG"); background-image: image-set(url("/assets/images/slideshow4-1200w.avif") type("image/avif"), url("/assets/images/slideshow4-1200w.webp") type("image/webp"), url("/assets/images/slideshow4-1200w.JPG") type("image/jpeg")); }
-  .hero-bg-slide-5 { background-image: url("/assets/images/slideshow5-1200w.jpg"); background-image: image-set(url("/assets/images/slideshow5-1200w.avif") type("image/avif"), url("/assets/images/slideshow5-1200w.webp") type("image/webp"), url("/assets/images/slideshow5-1200w.jpg") type("image/jpeg")); }
 }
 
 @media (min-width: 1280px) {
   .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1.jpg"); background-image: image-set(url("/assets/images/slideshow1.avif") type("image/avif"), url("/assets/images/slideshow1.webp") type("image/webp"), url("/assets/images/slideshow1.jpg") type("image/jpeg")); }
-  .hero-bg-slide-2 { background-image: url("/assets/images/slideshow2.JPG"); background-image: image-set(url("/assets/images/slideshow2.avif") type("image/avif"), url("/assets/images/slideshow2.webp") type("image/webp"), url("/assets/images/slideshow2.JPG") type("image/jpeg")); }
+  .hero-bg-slide-2 { background-image: url("/assets/images/slideshow5.jpg"); background-image: image-set(url("/assets/images/slideshow5.avif") type("image/avif"), url("/assets/images/slideshow5.webp") type("image/webp"), url("/assets/images/slideshow5.jpg") type("image/jpeg")); }
   .hero-bg-slide-3 { background-image: url("/assets/images/slideshow3.jpg"); background-image: image-set(url("/assets/images/slideshow3.avif") type("image/avif"), url("/assets/images/slideshow3.webp") type("image/webp"), url("/assets/images/slideshow3.jpg") type("image/jpeg")); }
-  .hero-bg-slide-4 { background-image: url("/assets/images/slideshow4.JPG"); background-image: image-set(url("/assets/images/slideshow4.avif") type("image/avif"), url("/assets/images/slideshow4.webp") type("image/webp"), url("/assets/images/slideshow4.JPG") type("image/jpeg")); }
-  .hero-bg-slide-5 { background-image: url("/assets/images/slideshow5.jpg"); background-image: image-set(url("/assets/images/slideshow5.avif") type("image/avif"), url("/assets/images/slideshow5.webp") type("image/webp"), url("/assets/images/slideshow5.jpg") type("image/jpeg")); }
 }
 
 /* Homepage full-frame image at bottom — dining terrace (replaces hero duplicate) */

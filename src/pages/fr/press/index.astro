@@ -61,11 +61,6 @@ const { reviews, clippings } = pressData;
         <p class="prs-contacts-label">Contacts presse</p>
         <div class="prs-contacts-grid">
           <div class="prs-contact">
-            <h3>France</h3>
-            <p class="prs-contact-agency"><a href="https://www.pascalevenot.fr/" target="_blank" rel="noopener noreferrer">Pascale Venot</a></p>
-            <a href="mailto:audebanou@pascalevenot.fr" class="prs-contact-email">audebanou@pascalevenot.fr</a>
-          </div>
-          <div class="prs-contact">
             <h3>UK / US</h3>
             <p class="prs-contact-agency"><a href="https://www.re-agency.com/" target="_blank" rel="noopener noreferrer">Re-Agency</a></p>
             <a href="mailto:toileblanche@re-agency.com" class="prs-contact-email">toileblanche@re-agency.com</a>
@@ -83,11 +78,16 @@ const { reviews, clippings } = pressData;
     <section class="prs-clippings">
       <div class="prs-clippings-inner">
         <p class="prs-clippings-label">Archives de coupures</p>
+        <p class="prs-clippings-intro">Couverture presse des publications internationales. Cliquez pour ouvrir l'article complet.</p>
         <div class="prs-clippings-grid">
-          {clippings.map((src, i) => (
-            <div class="prs-clipping">
-              <img src={src} alt="Coupure de presse Toile Blanche — couverture médiatique internationale" loading="lazy" />
-            </div>
+          {clippings.map((c) => (
+            <a href={c.pdf} target="_blank" rel="noopener noreferrer" class="prs-clipping">
+              <div class="prs-clipping-thumb">
+                <img src={c.thumbnail} alt={`${c.publication} — couverture presse Toile Blanche`} loading="lazy" />
+              </div>
+              <p class="prs-clipping-pub">{c.publication}</p>
+              {c.year && <span class="prs-clipping-year">{c.year}</span>}
+            </a>
           ))}
         </div>
       </div>
@@ -300,12 +300,13 @@ const { reviews, clippings } = pressData;
     color: #9e5c4a;
   }
 
-  /* ─── CLIPPINGS ─── */
+  /* ─── CLIPPINGS ARCHIVE (museum-style) ─── */
   .prs-clippings {
     border-bottom: 1px solid #E2D9CC;
+    background: #FAFAF8;
   }
   .prs-clippings-inner {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 80px;
   }
@@ -315,24 +316,53 @@ const { reviews, clippings } = pressData;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #9C9080;
-    margin-bottom: 40px;
+    margin-bottom: 12px;
+  }
+  .prs-clippings-intro {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    color: #6B6256;
+    margin-bottom: 48px;
+    max-width: 480px;
   }
   .prs-clippings-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 40px 32px;
   }
   .prs-clipping {
-    overflow: hidden;
-    background: #f5f2ed;
-  }
-  .prs-clipping img {
-    width: 100%;
     display: block;
-    transition: transform 0.6s ease;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
   }
-  .prs-clipping:hover img {
-    transform: scale(1.02);
+  .prs-clipping:hover {
+    opacity: 0.85;
+  }
+  .prs-clipping-thumb {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: #E8E5E0;
+    margin-bottom: 16px;
+  }
+  .prs-clipping-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .prs-clipping-pub {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1C1917;
+    margin: 0 0 4px;
+  }
+  .prs-clipping-year {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 11px;
+    color: #9C9080;
   }
 
   /* ─── RESPONSIVE ─── */
@@ -362,6 +392,12 @@ const { reviews, clippings } = pressData;
     .prs-clippings-inner {
       padding: 48px 24px;
     }
+    .prs-clippings-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 24px;
+    }
+  }
+  @media (max-width: 500px) {
     .prs-clippings-grid {
       grid-template-columns: 1fr;
     }

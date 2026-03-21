@@ -16,10 +16,8 @@ const HERO_WIDTHS = [800, 1200];
 
 const SLIDESHOW_FILES = [
   'slideshow1.jpg',
-  'slideshow2.JPG',
-  'slideshow3.jpg',
-  'slideshow4.JPG',
   'slideshow5.jpg',
+  'slideshow3.jpg',
 ];
 
 function kb(bytes) {

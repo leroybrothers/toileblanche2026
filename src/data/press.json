@@ -1,31 +1,380 @@
 {
   "reviews": [
-    { "publication": "Condé Nast Traveller", "quote": "A place where the boundary between hotel and gallery has been quietly dissolved.", "year": "2025" },
-    { "publication": "Vogue Living", "quote": "The Leroy Brothers have turned hospitality into a medium. Every suite is a composition.", "year": "2025" },
-    { "publication": "Le Figaro", "quote": "Saint-Paul de Vence retrouve son statut de village d'artistes — grâce, en partie, à Toile Blanche.", "year": "2024" },
-    { "publication": "Financial Times — HTSI", "quote": "Not a hotel with art in it. An artwork you can sleep in.", "year": "2024" },
-    { "publication": "Monocle", "quote": "Twenty-two suites, two restaurants, and something that resists easy categorisation.", "year": "2024" },
-    { "publication": "AD Magazine", "quote": "Un domaine où chaque mur, chaque jardin, chaque angle de lumière a été pensé comme une œuvre.", "year": "2023" },
-    { "publication": "Wallpaper*", "quote": "The new wave of art hotels owes something to what the Leroy Brothers built in Provence.", "year": "2023" },
-    { "publication": "Elle Décoration", "quote": "Toile Blanche prouve que l'hôtellerie de luxe peut être un acte de création contemporaine.", "year": "2023" }
+    {
+      "publication": "Condé Nast Traveller (UK)",
+      "quote": "There's something meditative about the place, and it's hard not to settle in immediately.",
+      "year": "2025"
+    },
+    {
+      "publication": "Vogue (US)",
+      "quote": "Something of a travel miracle: an away-from-it-all retreat that is also just a 13-minute drive from Nice Airport.",
+      "year": "2025"
+    },
+    {
+      "publication": "Forbes (US)",
+      "quote": "Devoted to everything that is pleasurable to see, to touch, to taste, to breathe in. It's delightfully analog.",
+      "year": "2025"
+    },
+    {
+      "publication": "The Times (UK)",
+      "quote": "Subtle good taste everywhere — from the quietly luxurious suites to the excellent restaurant with its superb wine list.",
+      "year": "2025"
+    },
+    {
+      "publication": "Homes & Gardens (UK)",
+      "quote": "The grounds of the hotel are like an open gallery, a sculpture park for modern art from both local and global artists.",
+      "year": "2026"
+    },
+    {
+      "publication": "Mr & Mrs Smith (UK)",
+      "quote": "The Leroy brothers, artists and hoteliers in equal measure, have created something special.",
+      "year": "2025"
+    },
+    {
+      "publication": "Robb Report Monaco",
+      "quote": "A restful blend of contemporary art, Provençal charm and understated luxury.",
+      "year": "2025"
+    },
+    {
+      "publication": "The Independent (UK)",
+      "quote": "What makes Toile Blanche special is its private collection, from paintings on the walls of the rooms to sculptures dotted all over the grounds.",
+      "year": "2025"
+    },
+    {
+      "publication": "Paris Match (France)",
+      "quote": "Toile Blanche est bien plus qu'un hôtel : un art de vivre sous le soleil de Provence.",
+      "year": "2025"
+    },
+    {
+      "publication": "The London Standard (UK)",
+      "quote": "Three siblings who are both artists and hoteliers — have turned this from a modest B&B into a creative retreat.",
+      "year": "2025"
+    }
   ],
   "clippings": [
-    "/assets/images/page-img-37ea194b426b81.avif",
-    "/assets/images/page-img-c2b446ef508aab.avif",
-    "/assets/images/page-img-50b2a4b9fbb1fb.avif",
-    "/assets/images/page-img-64a0c95ea55a98.avif",
-    "/assets/images/page-img-fdf7aa86015b84.avif",
-    "/assets/images/page-img-a1596d1ce42090.avif",
-    "/assets/images/page-img-76f83587fddfbf.avif",
-    "/assets/images/page-img-db052c2e4f8e09.avif",
-    "/assets/images/page-img-8f223a02b060d9.avif",
-    "/assets/images/page-img-4eb937b727508c.avif",
-    "/assets/images/page-img-731ea094798e2d.avif",
-    "/assets/images/page-img-5120e0a8348fed.avif",
-    "/assets/images/page-img-e7cc42e5c98c03.avif",
-    "/assets/images/page-img-23693318da54c4.avif",
-    "/assets/images/page-img-fba9bab5d8fc93.avif",
-    "/assets/images/page-img-9b12f920448ad3.avif",
-    "/assets/images/page-img-6b3e1d28470db9.avif"
+    {
+      "publication": "Roadbook",
+      "pdf": "/assets/press/2026-02-26_Roadbook_UK_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2026-02-26_Roadbook_UK_Online.jpg",
+      "year": "2026"
+    },
+    {
+      "publication": "The Independent",
+      "pdf": "/assets/press/2025-12-08_TheIndependent_UK_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-12-08_TheIndependent_UK_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "The London Standard",
+      "pdf": "/assets/press/2025-10-11_TheLondonStandard_UK_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-10-11_TheLondonStandard_UK_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Condé Nast Traveler",
+      "pdf": "/assets/press/2025-09-21_CondeNastTraveler_USA_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-09-21_CondeNastTraveler_USA_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "88News",
+      "pdf": "/assets/press/2025-09-01_88News_Germany_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-09-01_88News_Germany_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "En Vols",
+      "pdf": "/assets/press/2025-09-01_EnVols_France_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-09-01_EnVols_France_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Feel Good Magazin",
+      "pdf": "/assets/press/2025-09-01_FeelGoodMagazin_Germany_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-09-01_FeelGoodMagazin_Germany_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Gateo",
+      "pdf": "/assets/press/2025-09-01_Gateo_Germany_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-09-01_Gateo_Germany_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Portal Der Wirtschaft",
+      "pdf": "/assets/press/2025-09-01_PortalDerWirtschaft_Germany_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-09-01_PortalDerWirtschaft_Germany_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Pressehafen",
+      "pdf": "/assets/press/2025-09-01_Pressehafen_Germany_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-09-01_Pressehafen_Germany_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Prestige Magazin",
+      "pdf": "/assets/press/2025-09-01_PrestigeMagazin_Germany_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-09-01_PrestigeMagazin_Germany_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "SBMagazin",
+      "pdf": "/assets/press/2025-09-01_SBMagazin_Germany_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-09-01_SBMagazin_Germany_Print.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "The Style Mate",
+      "pdf": "/assets/press/2025-09-01_TheStyleMate_Germany_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-09-01_TheStyleMate_Germany_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Top Freizeit",
+      "pdf": "/assets/press/2025-09-01_TopFreizeit_Germany_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-09-01_TopFreizeit_Germany_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Vogue",
+      "pdf": "/assets/press/2025-08-27_Vogue_USA_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-08-27_Vogue_USA_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Sheer Luxe",
+      "pdf": "/assets/press/2025-08-22_SheerLuxe_UK_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-08-22_SheerLuxe_UK_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "The Times",
+      "pdf": "/assets/press/2025-08-05_TheTimes_UK_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-08-05_TheTimes_UK_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Fora Travel",
+      "pdf": "/assets/press/2025-07-29_ForaTravel_USA_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-07-29_ForaTravel_USA_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Gault & Millau",
+      "pdf": "/assets/press/2025-07-25_GaultEtMillau_France_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-07-25_GaultEtMillau_France_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Mr And Mrs Smith",
+      "pdf": "/assets/press/2025-07-25_MrAndMrsSmith_UK_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-07-25_MrAndMrsSmith_UK_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Condé Nast Traveller",
+      "pdf": "/assets/press/2025-07-07_CondeNastTraveller_UK_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-07-07_CondeNastTraveller_UK_Print.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Le Figaro Magazine",
+      "pdf": "/assets/press/2025-07-04_LeFigaroMagazine_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-07-04_LeFigaroMagazine_France_Print.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Paris Match",
+      "pdf": "/assets/press/2025-07-03_ParisMatch_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-07-03_ParisMatch_France_Print.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Condé Nast Traveller",
+      "pdf": "/assets/press/2025-07-02_CondeNastTraveller_UK_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-07-02_CondeNastTraveller_UK_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Condé Nast Traveller",
+      "pdf": "/assets/press/2025-07-01_CondeNastTraveller_UK_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-07-01_CondeNastTraveller_UK_Print.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Voyager Ici et Ailleurs",
+      "pdf": "/assets/press/2025-07-01_VoyagerIciEtAilleurs_France_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-07-01_VoyagerIciEtAilleurs_France_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Time Out",
+      "pdf": "/assets/press/2025-06-16_TimeOut_France_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-06-16_TimeOut_France_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Mr And Mrs Smith Magazine",
+      "pdf": "/assets/press/2025-06-13_MrAndMrsSmithMagazine_UK_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-06-13_MrAndMrsSmithMagazine_UK_Print.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Sheer Luxe",
+      "pdf": "/assets/press/2025-06-12_SheerLuxe_UK_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-06-12_SheerLuxe_UK_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Tribuca",
+      "pdf": "/assets/press/2025-06-06_Tribuca_France_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-06-06_Tribuca_France_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "ELLE",
+      "pdf": "/assets/press/2025-06-05_ELLE_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-06-05_ELLE_France_Print.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Robb Report",
+      "pdf": "/assets/press/2025-06-03_RobbReport_Monaco_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-06-03_RobbReport_Monaco_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Streifzug Salzburg",
+      "pdf": "/assets/press/2025-06-01_StreifzugSalzburg_Austria_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-06-01_StreifzugSalzburg_Austria_Print.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Streifzug",
+      "pdf": "/assets/press/2025-06-01_Streifzug_Austria_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-06-01_Streifzug_Austria_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Tout Ma",
+      "pdf": "/assets/press/2025-05-29_ToutMa_France_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-05-29_ToutMa_France_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Forbes",
+      "pdf": "/assets/press/2025-05-23_Forbes_USA_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-05-23_Forbes_USA_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Art & Décoration",
+      "pdf": "/assets/press/2025-05-15_ArtEtDeco_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-05-15_ArtEtDeco_France_Print.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Tout Ma",
+      "pdf": "/assets/press/2025-04-25_ToutMa_France_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-04-25_ToutMa_France_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "FUSEDMagazine",
+      "pdf": "/assets/press/2025-04-22_FUSEDMagazine_UK_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-04-22_FUSEDMagazine_UK_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Condé Nast Traveler",
+      "pdf": "/assets/press/2025-04-01_CondeNastTraveler_USA_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-04-01_CondeNastTraveler_USA_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Found Paris",
+      "pdf": "/assets/press/2025-03-28_FoundParis_France_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-03-28_FoundParis_France_Online.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "Homes And Gardens",
+      "pdf": "/assets/press/2025-03-01_HomesAndGardens_UK_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2025-03-01_HomesAndGardens_UK_Print.jpg",
+      "year": "2025"
+    },
+    {
+      "publication": "ADMagazine",
+      "pdf": "/assets/press/2024-UNKNOWN_ADMagazine_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2024-UNKNOWN_ADMagazine_France_Print.jpg",
+      "year": "2024"
+    },
+    {
+      "publication": "Le Monde",
+      "pdf": "/assets/press/2024-11-15_LeMonde_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2024-11-15_LeMonde_France_Print.jpg",
+      "year": "2024"
+    },
+    {
+      "publication": "Le Monde",
+      "pdf": "/assets/press/2024-11-14_LeMonde_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2024-11-14_LeMonde_France_Print.jpg",
+      "year": "2024"
+    },
+    {
+      "publication": "Yonder",
+      "pdf": "/assets/press/2024-10-08_Yonder_France_Online.pdf",
+      "thumbnail": "/assets/press/thumbnails/2024-10-08_Yonder_France_Online.jpg",
+      "year": "2024"
+    },
+    {
+      "publication": "Les Echos Weekend",
+      "pdf": "/assets/press/2024-09-27_LesEchosWeekend_France_Print.png",
+      "thumbnail": "/assets/press/thumbnails/2024-09-27_LesEchosWeekend_France_Print.jpg",
+      "year": "2024"
+    },
+    {
+      "publication": "Marie Claire Maison",
+      "pdf": "/assets/press/2024-09-20_MarieClaireMaison_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2024-09-20_MarieClaireMaison_France_Print.jpg",
+      "year": "2024"
+    },
+    {
+      "publication": "Côte Magazine",
+      "pdf": "/assets/press/2024-09-17_CoteMagazine_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2024-09-17_CoteMagazine_France_Print.jpg",
+      "year": "2024"
+    },
+    {
+      "publication": "Côte Sud",
+      "pdf": "/assets/press/2024-08-21_CoteSud_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2024-08-21_CoteSud_France_Print.jpg",
+      "year": "2024"
+    },
+    {
+      "publication": "Harpers Bazaar",
+      "pdf": "/assets/press/2024-08-11_HarpersBazaar_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2024-08-11_HarpersBazaar_France_Print.jpg",
+      "year": "2024"
+    },
+    {
+      "publication": "Residences",
+      "pdf": "/assets/press/2024-08-02_Residences_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2024-08-02_Residences_France_Print.jpg",
+      "year": "2024"
+    },
+    {
+      "publication": "Challenge",
+      "pdf": "/assets/press/2024-07-31_Challenge_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2024-07-31_Challenge_France_Print.jpg",
+      "year": "2024"
+    },
+    {
+      "publication": "Infrarouge",
+      "pdf": "/assets/press/2024-07-11_Infrarouge_France_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2024-07-11_Infrarouge_France_Print.jpg",
+      "year": "2024"
+    }
   ]
 }
