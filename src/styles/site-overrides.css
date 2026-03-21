@@ -1597,13 +1597,13 @@ body.tb-menu-open .overlap-section-top {
 }
 /* Footer: reduce link/contact text size (tagline + stay-canvas kept at current size) */
 .footer-link {
-  font-size: 0.875rem !important;
+  font-size: 1.125rem !important;
 }
 .footer-contact-link {
-  font-size: 0.875rem !important;
+  font-size: 1.125rem !important;
 }
 .footer-secondary-link {
-  font-size: 0.75rem !important;
+  font-size: 1rem !important;
 }
 .footer-tagline {
   font-family: var(--font-editorial);
