@@ -142,7 +142,7 @@
         "hero": "/assets/images/cabanat/hero.jpg",
         "heroWidth": 2400,
         "heroHeight": 1410,
-        "card": "/assets/images/Homepage/Suite cabanat.jpg",
+        "card": "/assets/images/cabanat/hero.jpg",
         "cardAlt": "Suite Cabanat à Toile Blanche",
         "gallery": [
           "/assets/images/cabanat/hero-legacy.jpg",
@@ -182,11 +182,12 @@
         "card": "/assets/images/Homepage/suite de l'artiste.JPG",
         "cardAlt": "Suite de l'Artiste à Toile Blanche",
         "gallery": [
+          "/assets/images/suite-artiste/gallery-5.jpg",
           "/assets/images/suite-artiste/gallery-1.jpg",
           "/assets/images/suite-artiste/gallery-2.jpg",
           "/assets/images/suite-artiste/gallery-3.jpg",
           "/assets/images/suite-artiste/gallery-4.jpg",
-          "/assets/images/suite-artiste/gallery-5.jpg"
+          "/assets/images/suite-artiste/gallery-shower.jpg"
         ]
       },
       "hasPool": false,
@@ -302,7 +303,8 @@
           "/assets/images/penequet/gallery-1.jpg",
           "/assets/images/penequet/gallery-2.jpg",
           "/assets/images/penequet/gallery-3.jpg",
-          "/assets/images/penequet/gallery-4.jpg",
+          "/assets/images/penequet/IMG_0375.jpg",
+          "/assets/images/penequet/IMG_3091.jpg",
           "/assets/images/penequet/gallery-5.jpg"
         ]
       },
