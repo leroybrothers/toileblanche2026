@@ -143,26 +143,19 @@ function initSuiteGalleryReveals(): void {
   const items = gallery?.querySelectorAll('.sd-gallery-item');
   if (!gallery || !items?.length) return;
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: gallery,
-      start: 'top 75%',
-      end: 'bottom 25%',
-      scrub: 1,
-    },
-  });
-
   items.forEach((item, i) => {
-    tl.from(
-      item,
-      {
-        y: 48,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power2.out',
+    gsap.from(item, {
+      y: 48,
+      opacity: 0,
+      duration: 0.5,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 90%',
+        toggleActions: 'play none none none',
       },
-      i * 0.1
-    );
+      delay: i * 0.06,
+    });
   });
 }
 
