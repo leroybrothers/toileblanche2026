@@ -80,11 +80,6 @@
       current = (current + 1) % slides.length;
       slides[current].classList.add('is-active');
       slides[current].setAttribute('aria-hidden', 'false');
-      if (current === 0) {
-        slides[0].setAttribute('aria-label', 'Toile Blanche, Saint-Paul de Vence');
-      } else {
-        slides[current].removeAttribute('aria-label');
-      }
     }, 6000);
   }
 
