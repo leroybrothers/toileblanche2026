@@ -79,7 +79,8 @@
           "/assets/images/petanque/gallery-5.jpg",
           "/assets/images/petanque/gallery6.jpg",
           "/assets/images/petanque/gallery7.JPG",
-          "/assets/images/petanque/gallery8.jpg"
+          "/assets/images/petanque/gallery8.jpg",
+          "/assets/images/petanque/gallery-pool.jpg"
         ]
       },
       "hasPool": false,
@@ -102,7 +103,7 @@
       },
       "extras": ["Baignoire", "Lit supplémentaire disponible (+80€/nuit)"],
       "images": {
-        "hero": "/assets/images/bronzette/hero.jpg",
+        "hero": "/assets/images/bronzette/DSCF7633.jpg",
         "heroWidth": 2400,
         "heroHeight": 1351,
         "card": "/assets/images/Homepage/Suite bronzette.JPG",
@@ -112,7 +113,7 @@
           "/assets/images/bronzette/DSCF7481.JPG",
           "/assets/images/bronzette/DSCF7369.JPG",
           "/assets/images/bronzette/DSCF7508.jpg",
-          "/assets/images/bronzette/DSCF7633.jpg",
+          "/assets/images/bronzette/DSCF7650.jpg",
           "/assets/images/bronzette/gallery-1.jpg",
           "/assets/images/bronzette/gallery-2.jpg",
           "/assets/images/bronzette/gallery-3.jpg",
@@ -142,9 +143,10 @@
         "hero": "/assets/images/cabanat/hero.jpg",
         "heroWidth": 2400,
         "heroHeight": 1410,
-        "card": "/assets/images/Homepage/Suite cabanat.jpg",
+        "card": "/assets/images/cabanat/hero.jpg",
         "cardAlt": "Suite Cabanat à Toile Blanche",
         "gallery": [
+          "/assets/images/cabanat/hero-legacy.jpg",
           "/assets/images/cabanat/DSCF7158.JPG",
           "/assets/images/cabanat/DSCF7143 (1).JPG",
           "/assets/images/cabanat/DSCF7190.jpg",
@@ -181,11 +183,12 @@
         "card": "/assets/images/Homepage/suite de l'artiste.JPG",
         "cardAlt": "Suite de l'Artiste à Toile Blanche",
         "gallery": [
+          "/assets/images/suite-artiste/gallery-5.jpg",
           "/assets/images/suite-artiste/gallery-1.jpg",
           "/assets/images/suite-artiste/gallery-2.jpg",
           "/assets/images/suite-artiste/gallery-3.jpg",
           "/assets/images/suite-artiste/gallery-4.jpg",
-          "/assets/images/suite-artiste/gallery-5.jpg"
+          "/assets/images/suite-artiste/gallery-shower.jpg"
         ]
       },
       "hasPool": false,
@@ -289,9 +292,11 @@
         "hero": "/assets/images/penequet/hero.jpg",
         "heroWidth": 800,
         "heroHeight": 927,
-        "card": "/assets/images/Homepage/Villa pénéquet.jpg",
+        "card": "/assets/images/penequet/hero.jpg",
         "cardAlt": "Villa du Pénéquet à Toile Blanche",
         "gallery": [
+          "/assets/images/penequet/hero-legacy.jpg",
+          "/assets/images/penequet/IMG_4399.jpg",
           "/assets/images/penequet/IMG_0093.jpg",
           "/assets/images/penequet/IMG_2248.jpg",
           "/assets/images/penequet/IMG_3771.jpg",
@@ -299,7 +304,11 @@
           "/assets/images/penequet/gallery-1.jpg",
           "/assets/images/penequet/gallery-2.jpg",
           "/assets/images/penequet/gallery-3.jpg",
-          "/assets/images/penequet/gallery-4.jpg",
+          "/assets/images/penequet/IMG_0375.jpg",
+          "/assets/images/penequet/IMG_3091.jpg",
+          "/assets/images/penequet/IMG_2673.jpg",
+          "/assets/images/penequet/IMG_3043.jpg",
+          "/assets/images/penequet/IMG_2644.jpg",
           "/assets/images/penequet/gallery-5.jpg"
         ]
       },

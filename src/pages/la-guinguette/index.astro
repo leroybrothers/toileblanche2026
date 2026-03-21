@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import menu from '../../data/menu-guinguette.json';
-import { gallerySrcset } from '../../utils/images';
+import { gallerySrcset, encodePath } from '../../utils/images';
 const lang = 'en';
 ---
 
@@ -63,7 +63,8 @@ const lang = 'en';
           <div class="lgn-details-block">
             <h3>Hours</h3>
             <p>Lunch: 12:00 – 15:00</p>
-            <p>Drinks & snacks: 15:00 – 18:00</p>
+            <p>Drinks & snacks: 15:00 – 18:00 (summer only)</p>
+            <p>Dinner: 18:00 – 21:00 (summer only)</p>
           </div>
 
           <div class="lgn-details-block">
@@ -138,7 +139,6 @@ const lang = 'en';
         <img src="/assets/images/guinguette/IMG_8142.jpg" srcset={gallerySrcset('/assets/images/guinguette/IMG_8142.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Al fresco lunch at La Guinguette" loading="lazy" />
       </div>
       <div class="lgn-gallery-item">
-        <img src="/assets/images/guinguette/IMG_0346.jpg" srcset={gallerySrcset('/assets/images/guinguette/IMG_0346.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Poolside terrace at Toile Blanche" loading="lazy" />
       </div>
       <div class="lgn-gallery-item">
         <img src="/assets/images/guinguette/IMG_4191.jpg" srcset={gallerySrcset('/assets/images/guinguette/IMG_4191.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Sharing dishes at La Guinguette" loading="lazy" />
@@ -165,13 +165,16 @@ const lang = 'en';
         <img src="/assets/images/guinguette/DSCF4164.JPG" srcset={gallerySrcset('/assets/images/guinguette/DSCF4164.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Garden table at Toile Blanche" loading="lazy" />
       </div>
       <div class="lgn-gallery-item">
-        <img src="/assets/images/guinguette/DSCF4327 2.JPG" srcset={gallerySrcset('/assets/images/guinguette/DSCF4327 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Poolside atmosphere" loading="lazy" />
+        <img src={encodePath('/assets/images/guinguette/DSCF4327 2.JPG')} srcset={gallerySrcset('/assets/images/guinguette/DSCF4327 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Poolside atmosphere" loading="lazy" />
       </div>
       <div class="lgn-gallery-item">
         <img src="/assets/images/guinguette/IMG_9320.jpg" srcset={gallerySrcset('/assets/images/guinguette/IMG_9320.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Sharing style dining" loading="lazy" />
       </div>
       <div class="lgn-gallery-item">
         <img src="/assets/images/guinguette/IMG_9344.jpg" srcset={gallerySrcset('/assets/images/guinguette/IMG_9344.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="La Guinguette garden" loading="lazy" />
+      </div>
+      <div class="lgn-gallery-item">
+        <img src="/assets/images/guinguette/guinguette-dessert.jpg" srcset={gallerySrcset('/assets/images/guinguette/guinguette-dessert.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Deconstructed lemon dessert with meringue and citrus zest on the terrace" loading="lazy" />
       </div>
     </section>
 

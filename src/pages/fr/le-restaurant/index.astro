@@ -3,7 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
 import menu from '../../../data/menu-restaurant.json';
-import { gallerySrcset } from '../../../utils/images';
+import { gallerySrcset, encodePath } from '../../../utils/images';
 const lang = 'fr';
 ---
 
@@ -48,7 +48,7 @@ const lang = 'fr';
           <h2>La table</h2>
           <p>Le menu du chef Nicolas Leclair suit le rythme des saisons. Ce qui est arrivé le matin du marché de Nice, ce qui pousse dans le jardin d'herbes à vingt mètres de la cuisine, ce que les pêcheurs ont ramené à l'aube.</p>
           <p>La carte des vins est une déclaration d'amour à la région. L'accent est mis sur les producteurs à portée de voiture, domaines de Bellet, Bandol, Cassis et des collines au-dessus de Vence. Certaines bouteilles sont introuvables ailleurs.</p>
-          <h2>L'espace</h2>
+          <h2>L'&#x202F;espace</h2>
           <p>Le dîner est servi sur la terrasse donnant sur la vallée, ou dans la salle à manger quand la soirée en décide autrement. Informel, sans hâte, sans code vestimentaire. Juste une bonne cuisine dans une belle lumière.</p>
         </div>
         <div class="lrs-details">
@@ -174,16 +174,16 @@ const lang = 'fr';
         <img src="/assets/images/restaurant/IMG_7598.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_7598.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="4032" height="3024" alt="La terrasse du Restaurant à Toile Blanche" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/DSCF4081 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF4081 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Plat de saison au Restaurant" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/DSCF4081 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF4081 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Plat de saison au Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/DSCF4129 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF4129 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dîner au Restaurant" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/DSCF4129 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF4129 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dîner au Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/DSCF5782 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF5782 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Cuisine au Restaurant" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/DSCF5782 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF5782 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Cuisine au Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/DSCF6210 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF6210 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Expérience culinaire à Toile Blanche" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/DSCF6210 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF6210 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Expérience culinaire à Toile Blanche" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/IMG_4608.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_4608.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Terrasse du Restaurant" loading="lazy" />
@@ -201,10 +201,10 @@ const lang = 'fr';
         <img src="/assets/images/restaurant/restaurantgallery/DSCF5723.JPG" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF5723.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Le Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Soirée au Restaurant" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Soirée au Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Terrasse du Restaurant" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Terrasse du Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/restaurantgallery/IMG_0377.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0377.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dîner à Toile Blanche" loading="lazy" />
