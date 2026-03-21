@@ -73,11 +73,6 @@
   function initHeroSlideshow() {
     const slides = document.querySelectorAll('.hero-bg-slide');
     if (slides.length === 0) return;
-    const labels = [];
-    slides.forEach(function (s) {
-      var lbl = s.getAttribute('aria-label');
-      if (lbl) labels.push(lbl);
-    });
     let current = 0;
     setInterval(function () {
       slides[current].classList.remove('is-active');
@@ -85,7 +80,6 @@
       current = (current + 1) % slides.length;
       slides[current].classList.add('is-active');
       slides[current].setAttribute('aria-hidden', 'false');
-      if (labels[current]) slides[current].setAttribute('aria-label', labels[current]);
     }, 6000);
   }
 
