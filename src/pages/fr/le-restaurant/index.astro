@@ -41,6 +41,16 @@ const lang = 'fr';
       </div>
     </section>
 
+    <!-- SPECIALS -->
+    <section class="lrs-specials">
+      <div class="lrs-specials-inner">
+        <h3 class="lrs-specials-title">Menus de saison</h3>
+        <div class="lrs-specials-list">
+          <a href="https://online.fliphtml5.com/mxrbl/xkdg/" target="_blank" rel="noopener noreferrer" class="lrs-specials-link">Menu de Pâques →</a>
+        </div>
+      </div>
+    </section>
+
     <!-- NARRATIVE + DETAILS -->
     <section class="lrs-narrative">
       <div class="lrs-narrative-inner">
@@ -421,6 +431,41 @@ const lang = 'fr';
     color: #3D3530;
   }
 
+  /* ─── SPECIALS ─── */
+  .lrs-specials {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .lrs-specials-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 80px;
+    text-align: center;
+  }
+  .lrs-specials-title {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 20px;
+  }
+  .lrs-specials-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+  .lrs-specials-link {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(18px, 2vw, 22px);
+    color: #3D3530;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .lrs-specials-link:hover {
+    color: #1C1917;
+  }
+
   /* ─── NARRATIVE + DETAILS ─── */
   .lrs-narrative {
     border-bottom: 1px solid #E2D9CC;
@@ -757,6 +802,9 @@ const lang = 'fr';
       padding: 0 24px 48px;
     }
     .lrs-tagline-inner {
+      padding: 48px 24px;
+    }
+    .lrs-specials-inner {
       padding: 48px 24px;
     }
     .lrs-narrative-inner {
