@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import menu from '../../data/menu-restaurant.json';
-import { gallerySrcset } from '../../utils/images';
+import { gallerySrcset, encodePath } from '../../utils/images';
 const lang = 'en';
 ---
 
@@ -173,16 +173,16 @@ const lang = 'en';
         <img src="/assets/images/restaurant/IMG_7598.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_7598.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="4032" height="3024" alt="Le Restaurant terrace at Toile Blanche" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/DSCF4081 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF4081 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Seasonal dish at Le Restaurant" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/DSCF4081 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF4081 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Seasonal dish at Le Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/DSCF4129 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF4129 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Evening dining at Le Restaurant" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/DSCF4129 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF4129 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Evening dining at Le Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/DSCF5782 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF5782 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Cuisine at Le Restaurant" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/DSCF5782 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF5782 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Cuisine at Le Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/DSCF6210 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/DSCF6210 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Dining experience at Toile Blanche" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/DSCF6210 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF6210 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Dining experience at Toile Blanche" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/IMG_4608.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_4608.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Restaurant terrace" loading="lazy" />
@@ -200,10 +200,10 @@ const lang = 'en';
         <img src="/assets/images/restaurant/restaurantgallery/DSCF5723.JPG" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF5723.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant dining" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Evening at Le Restaurant" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Evening at Le Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant terrace" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant terrace" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/restaurantgallery/IMG_0377.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0377.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Dining at Toile Blanche" loading="lazy" />

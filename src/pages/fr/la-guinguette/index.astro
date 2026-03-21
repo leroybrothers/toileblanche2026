@@ -3,7 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
 import menu from '../../../data/menu-guinguette.json';
-import { gallerySrcset } from '../../../utils/images';
+import { gallerySrcset, encodePath } from '../../../utils/images';
 const lang = 'fr';
 ---
 
@@ -166,7 +166,7 @@ const lang = 'fr';
         <img src="/assets/images/guinguette/DSCF4164.JPG" srcset={gallerySrcset('/assets/images/guinguette/DSCF4164.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Table au jardin à Toile Blanche" loading="lazy" />
       </div>
       <div class="lgn-gallery-item">
-        <img src="/assets/images/guinguette/DSCF4327 2.JPG" srcset={gallerySrcset('/assets/images/guinguette/DSCF4327 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Ambiance au bord de la piscine" loading="lazy" />
+        <img src={encodePath('/assets/images/guinguette/DSCF4327 2.JPG')} srcset={gallerySrcset('/assets/images/guinguette/DSCF4327 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Ambiance au bord de la piscine" loading="lazy" />
       </div>
       <div class="lgn-gallery-item">
         <img src="/assets/images/guinguette/IMG_9320.jpg" srcset={gallerySrcset('/assets/images/guinguette/IMG_9320.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dîner à partager" loading="lazy" />

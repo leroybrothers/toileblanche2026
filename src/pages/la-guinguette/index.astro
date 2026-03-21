@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import menu from '../../data/menu-guinguette.json';
-import { gallerySrcset } from '../../utils/images';
+import { gallerySrcset, encodePath } from '../../utils/images';
 const lang = 'en';
 ---
 
@@ -165,7 +165,7 @@ const lang = 'en';
         <img src="/assets/images/guinguette/DSCF4164.JPG" srcset={gallerySrcset('/assets/images/guinguette/DSCF4164.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Garden table at Toile Blanche" loading="lazy" />
       </div>
       <div class="lgn-gallery-item">
-        <img src="/assets/images/guinguette/DSCF4327 2.JPG" srcset={gallerySrcset('/assets/images/guinguette/DSCF4327 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Poolside atmosphere" loading="lazy" />
+        <img src={encodePath('/assets/images/guinguette/DSCF4327 2.JPG')} srcset={gallerySrcset('/assets/images/guinguette/DSCF4327 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Poolside atmosphere" loading="lazy" />
       </div>
       <div class="lgn-gallery-item">
         <img src="/assets/images/guinguette/IMG_9320.jpg" srcset={gallerySrcset('/assets/images/guinguette/IMG_9320.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Sharing style dining" loading="lazy" />
