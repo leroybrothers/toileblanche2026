@@ -83,6 +83,12 @@ const suites = suitesData.suites.map(s => ({
   <div class="section tb-suites-section overlap-section-top">
     <div class="home-room-slider-wrapper fade-up">
       <div class="home-room-slider js-slider" id="suites-slider" role="region" aria-label="Galerie des suites">
+        <button type="button" class="room-slider-arrow room-slider-left-arrow js-slider-prev" aria-label="Suite précédente">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button type="button" class="room-slider-arrow room-slider-right-arrow js-slider-next" aria-label="Suite suivante">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
         <div class="home-room-mask js-slider-track">
           {suites.map((suite, i) => (
             <div class={`home-room-single-slide js-slide${suite.href === '/fr/suites/mas-artiste' ? ' room-slide-masartiste' : ''}`} data-slide-index={i} role="group" aria-label={`${i + 1} sur ${suites.length}`}>

@@ -213,10 +213,52 @@
   }
 
   // ─── Suite Slider ──────────────────────────────────────────────────────────
+  /** Randomise homepage suites carousel order on each visit (static build = shuffle must run client-side). */
+  function shuffleSuitesCarousel(track, wrapper) {
+    const slides = Array.from(track.querySelectorAll('.js-slide'));
+    const dotsContainer = wrapper.querySelector('.room-slider-dots');
+    if (!dotsContainer || slides.length < 2) return;
+    const dots = Array.from(dotsContainer.querySelectorAll('.js-slider-dot'));
+    if (dots.length !== slides.length) return;
+
+    const pairs = slides.map(function (slide, i) {
+      return { slide: slide, dot: dots[i] };
+    });
+    for (var i = pairs.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = pairs[i];
+      pairs[i] = pairs[j];
+      pairs[j] = tmp;
+    }
+
+    var lang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
+    var isFr = lang.indexOf('fr') === 0;
+    var total = pairs.length;
+
+    pairs.forEach(function (pair, idx) {
+      track.appendChild(pair.slide);
+      dotsContainer.appendChild(pair.dot);
+      pair.slide.setAttribute('data-slide-index', String(idx));
+      pair.slide.setAttribute('aria-label', isFr
+        ? (idx + 1) + ' sur ' + total
+        : (idx + 1) + ' of ' + total);
+      pair.dot.setAttribute('data-index', String(idx));
+      pair.dot.setAttribute('aria-label', isFr
+        ? 'Aller au slide ' + (idx + 1)
+        : 'Go to slide ' + (idx + 1));
+      pair.dot.removeAttribute('aria-current');
+    });
+  }
+
   function initSliders() {
     document.querySelectorAll('.js-slider').forEach(function (sliderEl) {
       const wrapper = sliderEl.closest('.home-room-slider-wrapper');
       const track = sliderEl.querySelector('.js-slider-track');
+
+      if (sliderEl.id === 'suites-slider' && track && wrapper) {
+        shuffleSuitesCarousel(track, wrapper);
+      }
+
       const slides = sliderEl.querySelectorAll('.js-slide');
       const prevBtn = sliderEl.querySelector('.js-slider-prev');
       const nextBtn = sliderEl.querySelector('.js-slider-next');
