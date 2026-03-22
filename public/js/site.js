@@ -70,9 +70,10 @@
 
   // ─── Hero slideshow ────────────────────────────────────────────────────────
   // 6s per image, 1.5s cross-dissolve (CSS). No dots or arrows — silent cycle.
+  // Disabled: single static hero image only.
   function initHeroSlideshow() {
     const slides = document.querySelectorAll('.hero-bg-slide');
-    if (slides.length === 0) return;
+    if (slides.length <= 1) return;
     let current = 0;
     setInterval(function () {
       slides[current].classList.remove('is-active');
