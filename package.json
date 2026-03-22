@@ -12,16 +12,19 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "optimize-images": "node scripts/optimize-suite-images.mjs",
     "optimize-slideshow": "node scripts/optimize-slideshow-images.mjs",
     "optimize-homepage-cards": "node scripts/optimize-homepage-cards.mjs",
     "optimize-homepage-features": "node scripts/optimize-homepage-features.mjs",
     "generate-favicons": "node scripts/generate-favicons.mjs",
     "optimize-gallery-webp": "node scripts/optimize-gallery-webp.mjs",
-    "optimize-all": "npm run optimize-slideshow && npm run optimize-images && npm run optimize-homepage-cards && npm run optimize-homepage-features && npm run optimize-gallery-webp && node scripts/optimize-archive-images.mjs"
+    "optimize-all": "npm run optimize-slideshow && npm run optimize-images && npm run optimize-homepage-cards && npm run optimize-homepage-features && npm run optimize-gallery-webp && node scripts/optimize-archive-images.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "11",
     "@astrojs/sitemap": "^3.2.1",
     "@vercel/analytics": "^1.6.1",
     "@vercel/blob": "^2.3.1",
@@ -31,6 +34,7 @@
     "lenis": "1.1.11"
   },
   "devDependencies": {
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "wrangler": "^4.76.0"
   }
 }
