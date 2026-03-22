@@ -22,15 +22,9 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
   <Nav theme="both" locale="fr" />
 
   <main id="main-content" class="prop-page">
-    <!-- HERO: full bleed, title bottom-left (Passalacqua style) -->
-    <section class="prop-hero">
-      <div class="prop-hero-image">
-        <img src={encodePath(img.place.hero)} srcset={srcsetFor(img.place.hero, 'hero')} sizes="100vw" width="1920" height="1280" alt="Lavande et bâtiments du domaine Toile Blanche, Saint-Paul de Vence" loading="eager" fetchpriority="high" />
-        <div class="prop-hero-overlay"></div>
-      </div>
-      <div class="prop-hero-content">
-        <h1>{t.pages.theProperty.heroTitle}</h1>
-      </div>
+    <!-- Page title (no full-width hero) -->
+    <section class="prop-page-header">
+      <h1>{t.pages.theProperty.heroTitle}</h1>
     </section>
 
     <!-- Cluster 1: Le Lieu -->
@@ -66,9 +60,6 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
         <div class="prop-text-block prop-text-right">
           <h2>{t.pages.theProperty.cluster2Title}</h2>
           <p>{t.pages.theProperty.cluster2Text}</p>
-        </div>
-        <div class="prop-fullbleed">
-          <img src={encodePath(img.houses.fullbleed)} srcset={srcsetFor(img.houses.fullbleed, 'gallery')} sizes="100vw" width="2917" height="3898" alt="Intérieur voûté avec lumière douce à travers les rideaux" loading="lazy" />
         </div>
         {img.houses.extra.length > 0 && (
           <div class={`prop-landscapes prop-landscapes-${img.houses.extra.length}`}>
@@ -113,9 +104,6 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     <!-- Cluster 4: La Table -->
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
-        <div class="prop-fullbleed">
-          <img src={encodePath(img.table.hero)} srcset={srcsetFor(img.table.hero, 'gallery')} sizes="100vw" width="4032" height="2717" alt="La Guinguette sous les platanes" loading="lazy" />
-        </div>
         <div class="prop-text-block prop-text-left">
           <h2>{t.pages.theProperty.cluster4Title}</h2>
           <p>{t.pages.theProperty.cluster4Text}</p>
@@ -147,18 +135,12 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
           <h2>{t.pages.theProperty.cluster5Title}</h2>
           <p>{t.pages.theProperty.cluster5Text}</p>
         </div>
-        <div class="prop-fullbleed">
-          <img src={encodePath(img.art.fullbleed)} srcset={srcsetFor(img.art.fullbleed, 'hero')} sizes="100vw" width="4898" height="3265" alt="Jardin à l'heure dorée, Toile Blanche" loading="lazy" />
-        </div>
       </div>
     </section>
 
     <!-- Cluster 6: Le Jardin -->
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
-        <div class="prop-fullbleed">
-          <img src={encodePath(img.garden.hero)} srcset={srcsetFor(img.garden.hero, 'hero')} sizes="100vw" width="1920" height="1280" alt="Lavande et bâtiments du domaine Toile Blanche, Saint-Paul de Vence" loading="lazy" />
-        </div>
         <div class="prop-text-block prop-text-left">
           <h2>{t.pages.theProperty.cluster6Title}</h2>
           <p>{t.pages.theProperty.cluster6Text}</p>
@@ -172,18 +154,12 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
             ))}
           </div>
         )}
-        <div class="prop-fullbleed">
-          <img src={encodePath(img.garden.fullbleed)} srcset={srcsetFor(img.garden.fullbleed, 'gallery')} sizes="100vw" width="2000" height="1333" alt="Jardins à l'heure dorée avec la vallée en arrière-plan, Toile Blanche" loading="lazy" />
-        </div>
       </div>
     </section>
 
     <!-- Cluster 7: L'Ambiance -->
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
-        <div class="prop-fullbleed">
-          <img src={encodePath(img.atmosphere.hero)} srcset={srcsetFor(img.atmosphere.hero, 'hero')} sizes="100vw" width="1920" height="1280" alt="Ambiance à Toile Blanche" loading="lazy" />
-        </div>
         <div class="prop-text-block prop-text-left">
           <h2>{t.pages.theProperty.cluster7Title}</h2>
           <p>{t.pages.theProperty.cluster7Text}</p>
@@ -213,49 +189,22 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
   .prop-page {
     overflow-x: hidden;
   }
-  /* ─── HERO (Passalacqua style: title bottom-left) ─── */
-  .prop-hero {
-    position: relative;
-    height: 85vh;
-    min-height: 500px;
-    overflow: hidden;
+  /* ─── Page header (no full-width hero) ─── */
+  .prop-page-header {
+    padding: 120px 80px 80px;
   }
-  .prop-hero-image {
-    position: absolute;
-    inset: 0;
-  }
-  .prop-hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .prop-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 55%);
-  }
-  .prop-hero-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 0 80px 72px;
-    color: #fff;
-  }
-  .prop-hero-content h1 {
+  .prop-page-header h1 {
     font-family: 'Gilda Display', Georgia, serif;
     font-size: clamp(36px, 5vw, 72px);
     font-weight: 400;
     line-height: 1.1;
-    color: #fff;
+    color: #1C1917;
   }
 
   /* ─── CLUSTERS (generous white space) ─── */
   .prop-cluster {
     padding: 140px 0;
     border-bottom: 1px solid #E2D9CC;
-  }
-  .prop-cluster:has(.prop-cluster-inner > .prop-fullbleed:first-child) {
-    padding-top: 180px;
   }
   .prop-cluster:last-of-type {
     border-bottom: none;
@@ -278,8 +227,8 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     .prop-cluster-inner {
       padding: 0 24px;
     }
-    .prop-hero-content {
-      padding: 0 24px 48px;
+    .prop-page-header {
+      padding: 80px 24px 60px;
     }
   }
 
@@ -313,18 +262,6 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
   }
 
   /* Image layouts */
-  .prop-fullbleed {
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    margin-bottom: 100px;
-  }
-  .prop-fullbleed img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
   .prop-portraits {
     display: grid;
     gap: 40px;

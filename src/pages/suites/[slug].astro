@@ -88,7 +88,7 @@ const cardSrcset = (p: string) => srcset(p, [400]);
     <!-- GALLERY -->
     <section class="sd-gallery">
       {suite.images.gallery.map((img, i) => (
-        <div class={`sd-gallery-item sd-gallery-item-${i + 1}`}>
+        <div class={`sd-gallery-item sd-gallery-item-${i + 1} fade-up`}>
           <img src={img} srcset={gallerySrcset(img)} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt={`${suite.name} — view ${i + 1}`} loading="lazy" />
         </div>
       ))}

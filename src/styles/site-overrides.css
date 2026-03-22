@@ -103,6 +103,24 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   object-position: center;
 }
 
+/* ─── Fade-up entrance (below-fold only; works with Lenis) ─────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ─── Transparent menu button on hero ─────────────────────────────────────── */
 .navigation-dark .navigation-bar.dark,
 .navigation-dark .menu-button {
