@@ -252,8 +252,11 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
 
   /* ─── CLUSTERS (generous white space) ─── */
   .prop-cluster {
-    padding: 120px 0;
+    padding: 140px 0;
     border-bottom: 1px solid #E2D9CC;
+  }
+  .prop-cluster:has(.prop-cluster-inner > .prop-fullbleed:first-child) {
+    padding-top: 180px;
   }
   .prop-cluster:last-of-type {
     border-bottom: none;
@@ -263,9 +266,15 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     margin: 0 auto;
     padding: 0 80px;
   }
+  .prop-cluster-inner > * + * {
+    margin-top: 120px;
+  }
   @media (max-width: 768px) {
     .prop-cluster {
-      padding: 80px 0;
+      padding: 100px 0;
+    }
+    .prop-cluster-inner > * + * {
+      margin-top: 80px;
     }
     .prop-cluster-inner {
       padding: 0 24px;
@@ -278,10 +287,6 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
   /* Text blocks */
   .prop-text-block {
     max-width: 560px;
-    margin-bottom: 80px;
-  }
-  .prop-text-block:last-child {
-    margin-bottom: 0;
   }
   .prop-text-block h2 {
     font-family: 'Gilda Display', serif;
@@ -306,7 +311,6 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    margin-bottom: 80px;
   }
 
   /* Image layouts */
@@ -315,6 +319,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     max-width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
+    margin-bottom: 100px;
   }
   .prop-fullbleed img {
     width: 100%;
@@ -323,30 +328,21 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
   }
   .prop-portraits {
     display: grid;
-    gap: 24px;
-    margin-bottom: 80px;
+    gap: 40px;
   }
   .prop-portraits-1 { grid-template-columns: 1fr; }
   .prop-portraits-2 { grid-template-columns: repeat(2, 1fr); }
   .prop-portraits-3 { grid-template-columns: repeat(3, 1fr); }
-  .prop-portraits:last-child {
-    margin-bottom: 0;
-  }
   .prop-landscapes {
     display: grid;
-    gap: 24px;
-    margin-bottom: 80px;
+    gap: 40px;
   }
   .prop-landscapes-1 { grid-template-columns: 1fr; }
   .prop-landscapes-2 { grid-template-columns: repeat(2, 1fr); }
-  .prop-landscapes:last-child {
-    margin-bottom: 0;
-  }
   .prop-atmosphere-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 80px;
+    gap: 40px;
   }
   .prop-atmosphere-item img {
     width: 100%;
@@ -371,11 +367,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
   .prop-two-landscapes {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-bottom: 80px;
-  }
-  .prop-two-landscapes:last-child {
-    margin-bottom: 0;
+    gap: 40px;
   }
   .prop-landscape img {
     width: 100%;
@@ -387,20 +379,15 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
   @media (max-width: 900px) {
     .prop-portraits-1, .prop-portraits-2, .prop-portraits-3 {
       grid-template-columns: 1fr;
-      gap: 16px;
-      margin-bottom: 48px;
+      gap: 24px;
     }
     .prop-landscapes-1, .prop-landscapes-2 {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 24px;
     }
     .prop-two-landscapes {
       grid-template-columns: 1fr;
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-    .prop-fullbleed {
-      margin: 0 -24px;
+      gap: 24px;
     }
   }
 
