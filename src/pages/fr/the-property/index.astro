@@ -8,6 +8,10 @@ import { getPropertyImages } from '../../../utils/the-property-images';
 
 const t = useTranslations('fr');
 const img = getPropertyImages();
+
+const isPropertyImg = (path: string) => path.startsWith('/assets/images/theproperty/');
+const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
+  isPropertyImg(path) ? undefined : (type === 'hero' ? heroSrcset(path) : gallerySrcset(path));
 ---
 
 <Layout
@@ -18,11 +22,11 @@ const img = getPropertyImages();
 >
   <Nav theme="both" locale="fr" />
 
-  <main id="main-content">
+  <main id="main-content" class="prop-page">
     <!-- HERO: full bleed, title bottom-left (Passalacqua style) -->
     <section class="prop-hero">
       <div class="prop-hero-image">
-        <img src={img.place.hero} srcset={heroSrcset(img.place.hero)} sizes="100vw" width="1920" height="1280" alt="Lavande et bâtiments du domaine Toile Blanche, Saint-Paul de Vence" loading="eager" fetchpriority="high" />
+        <img src={img.place.hero} srcset={srcsetFor(img.place.hero, 'hero')} sizes="100vw" width="1920" height="1280" alt="Lavande et bâtiments du domaine Toile Blanche, Saint-Paul de Vence" loading="eager" fetchpriority="high" />
         <div class="prop-hero-overlay"></div>
       </div>
       <div class="prop-hero-content">
@@ -41,7 +45,7 @@ const img = getPropertyImages();
           <div class={`prop-portraits prop-portraits-${img.place.portraits.length}`}>
             {img.place.portraits.map((src) => (
               <div class="prop-portrait">
-                <img src={src} srcset={gallerySrcset(src)} sizes={img.place.portraits.length === 1 ? "100vw" : "(max-width: 900px) 100vw, 33.33vw"} width="1200" height="1600" alt="Le lieu à Toile Blanche" loading="lazy" />
+                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes={img.place.portraits.length === 1 ? "100vw" : "(max-width: 900px) 100vw, 33.33vw"} width="1200" height="1600" alt="Le lieu à Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -54,10 +58,10 @@ const img = getPropertyImages();
       <div class="prop-cluster-inner">
         <div class="prop-two-landscapes">
           <div class="prop-landscape">
-            <img src={img.houses.landscape1} srcset={gallerySrcset(img.houses.landscape1)} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Couloir d'art dans le domaine" loading="lazy" />
+            <img src={img.houses.landscape1} srcset={srcsetFor(img.houses.landscape1, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Couloir d'art dans le domaine" loading="lazy" />
           </div>
           <div class="prop-landscape">
-            <img src={img.houses.landscape2} srcset={gallerySrcset(img.houses.landscape2)} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Piscine et cour vues du dessus" loading="lazy" />
+            <img src={img.houses.landscape2} srcset={srcsetFor(img.houses.landscape2, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Piscine et cour vues du dessus" loading="lazy" />
           </div>
         </div>
         <div class="prop-text-block prop-text-right">
@@ -65,13 +69,13 @@ const img = getPropertyImages();
           <p>{t.pages.theProperty.cluster2Text}</p>
         </div>
         <div class="prop-fullbleed">
-          <img src={img.houses.fullbleed} srcset={gallerySrcset(img.houses.fullbleed)} sizes="100vw" width="2917" height="3898" alt="Intérieur voûté avec lumière douce à travers les rideaux" loading="lazy" />
+          <img src={img.houses.fullbleed} srcset={srcsetFor(img.houses.fullbleed, 'gallery')} sizes="100vw" width="2917" height="3898" alt="Intérieur voûté avec lumière douce à travers les rideaux" loading="lazy" />
         </div>
         {img.houses.extra.length > 0 && (
           <div class={`prop-landscapes prop-landscapes-${img.houses.extra.length}`}>
             {img.houses.extra.map((src) => (
               <div class="prop-landscape">
-                <img src={src} srcset={gallerySrcset(src)} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Les maisons à Toile Blanche" loading="lazy" />
+                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Les maisons à Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -86,7 +90,7 @@ const img = getPropertyImages();
           <div class={`prop-portraits prop-portraits-${img.rooms.portraits.length}`}>
             {img.rooms.portraits.map((src) => (
               <div class="prop-portrait">
-                <img src={src} srcset={gallerySrcset(src)} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="1600" alt="Suite à Toile Blanche" loading="lazy" />
+                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="1600" alt="Suite à Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -99,7 +103,7 @@ const img = getPropertyImages();
           <div class="prop-two-landscapes">
             {img.rooms.landscapes.map((src) => (
               <div class="prop-landscape">
-                <img src={src} srcset={gallerySrcset(src)} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Les chambres à Toile Blanche" loading="lazy" />
+                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Les chambres à Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -111,7 +115,7 @@ const img = getPropertyImages();
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
         <div class="prop-fullbleed">
-          <img src={img.table.hero} srcset={gallerySrcset(img.table.hero)} sizes="100vw" width="4032" height="2717" alt="La Guinguette sous les platanes" loading="lazy" />
+          <img src={img.table.hero} srcset={srcsetFor(img.table.hero, 'gallery')} sizes="100vw" width="4032" height="2717" alt="La Guinguette sous les platanes" loading="lazy" />
         </div>
         <div class="prop-text-block prop-text-left">
           <h2>{t.pages.theProperty.cluster4Title}</h2>
@@ -121,7 +125,7 @@ const img = getPropertyImages();
           <div class={`prop-portraits prop-portraits-${img.table.portraits.length}`}>
             {img.table.portraits.map((src) => (
               <div class="prop-portrait">
-                <img src={src} srcset={gallerySrcset(src)} sizes={img.table.portraits.length === 1 ? "100vw" : "(max-width: 900px) 100vw, 33.33vw"} width="1200" height="1600" alt="La table à Toile Blanche" loading="lazy" />
+                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes={img.table.portraits.length === 1 ? "100vw" : "(max-width: 900px) 100vw, 33.33vw"} width="1200" height="1600" alt="La table à Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -134,10 +138,10 @@ const img = getPropertyImages();
       <div class="prop-cluster-inner">
         <div class="prop-two-landscapes">
           <div class="prop-landscape">
-            <img src={img.art.landscape1} srcset={gallerySrcset(img.art.landscape1)} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Sculpture jaune dans le jardin" loading="lazy" />
+            <img src={img.art.landscape1} srcset={srcsetFor(img.art.landscape1, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Sculpture jaune dans le jardin" loading="lazy" />
           </div>
           <div class="prop-landscape">
-            <img src={img.art.landscape2} srcset={gallerySrcset(img.art.landscape2)} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Couloir d'art" loading="lazy" />
+            <img src={img.art.landscape2} srcset={srcsetFor(img.art.landscape2, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Couloir d'art" loading="lazy" />
           </div>
         </div>
         <div class="prop-text-block prop-text-center">
@@ -145,7 +149,7 @@ const img = getPropertyImages();
           <p>{t.pages.theProperty.cluster5Text}</p>
         </div>
         <div class="prop-fullbleed">
-          <img src={img.art.fullbleed} srcset={heroSrcset(img.art.fullbleed)} sizes="100vw" width="4898" height="3265" alt="Jardin à l'heure dorée, Toile Blanche" loading="lazy" />
+          <img src={img.art.fullbleed} srcset={srcsetFor(img.art.fullbleed, 'hero')} sizes="100vw" width="4898" height="3265" alt="Jardin à l'heure dorée, Toile Blanche" loading="lazy" />
         </div>
       </div>
     </section>
@@ -154,7 +158,7 @@ const img = getPropertyImages();
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
         <div class="prop-fullbleed">
-          <img src={img.garden.hero} srcset={heroSrcset(img.garden.hero)} sizes="100vw" width="1920" height="1280" alt="Lavande et bâtiments du domaine Toile Blanche, Saint-Paul de Vence" loading="lazy" />
+          <img src={img.garden.hero} srcset={srcsetFor(img.garden.hero, 'hero')} sizes="100vw" width="1920" height="1280" alt="Lavande et bâtiments du domaine Toile Blanche, Saint-Paul de Vence" loading="lazy" />
         </div>
         <div class="prop-text-block prop-text-left">
           <h2>{t.pages.theProperty.cluster6Title}</h2>
@@ -164,13 +168,13 @@ const img = getPropertyImages();
           <div class={`prop-landscapes prop-landscapes-${img.garden.middle.length}`}>
             {img.garden.middle.map((src) => (
               <div class="prop-landscape">
-                <img src={src} srcset={gallerySrcset(src)} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Le jardin à Toile Blanche" loading="lazy" />
+                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Le jardin à Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
         )}
         <div class="prop-fullbleed">
-          <img src={img.garden.fullbleed} srcset={gallerySrcset(img.garden.fullbleed)} sizes="100vw" width="2000" height="1333" alt="Jardins à l'heure dorée avec la vallée en arrière-plan, Toile Blanche" loading="lazy" />
+          <img src={img.garden.fullbleed} srcset={srcsetFor(img.garden.fullbleed, 'gallery')} sizes="100vw" width="2000" height="1333" alt="Jardins à l'heure dorée avec la vallée en arrière-plan, Toile Blanche" loading="lazy" />
         </div>
       </div>
     </section>
@@ -179,7 +183,7 @@ const img = getPropertyImages();
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
         <div class="prop-fullbleed">
-          <img src={img.atmosphere.hero} srcset={heroSrcset(img.atmosphere.hero)} sizes="100vw" width="1920" height="1280" alt="Ambiance à Toile Blanche" loading="lazy" />
+          <img src={img.atmosphere.hero} srcset={srcsetFor(img.atmosphere.hero, 'hero')} sizes="100vw" width="1920" height="1280" alt="Ambiance à Toile Blanche" loading="lazy" />
         </div>
         <div class="prop-text-block prop-text-left">
           <h2>{t.pages.theProperty.cluster7Title}</h2>
@@ -189,7 +193,7 @@ const img = getPropertyImages();
           <div class="prop-atmosphere-grid">
             {img.atmosphere.grid.map((src) => (
               <div class="prop-atmosphere-item">
-                <img src={src} srcset={gallerySrcset(src)} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="800" alt="Ambiance à Toile Blanche" loading="lazy" />
+                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="800" alt="Ambiance à Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -207,6 +211,9 @@ const img = getPropertyImages();
 </Layout>
 
 <style>
+  .prop-page {
+    overflow-x: hidden;
+  }
   /* ─── HERO (Passalacqua style: title bottom-left) ─── */
   .prop-hero {
     position: relative;
@@ -304,9 +311,10 @@ const img = getPropertyImages();
 
   /* Image layouts */
   .prop-fullbleed {
-    width: 100%;
-    margin: 0 -80px;
-    max-width: none;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
   }
   .prop-fullbleed img {
     width: 100%;
