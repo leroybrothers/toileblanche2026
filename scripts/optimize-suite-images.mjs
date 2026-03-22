@@ -15,6 +15,9 @@ const GALLERY_ONLY_DIRS = ['restaurant', 'guinguette', 'sessions'];
 // Additional dirs with gallery images (and subdirs); hero images use StP25* filename pattern
 const EXTRA_GALLERY_DIRS = ['art', 'breakfast', 'ambiance', 'aboutgrid', 'pools'];
 
+// The Property page: subdirs theplace, thehouses, etc.; needs 800w for hero + 600/1200 for gallery
+const THEPROPERTY_DIR = 'theproperty';
+
 const SIZES = {
   hero:    [2400, 1200, 800],
   card:    [800, 400],
@@ -22,11 +25,12 @@ const SIZES = {
 };
 
 function getSizeSet(name, opts = {}) {
-  const { isGalleryOnlyDir } = opts;
+  const { isGalleryOnlyDir, isTheProperty } = opts;
   if (name === 'hero') return SIZES.hero;
   if (name === 'card') return SIZES.card;
-  // Art/breakfast hero images use StP25* or GaelleSimon pattern — need hero srcset (800, 1200)
   if (/StP25|GaelleSimon/i.test(name)) return SIZES.hero;
+  // The Property: hero (800,1200) + gallery (600,1200)
+  if (isTheProperty) return [1800, 1200, 800, 600];
   if (isGalleryOnlyDir) return SIZES.gallery;
   return SIZES.gallery;
 }
@@ -100,10 +104,11 @@ async function run() {
   let totalBefore = 0;
   let totalAfter = 0;
 
-  const allDirs = [...SUITE_DIRS, ...GALLERY_ONLY_DIRS, ...EXTRA_GALLERY_DIRS];
+  const allDirs = [...SUITE_DIRS, ...GALLERY_ONLY_DIRS, ...EXTRA_GALLERY_DIRS, THEPROPERTY_DIR];
   for (const dir of allDirs) {
     const dirPath = join(BASE, dir);
     const isGalleryOnly = GALLERY_ONLY_DIRS.includes(dir) || EXTRA_GALLERY_DIRS.includes(dir);
+    const isTheProperty = dir === THEPROPERTY_DIR;
     let files;
     try {
       files = await getImageFiles(dirPath);
@@ -120,7 +125,7 @@ async function run() {
       const sizeBefore = (await stat(fullPath)).size;
       totalBefore += sizeBefore;
 
-      await processImage(fullPath, name, { isGalleryOnlyDir: isGalleryOnly, relPath: relative(BASE, fullPath) });
+      await processImage(fullPath, name, { isGalleryOnlyDir: isGalleryOnly, isTheProperty, relPath: relative(BASE, fullPath) });
 
       const pathAfter = ext.toLowerCase() === '.png' ? join(fullPath, '..', name + '.jpg') : fullPath;
       totalAfter += (await stat(pathAfter)).size;

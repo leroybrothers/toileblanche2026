@@ -57,7 +57,7 @@ const t = useTranslations(lang);
       <div class="lrs-narrative-inner">
         <div class="lrs-narrative-text">
           <h2>The Table</h2>
-          <p>Chef Nicolas Leclair's menu is built around the rhythm of the seasons. What arrived that morning from the market in Nice, what is growing in the herb garden twenty metres from the kitchen, what the fishermen brought in at dawn.</p>
+          <p>Chefs Nicolas Leclair and Melissa Giordano's menu is built around the rhythm of the seasons. What arrived that morning, what is growing in the herb garden twenty metres from the kitchen, what the fishermen brought in at dawn.</p>
           <p>The wine list reads like a declaration of love for the region. The focus is on producers within driving distance, estates in Bellet, Bandol, Cassis, and the hills above Vence. Some bottles are available nowhere else.</p>
           <h2>The Space</h2>
           <p>Dinner is served on the terrace overlooking the valley, or inside the dining room when the evening has other plans. Informal, unhurried, no jacket required. Just good food in beautiful light.</p>
@@ -67,7 +67,7 @@ const t = useTranslations(lang);
 
           <div class="lrs-details-block">
             <h3>Hours</h3>
-            <p>Dinner: 19:00 – 22:00</p>
+            <p>Dinner: 19:00 – 22:00 (summer) / 19:00 – 21:00 (winter)</p>
             <p>Open year-round</p>
           </div>
 
@@ -107,7 +107,7 @@ const t = useTranslations(lang);
               <p class="lrs-menu-label">{menu.meta.season[lang]}</p>
               <h2>The Menu</h2>
               <p class="lrs-menu-intro">{menu.meta.philosophy[lang]}</p>
-              <p class="lrs-menu-chefs">Chefs: {menu.meta.chefs.join(' & ')}</p>
+              <p class="lrs-menu-chefs">Chefs {menu.meta.chefs.join(' and ')}</p>
               <span class="lrs-menu-expand">
                 <span class="lrs-menu-expand-text">{t.common.viewMenu}</span>
                 <svg class="lrs-menu-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">

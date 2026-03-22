@@ -2,17 +2,16 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
-import { heroSrcset, gallerySrcset } from '../../utils/images';
+import { heroSrcset, gallerySrcset, encodePath } from '../../utils/images';
 import { useTranslations } from '../../i18n/index';
 import { getPropertyImages } from '../../utils/the-property-images';
 
 const t = useTranslations('en');
 const img = getPropertyImages();
 
-// Property images are raw (no -600w/-1200w variants); use src only to avoid 404s
-const isPropertyImg = (path: string) => path.startsWith('/assets/images/theproperty/');
+// Property images: use srcset after running npm run optimize-images (creates -600w, -800w, -1200w)
 const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
-  isPropertyImg(path) ? undefined : (type === 'hero' ? heroSrcset(path) : gallerySrcset(path));
+  type === 'hero' ? heroSrcset(path) : gallerySrcset(path);
 ---
 
 <Layout
@@ -26,7 +25,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     <!-- HERO: full bleed, title bottom-left (Passalacqua style) -->
     <section class="prop-hero">
       <div class="prop-hero-image">
-        <img src={img.place.hero} srcset={srcsetFor(img.place.hero, 'hero')} sizes="100vw" width="1920" height="1280" alt="Lavender fields and estate buildings at Toile Blanche, Saint-Paul de Vence" loading="eager" fetchpriority="high" />
+        <img src={encodePath(img.place.hero)} srcset={srcsetFor(img.place.hero, 'hero')} sizes="100vw" width="1920" height="1280" alt="Lavender fields and estate buildings at Toile Blanche, Saint-Paul de Vence" loading="eager" fetchpriority="high" />
         <div class="prop-hero-overlay"></div>
       </div>
       <div class="prop-hero-content">
@@ -45,7 +44,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
           <div class={`prop-portraits prop-portraits-${img.place.portraits.length}`}>
             {img.place.portraits.map((src) => (
               <div class="prop-portrait">
-                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes={img.place.portraits.length === 1 ? "100vw" : "(max-width: 900px) 100vw, 33.33vw"} width="1200" height="1600" alt="The Place at Toile Blanche" loading="lazy" />
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes={img.place.portraits.length === 1 ? "100vw" : "(max-width: 900px) 100vw, 33.33vw"} width="1200" height="1600" alt="The Place at Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -58,10 +57,10 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
       <div class="prop-cluster-inner">
         <div class="prop-two-landscapes">
           <div class="prop-landscape">
-            <img src={img.houses.landscape1} srcset={srcsetFor(img.houses.landscape1, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Art corridor in the estate" loading="lazy" />
+            <img src={encodePath(img.houses.landscape1)} srcset={srcsetFor(img.houses.landscape1, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Art corridor in the estate" loading="lazy" />
           </div>
           <div class="prop-landscape">
-            <img src={img.houses.landscape2} srcset={srcsetFor(img.houses.landscape2, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Pool and courtyard from above" loading="lazy" />
+            <img src={encodePath(img.houses.landscape2)} srcset={srcsetFor(img.houses.landscape2, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Pool and courtyard from above" loading="lazy" />
           </div>
         </div>
         <div class="prop-text-block prop-text-right">
@@ -69,13 +68,13 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
           <p>{t.pages.theProperty.cluster2Text}</p>
         </div>
         <div class="prop-fullbleed">
-          <img src={img.houses.fullbleed} srcset={srcsetFor(img.houses.fullbleed, 'gallery')} sizes="100vw" width="2917" height="3898" alt="Arched interior with warm light through curtains" loading="lazy" />
+          <img src={encodePath(img.houses.fullbleed)} srcset={srcsetFor(img.houses.fullbleed, 'gallery')} sizes="100vw" width="2917" height="3898" alt="Arched interior with warm light through curtains" loading="lazy" />
         </div>
         {img.houses.extra.length > 0 && (
           <div class={`prop-landscapes prop-landscapes-${img.houses.extra.length}`}>
             {img.houses.extra.map((src) => (
               <div class="prop-landscape">
-                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="The Houses at Toile Blanche" loading="lazy" />
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="The Houses at Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -90,7 +89,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
           <div class={`prop-portraits prop-portraits-${img.rooms.portraits.length}`}>
             {img.rooms.portraits.map((src) => (
               <div class="prop-portrait">
-                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="1600" alt="Suite at Toile Blanche" loading="lazy" />
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="1600" alt="Suite at Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -103,7 +102,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
           <div class="prop-two-landscapes">
             {img.rooms.landscapes.map((src) => (
               <div class="prop-landscape">
-                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="The Rooms at Toile Blanche" loading="lazy" />
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="The Rooms at Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -115,7 +114,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
         <div class="prop-fullbleed">
-          <img src={img.table.hero} srcset={srcsetFor(img.table.hero, 'gallery')} sizes="100vw" width="4032" height="2717" alt="La Guinguette under the plane trees" loading="lazy" />
+          <img src={encodePath(img.table.hero)} srcset={srcsetFor(img.table.hero, 'gallery')} sizes="100vw" width="4032" height="2717" alt="La Guinguette under the plane trees" loading="lazy" />
         </div>
         <div class="prop-text-block prop-text-left">
           <h2>{t.pages.theProperty.cluster4Title}</h2>
@@ -125,7 +124,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
           <div class={`prop-portraits prop-portraits-${img.table.portraits.length}`}>
             {img.table.portraits.map((src) => (
               <div class="prop-portrait">
-                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes={img.table.portraits.length === 1 ? "100vw" : "(max-width: 900px) 100vw, 33.33vw"} width="1200" height="1600" alt="The Table at Toile Blanche" loading="lazy" />
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes={img.table.portraits.length === 1 ? "100vw" : "(max-width: 900px) 100vw, 33.33vw"} width="1200" height="1600" alt="The Table at Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -138,10 +137,10 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
       <div class="prop-cluster-inner">
         <div class="prop-two-landscapes">
           <div class="prop-landscape">
-            <img src={img.art.landscape1} srcset={srcsetFor(img.art.landscape1, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Yellow sculpture in the garden" loading="lazy" />
+            <img src={encodePath(img.art.landscape1)} srcset={srcsetFor(img.art.landscape1, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Yellow sculpture in the garden" loading="lazy" />
           </div>
           <div class="prop-landscape">
-            <img src={img.art.landscape2} srcset={srcsetFor(img.art.landscape2, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Art corridor" loading="lazy" />
+            <img src={encodePath(img.art.landscape2)} srcset={srcsetFor(img.art.landscape2, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Art corridor" loading="lazy" />
           </div>
         </div>
         <div class="prop-text-block prop-text-center">
@@ -149,7 +148,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
           <p>{t.pages.theProperty.cluster5Text}</p>
         </div>
         <div class="prop-fullbleed">
-          <img src={img.art.fullbleed} srcset={srcsetFor(img.art.fullbleed, 'hero')} sizes="100vw" width="4898" height="3265" alt="Garden at golden hour, Toile Blanche" loading="lazy" />
+          <img src={encodePath(img.art.fullbleed)} srcset={srcsetFor(img.art.fullbleed, 'hero')} sizes="100vw" width="4898" height="3265" alt="Garden at golden hour, Toile Blanche" loading="lazy" />
         </div>
       </div>
     </section>
@@ -158,7 +157,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
         <div class="prop-fullbleed">
-          <img src={img.garden.hero} srcset={srcsetFor(img.garden.hero, 'hero')} sizes="100vw" width="1920" height="1280" alt="Lavender field with buildings at Toile Blanche, Saint-Paul de Vence" loading="lazy" />
+          <img src={encodePath(img.garden.hero)} srcset={srcsetFor(img.garden.hero, 'hero')} sizes="100vw" width="1920" height="1280" alt="Lavender field with buildings at Toile Blanche, Saint-Paul de Vence" loading="lazy" />
         </div>
         <div class="prop-text-block prop-text-left">
           <h2>{t.pages.theProperty.cluster6Title}</h2>
@@ -168,13 +167,13 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
           <div class={`prop-landscapes prop-landscapes-${img.garden.middle.length}`}>
             {img.garden.middle.map((src) => (
               <div class="prop-landscape">
-                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="The Garden at Toile Blanche" loading="lazy" />
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="The Garden at Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
         )}
         <div class="prop-fullbleed">
-          <img src={img.garden.fullbleed} srcset={srcsetFor(img.garden.fullbleed, 'gallery')} sizes="100vw" width="2000" height="1333" alt="Gardens at golden hour with the valley in the background, Toile Blanche" loading="lazy" />
+          <img src={encodePath(img.garden.fullbleed)} srcset={srcsetFor(img.garden.fullbleed, 'gallery')} sizes="100vw" width="2000" height="1333" alt="Gardens at golden hour with the valley in the background, Toile Blanche" loading="lazy" />
         </div>
       </div>
     </section>
@@ -183,7 +182,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
         <div class="prop-fullbleed">
-          <img src={img.atmosphere.hero} srcset={srcsetFor(img.atmosphere.hero, 'hero')} sizes="100vw" width="1920" height="1280" alt="Atmosphere at Toile Blanche" loading="lazy" />
+          <img src={encodePath(img.atmosphere.hero)} srcset={srcsetFor(img.atmosphere.hero, 'hero')} sizes="100vw" width="1920" height="1280" alt="Atmosphere at Toile Blanche" loading="lazy" />
         </div>
         <div class="prop-text-block prop-text-left">
           <h2>{t.pages.theProperty.cluster7Title}</h2>
@@ -193,7 +192,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
           <div class="prop-atmosphere-grid">
             {img.atmosphere.grid.map((src) => (
               <div class="prop-atmosphere-item">
-                <img src={src} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="800" alt="Atmosphere at Toile Blanche" loading="lazy" />
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="800" alt="Atmosphere at Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
