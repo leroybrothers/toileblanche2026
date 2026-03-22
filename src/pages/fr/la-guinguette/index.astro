@@ -4,7 +4,9 @@ import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
 import menu from '../../../data/menu-guinguette.json';
 import { gallerySrcset, encodePath } from '../../../utils/images';
+import { useTranslations } from '../../../i18n/index';
 const lang = 'fr';
+const t = useTranslations(lang);
 ---
 
 <Layout
@@ -102,13 +104,24 @@ const lang = 'fr';
       </div>
     </section>
 
-    <!-- LA CARTE -->
+    <!-- LA CARTE (accordion) -->
     <section class="lgn-menu">
       <div class="lgn-menu-inner">
-        <p class="lgn-menu-label">{menu.meta.season[lang]}</p>
-        <h2>La Carte</h2>
-        <p class="lgn-menu-intro">{menu.meta.philosophy[lang]}</p>
-
+        <div class="lgn-menu-accordion">
+          <button type="button" class="lgn-menu-accordion-trigger" aria-expanded="false" aria-controls="lgn-menu-content" id="lgn-menu-trigger" data-view={t.common.viewMenu} data-hide={t.common.hideMenu}>
+            <span class="lgn-menu-accordion-header">
+              <p class="lgn-menu-label">{menu.meta.season[lang]}</p>
+              <h2>La Carte</h2>
+              <p class="lgn-menu-intro">{menu.meta.philosophy[lang]}</p>
+              <span class="lgn-menu-expand">
+                <span class="lgn-menu-expand-text">{t.common.viewMenu}</span>
+                <svg class="lgn-menu-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div id="lgn-menu-content" class="lgn-menu-accordion-content" role="region" aria-labelledby="lgn-menu-trigger" hidden>
         {menu.sections.map(section => (
           <div class="lgn-menu-section">
             <h3>{section.title[lang]}</h3>
@@ -122,6 +135,8 @@ const lang = 'fr';
         ))}
 
         <p class="lgn-menu-note">{menu.footer_note[lang]}</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -195,6 +210,25 @@ const lang = 'fr';
 
   <Footer locale="fr" />
 </Layout>
+
+<script>
+  (function () {
+    const trigger = document.getElementById('lgn-menu-trigger');
+    const content = document.getElementById('lgn-menu-content');
+    if (!trigger || !content) return;
+    const expandText = trigger.querySelector('.lgn-menu-expand-text');
+    const viewMenu = trigger.dataset.view || 'Voir la carte';
+    const hideMenu = trigger.dataset.hide || 'Masquer la carte';
+
+    trigger.addEventListener('click', function () {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', String(!expanded));
+      content.setAttribute('data-expanded', String(!expanded));
+      content.toggleAttribute('hidden', expanded);
+      if (expandText) expandText.textContent = expanded ? viewMenu : hideMenu;
+    });
+  })();
+</script>
 
 <script type="application/ld+json" is:inline>
 {
@@ -466,7 +500,7 @@ const lang = 'fr';
     transform: scale(1.03);
   }
 
-  /* ─── THE MENU ─── */
+  /* ─── THE MENU (accordion) ─── */
   .lgn-menu {
     border-bottom: 1px solid #E2D9CC;
   }
@@ -474,6 +508,49 @@ const lang = 'fr';
     max-width: 800px;
     margin: 0 auto;
     padding: 80px;
+  }
+  .lgn-menu-accordion-trigger {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+  }
+  .lgn-menu-accordion-trigger:hover .lgn-menu-expand {
+    color: #1C1917;
+  }
+  .lgn-menu-accordion-trigger[aria-expanded="true"] .lgn-menu-expand-icon {
+    transform: rotate(180deg);
+  }
+  .lgn-menu-accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+  .lgn-menu-accordion-content[data-expanded="true"] {
+    max-height: 5000px;
+    opacity: 1;
+    padding-top: 24px;
+  }
+  .lgn-menu-expand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9C9080;
+    transition: color 0.2s;
+  }
+  .lgn-menu-expand-icon {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
   }
   .lgn-menu-label {
     font-family: 'Didact Gothic', sans-serif;
@@ -496,7 +573,7 @@ const lang = 'fr';
     font-size: clamp(16px, 2vw, 20px);
     line-height: 1.55;
     color: #3D3530;
-    margin-bottom: 56px;
+    margin-bottom: 0;
     max-width: 700px;
   }
   .lgn-menu-section {

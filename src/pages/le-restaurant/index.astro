@@ -4,7 +4,9 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import menu from '../../data/menu-restaurant.json';
 import { gallerySrcset, encodePath } from '../../utils/images';
+import { useTranslations } from '../../i18n/index';
 const lang = 'en';
+const t = useTranslations(lang);
 ---
 
 <Layout
@@ -96,14 +98,25 @@ const lang = 'en';
       </div>
     </section>
 
-    <!-- SEASONAL MENU -->
+    <!-- SEASONAL MENU (accordion) -->
     <section class="lrs-menu">
       <div class="lrs-menu-inner">
-        <p class="lrs-menu-label">{menu.meta.season[lang]}</p>
-        <h2>The Menu</h2>
-        <p class="lrs-menu-intro">{menu.meta.philosophy[lang]}</p>
-        <p class="lrs-menu-chefs">Chefs: {menu.meta.chefs.join(' & ')}</p>
-
+        <div class="lrs-menu-accordion">
+          <button type="button" class="lrs-menu-accordion-trigger" aria-expanded="false" aria-controls="lrs-menu-content" id="lrs-menu-trigger" data-view={t.common.viewMenu} data-hide={t.common.hideMenu}>
+            <span class="lrs-menu-accordion-header">
+              <p class="lrs-menu-label">{menu.meta.season[lang]}</p>
+              <h2>The Menu</h2>
+              <p class="lrs-menu-intro">{menu.meta.philosophy[lang]}</p>
+              <p class="lrs-menu-chefs">Chefs: {menu.meta.chefs.join(' & ')}</p>
+              <span class="lrs-menu-expand">
+                <span class="lrs-menu-expand-text">{t.common.viewMenu}</span>
+                <svg class="lrs-menu-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div id="lrs-menu-content" class="lrs-menu-accordion-content" role="region" aria-labelledby="lrs-menu-trigger" hidden>
         <!-- SET MENU -->
         <div class="lrs-menu-set">
           <div class="lrs-menu-set-header">
@@ -173,6 +186,8 @@ const lang = 'en';
         <div class="lrs-menu-legal">
           <p>{menu.legal.meat_origins[lang]}</p>
           <p>{menu.legal.allergy_note[lang]}</p>
+        </div>
+          </div>
         </div>
       </div>
     </section>
@@ -254,6 +269,25 @@ const lang = 'en';
 
   <Footer />
 </Layout>
+
+<script>
+  (function () {
+    const trigger = document.getElementById('lrs-menu-trigger');
+    const content = document.getElementById('lrs-menu-content');
+    if (!trigger || !content) return;
+    const expandText = trigger.querySelector('.lrs-menu-expand-text');
+    const viewMenu = trigger.dataset.view || 'View menu';
+    const hideMenu = trigger.dataset.hide || 'Hide menu';
+
+    trigger.addEventListener('click', function () {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', String(!expanded));
+      content.setAttribute('data-expanded', String(!expanded));
+      content.toggleAttribute('hidden', expanded);
+      if (expandText) expandText.textContent = expanded ? viewMenu : hideMenu;
+    });
+  })();
+</script>
 
 <script type="application/ld+json" is:inline>
 {
@@ -588,7 +622,7 @@ const lang = 'en';
     transform: scale(1.03);
   }
 
-  /* ─── SEASONAL MENU ─── */
+  /* ─── SEASONAL MENU (accordion) ─── */
   .lrs-menu {
     border-bottom: 1px solid #E2D9CC;
   }
@@ -596,6 +630,49 @@ const lang = 'en';
     max-width: 800px;
     margin: 0 auto;
     padding: 80px;
+  }
+  .lrs-menu-accordion-trigger {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+  }
+  .lrs-menu-accordion-trigger:hover .lrs-menu-expand {
+    color: #1C1917;
+  }
+  .lrs-menu-accordion-trigger[aria-expanded="true"] .lrs-menu-expand-icon {
+    transform: rotate(180deg);
+  }
+  .lrs-menu-accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+  .lrs-menu-accordion-content[data-expanded="true"] {
+    max-height: 5000px;
+    opacity: 1;
+    padding-top: 24px;
+  }
+  .lrs-menu-expand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9C9080;
+    transition: color 0.2s;
+  }
+  .lrs-menu-expand-icon {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
   }
   .lrs-menu-label {
     font-family: 'Didact Gothic', sans-serif;
@@ -626,7 +703,7 @@ const lang = 'en';
     font-size: 12px;
     letter-spacing: 0.1em;
     color: #9C9080;
-    margin-bottom: 56px;
+    margin-bottom: 0;
   }
 
   /* Set menu */

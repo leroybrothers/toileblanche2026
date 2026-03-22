@@ -41,7 +41,9 @@
     "learnMore": "Learn more",
     "sendMessage": "Send Message",
     "bookYourStay": "Book Your Stay",
-    "enterCanvas": "Enter the Canvas"
+    "enterCanvas": "Enter the Canvas",
+    "viewMenu": "View menu",
+    "hideMenu": "Hide menu"
   },
   "pages": {
     "home": {

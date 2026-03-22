@@ -41,7 +41,9 @@
     "learnMore": "En savoir plus",
     "sendMessage": "Envoyer",
     "bookYourStay": "Réservez votre séjour",
-    "enterCanvas": "Entrez dans l'œuvre"
+    "enterCanvas": "Entrez dans l'œuvre",
+    "viewMenu": "Voir la carte",
+    "hideMenu": "Masquer la carte"
   },
   "pages": {
     "home": {
