@@ -1360,6 +1360,16 @@ body.tb-menu-open .overlap-section-top {
     url("/assets/images/homepage-fullframe.webp") type("image/webp"),
     url("/assets/images/homepage-fullframe.png") type("image/png")
   );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Mobile: disable parallax (fixed) — causes zoom/crop issues on iOS and small viewports */
+@media (max-width: 900px) {
+  .full-frame-image-wrapper.homepage-one {
+    background-attachment: scroll;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
