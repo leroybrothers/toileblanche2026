@@ -17,14 +17,20 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
   locale="fr"
   title={t.pages.theProperty.title}
   description={t.pages.theProperty.description}
-  ogImage="https://www.toileblanche.com/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg"
+  ogImage="https://www.toileblanche.com/assets/images/property-hero.jpg"
 >
   <Nav theme="both" locale="fr" />
 
   <main id="main-content" class="prop-page">
-    <!-- Page title (no full-width hero) -->
-    <section class="prop-page-header">
-      <h1>{t.pages.theProperty.heroTitle}</h1>
+    <!-- Hero: full-bleed image with title bottom-left -->
+    <section class="prop-hero">
+      <div class="prop-hero-image">
+        <img src="/assets/images/property-hero.jpg" srcset={heroSrcset('/assets/images/property-hero.jpg')} sizes="100vw" width="1920" height="1280" alt="Les jardins et la terrasse à Toile Blanche, Saint-Paul de Vence" loading="eager" fetchpriority="high" />
+        <div class="prop-hero-overlay"></div>
+      </div>
+      <div class="prop-hero-content">
+        <h1>{t.pages.theProperty.heroTitle}</h1>
+      </div>
     </section>
 
     <!-- Cluster 1: Le Lieu -->
@@ -189,16 +195,40 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
   .prop-page {
     overflow-x: hidden;
   }
-  /* ─── Page header (no full-width hero) ─── */
-  .prop-page-header {
-    padding: 120px 80px 80px;
+  /* ─── Hero (full-bleed, title bottom-left) ─── */
+  .prop-hero {
+    position: relative;
+    height: 85vh;
+    min-height: 500px;
+    overflow: hidden;
   }
-  .prop-page-header h1 {
+  .prop-hero-image {
+    position: absolute;
+    inset: 0;
+  }
+  .prop-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .prop-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
+  }
+  .prop-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 80px 72px;
+  }
+  .prop-hero-content h1 {
     font-family: 'Gilda Display', Georgia, serif;
     font-size: clamp(36px, 5vw, 72px);
     font-weight: 400;
     line-height: 1.1;
-    color: #1C1917;
+    color: #fff;
   }
 
   /* ─── CLUSTERS (generous white space) ─── */
@@ -227,8 +257,8 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     .prop-cluster-inner {
       padding: 0 24px;
     }
-    .prop-page-header {
-      padding: 80px 24px 60px;
+    .prop-hero-content {
+      padding: 0 24px 48px;
     }
   }
 
