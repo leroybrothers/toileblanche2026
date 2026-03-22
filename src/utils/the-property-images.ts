@@ -16,7 +16,7 @@ function listImages(cluster: string): string[] {
   return readdirSync(dir)
     .filter((f) => IMG_EXT.test(f) && !OPTIMIZED_VARIANT.test(f))
     .sort()
-    .map((f) => encodeURI(`/assets/images/theproperty/${cluster}/${f}`));
+    .map((f) => `/assets/images/theproperty/${cluster}/${f}`);
 }
 
 const placeholders = {
