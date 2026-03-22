@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const BASE = join(__dirname, '..', 'public/assets/images/theproperty');
 const IMG_EXT = /\.(jpg|jpeg|png|webp|avif)$/i;
+const OPTIMIZED_VARIANT = /-\d+w\./i; // exclude -600w, -800w, -1200w variants
 
 const CLUSTERS = [
   ['theplace', 'the-place'],
@@ -37,7 +38,7 @@ console.log('Images are used in alphabetical order. First file = first slot.\n')
 for (const [folder, label] of CLUSTERS) {
   const dir = join(BASE, folder);
   const files = existsSync(dir)
-    ? readdirSync(dir).filter((f) => IMG_EXT.test(f)).sort()
+    ? readdirSync(dir).filter((f) => IMG_EXT.test(f) && !OPTIMIZED_VARIANT.test(f)).sort()
     : [];
   const status = files.length > 0 ? `${files.length} file(s)` : 'empty (using placeholders)';
   console.log(`=== ${label} (${folder}/) — ${status}`);

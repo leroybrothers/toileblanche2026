@@ -8,12 +8,13 @@ import { join } from 'path';
 
 const BASE = join(process.cwd(), 'public/assets/images/theproperty');
 const IMG_EXT = /\.(jpg|jpeg|png|webp|avif)$/i;
+const OPTIMIZED_VARIANT = /-\d+w\./i; // -600w, -800w, -1200w etc — exclude, use base only
 
 function listImages(cluster: string): string[] {
   const dir = join(BASE, cluster);
   if (!existsSync(dir)) return [];
   return readdirSync(dir)
-    .filter((f) => IMG_EXT.test(f))
+    .filter((f) => IMG_EXT.test(f) && !OPTIMIZED_VARIANT.test(f))
     .sort()
     .map((f) => encodeURI(`/assets/images/theproperty/${cluster}/${f}`));
 }
