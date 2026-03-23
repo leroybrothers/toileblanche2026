@@ -24,7 +24,13 @@ const placeholders = {
   houses: ['/assets/images/art/IMG_0365.jpg', '/assets/images/pools/IMG_2711.jpg', '/assets/images/art/ervinck-1.jpg'],
   rooms: ['/assets/images/cabanat/gallery-4.jpg', '/assets/images/bronzette/gallery-2.jpg', '/assets/images/penequet/gallery-5.jpg', '/assets/images/suite-artiste/gallery-3.jpg', '/assets/images/art/artgallery/IMG_9658.jpg'],
   table: ['/assets/images/guinguette/IMG_7094.jpg', '/assets/images/restaurant/restaurantgallery/DSCF5723.JPG', '/assets/images/guinguette/DSCF0486.JPG', '/assets/images/restaurant/restaurantgallery/IMG_0597.jpg', '/assets/images/restaurant/food1.jpg', '/assets/images/restaurant/food2.jpg'],
-  art: ['/assets/images/art/art1.jpg', '/assets/images/art/art2.jpg', '/assets/images/art/art3.jpg', '/assets/images/art/art5.jpg'],
+  art: [
+    '/assets/images/art/art1.jpg',
+    '/assets/images/art/art2.jpg',
+    '/assets/images/art/art3.jpg',
+    '/assets/images/art/art4.JPG',
+    '/assets/images/theproperty/theart/TB Session 2 FXO 1.jpg',
+  ],
   pools: [
     '/assets/images/pools/IMG_2644.jpg',
     '/assets/images/pools/IMG_2979.jpg',
@@ -58,7 +64,7 @@ export function getPropertyImages() {
   const houses = orFallback(listImages('thehouses'), placeholders.houses);
   const rooms = orFallback(listImages('therooms'), placeholders.rooms);
   const table = orFallback(listImages('thetable'), placeholders.table);
-  const art = orFallback(listImages('theart'), placeholders.art);
+  const art = placeholders.art; // Explicit: art1–4 from images/art + TB Session 2 FXO 1 (excludes Aerts 4, IMG_3266)
   const pools = orFallback(listImages('thepools'), placeholders.pools);
   const garden = placeholders.garden; // Explicit: garden1, 2, 5, 6 (IMG_3421, IMG_4379 moved to pools)
   const atmosphere = orFallback(listImages('theatmosphere'), placeholders.atmosphere);
