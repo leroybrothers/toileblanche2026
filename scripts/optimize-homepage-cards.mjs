@@ -8,14 +8,14 @@ import { readdir, stat, rename, unlink } from 'fs/promises';
 import { join, basename, extname } from 'path';
 
 const HOMEPAGE = 'public/assets/images/Homepage';
-const JPEG_QUALITY = 88;
+const JPEG_QUALITY = 92;
 const CARD_WIDTHS = [1200, 800, 400];
 
 // Suite card files from suites.json (card field) — use existing .jpg sources
 const CARD_FILES = [
   'suite-penard.jpg',
   'Suite pétanque.jpg',
-  'Suite bronzette.JPG',
+  'Suite bronzette.png',
   'Suite cabanat.jpg',
   "suite de l'artiste.JPG",
   'mas-de-l-artiste.jpg',
@@ -59,11 +59,11 @@ async function processCard(fileName) {
     afterTotal += (await stat(jpgPath)).size;
 
     const webpPath = join(dir, `${outName}.webp`);
-    await resized.clone().webp({ quality: 80 }).toFile(webpPath);
+    await resized.clone().webp({ quality: 90 }).toFile(webpPath);
     afterTotal += (await stat(webpPath)).size;
 
     const avifPath = join(dir, `${outName}.avif`);
-    await resized.clone().avif({ quality: 65 }).toFile(avifPath);
+    await resized.clone().avif({ quality: 72 }).toFile(avifPath);
     afterTotal += (await stat(avifPath)).size;
 
     console.log(`  + ${outName}.jpg/.webp/.avif`);
