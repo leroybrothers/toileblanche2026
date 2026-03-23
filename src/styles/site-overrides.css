@@ -1352,6 +1352,47 @@ body.tb-menu-open .overlap-section-top {
   .hero-bg-slide-3 { background-image: url("/assets/images/slideshow3.jpg"); background-image: image-set(url("/assets/images/slideshow3.avif") type("image/avif"), url("/assets/images/slideshow3.webp") type("image/webp"), url("/assets/images/slideshow3.jpg") type("image/jpeg")); }
 }
 
+/* Homepage parallax: pool image between suites and art (slideshow1) */
+.homepage-parallax-pool {
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url("/assets/images/slideshow1-800w.jpg");
+  background-image: image-set(
+    url("/assets/images/slideshow1-800w.avif") type("image/avif"),
+    url("/assets/images/slideshow1-800w.webp") type("image/webp"),
+    url("/assets/images/slideshow1-800w.jpg") type("image/jpeg")
+  );
+}
+@media (min-width: 640px) {
+  .homepage-parallax-pool {
+    background-image: url("/assets/images/slideshow1-1200w.jpg");
+    background-image: image-set(
+      url("/assets/images/slideshow1-1200w.avif") type("image/avif"),
+      url("/assets/images/slideshow1-1200w.webp") type("image/webp"),
+      url("/assets/images/slideshow1-1200w.jpg") type("image/jpeg")
+    );
+  }
+}
+@media (min-width: 1280px) {
+  .homepage-parallax-pool {
+    background-image: url("/assets/images/slideshow1.jpg");
+    background-image: image-set(
+      url("/assets/images/slideshow1.avif") type("image/avif"),
+      url("/assets/images/slideshow1.webp") type("image/webp"),
+      url("/assets/images/slideshow1.jpg") type("image/jpeg")
+    );
+  }
+}
+@media (max-width: 640px) {
+  .homepage-parallax-pool { background-attachment: scroll; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .homepage-parallax-pool { background-attachment: scroll; }
+}
+
 /* Homepage full-frame image at bottom — dining terrace (replaces hero duplicate) */
 .full-frame-image-wrapper.homepage-one {
   background-image: url("/assets/images/homepage-fullframe.png");
