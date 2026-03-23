@@ -1,15 +1,19 @@
 /**
  * Optimize Homepage suite card images (slider on homepage).
- * Creates -400w and -800w variants. Card images are displayed at 33vw max.
+ * Creates 400w, 800w, 1200w, 1800w. 1800w covers Retina at 33vw on 2560px screens.
  * Run: node scripts/optimize-homepage-cards.mjs
+ * Replace pixelated sources in this folder, then re-run. See CARD-SOURCES.md.
  */
 import sharp from 'sharp';
-import { readdir, stat, rename, unlink } from 'fs/promises';
+import { stat, rename } from 'fs/promises';
 import { join, basename, extname } from 'path';
-import { RESIZE_OPTS, SHARPEN_OPTS, QUALITY } from './image-config.mjs';
+import { RESIZE_OPTS, SHARPEN_OPTS } from './image-config.mjs';
 
 const HOMEPAGE = 'public/assets/images/Homepage';
-const CARD_WIDTHS = [1200, 800, 400];
+const CARD_WIDTHS = [1800, 1200, 800, 400];
+const JPEG_Q = 93;
+const WEBP_Q = 92;
+const AVIF_Q = 78;
 
 // Suite card files from suites.json (card field) — use existing .jpg sources
 const CARD_FILES = [
@@ -57,21 +61,21 @@ async function processCard(fileName) {
 
     const outName = `${name}-${w}w`;
     const jpgPath = join(dir, `${outName}.jpg`);
-    await resized.clone().jpeg({ quality: QUALITY.jpeg, mozjpeg: true }).toFile(jpgPath);
+    await resized.clone().jpeg({ quality: JPEG_Q, mozjpeg: true }).toFile(jpgPath);
     afterTotal += (await stat(jpgPath)).size;
 
     const webpPath = join(dir, `${outName}.webp`);
-    await resized.clone().webp({ quality: QUALITY.webp }).toFile(webpPath);
+    await resized.clone().webp({ quality: WEBP_Q }).toFile(webpPath);
     afterTotal += (await stat(webpPath)).size;
 
     const avifPath = join(dir, `${outName}.avif`);
-    await resized.clone().avif({ quality: QUALITY.avif }).toFile(avifPath);
+    await resized.clone().avif({ quality: AVIF_Q }).toFile(avifPath);
     afterTotal += (await stat(avifPath)).size;
 
     console.log(`  + ${outName}.jpg/.webp/.avif`);
   }
 
-  // Resize base to 800w, output as .jpg
+  // Base = 800w for fallback. Use .tmp to avoid same-file error when input is .jpg
   const baseOutPath = join(dir, `${name}.jpg`);
   const baseResizeW = origW > 0 ? Math.min(800, origW) : 800;
   const tmpBase = baseOutPath + '.tmp';
@@ -79,7 +83,7 @@ async function processCard(fileName) {
     .clone()
     .resize(baseResizeW, null, RESIZE_OPTS)
     .sharpen(SHARPEN_OPTS)
-    .jpeg({ quality: QUALITY.jpeg, mozjpeg: true })
+    .jpeg({ quality: JPEG_Q, mozjpeg: true })
     .toFile(tmpBase);
 
   const baseSize = (await stat(tmpBase)).size;
