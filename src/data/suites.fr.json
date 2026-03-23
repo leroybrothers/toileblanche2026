@@ -143,7 +143,7 @@
         "hero": "/assets/images/cabanat/hero.jpg",
         "heroWidth": 2400,
         "heroHeight": 1410,
-        "card": "/assets/images/cabanat/hero.jpg",
+        "card": "/assets/images/Homepage/Suite cabanat.jpg",
         "cardAlt": "Suite Cabanat à Toile Blanche",
         "gallery": [
           "/assets/images/cabanat/hero-legacy.jpg",
@@ -251,7 +251,7 @@
         "hero": "/assets/images/bon-vivant/hero.jpg",
         "heroWidth": 2400,
         "heroHeight": 1916,
-        "card": "/assets/images/bon-vivant/gallery-7.JPG",
+        "card": "/assets/images/Homepage/Suite bon vivant.JPG",
         "cardAlt": "Suite du Bon-Vivant à Toile Blanche",
         "gallery": [
           "/assets/images/bon-vivant/gallery-1.jpg",
@@ -292,7 +292,7 @@
         "hero": "/assets/images/penequet/hero.jpg",
         "heroWidth": 800,
         "heroHeight": 927,
-        "card": "/assets/images/penequet/hero.jpg",
+        "card": "/assets/images/Homepage/Villa pénéquet.jpg",
         "cardAlt": "Villa du Pénéquet à Toile Blanche",
         "gallery": [
           "/assets/images/penequet/hero-legacy.jpg",

@@ -23,7 +23,7 @@ const placeholders = {
   place: ['/assets/images/aboutgrid/StP25-ToileBlanche-c-GaelleSimon-21.jpg', '/assets/images/aboutgrid/IMG_2069.jpg', '/assets/images/aboutgrid/IMG_5950 (1).jpg', '/assets/images/aboutgrid/IMG_1902.jpg'],
   houses: ['/assets/images/art/IMG_0365.jpg', '/assets/images/pools/IMG_2711.jpg', '/assets/images/art/ervinck-1.jpg'],
   rooms: ['/assets/images/cabanat/gallery-4.jpg', '/assets/images/bronzette/gallery-2.jpg', '/assets/images/penequet/gallery-5.jpg', '/assets/images/suite-artiste/gallery-3.jpg', '/assets/images/art/artgallery/IMG_9658.jpg'],
-  table: ['/assets/images/guinguette/IMG_7094.jpg', '/assets/images/restaurant/restaurantgallery/resto1.jpg', '/assets/images/guinguette/DSCF0486.JPG', '/assets/images/restaurant/restaurantgallery/IMG_0597.jpg', '/assets/images/restaurant/food1.jpg', '/assets/images/restaurant/food2.jpg'],
+  table: ['/assets/images/guinguette/IMG_7094.jpg', '/assets/images/restaurant/restaurantgallery/resto1.jpg', '/assets/images/guinguette/DSCF0486.JPG', '/assets/images/restaurant/restaurantgallery/resto5.jpg', '/assets/images/restaurant/food1.jpg', '/assets/images/restaurant/food2.jpg'],
   art: [
     '/assets/images/art/art10.JPG',
     '/assets/images/art/art11.jpg',

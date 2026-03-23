@@ -182,7 +182,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
           <div class="prop-atmosphere-grid">
             {img.atmosphere.grid.map((src) => (
               <div class="prop-atmosphere-item">
-                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="800" alt="Ambiance à Toile Blanche" loading="lazy" />
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="1600" alt="Ambiance à Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -285,7 +285,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
     width: 100%;
     height: auto;
     display: block;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
   }
   @media (max-width: 900px) {

@@ -21,6 +21,7 @@ const CARD_ENTRIES = [
   { out: 'suite-penard', find: ['suite-penard'] },
   { out: 'Suite pétanque', find: ['Suite pétanque'] },
   { out: 'Suite bronzette', find: ['Suite bronzette'] },
+  { out: 'Suite cabanat', find: ['Suite cabanat'] },
   { out: "suite de l'artiste", find: ["suite de l'artiste"] },
   { out: 'mas-de-l-artiste', find: ['mas-de-l-artiste', "Mas de l'artist"] },
   { out: 'Villa pénéquet', find: ['Villa pénéquet'] },
