@@ -67,11 +67,11 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
       </div>
     </section>
 
-    <!-- Cluster 3: The Suites -->
+    <!-- Cluster 3: The Suites (6 portraits: 3 top row, 3 bottom row) -->
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
         {img.rooms.portraits.length > 0 && (
-          <div class={`prop-portraits prop-portraits-${img.rooms.portraits.length}`}>
+          <div class="prop-portraits prop-portraits-3">
             {img.rooms.portraits.map((src) => (
               <div class="prop-portrait">
                 <img src={encodePath(src)} width="1200" height="1600" alt="Suite at Toile Blanche" loading="lazy" />
@@ -83,15 +83,6 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
           <h2>{t.pages.theProperty.cluster3Title}</h2>
           <p>{t.pages.theProperty.cluster3Text}</p>
         </div>
-        {img.rooms.landscapes.length > 0 && (
-          <div class="prop-two-landscapes">
-            {img.rooms.landscapes.map((src) => (
-              <div class="prop-landscape">
-                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="The Suites at Toile Blanche" loading="lazy" />
-              </div>
-            ))}
-          </div>
-        )}
       </div>
     </section>
 

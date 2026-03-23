@@ -33,8 +33,6 @@ const placeholders = {
     '/assets/images/art/art15.JPG',
   ],
   pools: [
-    '/assets/images/pools/IMG_2644.jpg',
-    '/assets/images/pools/IMG_2979.jpg',
     '/assets/images/theproperty/thegarden/IMG_3421.jpg',
     '/assets/images/theproperty/thegarden/IMG_4379.jpg',
   ],
@@ -63,7 +61,6 @@ export function getPropertyImageInventory() {
 export function getPropertyImages() {
   const place = orFallback(listImages('theplace'), placeholders.place);
   const houses = orFallback(listImages('thehouses'), placeholders.houses);
-  const rooms = orFallback(listImages('therooms'), placeholders.rooms);
   const table = orFallback(listImages('thetable'), placeholders.table);
   const art = placeholders.art; // Explicit: art1–4 from images/art + TB Session 2 FXO 1 (excludes Aerts 4, IMG_3266)
   const pools = orFallback(listImages('thepools'), placeholders.pools);
@@ -83,16 +80,16 @@ export function getPropertyImages() {
       fullbleed: houses[2]!,
       extra: houses.slice(3),
     },
-    // rooms/suites: 3 portraits (suite10–12) + 3 landscapes (DSCF5781, DSCF7283, IMG_6830).
+    // rooms/suites: 6 portraits (suite10–12 × 2 rows), 3 top + 3 bottom, same portrait format.
     rooms: {
       portraits: [
         '/assets/images/theproperty/therooms/suite10.JPG',
         '/assets/images/theproperty/therooms/suite11.jpg',
         '/assets/images/theproperty/therooms/suite12.jpg',
+        '/assets/images/theproperty/therooms/suite10.JPG',
+        '/assets/images/theproperty/therooms/suite11.jpg',
+        '/assets/images/theproperty/therooms/suite12.jpg',
       ],
-      landscapes: rooms
-        .filter((p) => !/suite1[012]\.(jpg|JPG)$/i.test(p))
-        .slice(0, 3),
     },
     // table: hero + portraits + 2 landscapes (food1, food2 from restaurant — always used).
     table: {
