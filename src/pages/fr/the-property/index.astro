@@ -74,7 +74,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
           <div class={`prop-portraits prop-portraits-${img.rooms.portraits.length}`}>
             {img.rooms.portraits.map((src) => (
               <div class="prop-portrait">
-                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="1600" alt="Suite à Toile Blanche" loading="lazy" />
+                <img src={encodePath(src)} width="1200" height="1600" alt="Suite à Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>

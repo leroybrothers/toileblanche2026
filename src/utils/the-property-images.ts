@@ -83,10 +83,16 @@ export function getPropertyImages() {
       fullbleed: houses[2]!,
       extra: houses.slice(3),
     },
-    // rooms/suites: 3 portraits + 3 landscapes (suites1–3 under).
+    // rooms/suites: 3 portraits (suite10–12) + 3 landscapes (DSCF5781, DSCF7283, IMG_6830).
     rooms: {
-      portraits: rooms.slice(0, 3),
-      landscapes: rooms.slice(3, 6),
+      portraits: [
+        '/assets/images/theproperty/therooms/suite10.JPG',
+        '/assets/images/theproperty/therooms/suite11.jpg',
+        '/assets/images/theproperty/therooms/suite12.jpg',
+      ],
+      landscapes: rooms
+        .filter((p) => !/suite1[012]\.(jpg|JPG)$/i.test(p))
+        .slice(0, 3),
     },
     // table: hero + portraits + 2 landscapes (food1, food2 from restaurant — always used).
     table: {
