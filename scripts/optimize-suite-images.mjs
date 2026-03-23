@@ -1,9 +1,10 @@
 import sharp from 'sharp';
 import { readdir, stat, rename, unlink } from 'fs/promises';
 import { join, basename, extname, relative } from 'path';
+import { RESIZE_OPTS, SHARPEN_OPTS, QUALITY } from './image-config.mjs';
 
 const BASE = 'public/assets/images';
-const QUALITY = 88;
+const JPEG_QUALITY = QUALITY.jpeg;
 
 const SUITE_DIRS = [
   'penard', 'petanque', 'bronzette', 'cabanat',
@@ -52,8 +53,9 @@ async function processImage(filePath, role, opts = {}) {
 
     const pipeline = sharp(sourcePath)
       .rotate()
-      .resize(w, null, { withoutEnlargement: true })
-      .jpeg({ quality: QUALITY, mozjpeg: true });
+      .resize(w, null, { ...RESIZE_OPTS })
+      .sharpen(SHARPEN_OPTS)
+      .jpeg({ quality: JPEG_QUALITY, mozjpeg: true });
 
     const tmp = outPath + '.tmp';
     await pipeline.toFile(tmp);

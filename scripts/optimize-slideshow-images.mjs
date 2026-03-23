@@ -6,11 +6,12 @@
 import sharp from 'sharp';
 import { stat, rename, unlink } from 'fs/promises';
 import { join, basename, extname } from 'path';
+import { RESIZE_OPTS, SHARPEN_OPTS, QUALITY } from './image-config.mjs';
 
 const BASE = 'public/assets/images';
-const JPEG_QUALITY = 88;
-const WEBP_QUALITY = 86;
-const AVIF_QUALITY = 62;
+const JPEG_QUALITY = QUALITY.jpeg;
+const WEBP_QUALITY = QUALITY.webp;
+const AVIF_QUALITY = QUALITY.avif;
 const MAX_BASE_WIDTH = 1920;
 const HERO_WIDTHS = [800, 1200];
 
@@ -48,7 +49,9 @@ async function processSlideshow(fileName) {
 
   // 1. Resize base to max 1920px, output JPEG and WebP
   const baseOutPath = join(dir, `${name}${ext}`);
-  const basePipeline = img.clone().resize(MAX_BASE_WIDTH, null, { withoutEnlargement: true });
+  const basePipeline = img.clone()
+    .resize(MAX_BASE_WIDTH, null, { ...RESIZE_OPTS })
+    .sharpen(SHARPEN_OPTS);
   const tmpBase = baseOutPath + '.tmp';
   await basePipeline.jpeg({ quality: JPEG_QUALITY, mozjpeg: true }).toFile(tmpBase);
   const baseSize = (await stat(tmpBase)).size;
@@ -62,7 +65,8 @@ async function processSlideshow(fileName) {
 
   const baseWebpPath = join(dir, `${name}.webp`);
   await img.clone()
-    .resize(MAX_BASE_WIDTH, null, { withoutEnlargement: true })
+    .resize(MAX_BASE_WIDTH, null, { ...RESIZE_OPTS })
+    .sharpen(SHARPEN_OPTS)
     .webp({ quality: WEBP_QUALITY })
     .toFile(baseWebpPath);
   afterTotal += (await stat(baseWebpPath)).size;
@@ -70,7 +74,8 @@ async function processSlideshow(fileName) {
 
   const baseAvifPath = join(dir, `${name}.avif`);
   await img.clone()
-    .resize(MAX_BASE_WIDTH, null, { withoutEnlargement: true })
+    .resize(MAX_BASE_WIDTH, null, { ...RESIZE_OPTS })
+    .sharpen(SHARPEN_OPTS)
     .avif({ quality: AVIF_QUALITY })
     .toFile(baseAvifPath);
   afterTotal += (await stat(baseAvifPath)).size;
@@ -83,7 +88,8 @@ async function processSlideshow(fileName) {
     const outPath = join(dir, outName);
     const tmp = outPath + '.tmp';
     await img.clone()
-      .resize(resizeW, null, { withoutEnlargement: true })
+      .resize(resizeW, null, { ...RESIZE_OPTS })
+      .sharpen(SHARPEN_OPTS)
       .jpeg({ quality: JPEG_QUALITY, mozjpeg: true })
       .toFile(tmp);
     const size = (await stat(tmp)).size;
