@@ -25,11 +25,12 @@ const placeholders = {
   rooms: ['/assets/images/cabanat/gallery-4.jpg', '/assets/images/bronzette/gallery-2.jpg', '/assets/images/penequet/gallery-5.jpg', '/assets/images/suite-artiste/gallery-3.jpg', '/assets/images/art/artgallery/IMG_9658.jpg'],
   table: ['/assets/images/guinguette/IMG_7094.jpg', '/assets/images/restaurant/restaurantgallery/DSCF5723.JPG', '/assets/images/guinguette/DSCF0486.JPG', '/assets/images/restaurant/restaurantgallery/IMG_0597.jpg', '/assets/images/restaurant/food1.jpg', '/assets/images/restaurant/food2.jpg'],
   art: [
-    '/assets/images/art/art1.jpg',
-    '/assets/images/art/art2.jpg',
-    '/assets/images/art/art3.jpg',
-    '/assets/images/art/art4.JPG',
-    '/assets/images/theproperty/theart/TB Session 2 FXO 1.jpg',
+    '/assets/images/art/art10.JPG',
+    '/assets/images/art/art11.jpg',
+    '/assets/images/art/art12.jpg',
+    '/assets/images/art/art13.jpg',
+    '/assets/images/art/art14.JPG',
+    '/assets/images/art/art15.JPG',
   ],
   pools: [
     '/assets/images/pools/IMG_2644.jpg',
@@ -93,12 +94,9 @@ export function getPropertyImages() {
       portraits: table.slice(1, 4),
       landscapes: ['/assets/images/restaurant/food1.jpg', '/assets/images/restaurant/food2.jpg'],
     },
-    // art: 2 landscapes + extra row (art1, art2, art3, art5).
+    // art: 6 portraits (art10–art15), 3 per row, same ratio.
     art: {
-      landscape1: art[0]!,
-      landscape2: art[1]!,
-      fullbleed: art[2]!,
-      extra: art.slice(2),
+      portraits: art,
     },
     // pools: 4 landscapes (IMG_3421, IMG_4379 moved from garden).
     pools: {

@@ -142,22 +142,14 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
       </div>
     </section>
 
-    <!-- Cluster 5: The Art -->
+    <!-- Cluster 6: The Art -->
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
-        <div class="prop-two-landscapes">
-          <div class="prop-landscape">
-            <img src={encodePath(img.art.landscape1)} srcset={srcsetFor(img.art.landscape1, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Art at Toile Blanche" loading="lazy" />
-          </div>
-          <div class="prop-landscape">
-            <img src={encodePath(img.art.landscape2)} srcset={srcsetFor(img.art.landscape2, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Art collection at Toile Blanche" loading="lazy" />
-          </div>
-        </div>
-        {img.art.extra && img.art.extra.length > 0 && (
-          <div class={`prop-landscapes prop-landscapes-${img.art.extra.length}`}>
-            {img.art.extra.map((src) => (
-              <div class="prop-landscape">
-                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Artwork at Toile Blanche" loading="lazy" />
+        {img.art.portraits.length > 0 && (
+          <div class="prop-portraits prop-portraits-3">
+            {img.art.portraits.map((src) => (
+              <div class="prop-portrait">
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="1600" alt="Art at Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
