@@ -43,7 +43,8 @@ const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
       <a href={lp('/suites')} class={`tb-menu-link${linkClass(lp('/suites'))}`}>{t.nav.suites}</a>
       <a href={lp('/restaurants')} class={`tb-menu-link${linkClass(lp('/restaurants'))}`}>{t.nav.restaurants}</a>
       <a href={lp('/art')} class={`tb-menu-link${linkClass(lp('/art'))}`}>{t.nav.theArt}</a>
-      <a href={lp('/experiences')} class={`tb-menu-link tb-menu-link-last${linkClass(lp('/experiences'))}`}>{t.nav.experiences}</a>
+      <a href={lp('/experiences')} class={`tb-menu-link${linkClass(lp('/experiences'))}`}>{t.nav.experiences}</a>
+      <a href={lp('/the-property')} class={`tb-menu-link tb-menu-link-last${linkClass(lp('/the-property'))}`}>{t.nav.theProperty}</a>
     </nav>
 
     <div class="tb-menu-divider" aria-hidden="true"></div>
@@ -104,6 +105,7 @@ const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
     <a href={lp('/restaurants')} class={`tb-menu-mobile-link${linkClass(lp('/restaurants'))}`}>{t.nav.restaurants}</a>
     <a href={lp('/art')} class={`tb-menu-mobile-link${linkClass(lp('/art'))}`}>{t.nav.theArt}</a>
     <a href={lp('/experiences')} class={`tb-menu-mobile-link${linkClass(lp('/experiences'))}`}>{t.nav.experiences}</a>
+    <a href={lp('/the-property')} class={`tb-menu-mobile-link${linkClass(lp('/the-property'))}`}>{t.nav.theProperty}</a>
   </nav>
 
   <div class="tb-menu-mobile-contact">

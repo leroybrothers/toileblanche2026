@@ -4,13 +4,15 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import menu from '../../data/menu-restaurant.json';
 import { gallerySrcset, encodePath } from '../../utils/images';
+import { useTranslations } from '../../i18n/index';
 const lang = 'en';
+const t = useTranslations(lang);
 ---
 
 <Layout
   title="Le Restaurant | Toile Blanche | Saint-Paul de Vence"
   description="More considered, more intimate, the kitchen at full attention. A love letter to the Côte d'Azur."
-  ogImage="https://www.toileblanche.com/assets/images/page-img-14433f29c9500d.jpg"
+  ogImage="https://www.toileblanche.com/assets/images/le-restaurant-hero.jpg"
   hideBookingBar={true}
   loadZenchef={true}
 >
@@ -20,7 +22,7 @@ const lang = 'en';
     <!-- HERO -->
     <section class="lrs-hero">
       <div class="lrs-hero-image">
-        <img src="/assets/images/page-img-14433f29c9500d.jpg" alt="Le Restaurant de Toile Blanche" width="1800" height="2700" loading="eager" fetchpriority="high" />
+        <img src="/assets/images/le-restaurant-hero.jpg" alt="Le Restaurant de Toile Blanche" width="1024" height="768" loading="eager" fetchpriority="high" />
         <div class="lrs-hero-overlay"></div>
       </div>
       <div class="lrs-hero-content">
@@ -40,12 +42,22 @@ const lang = 'en';
       </div>
     </section>
 
+    <!-- SPECIALS -->
+    <section class="lrs-specials">
+      <div class="lrs-specials-inner">
+        <h3 class="lrs-specials-title">Seasonal Menus</h3>
+        <div class="lrs-specials-list">
+          <a href="https://online.fliphtml5.com/mxrbl/xkdg/" target="_blank" rel="noopener noreferrer" class="lrs-specials-link">Easter menu &rarr;</a>
+        </div>
+      </div>
+    </section>
+
     <!-- NARRATIVE + DETAILS -->
     <section class="lrs-narrative">
       <div class="lrs-narrative-inner">
         <div class="lrs-narrative-text">
           <h2>The Table</h2>
-          <p>Chef Nicolas Leclair's menu is built around the rhythm of the seasons. What arrived that morning from the market in Nice, what is growing in the herb garden twenty metres from the kitchen, what the fishermen brought in at dawn.</p>
+          <p>Chefs Nicolas Leclair and Melissa Giordano's menu is built around the rhythm of the seasons. What arrived that morning, what is growing in the herb garden twenty metres from the kitchen, what the fishermen brought in at dawn.</p>
           <p>The wine list reads like a declaration of love for the region. The focus is on producers within driving distance, estates in Bellet, Bandol, Cassis, and the hills above Vence. Some bottles are available nowhere else.</p>
           <h2>The Space</h2>
           <p>Dinner is served on the terrace overlooking the valley, or inside the dining room when the evening has other plans. Informal, unhurried, no jacket required. Just good food in beautiful light.</p>
@@ -55,7 +67,7 @@ const lang = 'en';
 
           <div class="lrs-details-block">
             <h3>Hours</h3>
-            <p>Dinner: 19:00 – 22:00</p>
+            <p>Dinner: 19:00 – 22:00 (summer) / 19:00 – 21:00 (winter)</p>
             <p>Open year-round</p>
           </div>
 
@@ -86,14 +98,25 @@ const lang = 'en';
       </div>
     </section>
 
-    <!-- SEASONAL MENU -->
+    <!-- SEASONAL MENU (accordion) -->
     <section class="lrs-menu">
       <div class="lrs-menu-inner">
-        <p class="lrs-menu-label">{menu.meta.season[lang]}</p>
-        <h2>The Menu</h2>
-        <p class="lrs-menu-intro">{menu.meta.philosophy[lang]}</p>
-        <p class="lrs-menu-chefs">Chefs: {menu.meta.chefs.join(' & ')}</p>
-
+        <div class="lrs-menu-accordion">
+          <button type="button" class="lrs-menu-accordion-trigger" aria-expanded="false" aria-controls="lrs-menu-content" id="lrs-menu-trigger" data-view={t.common.viewMenu} data-hide={t.common.hideMenu}>
+            <span class="lrs-menu-accordion-header">
+              <p class="lrs-menu-label">{menu.meta.season[lang]}</p>
+              <h2>The Menu</h2>
+              <p class="lrs-menu-intro">{menu.meta.philosophy[lang]}</p>
+              <p class="lrs-menu-chefs">Chefs {menu.meta.chefs.join(' and ')}</p>
+              <span class="lrs-menu-expand">
+                <span class="lrs-menu-expand-text">{t.common.viewMenu}</span>
+                <svg class="lrs-menu-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div id="lrs-menu-content" class="lrs-menu-accordion-content" role="region" aria-labelledby="lrs-menu-trigger" hidden>
         <!-- SET MENU -->
         <div class="lrs-menu-set">
           <div class="lrs-menu-set-header">
@@ -164,31 +187,18 @@ const lang = 'en';
           <p>{menu.legal.meat_origins[lang]}</p>
           <p>{menu.legal.allergy_note[lang]}</p>
         </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- GALLERY (masonry, bon-vivant style) -->
+    <!-- GALLERY (masonry: summer/outdoor first, winter/evening last) -->
     <section class="lrs-gallery">
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/IMG_7598.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_7598.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="4032" height="3024" alt="Le Restaurant terrace at Toile Blanche" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src={encodePath('/assets/images/restaurant/DSCF4081 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF4081 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Seasonal dish at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src={encodePath('/assets/images/restaurant/DSCF4129 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF4129 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Evening dining at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src={encodePath('/assets/images/restaurant/DSCF5782 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF5782 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Cuisine at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src={encodePath('/assets/images/restaurant/DSCF6210 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF6210 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Dining experience at Toile Blanche" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/IMG_4608.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_4608.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Restaurant terrace" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/IMG_4849.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_4849.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Dinner at Le Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/IMG_5342.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_5342.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Outdoor dining terrace at Le Restaurant" loading="lazy" />
@@ -197,22 +207,28 @@ const lang = 'en';
         <img src="/assets/images/restaurant/IMG_9454.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_9454.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Terrace view at Le Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/DSCF5723.JPG" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF5723.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant dining" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
-        <img src={encodePath('/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Evening at Le Restaurant" loading="lazy" />
-      </div>
-      <div class="lrs-gallery-item">
         <img src={encodePath('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant terrace" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_0597.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0597.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Terrace dining at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src={encodePath('/assets/images/restaurant/DSCF4081 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF4081 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Seasonal dish at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src="/assets/images/restaurant/restaurantgallery/DSCF5723.JPG" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF5723.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant dining" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/restaurantgallery/IMG_0377.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0377.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Dining at Toile Blanche" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_0588.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0588.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant dishes" loading="lazy" />
+        <img src="/assets/images/restaurant/IMG_4849.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_4849.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Dinner at Le Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_0597.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0597.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Terrace dining at Le Restaurant" loading="lazy" />
+        <img src={encodePath('/assets/images/restaurant/DSCF4129 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF4129 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Evening dining at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src={encodePath('/assets/images/restaurant/DSCF6210 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF6210 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Dining experience at Toile Blanche" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/restaurantgallery/IMG_0611.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0611.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant atmosphere" loading="lazy" />
@@ -222,6 +238,12 @@ const lang = 'en';
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/restaurantgallery/IMG_3983.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_3983.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant table" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src={encodePath('/assets/images/restaurant/DSCF5782 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/DSCF5782 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Cuisine at Le Restaurant" loading="lazy" />
+      </div>
+      <div class="lrs-gallery-item">
+        <img src={encodePath('/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG')} srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/DSCF6204 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Evening at Le Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/restaurantgallery/IMG_4015.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_4015.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant evening" loading="lazy" />
@@ -245,13 +267,32 @@ const lang = 'en';
   <Footer />
 </Layout>
 
+<script>
+  (function () {
+    const trigger = document.getElementById('lrs-menu-trigger');
+    const content = document.getElementById('lrs-menu-content');
+    if (!trigger || !content) return;
+    const expandText = trigger.querySelector('.lrs-menu-expand-text');
+    const viewMenu = trigger.dataset.view || 'View menu';
+    const hideMenu = trigger.dataset.hide || 'Hide menu';
+
+    trigger.addEventListener('click', function () {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', String(!expanded));
+      content.setAttribute('data-expanded', String(!expanded));
+      content.toggleAttribute('hidden', expanded);
+      if (expandText) expandText.textContent = expanded ? viewMenu : hideMenu;
+    });
+  })();
+</script>
+
 <script type="application/ld+json" is:inline>
 {
   "@context": "https://schema.org",
   "@type": "Restaurant",
   "name": "Le Restaurant — Toile Blanche",
   "description": "Fine bistro cuisine. All dishes are homemade, featuring quality local ingredients. Winter menu by chefs Nicolas Leclair and Melissa Giordano.",
-  "image": "https://www.toileblanche.com/assets/images/page-img-14433f29c9500d.jpg",
+  "image": "https://www.toileblanche.com/assets/images/le-restaurant-hero.jpg",
   "url": "https://www.toileblanche.com/le-restaurant",
   "telephone": "+33493327421",
   "servesCuisine": ["Mediterranean", "French", "Bistronomique"],
@@ -348,6 +389,7 @@ const lang = 'en';
     inset: 0;
   }
   .lrs-hero-image img {
+    object-position: center 65%;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -418,6 +460,41 @@ const lang = 'en';
     font-size: clamp(20px, 2.5vw, 28px);
     line-height: 1.55;
     color: #3D3530;
+  }
+
+  /* ─── SPECIALS ─── */
+  .lrs-specials {
+    border-bottom: 1px solid #E2D9CC;
+  }
+  .lrs-specials-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 80px;
+    text-align: center;
+  }
+  .lrs-specials-title {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C9080;
+    margin-bottom: 20px;
+  }
+  .lrs-specials-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+  .lrs-specials-link {
+    font-family: 'Gilda Display', serif;
+    font-size: clamp(18px, 2vw, 22px);
+    color: #3D3530;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .lrs-specials-link:hover {
+    color: #1C1917;
   }
 
   /* ─── NARRATIVE + DETAILS ─── */
@@ -543,7 +620,7 @@ const lang = 'en';
     transform: scale(1.03);
   }
 
-  /* ─── SEASONAL MENU ─── */
+  /* ─── SEASONAL MENU (accordion) ─── */
   .lrs-menu {
     border-bottom: 1px solid #E2D9CC;
   }
@@ -551,6 +628,49 @@ const lang = 'en';
     max-width: 800px;
     margin: 0 auto;
     padding: 80px;
+  }
+  .lrs-menu-accordion-trigger {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+  }
+  .lrs-menu-accordion-trigger:hover .lrs-menu-expand {
+    color: #1C1917;
+  }
+  .lrs-menu-accordion-trigger[aria-expanded="true"] .lrs-menu-expand-icon {
+    transform: rotate(180deg);
+  }
+  .lrs-menu-accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+  .lrs-menu-accordion-content[data-expanded="true"] {
+    max-height: 5000px;
+    opacity: 1;
+    padding-top: 24px;
+  }
+  .lrs-menu-expand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9C9080;
+    transition: color 0.2s;
+  }
+  .lrs-menu-expand-icon {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
   }
   .lrs-menu-label {
     font-family: 'Didact Gothic', sans-serif;
@@ -581,7 +701,7 @@ const lang = 'en';
     font-size: 12px;
     letter-spacing: 0.1em;
     color: #9C9080;
-    margin-bottom: 56px;
+    margin-bottom: 0;
   }
 
   /* Set menu */
@@ -756,6 +876,9 @@ const lang = 'en';
       padding: 0 24px 48px;
     }
     .lrs-tagline-inner {
+      padding: 48px 24px;
+    }
+    .lrs-specials-inner {
       padding: 48px 24px;
     }
     .lrs-narrative-inner {

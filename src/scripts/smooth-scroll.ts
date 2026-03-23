@@ -1,21 +1,12 @@
 /**
- * Lenis smooth scroll + GSAP ScrollTrigger homepage reveals.
- * Respects prefers-reduced-motion. Restrained, brand-appropriate animations.
- * Lenis is loaded via dynamic import to isolate production load failures.
+ * Lenis smooth scroll + Intersection Observer fade-up.
+ * Passalacqua-style: Lenis controls scroll pace, fade-up gives the eye something to follow.
+ * No GSAP needed. Respects prefers-reduced-motion.
  */
-
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 type LenisInstance = import('lenis').default;
 let lenisInstance: LenisInstance | null = null;
-
-function getScrollY(): number {
-  if (lenisInstance) return lenisInstance.scroll;
-  return window.scrollY ?? document.documentElement.scrollTop ?? document.body.scrollTop ?? 0;
-}
+let rafId: number | null = null;
 
 async function initLenis(): Promise<void> {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -33,25 +24,11 @@ async function initLenis(): Promise<void> {
       smoothWheel: true,
     });
 
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        if (lenisInstance) {
-          if (arguments.length) lenisInstance.scrollTo(value);
-          return lenisInstance.scroll;
-        }
-        return value;
-      },
-      getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-      },
-    });
-
-    lenisInstance.on('scroll', ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenisInstance?.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
+    function raf(time: number) {
+      lenisInstance?.raf(time);
+      rafId = requestAnimationFrame(raf);
+    }
+    rafId = requestAnimationFrame(raf);
 
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', (e) => {
@@ -70,101 +47,33 @@ async function initLenis(): Promise<void> {
   } catch (err) {
     console.warn('[Toile Blanche] Lenis smooth scroll failed, using native scroll:', err);
     lenisInstance = null;
+    if (rafId != null) cancelAnimationFrame(rafId);
     document.documentElement.dataset.lenis = 'fallback';
   }
 }
 
-/* Nav color toggle moved to site.js (runs on DOMContentLoaded, no Lenis dependency) */
-
-function initScrollReveals(): void {
+function initFadeUpObserver(): void {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const intro = document.querySelector('.tb-intro-section');
-  const suites = document.querySelector('.tb-suites-section');
-  const blocks = document.querySelectorAll('.tb-feature-block');
-
-  if (!intro && !suites && blocks.length === 0) return;
-
-  const fadeUp = {
-    y: 32,
-    opacity: 0,
-    duration: 0.9,
-    ease: 'power3.out',
-    stagger: 0.12,
-  };
-
-  if (intro) {
-    gsap.from(intro.querySelectorAll('.tb-intro-block'), {
-      scrollTrigger: { trigger: intro, start: 'top 85%', toggleActions: 'play none none none' },
-      ...fadeUp,
-    });
-  }
-
-  if (suites) {
-    gsap.from('.home-room-slider-wrapper', {
-      scrollTrigger: { trigger: suites, start: 'top 85%', toggleActions: 'play none none none' },
-      y: 40,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out',
-    });
-  }
-
-  blocks.forEach((block) => {
-    const img = block.querySelector('.tb-feature-block-image');
-    const content = block.querySelector('.tb-feature-block-content');
-    if (img) {
-      gsap.from(img, {
-        scrollTrigger: { trigger: block, start: 'top 85%', toggleActions: 'play none none none' },
-        y: 36,
-        opacity: 0,
-        duration: 0.9,
-        ease: 'power3.out',
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
-    }
-    if (content) {
-      gsap.from(content.querySelectorAll('h2, p, a'), {
-        scrollTrigger: { trigger: block, start: 'top 85%', toggleActions: 'play none none none' },
-        y: 24,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out',
-        stagger: 0.08,
-        delay: 0.15,
-      });
-    }
-  });
-}
+    },
+    { threshold: 0.1 }
+  );
 
-function initSuiteGalleryReveals(): void {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  const gallery = document.querySelector('.sd-gallery');
-  const items = gallery?.querySelectorAll('.sd-gallery-item');
-  if (!gallery || !items?.length) return;
-
-  items.forEach((item, i) => {
-    gsap.from(item, {
-      y: 48,
-      opacity: 0,
-      duration: 0.5,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: item,
-        start: 'top 90%',
-        toggleActions: 'play none none none',
-      },
-      delay: i * 0.06,
-    });
-  });
+  document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
 }
 
 export async function initSmoothScroll(): Promise<void> {
   async function run(): Promise<void> {
     await initLenis();
-    initScrollReveals();
-    initSuiteGalleryReveals();
-    ScrollTrigger.refresh();
+    initFadeUpObserver();
   }
   if (document.readyState !== 'complete') {
     window.addEventListener('load', () => run().catch((err) => console.error('[Toile Blanche] Smooth scroll init error:', err)));

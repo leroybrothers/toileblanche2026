@@ -43,9 +43,7 @@ const suites = suitesData.suites.map(s => ({
   <main id="main-content">
   <header class="hero1" id="hero" style="opacity:0">
     <div class="hero-bg-wrapper hero-bg-parallax">
-      <div class="hero-bg-slide hero-bg-slide-1 is-active" role="img" aria-label="Pool and sun loungers at Toile Blanche, Saint-Paul de Vence" aria-hidden="false"></div>
-      <div class="hero-bg-slide hero-bg-slide-2" role="img" aria-label="Gardens and stone architecture at Toile Blanche" aria-hidden="true"></div>
-      <div class="hero-bg-slide hero-bg-slide-3" role="img" aria-label="Patio and pool at Toile Blanche" aria-hidden="true"></div>
+      <div class="hero-bg-slide hero-bg-slide-1 is-active" role="img" aria-label="Pool and sun loungers at Toile Blanche, Saint-Paul de Vence"></div>
     </div>
     <div class="hero-bg-overlay"></div>
 
@@ -54,12 +52,8 @@ const suites = suitesData.suites.map(s => ({
     <div class="hero1-content-wrapper">
       <div class="hero1-content" id="hero-content">
         <h1 class="hero-headline light">The Côte d'Azur,<br />without the spectacle.</h1>
-        <div class="hero-second-line light">The art is not on the walls — it is the walls.</div>
+        <div class="hero-second-line light">The art is not on the walls, it is the walls.</div>
         <div class="hero-body light">And the particular pleasure of going nowhere for a few days.</div>
-        <div class="hero-cta-wrap">
-          <a href="#" class="hero-cta distributor-open">Book My Stay</a>
-        </div>
-        <p class="hero-micro">Direct bookings include our best rate guarantee, priority for suite upgrades, and complimentary breakfast.</p>
         <div class="hero1-arrow">
           <img
             src="/assets/images/639af6c370637a631de3b0f3_big_arrow_down_light.svg"
@@ -79,14 +73,14 @@ const suites = suitesData.suites.map(s => ({
   <div class="section tb-intro-section">
     <div class="container">
       <div class="tb-intro-blocks">
-        <div class="tb-intro-block">
+        <div class="tb-intro-block fade-up">
           <h2 class="tb-intro-block-title">The Story</h2>
           <p>When the three Leroy brothers and their families arrived in Saint-Paul de Vence in 2004, they didn't come with a master plan. A guestroom and a deep love for the ridge.</p>
           <p>Over the next twenty years, one by one, neighbours became friends and eventually decided to move on, entrusting their homes to the brothers.</p>
           <p>The result is something genuinely difficult to categorise.</p>
           <p>22 suites. Two restaurants. Three pools. 20,000m² of gardens. Countless sculptures. Saint-Paul de Vence.</p>
         </div>
-        <div class="tb-intro-block">
+        <div class="tb-intro-block fade-up">
           <h2 class="tb-intro-block-title">The Feeling</h2>
           <p>Toile Blanche sits on the edge of Saint-Paul de Vence, the village that gave the world Fondation Maeght, that sheltered Picasso, Chagall and Calder, and it takes that responsibility seriously. Without ever making you feel it.</p>
           <p>The pool is warm. The rosé is cold. The art makes you pause, and then you go back to the pool.</p>
@@ -98,8 +92,14 @@ const suites = suitesData.suites.map(s => ({
 
   <!-- Suites Slider -->
   <div class="section tb-suites-section overlap-section-top">
-    <div class="home-room-slider-wrapper">
+    <div class="home-room-slider-wrapper fade-up">
       <div class="home-room-slider js-slider" id="suites-slider" role="region" aria-label="Suite gallery">
+        <button type="button" class="room-slider-arrow room-slider-left-arrow js-slider-prev" aria-label="Previous suite">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button type="button" class="room-slider-arrow room-slider-right-arrow js-slider-next" aria-label="Next suite">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
         <div class="home-room-mask js-slider-track">
           {suites.map((suite, i) => (
             <div class={`home-room-single-slide js-slide${suite.href === '/suites/mas-artiste' ? ' room-slide-masartiste' : ''}`} data-slide-index={i} role="group" aria-label={`${i + 1} of ${suites.length}`}>
@@ -151,7 +151,7 @@ const suites = suitesData.suites.map(s => ({
     <div class="container">
       <div class="tb-three-blocks">
         <!-- Art -->
-        <div class="tb-feature-block">
+        <div class="tb-feature-block fade-up">
           <div class="tb-feature-block-image">
             <a href="/art" class="tb-feature-block-image-link">
               <picture>
@@ -162,7 +162,7 @@ const suites = suitesData.suites.map(s => ({
             </a>
           </div>
           <div class="tb-feature-block-content">
-            <h2>The Art</h2>
+            <h2>Art</h2>
             <p>In 2026, Toile Blanche was declared a work by the Leroy Brothers. It continues to operate normally.</p>
             <p>The works here are chosen, not accumulated. Each piece was selected in conversation with the people who made them. Some were created specifically for the property. The collection spans painting, sculpture, photography and installation, and it changes. New works arrive each season.</p>
             <p>Staying here more than once means a different conversation with the same rooms.</p>
@@ -171,7 +171,7 @@ const suites = suitesData.suites.map(s => ({
         </div>
 
         <!-- Restaurants -->
-        <div class="tb-feature-block tb-feature-block--reverse">
+        <div class="tb-feature-block tb-feature-block--reverse fade-up">
           <div class="tb-feature-block-image">
             <a href="/restaurants" class="tb-feature-block-image-link">
               <picture>
@@ -191,7 +191,7 @@ const suites = suitesData.suites.map(s => ({
         </div>
 
         <!-- Experiences -->
-        <div class="tb-feature-block">
+        <div class="tb-feature-block fade-up">
           <div class="tb-feature-block-image">
             <a href="/experiences" class="tb-feature-block-image-link">
               <picture>
@@ -228,7 +228,7 @@ const suites = suitesData.suites.map(s => ({
       </div>
       <div class="tb-dp-item">
         <p class="tb-dp-label">Priority Upgrades</p>
-        <p class="tb-dp-desc">Direct guests are first in line for suite surclasses.</p>
+        <p class="tb-dp-desc">Direct guests are first in line for suite upgrades.</p>
       </div>
       <div class="tb-dp-item">
         <p class="tb-dp-label">Book Direct</p>

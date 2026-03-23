@@ -103,6 +103,24 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   object-position: center;
 }
 
+/* ─── Fade-up entrance (below-fold only; works with Lenis) ─────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ─── Transparent menu button on hero ─────────────────────────────────────── */
 .navigation-dark .navigation-bar.dark,
 .navigation-dark .menu-button {
@@ -434,12 +452,47 @@ body.tb-nav-light .navigation-light .nav-logo-text,
   text-transform: none !important;
 }
 
-.room-slider-left-arrow,
-.room-slider-right-arrow {
-  background: none;
-  border: none;
-  cursor: pointer;
+.room-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
   padding: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  color: var(--color-ink);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.room-slider-arrow:hover {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.room-slider-arrow:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+.room-slider-left-arrow {
+  left: 0.75rem;
+}
+
+.room-slider-right-arrow {
+  right: 0.75rem;
+}
+
+.room-slider-left-arrow svg,
+.room-slider-right-arrow svg {
+  flex-shrink: 0;
 }
 
 .room-slider-dots {
@@ -1335,21 +1388,15 @@ body.tb-menu-open .overlap-section-top {
   z-index: 0;
 }
 
-/* Responsive hero slideshow — 3 images (slideshow1, slideshow5, slideshow3) */
+/* Hero — single static image (slideshow1) */
 .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1-800w.jpg"); background-image: image-set(url("/assets/images/slideshow1-800w.avif") type("image/avif"), url("/assets/images/slideshow1-800w.webp") type("image/webp"), url("/assets/images/slideshow1-800w.jpg") type("image/jpeg")); }
-.hero-bg-slide-2 { background-image: url("/assets/images/slideshow5-800w.jpg"); background-image: image-set(url("/assets/images/slideshow5-800w.avif") type("image/avif"), url("/assets/images/slideshow5-800w.webp") type("image/webp"), url("/assets/images/slideshow5-800w.jpg") type("image/jpeg")); }
-.hero-bg-slide-3 { background-image: url("/assets/images/slideshow3-800w.jpg"); background-image: image-set(url("/assets/images/slideshow3-800w.avif") type("image/avif"), url("/assets/images/slideshow3-800w.webp") type("image/webp"), url("/assets/images/slideshow3-800w.jpg") type("image/jpeg")); }
 
 @media (min-width: 640px) {
   .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1-1200w.jpg"); background-image: image-set(url("/assets/images/slideshow1-1200w.avif") type("image/avif"), url("/assets/images/slideshow1-1200w.webp") type("image/webp"), url("/assets/images/slideshow1-1200w.jpg") type("image/jpeg")); }
-  .hero-bg-slide-2 { background-image: url("/assets/images/slideshow5-1200w.jpg"); background-image: image-set(url("/assets/images/slideshow5-1200w.avif") type("image/avif"), url("/assets/images/slideshow5-1200w.webp") type("image/webp"), url("/assets/images/slideshow5-1200w.jpg") type("image/jpeg")); }
-  .hero-bg-slide-3 { background-image: url("/assets/images/slideshow3-1200w.jpg"); background-image: image-set(url("/assets/images/slideshow3-1200w.avif") type("image/avif"), url("/assets/images/slideshow3-1200w.webp") type("image/webp"), url("/assets/images/slideshow3-1200w.jpg") type("image/jpeg")); }
 }
 
 @media (min-width: 1280px) {
   .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1.jpg"); background-image: image-set(url("/assets/images/slideshow1.avif") type("image/avif"), url("/assets/images/slideshow1.webp") type("image/webp"), url("/assets/images/slideshow1.jpg") type("image/jpeg")); }
-  .hero-bg-slide-2 { background-image: url("/assets/images/slideshow5.jpg"); background-image: image-set(url("/assets/images/slideshow5.avif") type("image/avif"), url("/assets/images/slideshow5.webp") type("image/webp"), url("/assets/images/slideshow5.jpg") type("image/jpeg")); }
-  .hero-bg-slide-3 { background-image: url("/assets/images/slideshow3.jpg"); background-image: image-set(url("/assets/images/slideshow3.avif") type("image/avif"), url("/assets/images/slideshow3.webp") type("image/webp"), url("/assets/images/slideshow3.jpg") type("image/jpeg")); }
 }
 
 /* Homepage parallax: pool image between suites and art (slideshow1) */
@@ -1401,6 +1448,16 @@ body.tb-menu-open .overlap-section-top {
     url("/assets/images/homepage-fullframe.webp") type("image/webp"),
     url("/assets/images/homepage-fullframe.png") type("image/png")
   );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Mobile: disable parallax (fixed) — causes zoom/crop issues on iOS and small viewports */
+@media (max-width: 900px) {
+  .full-frame-image-wrapper.homepage-one {
+    background-attachment: scroll;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

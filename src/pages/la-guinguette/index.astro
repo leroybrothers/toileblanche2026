@@ -4,13 +4,15 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import menu from '../../data/menu-guinguette.json';
 import { gallerySrcset, encodePath } from '../../utils/images';
+import { useTranslations } from '../../i18n/index';
 const lang = 'en';
+const t = useTranslations(lang);
 ---
 
 <Layout
   title="La Guinguette | Toile Blanche | Saint-Paul de Vence"
   description="The garden heart. Come barefoot or in espadrilles. Provence invites itself to your table."
-  ogImage="https://www.toileblanche.com/assets/images/page-img-7f72d09199a7a2.jpg"
+  ogImage="https://www.toileblanche.com/assets/images/guinguette-hero.jpg"
   hideBookingBar={true}
   loadZenchef={true}
 >
@@ -20,7 +22,7 @@ const lang = 'en';
     <!-- HERO -->
     <section class="lgn-hero">
       <div class="lgn-hero-image">
-        <img src="/assets/images/page-img-7f72d09199a7a2.jpg" alt="La Guinguette de Toile Blanche" width="1170" height="1702" loading="eager" fetchpriority="high" />
+        <img src="/assets/images/guinguette-hero.jpg" alt="La Guinguette de Toile Blanche" width="1024" height="768" loading="eager" fetchpriority="high" />
         <div class="lgn-hero-overlay"></div>
       </div>
       <div class="lgn-hero-content">
@@ -101,13 +103,24 @@ const lang = 'en';
       </div>
     </section>
 
-    <!-- THE MENU -->
+    <!-- THE MENU (accordion) -->
     <section class="lgn-menu">
       <div class="lgn-menu-inner">
-        <p class="lgn-menu-label">{menu.meta.season[lang]}</p>
-        <h2>The Menu</h2>
-        <p class="lgn-menu-intro">{menu.meta.philosophy[lang]}</p>
-
+        <div class="lgn-menu-accordion">
+          <button type="button" class="lgn-menu-accordion-trigger" aria-expanded="false" aria-controls="lgn-menu-content" id="lgn-menu-trigger" data-view={t.common.viewMenu} data-hide={t.common.hideMenu}>
+            <span class="lgn-menu-accordion-header">
+              <p class="lgn-menu-label">{menu.meta.season[lang]}</p>
+              <h2>The Menu</h2>
+              <p class="lgn-menu-intro">{menu.meta.philosophy[lang]}</p>
+              <span class="lgn-menu-expand">
+                <span class="lgn-menu-expand-text">{t.common.viewMenu}</span>
+                <svg class="lgn-menu-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div id="lgn-menu-content" class="lgn-menu-accordion-content" role="region" aria-labelledby="lgn-menu-trigger" hidden>
         {menu.sections.map(section => (
           <div class="lgn-menu-section">
             <h3>{section.title[lang]}</h3>
@@ -121,6 +134,8 @@ const lang = 'en';
         ))}
 
         <p class="lgn-menu-note">{menu.footer_note[lang]}</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -156,25 +171,13 @@ const lang = 'en';
         <img src="/assets/images/guinguette/DSCF0327.JPG" srcset={gallerySrcset('/assets/images/guinguette/DSCF0327.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="La Guinguette terrace" loading="lazy" />
       </div>
       <div class="lgn-gallery-item">
-        <img src="/assets/images/guinguette/DSCF0438.JPG" srcset={gallerySrcset('/assets/images/guinguette/DSCF0438.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Mediterranean sharing plates" loading="lazy" />
-      </div>
-      <div class="lgn-gallery-item">
         <img src="/assets/images/guinguette/DSCF0486.JPG" srcset={gallerySrcset('/assets/images/guinguette/DSCF0486.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Lunch at La Guinguette" loading="lazy" />
       </div>
       <div class="lgn-gallery-item">
         <img src="/assets/images/guinguette/DSCF4164.JPG" srcset={gallerySrcset('/assets/images/guinguette/DSCF4164.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Garden table at Toile Blanche" loading="lazy" />
       </div>
       <div class="lgn-gallery-item">
-        <img src={encodePath('/assets/images/guinguette/DSCF4327 2.JPG')} srcset={gallerySrcset('/assets/images/guinguette/DSCF4327 2.JPG')} sizes="(max-width: 900px) 100vw, 50vw" alt="Poolside atmosphere" loading="lazy" />
-      </div>
-      <div class="lgn-gallery-item">
-        <img src="/assets/images/guinguette/IMG_9320.jpg" srcset={gallerySrcset('/assets/images/guinguette/IMG_9320.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Sharing style dining" loading="lazy" />
-      </div>
-      <div class="lgn-gallery-item">
         <img src="/assets/images/guinguette/IMG_9344.jpg" srcset={gallerySrcset('/assets/images/guinguette/IMG_9344.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="La Guinguette garden" loading="lazy" />
-      </div>
-      <div class="lgn-gallery-item">
-        <img src="/assets/images/guinguette/guinguette-dessert.jpg" srcset={gallerySrcset('/assets/images/guinguette/guinguette-dessert.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Deconstructed lemon dessert with meringue and citrus zest on the terrace" loading="lazy" />
       </div>
     </section>
 
@@ -194,6 +197,25 @@ const lang = 'en';
 
   <Footer />
 </Layout>
+
+<script>
+  (function () {
+    const trigger = document.getElementById('lgn-menu-trigger');
+    const content = document.getElementById('lgn-menu-content');
+    if (!trigger || !content) return;
+    const expandText = trigger.querySelector('.lgn-menu-expand-text');
+    const viewMenu = trigger.dataset.view || 'View menu';
+    const hideMenu = trigger.dataset.hide || 'Hide menu';
+
+    trigger.addEventListener('click', function () {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', String(!expanded));
+      content.setAttribute('data-expanded', String(!expanded));
+      content.toggleAttribute('hidden', expanded);
+      if (expandText) expandText.textContent = expanded ? viewMenu : hideMenu;
+    });
+  })();
+</script>
 
 <script type="application/ld+json" is:inline>
 {
@@ -465,7 +487,7 @@ const lang = 'en';
     transform: scale(1.03);
   }
 
-  /* ─── THE MENU ─── */
+  /* ─── THE MENU (accordion) ─── */
   .lgn-menu {
     border-bottom: 1px solid #E2D9CC;
   }
@@ -473,6 +495,49 @@ const lang = 'en';
     max-width: 800px;
     margin: 0 auto;
     padding: 80px;
+  }
+  .lgn-menu-accordion-trigger {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+  }
+  .lgn-menu-accordion-trigger:hover .lgn-menu-expand {
+    color: #1C1917;
+  }
+  .lgn-menu-accordion-trigger[aria-expanded="true"] .lgn-menu-expand-icon {
+    transform: rotate(180deg);
+  }
+  .lgn-menu-accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+  .lgn-menu-accordion-content[data-expanded="true"] {
+    max-height: 5000px;
+    opacity: 1;
+    padding-top: 24px;
+  }
+  .lgn-menu-expand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9C9080;
+    transition: color 0.2s;
+  }
+  .lgn-menu-expand-icon {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
   }
   .lgn-menu-label {
     font-family: 'Didact Gothic', sans-serif;
@@ -495,7 +560,7 @@ const lang = 'en';
     font-size: clamp(16px, 2vw, 20px);
     line-height: 1.55;
     color: #3D3530;
-    margin-bottom: 56px;
+    margin-bottom: 0;
     max-width: 700px;
   }
   .lgn-menu-section {

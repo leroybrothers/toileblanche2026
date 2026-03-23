@@ -85,7 +85,7 @@ const cardSrcset = (p: string) => srcset(p, [400]);
 
     <section class="sd-gallery">
       {suite.images.gallery.map((img, i) => (
-        <div class={`sd-gallery-item sd-gallery-item-${i + 1}`}>
+        <div class={`sd-gallery-item sd-gallery-item-${i + 1} fade-up`}>
           <img src={img} srcset={gallerySrcset(img)} sizes="(max-width: 900px) 100vw, 50vw" alt={`${suite.name} — vue ${i + 1}`} loading="lazy" />
         </div>
       ))}

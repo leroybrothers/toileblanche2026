@@ -257,24 +257,17 @@ const alternates = getAlternateUrls(currentPath);
 
   {!hideBookingBar && <BookingBar locale={locale} />}
 
-  <!-- Smooth scroll + scroll reveals: load on first scroll to avoid unused JS on initial load -->
+  <!-- Smooth scroll + scroll reveals: load immediately so Lenis is active from first scroll (like Passalacqua) -->
   <script>
     (function() {
-      var loaded = false;
       function load() {
-        if (loaded) return;
-        loaded = true;
         import('../scripts/smooth-scroll').then(function(m) { m.initSmoothScroll(); }).catch(function() {});
       }
-      function onScroll() {
+      if (document.readyState === 'complete') {
         load();
-        window.removeEventListener('scroll', onScroll, { passive: true });
-        window.removeEventListener('touchstart', onScroll, { passive: true });
+      } else {
+        window.addEventListener('load', load);
       }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('touchstart', onScroll, { passive: true });
-      // Fallback: load after 6s if user hasn't scrolled (e.g. reading above fold)
-      setTimeout(load, 6000);
     })();
   </script>
   <!-- Site JS -->

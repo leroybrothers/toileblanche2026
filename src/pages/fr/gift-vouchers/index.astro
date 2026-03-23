@@ -25,6 +25,7 @@ import Footer from '../../../components/Footer.astro';
     <section class="gft-widget">
       <div class="gft-widget-inner">
         <div class="ubiliz-offers-widget" data-url="https://app.ubiliz.com/widget/liste-bons/4788"><script is:inline src="https://app.ubiliz.com/widget/widget.js"></script></div>
+        <p class="gft-widget-fallback">Si le widget ne s'affiche pas, <a href="mailto:info@toileblanche.com?subject=Demande%20de%20bon%20cadeau">contactez-nous</a> pour les bons cadeaux.</p>
       </div>
     </section>
 
@@ -104,6 +105,19 @@ import Footer from '../../../components/Footer.astro';
     max-width: 1200px;
     margin: 0 auto;
     padding: 80px;
+  }
+  .gft-widget-fallback {
+    margin-top: 24px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 13px;
+    color: #9C9080;
+  }
+  .gft-widget-fallback a {
+    color: #9e5c4a;
+    text-decoration: underline;
+  }
+  .gft-widget-fallback a:hover {
+    opacity: 0.85;
   }
 
   /* ─── HOW IT WORKS ─── */

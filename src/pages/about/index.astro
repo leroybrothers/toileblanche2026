@@ -73,7 +73,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
     <!-- FULL BLEED IMAGE -->
     <section class="abt-full-bleed">
       <div class="abt-full-bleed-wrap">
-        <OptimizedImage src="/assets/images/ambiance/StP25-ToileBlanche-c-GaelleSimon-38.jpg" sizes="100vw" width={4899} height={3266} alt="The domain of Toile Blanche in Saint-Paul de Vence" loading="lazy" widths={[800, 1200]} />
+        <OptimizedImage src="/assets/images/ambiance/StP25-ToileBlanche-c-GaelleSimon-38.jpg" sizes="100vw" width={1200} height={800} alt="The domain of Toile Blanche in Saint-Paul de Vence" loading="lazy" widths={[800, 1200]} />
       </div>
     </section>
 
@@ -237,7 +237,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
     background: #F5F2ED;
   }
   .abt-full-bleed-wrap {
-    aspect-ratio: 4899 / 3266;
+    aspect-ratio: 3 / 2;
     overflow: hidden;
   }
   .abt-full-bleed-wrap picture {
@@ -365,6 +365,10 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
+    .abt-full-bleed-wrap {
+      aspect-ratio: 4 / 5;
+      min-height: 70vh;
+    }
     .abt-hero {
       padding: 140px 24px 64px;
     }
