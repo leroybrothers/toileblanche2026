@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
-import { heroSrcset, gallerySrcset, encodePath } from '../../utils/images';
+import { gallerySrcset, encodePath } from '../../utils/images';
 import { useTranslations } from '../../i18n/index';
 import { getPropertyImages } from '../../utils/the-property-images';
 
@@ -10,8 +10,7 @@ const t = useTranslations('en');
 const img = getPropertyImages();
 
 // Property images: use srcset after running npm run optimize-images (creates -600w, -800w, -1200w)
-const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
-  type === 'hero' ? heroSrcset(path) : gallerySrcset(path);
+const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path);
 ---
 
 <Layout
@@ -22,17 +21,6 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
   <Nav theme="both" />
 
   <main id="main-content" class="prop-page">
-    <!-- Hero: full-bleed image with title bottom-left -->
-    <section class="prop-hero">
-      <div class="prop-hero-image">
-        <img src="/assets/images/property-hero.jpg" srcset={heroSrcset('/assets/images/property-hero.jpg')} sizes="100vw" width="1920" height="1280" alt="The gardens and terrace at Toile Blanche, Saint-Paul de Vence" loading="eager" fetchpriority="high" />
-        <div class="prop-hero-overlay"></div>
-      </div>
-      <div class="prop-hero-content">
-        <h1>{t.pages.theProperty.heroTitle}</h1>
-      </div>
-    </section>
-
     <!-- Cluster 1: The Place -->
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
@@ -79,7 +67,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
       </div>
     </section>
 
-    <!-- Cluster 3: The Rooms -->
+    <!-- Cluster 3: The Suites -->
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
         {img.rooms.portraits.length > 0 && (
@@ -99,7 +87,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
           <div class="prop-two-landscapes">
             {img.rooms.landscapes.map((src) => (
               <div class="prop-landscape">
-                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="The Rooms at Toile Blanche" loading="lazy" />
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="The Suites at Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -107,18 +95,45 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
       </div>
     </section>
 
-    <!-- Cluster 4: The Table -->
+    <!-- Cluster 4: The Pools -->
+    <section class="prop-cluster">
+      <div class="prop-cluster-inner">
+        <div class="prop-two-landscapes">
+          <div class="prop-landscape">
+            <img src={encodePath(img.pools.landscape1)} srcset={srcsetFor(img.pools.landscape1, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Pool at Toile Blanche" loading="lazy" />
+          </div>
+          <div class="prop-landscape">
+            <img src={encodePath(img.pools.landscape2)} srcset={srcsetFor(img.pools.landscape2, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Pools at Toile Blanche" loading="lazy" />
+          </div>
+        </div>
+        <div class="prop-text-block prop-text-center">
+          <h2>{t.pages.theProperty.cluster4Title}</h2>
+          <p>{t.pages.theProperty.cluster4Text}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cluster 5: The Table -->
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
         <div class="prop-text-block prop-text-left">
-          <h2>{t.pages.theProperty.cluster4Title}</h2>
-          <p>{t.pages.theProperty.cluster4Text}</p>
+          <h2>{t.pages.theProperty.cluster5Title}</h2>
+          <p>{t.pages.theProperty.cluster5Text}</p>
         </div>
         {img.table.portraits.length > 0 && (
           <div class={`prop-portraits prop-portraits-${img.table.portraits.length}`}>
             {img.table.portraits.map((src) => (
               <div class="prop-portrait">
                 <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes={img.table.portraits.length === 1 ? "100vw" : "(max-width: 900px) 100vw, 33.33vw"} width="1200" height="1600" alt="The Table at Toile Blanche" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        )}
+        {img.table.landscapes && img.table.landscapes.length > 0 && (
+          <div class={`prop-landscapes prop-landscapes-${img.table.landscapes.length}`}>
+            {img.table.landscapes.map((src) => (
+              <div class="prop-landscape">
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="The Table at Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
@@ -131,15 +146,24 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
       <div class="prop-cluster-inner">
         <div class="prop-two-landscapes">
           <div class="prop-landscape">
-            <img src={encodePath(img.art.landscape1)} srcset={srcsetFor(img.art.landscape1, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Yellow sculpture in the garden" loading="lazy" />
+            <img src={encodePath(img.art.landscape1)} srcset={srcsetFor(img.art.landscape1, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Art at Toile Blanche" loading="lazy" />
           </div>
           <div class="prop-landscape">
-            <img src={encodePath(img.art.landscape2)} srcset={srcsetFor(img.art.landscape2, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Art corridor" loading="lazy" />
+            <img src={encodePath(img.art.landscape2)} srcset={srcsetFor(img.art.landscape2, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Art collection at Toile Blanche" loading="lazy" />
           </div>
         </div>
+        {img.art.extra && img.art.extra.length > 0 && (
+          <div class={`prop-landscapes prop-landscapes-${img.art.extra.length}`}>
+            {img.art.extra.map((src) => (
+              <div class="prop-landscape">
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Artwork at Toile Blanche" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        )}
         <div class="prop-text-block prop-text-center">
-          <h2>{t.pages.theProperty.cluster5Title}</h2>
-          <p>{t.pages.theProperty.cluster5Text}</p>
+          <h2>{t.pages.theProperty.cluster6Title}</h2>
+          <p>{t.pages.theProperty.cluster6Text}</p>
         </div>
       </div>
     </section>
@@ -148,8 +172,8 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
         <div class="prop-text-block prop-text-left">
-          <h2>{t.pages.theProperty.cluster6Title}</h2>
-          <p>{t.pages.theProperty.cluster6Text}</p>
+          <h2>{t.pages.theProperty.cluster7Title}</h2>
+          <p>{t.pages.theProperty.cluster7Text}</p>
         </div>
         {img.garden.middle.length > 0 && (
           <div class={`prop-landscapes prop-landscapes-${img.garden.middle.length}`}>
@@ -167,8 +191,8 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
         <div class="prop-text-block prop-text-left">
-          <h2>{t.pages.theProperty.cluster7Title}</h2>
-          <p>{t.pages.theProperty.cluster7Text}</p>
+          <h2>{t.pages.theProperty.cluster8Title}</h2>
+          <p>{t.pages.theProperty.cluster8Text}</p>
         </div>
         {img.atmosphere.grid.length > 0 && (
           <div class="prop-atmosphere-grid">
@@ -195,42 +219,6 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
   .prop-page {
     overflow-x: hidden;
   }
-  /* ─── Hero (full-bleed, title bottom-left) ─── */
-  .prop-hero {
-    position: relative;
-    height: 85vh;
-    min-height: 500px;
-    overflow: hidden;
-  }
-  .prop-hero-image {
-    position: absolute;
-    inset: 0;
-  }
-  .prop-hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .prop-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
-  }
-  .prop-hero-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0 80px 72px;
-  }
-  .prop-hero-content h1 {
-    font-family: 'Gilda Display', Georgia, serif;
-    font-size: clamp(36px, 5vw, 72px);
-    font-weight: 400;
-    line-height: 1.1;
-    color: #fff;
-  }
-
   /* ─── CLUSTERS (generous white space) ─── */
   .prop-cluster {
     padding: 140px 0;
@@ -256,9 +244,6 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
     }
     .prop-cluster-inner {
       padding: 0 24px;
-    }
-    .prop-hero-content {
-      padding: 0 24px 48px;
     }
   }
 
@@ -305,6 +290,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
   }
   .prop-landscapes-1 { grid-template-columns: 1fr; }
   .prop-landscapes-2 { grid-template-columns: repeat(2, 1fr); }
+  .prop-landscapes-3 { grid-template-columns: repeat(3, 1fr); }
   .prop-atmosphere-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -347,7 +333,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') =>
       grid-template-columns: 1fr;
       gap: 24px;
     }
-    .prop-landscapes-1, .prop-landscapes-2 {
+    .prop-landscapes-1, .prop-landscapes-2, .prop-landscapes-3 {
       grid-template-columns: 1fr;
       gap: 24px;
     }

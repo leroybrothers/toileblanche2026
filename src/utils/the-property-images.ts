@@ -23,9 +23,10 @@ const placeholders = {
   place: ['/assets/images/aboutgrid/StP25-ToileBlanche-c-GaelleSimon-21.jpg', '/assets/images/aboutgrid/IMG_2069.jpg', '/assets/images/aboutgrid/IMG_5950 (1).jpg', '/assets/images/aboutgrid/IMG_1902.jpg'],
   houses: ['/assets/images/art/IMG_0365.jpg', '/assets/images/pools/IMG_2711.jpg', '/assets/images/art/ervinck-1.jpg'],
   rooms: ['/assets/images/cabanat/gallery-4.jpg', '/assets/images/bronzette/gallery-2.jpg', '/assets/images/penequet/gallery-5.jpg', '/assets/images/suite-artiste/gallery-3.jpg', '/assets/images/art/artgallery/IMG_9658.jpg'],
-  table: ['/assets/images/guinguette/IMG_7094.jpg', '/assets/images/restaurant/restaurantgallery/DSCF5723.JPG', '/assets/images/guinguette/DSCF0486.JPG', '/assets/images/restaurant/restaurantgallery/IMG_0597.jpg'],
-  art: ['/assets/images/art/artgallery/StP25-ToileBlanche-c-GaelleSimon-8.jpg', '/assets/images/art/IMG_0365.jpg', '/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg'],
-  garden: ['/assets/images/aboutgrid/IMG_5950 (1).jpg', '/assets/images/art/artgallery/IMG_9658.jpg'],
+  table: ['/assets/images/guinguette/IMG_7094.jpg', '/assets/images/restaurant/restaurantgallery/DSCF5723.JPG', '/assets/images/guinguette/DSCF0486.JPG', '/assets/images/restaurant/restaurantgallery/IMG_0597.jpg', '/assets/images/restaurant/food1.jpg', '/assets/images/restaurant/food2.jpg'],
+  art: ['/assets/images/art/art1.jpg', '/assets/images/art/art2.jpg', '/assets/images/art/art3.jpg', '/assets/images/art/art5.jpg'],
+  pools: ['/assets/images/pools/IMG_2644.jpg', '/assets/images/pools/IMG_2979.jpg'],
+  garden: ['/assets/images/garden/garden1.jpg', '/assets/images/garden/garden2.jpg', '/assets/images/garden/garden3.jpg', '/assets/images/garden/garden4.jpg', '/assets/images/garden/garden5.jpg', '/assets/images/garden/garden6.jpg'],
   atmosphere: Array(10).fill('/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg'),
 };
 
@@ -41,6 +42,7 @@ export function getPropertyImageInventory() {
     'the-rooms': listImages('therooms'),
     'the-table': listImages('thetable'),
     'the-art': listImages('theart'),
+    'the-pools': listImages('thepools'),
     'the-garden': listImages('thegarden'),
     'the-atmosphere': listImages('theatmosphere'),
   };
@@ -52,6 +54,7 @@ export function getPropertyImages() {
   const rooms = orFallback(listImages('therooms'), placeholders.rooms);
   const table = orFallback(listImages('thetable'), placeholders.table);
   const art = orFallback(listImages('theart'), placeholders.art);
+  const pools = orFallback(listImages('thepools'), placeholders.pools);
   const garden = orFallback(listImages('thegarden'), placeholders.garden);
   const atmosphere = orFallback(listImages('theatmosphere'), placeholders.atmosphere);
 
@@ -68,26 +71,33 @@ export function getPropertyImages() {
       fullbleed: houses[2]!,
       extra: houses.slice(3),
     },
-    // rooms: 3 portraits + 2 landscapes. With 3: portraits only.
+    // rooms/suites: 3 portraits + 3 landscapes (suites1–3 under).
     rooms: {
       portraits: rooms.slice(0, 3),
-      landscapes: rooms.slice(3, 5),
+      landscapes: rooms.slice(3, 6),
     },
-    // table: hero + portraits. With 3: hero + 2 portraits.
+    // table: hero + portraits + 2 landscapes (food1, food2 under).
     table: {
       hero: table[0]!,
-      portraits: table.slice(1),
+      portraits: table.slice(1, 4),
+      landscapes: table.slice(4, 6),
     },
-    // art: 2 landscapes + fullbleed. With 3: perfect.
+    // art: 2 landscapes + extra row (art1, art2, art3, art5).
     art: {
       landscape1: art[0]!,
       landscape2: art[1]!,
       fullbleed: art[2]!,
+      extra: art.slice(2),
     },
-    // garden: hero + middle row + fullbleed. With 4: hero, [1,2] middle, [3] fullbleed. With 3: hero, [1] middle, [2] fullbleed. With 2: hero, fullbleed only.
+    // pools: 2 landscapes (not used in garden).
+    pools: {
+      landscape1: pools[0]!,
+      landscape2: pools[1]!,
+    },
+    // garden: all images in middle row. With 6: garden1–garden6.
     garden: {
       hero: garden[0]!,
-      middle: garden.length >= 4 ? garden.slice(1, 3) : garden.length === 3 ? garden.slice(1, 2) : [],
+      middle: garden,
       fullbleed: (garden[3] ?? garden[2] ?? garden[1] ?? garden[0])!,
     },
     // atmosphere: 10 images — 1st=hero, text, then 9 in a 3×3 grid
