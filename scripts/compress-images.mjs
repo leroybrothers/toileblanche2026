@@ -1,11 +1,10 @@
 import sharp from 'sharp';
 import { readdir, stat, rename } from 'fs/promises';
 import { join, extname } from 'path';
+import { RESIZE_OPTS, QUALITY_COMPACT } from './image-config.mjs';
 
 const IMG_DIR = 'public/assets/images';
 const MAX_WIDTH = 2000;
-const JPEG_QUALITY = 82;
-const PNG_QUALITY = 80;
 
 async function getFiles(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -43,15 +42,15 @@ async function compress() {
       let pipeline = sharp(file).rotate(); // auto-rotate from EXIF
 
       if (meta.width > MAX_WIDTH) {
-        pipeline = pipeline.resize(MAX_WIDTH, null, { withoutEnlargement: true });
+        pipeline = pipeline.resize(MAX_WIDTH, null, RESIZE_OPTS);
       }
 
       const tmp = file + '.tmp';
 
       if (ext === '.png') {
-        await pipeline.png({ quality: PNG_QUALITY, compressionLevel: 9, effort: 10 }).toFile(tmp);
+        await pipeline.png({ compressionLevel: 9, effort: 10 }).toFile(tmp);
       } else {
-        await pipeline.jpeg({ quality: JPEG_QUALITY, mozjpeg: true }).toFile(tmp);
+        await pipeline.jpeg({ quality: QUALITY_COMPACT.jpeg, mozjpeg: true }).toFile(tmp);
       }
 
       const after = (await stat(tmp)).size;

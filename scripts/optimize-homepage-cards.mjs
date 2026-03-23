@@ -6,9 +6,9 @@
 import sharp from 'sharp';
 import { readdir, stat, rename, unlink } from 'fs/promises';
 import { join, basename, extname } from 'path';
+import { RESIZE_OPTS, SHARPEN_OPTS, QUALITY } from './image-config.mjs';
 
 const HOMEPAGE = 'public/assets/images/Homepage';
-const JPEG_QUALITY = 92;
 const CARD_WIDTHS = [1200, 800, 400];
 
 // Suite card files from suites.json (card field) — use existing .jpg sources
@@ -51,19 +51,21 @@ async function processCard(fileName) {
 
   for (const w of CARD_WIDTHS) {
     const resizeW = origW > 0 ? Math.min(w, origW) : w;
-    const resized = img.clone().resize(resizeW, null, { withoutEnlargement: true });
+    const resized = img.clone()
+      .resize(resizeW, null, RESIZE_OPTS)
+      .sharpen(SHARPEN_OPTS);
 
     const outName = `${name}-${w}w`;
     const jpgPath = join(dir, `${outName}.jpg`);
-    await resized.clone().jpeg({ quality: JPEG_QUALITY, mozjpeg: true }).toFile(jpgPath);
+    await resized.clone().jpeg({ quality: QUALITY.jpeg, mozjpeg: true }).toFile(jpgPath);
     afterTotal += (await stat(jpgPath)).size;
 
     const webpPath = join(dir, `${outName}.webp`);
-    await resized.clone().webp({ quality: 90 }).toFile(webpPath);
+    await resized.clone().webp({ quality: QUALITY.webp }).toFile(webpPath);
     afterTotal += (await stat(webpPath)).size;
 
     const avifPath = join(dir, `${outName}.avif`);
-    await resized.clone().avif({ quality: 72 }).toFile(avifPath);
+    await resized.clone().avif({ quality: QUALITY.avif }).toFile(avifPath);
     afterTotal += (await stat(avifPath)).size;
 
     console.log(`  + ${outName}.jpg/.webp/.avif`);
@@ -75,8 +77,9 @@ async function processCard(fileName) {
   const tmpBase = baseOutPath + '.tmp';
   await img
     .clone()
-    .resize(baseResizeW, null, { withoutEnlargement: true })
-    .jpeg({ quality: JPEG_QUALITY, mozjpeg: true })
+    .resize(baseResizeW, null, RESIZE_OPTS)
+    .sharpen(SHARPEN_OPTS)
+    .jpeg({ quality: QUALITY.jpeg, mozjpeg: true })
     .toFile(tmpBase);
 
   const baseSize = (await stat(tmpBase)).size;

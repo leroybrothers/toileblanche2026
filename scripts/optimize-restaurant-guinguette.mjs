@@ -6,9 +6,9 @@
 import sharp from 'sharp';
 import { readdir, stat, rename, unlink } from 'fs/promises';
 import { join, basename, extname } from 'path';
+import { RESIZE_OPTS, SHARPEN_OPTS, QUALITY } from './image-config.mjs';
 
 const BASE = 'public/assets/images';
-const QUALITY = 82;
 const GALLERY_SIZES = [1800, 1200, 600]; // base, then -1200w, -600w
 
 const DIRS = ['restaurant', 'guinguette'];
@@ -32,8 +32,9 @@ async function processImage(filePath) {
 
     const pipeline = sharp(filePath)
       .rotate()
-      .resize(w, null, { withoutEnlargement: true })
-      .jpeg({ quality: QUALITY, mozjpeg: true });
+      .resize(w, null, RESIZE_OPTS)
+      .sharpen(SHARPEN_OPTS)
+      .jpeg({ quality: QUALITY.jpeg, mozjpeg: true });
 
     const tmp = outPath + '.tmp';
     await pipeline.toFile(tmp);

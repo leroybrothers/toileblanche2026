@@ -6,10 +6,10 @@
 import sharp from 'sharp';
 import { readdir, stat, rename, unlink } from 'fs/promises';
 import { join, extname } from 'path';
+import { RESIZE_OPTS, SHARPEN_OPTS, QUALITY_COMPACT } from './image-config.mjs';
 
 const ARCHIVE_DIR = 'public/assets/images/archive';
 const MAX_WIDTH = 1200;
-const QUALITY = 82;
 
 function kb(bytes) {
   return bytes < 1024 * 1024
@@ -28,13 +28,13 @@ async function optimize(filePath) {
   const tmpPath = filePath + '.tmp';
   let pipeline = sharp(filePath).rotate();
   if (needsResize) {
-    pipeline = pipeline.resize(MAX_WIDTH, null, { withoutEnlargement: true });
+    pipeline = pipeline.resize(MAX_WIDTH, null, RESIZE_OPTS).sharpen(SHARPEN_OPTS);
   }
 
   if (ext === '.png') {
     await pipeline.png({ compressionLevel: 9 }).toFile(tmpPath);
   } else {
-    await pipeline.jpeg({ quality: QUALITY, mozjpeg: true }).toFile(tmpPath);
+    await pipeline.jpeg({ quality: QUALITY_COMPACT.jpeg, mozjpeg: true }).toFile(tmpPath);
   }
 
   await rename(tmpPath, filePath);

@@ -7,11 +7,10 @@ import sharp from 'sharp';
 import { readdir } from 'fs/promises';
 import { join, extname, dirname, basename } from 'path';
 import { fileURLToPath } from 'url';
+import { QUALITY } from './image-config.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const IMG = join(__dirname, '..', 'public', 'assets', 'images');
-const WEBP_Q = 80;
-const AVIF_Q = 65;
 
 async function* walk(dir, prefix = '') {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -41,7 +40,7 @@ async function addWebpAvif(imgPath) {
 
   const webpPath = join(dir, `${outBase}.webp`);
   try {
-    await sharp(imgPath).webp({ quality: WEBP_Q }).toFile(webpPath);
+    await sharp(imgPath).webp({ quality: QUALITY.webp }).toFile(webpPath);
     created++;
   } catch (e) {
     console.warn(`  ⚠ WebP ${outBase}.webp:`, e.message);
@@ -49,7 +48,7 @@ async function addWebpAvif(imgPath) {
 
   const avifPath = join(dir, `${outBase}.avif`);
   try {
-    await sharp(imgPath).avif({ quality: AVIF_Q }).toFile(avifPath);
+    await sharp(imgPath).avif({ quality: QUALITY.avif }).toFile(avifPath);
     created++;
   } catch (e) {
     console.warn(`  ⚠ AVIF ${outBase}.avif:`, e.message);

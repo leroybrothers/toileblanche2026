@@ -7,14 +7,12 @@ import sharp from 'sharp';
 import { stat } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { RESIZE_OPTS, SHARPEN_OPTS, QUALITY } from './image-config.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const IMG = join(__dirname, '..', 'public', 'assets', 'images');
 
 const WIDTHS = [524, 800];
-const JPEG_Q = 88;
-const WEBP_Q = 88;
-const AVIF_Q = 72;
 
 async function processImage(sourcePath, baseName) {
   const img = sharp(sourcePath).rotate();
@@ -22,23 +20,25 @@ async function processImage(sourcePath, baseName) {
   let totalOut = 0;
 
   for (const w of WIDTHS) {
-    const resized = img.clone().resize(w, null, { withoutEnlargement: true });
+    const resized = img.clone()
+      .resize(w, null, RESIZE_OPTS)
+      .sharpen(SHARPEN_OPTS);
 
     const jpg = join(dir, `${baseName}-${w}w.jpg`);
     await resized.clone()
-      .jpeg({ quality: JPEG_Q, mozjpeg: true })
+      .jpeg({ quality: QUALITY.jpeg, mozjpeg: true })
       .toFile(jpg);
     totalOut += (await stat(jpg)).size;
 
     const webp = join(dir, `${baseName}-${w}w.webp`);
     await resized.clone()
-      .webp({ quality: WEBP_Q })
+      .webp({ quality: QUALITY.webp })
       .toFile(webp);
     totalOut += (await stat(webp)).size;
 
     const avif = join(dir, `${baseName}-${w}w.avif`);
     await resized.clone()
-      .avif({ quality: AVIF_Q })
+      .avif({ quality: QUALITY.avif })
       .toFile(avif);
     totalOut += (await stat(avif)).size;
   }
@@ -50,10 +50,10 @@ async function processFullframe(sourcePath, baseName) {
   const img = sharp(sourcePath).rotate();
 
   const webp = join(dir, `${baseName}.webp`);
-  await img.clone().webp({ quality: 90 }).toFile(webp);
+  await img.clone().webp({ quality: QUALITY.webp }).toFile(webp);
 
   const avif = join(dir, `${baseName}.avif`);
-  await img.clone().avif({ quality: 75 }).toFile(avif);
+  await img.clone().avif({ quality: QUALITY.avif }).toFile(avif);
 
   return (await stat(webp)).size + (await stat(avif)).size;
 }
