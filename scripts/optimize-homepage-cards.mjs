@@ -16,16 +16,15 @@ const JPEG_Q = 93;
 const WEBP_Q = 92;
 const AVIF_Q = 78;
 
-// Suite card sources (Homepage folder) — script finds first that exists (.jpg, .jpeg, .png)
-// Cabanat uses cabanat/hero.jpg, not Homepage
-const CARD_NAMES = [
-  'suite-penard',
-  'Suite pétanque',
-  'Suite bronzette',
-  "suite de l'artiste",
-  'mas-de-l-artiste',
-  'Villa pénéquet',
-  'Suite bon vivant',
+// { out: outputBase (matches suites.json), find: [aliases to try] }
+const CARD_ENTRIES = [
+  { out: 'suite-penard', find: ['suite-penard'] },
+  { out: 'Suite pétanque', find: ['Suite pétanque'] },
+  { out: 'Suite bronzette', find: ['Suite bronzette'] },
+  { out: "suite de l'artiste", find: ["suite de l'artiste"] },
+  { out: 'mas-de-l-artiste', find: ['mas-de-l-artiste', "Mas de l'artist"] },
+  { out: 'Villa pénéquet', find: ['Villa pénéquet'] },
+  { out: 'Suite bon vivant', find: ['Suite bon vivant'] },
 ];
 const CARD_EXTS = ['.jpg', '.jpeg', '.png', '.JPG', '.PNG'];
 
@@ -43,16 +42,19 @@ function findCardFile(baseName) {
   return null;
 }
 
-async function processCard(baseName) {
-  const filePath = findCardFile(baseName);
+async function processCard(entry) {
+  let filePath = null;
+  for (const findName of entry.find) {
+    filePath = findCardFile(findName);
+    if (filePath) break;
+  }
   if (!filePath) {
-    console.log(`  ⚠ ${baseName}.* not found, skipping`);
+    console.log(`  ⚠ ${entry.out}.* not found, skipping`);
     return { before: 0, after: 0 };
   }
+  const outBase = entry.out;
   let beforeTotal = (await stat(filePath)).size;
 
-  const ext = extname(filePath);
-  const outBase = basename(filePath, ext);
   const dir = join(filePath, '..');
   const outExt = '.jpg';
   let afterTotal = 0;
@@ -107,8 +109,8 @@ async function run() {
   let totalBefore = 0;
   let totalAfter = 0;
 
-  for (const name of CARD_NAMES) {
-    const { before, after } = await processCard(name);
+  for (const entry of CARD_ENTRIES) {
+    const { before, after } = await processCard(entry);
     totalBefore += before;
     totalAfter += after;
   }
