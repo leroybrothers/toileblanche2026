@@ -6,6 +6,7 @@
  */
 import sharp from 'sharp';
 import { stat, rename } from 'fs/promises';
+import { existsSync } from 'fs';
 import { join, basename, extname } from 'path';
 import { RESIZE_OPTS, SHARPEN_OPTS } from './image-config.mjs';
 
@@ -15,17 +16,18 @@ const JPEG_Q = 93;
 const WEBP_Q = 92;
 const AVIF_Q = 78;
 
-// Suite card files from suites.json (card field) — use existing .jpg sources
-const CARD_FILES = [
-  'suite-penard.jpg',
-  'Suite pétanque.jpg',
-  'Suite bronzette.png',
-  'Suite cabanat.jpg',
-  "suite de l'artiste.JPG",
-  'mas-de-l-artiste.jpg',
-  'Villa pénéquet.jpg',
-  'Suite bon vivant.JPG',
+// Suite card sources (Homepage folder) — script finds first that exists (.jpg, .jpeg, .png)
+// Cabanat uses cabanat/hero.jpg, not Homepage
+const CARD_NAMES = [
+  'suite-penard',
+  'Suite pétanque',
+  'Suite bronzette',
+  "suite de l'artiste",
+  'mas-de-l-artiste',
+  'Villa pénéquet',
+  'Suite bon vivant',
 ];
+const CARD_EXTS = ['.jpg', '.jpeg', '.png', '.JPG', '.PNG'];
 
 function kb(bytes) {
   return bytes < 1024 * 1024
@@ -33,18 +35,24 @@ function kb(bytes) {
     : `${(bytes / 1024 / 1024).toFixed(1)}MB`;
 }
 
-async function processCard(fileName) {
-  const filePath = join(HOMEPAGE, fileName);
-  let beforeTotal;
-  try {
-    beforeTotal = (await stat(filePath)).size;
-  } catch {
-    console.log(`  ⚠ ${fileName} not found, skipping`);
+function findCardFile(baseName) {
+  for (const ext of CARD_EXTS) {
+    const p = join(HOMEPAGE, baseName + ext);
+    if (existsSync(p)) return p;
+  }
+  return null;
+}
+
+async function processCard(baseName) {
+  const filePath = findCardFile(baseName);
+  if (!filePath) {
+    console.log(`  ⚠ ${baseName}.* not found, skipping`);
     return { before: 0, after: 0 };
   }
+  let beforeTotal = (await stat(filePath)).size;
 
   const ext = extname(filePath);
-  const name = basename(filePath, ext);
+  const outBase = basename(filePath, ext);
   const dir = join(filePath, '..');
   const outExt = '.jpg';
   let afterTotal = 0;
@@ -59,7 +67,7 @@ async function processCard(fileName) {
       .resize(resizeW, null, RESIZE_OPTS)
       .sharpen(SHARPEN_OPTS);
 
-    const outName = `${name}-${w}w`;
+    const outName = `${outBase}-${w}w`;
     const jpgPath = join(dir, `${outName}.jpg`);
     await resized.clone().jpeg({ quality: JPEG_Q, mozjpeg: true }).toFile(jpgPath);
     afterTotal += (await stat(jpgPath)).size;
@@ -76,7 +84,7 @@ async function processCard(fileName) {
   }
 
   // Base = 800w for fallback. Use .tmp to avoid same-file error when input is .jpg
-  const baseOutPath = join(dir, `${name}.jpg`);
+  const baseOutPath = join(dir, `${outBase}.jpg`);
   const baseResizeW = origW > 0 ? Math.min(800, origW) : 800;
   const tmpBase = baseOutPath + '.tmp';
   await img
@@ -89,7 +97,7 @@ async function processCard(fileName) {
   const baseSize = (await stat(tmpBase)).size;
   await rename(tmpBase, baseOutPath);
   afterTotal += baseSize;
-  console.log(`  ✓ ${name}.jpg  ${kb(baseSize)}  (base)`);
+  console.log(`  ✓ ${outBase}.jpg  ${kb(baseSize)}  (base)`);
 
   return { before: beforeTotal, after: afterTotal };
 }
@@ -99,8 +107,8 @@ async function run() {
   let totalBefore = 0;
   let totalAfter = 0;
 
-  for (const file of CARD_FILES) {
-    const { before, after } = await processCard(file);
+  for (const name of CARD_NAMES) {
+    const { before, after } = await processCard(name);
     totalBefore += before;
     totalAfter += after;
   }
