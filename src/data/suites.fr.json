@@ -106,7 +106,7 @@
         "hero": "/assets/images/bronzette/DSCF7633.jpg",
         "heroWidth": 2400,
         "heroHeight": 1351,
-        "card": "/assets/images/Homepage/Suite bronzette.JPG",
+        "card": "/assets/images/Homepage/Suite bronzette.jpg",
         "cardAlt": "Suite de la Bronzette à Toile Blanche",
         "gallery": [
           "/assets/images/bronzette/DSCF7473.JPG",
@@ -180,7 +180,7 @@
         "hero": "/assets/images/suite-artiste/hero.jpg",
         "heroWidth": 2400,
         "heroHeight": 1627,
-        "card": "/assets/images/Homepage/suite de l'artiste.JPG",
+        "card": "/assets/images/Homepage/suite de l'artiste.jpg",
         "cardAlt": "Suite de l'Artiste à Toile Blanche",
         "gallery": [
           "/assets/images/suite-artiste/gallery-5.jpg",
@@ -251,7 +251,7 @@
         "hero": "/assets/images/bon-vivant/hero.jpg",
         "heroWidth": 2400,
         "heroHeight": 1916,
-        "card": "/assets/images/Homepage/Suite bon vivant.JPG",
+        "card": "/assets/images/Homepage/Suite bon vivant.jpg",
         "cardAlt": "Suite du Bon-Vivant à Toile Blanche",
         "gallery": [
           "/assets/images/bon-vivant/gallery-1.jpg",
