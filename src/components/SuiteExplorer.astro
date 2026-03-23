@@ -1,6 +1,6 @@
 ---
 import { localePath, type Locale } from '../i18n/index';
-import { singleWidthSrcset } from '../utils/images';
+import { cardSrcset } from '../utils/images';
 
 export interface Props {
   suites: Array<{
@@ -14,7 +14,6 @@ export interface Props {
 }
 const { suites, locale = 'en' } = Astro.props;
 const lp = (path: string) => localePath(path, locale);
-const cardSrcset = (path: string) => singleWidthSrcset(path, 400);
 ---
 
 <div class="tb-suite-explorer js-suite-explorer" aria-label="Explore our suites">

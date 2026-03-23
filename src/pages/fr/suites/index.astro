@@ -2,16 +2,11 @@
 import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
+import { cardSrcset } from '../../../utils/images';
 import suitesData from '../../../data/suites.fr.json';
 
 const suites = suitesData.suites;
 
-function srcset(path: string, widths: number[]) {
-  const ext = path.substring(path.lastIndexOf('.'));
-  const base = path.substring(0, path.lastIndexOf('.'));
-  return widths.map(w => `${base}-${w}w${ext} ${w}w`).join(', ') + `, ${path} ${widths[widths.length - 1] * 2}w`;
-}
-const cardSrcset = (p: string) => srcset(p, [400]);
 ---
 
 <Layout

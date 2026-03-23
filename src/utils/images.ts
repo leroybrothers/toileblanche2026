@@ -29,3 +29,6 @@ export function srcsetAvif(path: string, widths: number[]): string {
 export const heroSrcset = (p: string) => srcset(p, [800, 1200]);
 export const gallerySrcset = (p: string) => srcset(p, [600, 1200]);
 export const singleWidthSrcset = (p: string, w: number) => srcset(p, [w]);
+
+/** Homepage suite cards: 400, 800, 1200, 1800 (matches optimize-homepage-cards output). */
+export const cardSrcset = (p: string) => srcset(p, [400, 800, 1200, 1800]);

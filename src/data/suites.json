@@ -292,10 +292,9 @@
         "hero": "/assets/images/penequet/hero.jpg",
         "heroWidth": 800,
         "heroHeight": 927,
-        "card": "/assets/images/Homepage/Villa pénéquet.jpg",
+        "card": "/assets/images/penequet/penequet.jpg",
         "cardAlt": "Villa du Pénéquet at Toile Blanche",
         "gallery": [
-          "/assets/images/penequet/hero-legacy.jpg",
           "/assets/images/penequet/IMG_4399.jpg",
           "/assets/images/penequet/IMG_0093.jpg",
           "/assets/images/penequet/IMG_2248.jpg",
