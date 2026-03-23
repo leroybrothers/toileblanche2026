@@ -1415,17 +1415,37 @@ body.tb-menu-open .overlap-section-top {
   .homepage-parallax-pool { background-attachment: scroll; }
 }
 
-/* Homepage full-frame image at bottom — dining terrace (replaces hero duplicate) */
+/* Homepage full-frame image at bottom — slideshow5 (gardens) */
 .full-frame-image-wrapper.homepage-one {
-  background-image: url("/assets/images/homepage-fullframe.png");
+  background-image: url("/assets/images/slideshow5-800w.jpg");
   background-image: image-set(
-    url("/assets/images/homepage-fullframe.avif") type("image/avif"),
-    url("/assets/images/homepage-fullframe.webp") type("image/webp"),
-    url("/assets/images/homepage-fullframe.png") type("image/png")
+    url("/assets/images/slideshow5-800w.avif") type("image/avif"),
+    url("/assets/images/slideshow5-800w.webp") type("image/webp"),
+    url("/assets/images/slideshow5-800w.jpg") type("image/jpeg")
   );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+@media (min-width: 640px) {
+  .full-frame-image-wrapper.homepage-one {
+    background-image: url("/assets/images/slideshow5-1200w.jpg");
+    background-image: image-set(
+      url("/assets/images/slideshow5-1200w.avif") type("image/avif"),
+      url("/assets/images/slideshow5-1200w.webp") type("image/webp"),
+      url("/assets/images/slideshow5-1200w.jpg") type("image/jpeg")
+    );
+  }
+}
+@media (min-width: 1280px) {
+  .full-frame-image-wrapper.homepage-one {
+    background-image: url("/assets/images/slideshow5.jpg");
+    background-image: image-set(
+      url("/assets/images/slideshow5.avif") type("image/avif"),
+      url("/assets/images/slideshow5.webp") type("image/webp"),
+      url("/assets/images/slideshow5.jpg") type("image/jpeg")
+    );
+  }
 }
 
 /* Mobile: disable parallax (fixed) — causes zoom/crop issues on iOS and small viewports */
