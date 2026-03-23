@@ -100,8 +100,9 @@ async function processSlideshow(fileName) {
     const webpName = `${name}-${w}w.webp`;
     const webpPath = join(dir, webpName);
     await img.clone()
-      .resize(resizeW, null, { withoutEnlargement: true })
-      .webp({ quality: WEBP_QUALITY })
+      .resize(resizeW, null, RESIZE_OPTS)
+      .sharpen(SHARPEN_OPTS)
+      .webp({ quality: QUALITY.webp })
       .toFile(webpPath);
     afterTotal += (await stat(webpPath)).size;
     console.log(`  + ${webpName}  ${kb((await stat(webpPath)).size)}`);
@@ -109,8 +110,9 @@ async function processSlideshow(fileName) {
     const avifName = `${name}-${w}w.avif`;
     const avifPath = join(dir, avifName);
     await img.clone()
-      .resize(resizeW, null, { withoutEnlargement: true })
-      .avif({ quality: AVIF_QUALITY })
+      .resize(resizeW, null, RESIZE_OPTS)
+      .sharpen(SHARPEN_OPTS)
+      .avif({ quality: QUALITY.avif })
       .toFile(avifPath);
     afterTotal += (await stat(avifPath)).size;
     console.log(`  + ${avifName}  ${kb((await stat(avifPath)).size)}`);
