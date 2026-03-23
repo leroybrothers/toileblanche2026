@@ -33,7 +33,7 @@
     }
     var minReveal = setTimeout(hideLoaderAndReveal, 100);
     requestAnimationFrame(function () {
-      var lcpSrc = window.innerWidth >= 1280 ? '/assets/images/slideshow1.avif' : '/assets/images/slideshow1-1200w.avif';
+      var lcpSrc = window.innerWidth >= 1280 ? '/assets/images/homepagehero1.avif' : '/assets/images/homepagehero1-1200w.avif';
       var lcpImg = new Image();
       lcpImg.onload = lcpImg.onerror = function () {
         clearTimeout(minReveal);

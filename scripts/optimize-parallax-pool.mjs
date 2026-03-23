@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Create variants for parallax1 (pool, middle) and parallax2 (building, bottom).
- * Expects parallax1.jpg/.png and parallax2.jpg/.png in public/assets/images.
+ * Create variants for homepage hero, parallax1 (pool), parallax2 (building).
+ * Expects homepagehero1, parallax1, parallax2 (.jpg/.png) in public/assets/images.
  * Run: node scripts/optimize-parallax-pool.mjs
  */
 import sharp from 'sharp';
@@ -11,7 +11,7 @@ import { rename } from 'fs/promises';
 import { RESIZE_OPTS, SHARPEN_OPTS } from './image-config.mjs';
 
 const BASE = 'public/assets/images';
-const NAMES = ['parallax1', 'parallax2'];
+const NAMES = ['homepagehero1', 'parallax1', 'parallax2'];
 // 27" and larger: need 2880px+ for sharp full-screen. Base covers 2560px+ viewports.
 const MAX_BASE_WIDTH = 3200;
 const WIDTHS = [800, 1200, 1920, 2400];

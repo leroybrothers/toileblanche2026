@@ -1388,15 +1388,19 @@ body.tb-menu-open .overlap-section-top {
   z-index: 0;
 }
 
-/* Hero — single static image (slideshow1) */
-.hero-bg-slide-1 { background-image: url("/assets/images/slideshow1-800w.jpg"); background-image: image-set(url("/assets/images/slideshow1-800w.avif") type("image/avif"), url("/assets/images/slideshow1-800w.webp") type("image/webp"), url("/assets/images/slideshow1-800w.jpg") type("image/jpeg")); }
-
+/* Hero — single static image (homepagehero1) */
+.hero-bg-slide-1 { background-image: url("/assets/images/homepagehero1-800w.jpg"); background-image: image-set(url("/assets/images/homepagehero1-800w.avif") type("image/avif"), url("/assets/images/homepagehero1-800w.webp") type("image/webp"), url("/assets/images/homepagehero1-800w.jpg") type("image/jpeg")); }
 @media (min-width: 640px) {
-  .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1-1200w.jpg"); background-image: image-set(url("/assets/images/slideshow1-1200w.avif") type("image/avif"), url("/assets/images/slideshow1-1200w.webp") type("image/webp"), url("/assets/images/slideshow1-1200w.jpg") type("image/jpeg")); }
+  .hero-bg-slide-1 { background-image: url("/assets/images/homepagehero1-1200w.jpg"); background-image: image-set(url("/assets/images/homepagehero1-1200w.avif") type("image/avif"), url("/assets/images/homepagehero1-1200w.webp") type("image/webp"), url("/assets/images/homepagehero1-1200w.jpg") type("image/jpeg")); }
 }
-
 @media (min-width: 1280px) {
-  .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1.jpg"); background-image: image-set(url("/assets/images/slideshow1.avif") type("image/avif"), url("/assets/images/slideshow1.webp") type("image/webp"), url("/assets/images/slideshow1.jpg") type("image/jpeg")); }
+  .hero-bg-slide-1 { background-image: url("/assets/images/homepagehero1-1920w.jpg"); background-image: image-set(url("/assets/images/homepagehero1-1920w.avif") type("image/avif"), url("/assets/images/homepagehero1-1920w.webp") type("image/webp"), url("/assets/images/homepagehero1-1920w.jpg") type("image/jpeg")); }
+}
+@media (min-width: 1920px) {
+  .hero-bg-slide-1 { background-image: url("/assets/images/homepagehero1-2400w.jpg"); background-image: image-set(url("/assets/images/homepagehero1-2400w.avif") type("image/avif"), url("/assets/images/homepagehero1-2400w.webp") type("image/webp"), url("/assets/images/homepagehero1-2400w.jpg") type("image/jpeg")); }
+}
+@media (min-width: 2560px) {
+  .hero-bg-slide-1 { background-image: url("/assets/images/homepagehero1.jpg"); background-image: image-set(url("/assets/images/homepagehero1.avif") type("image/avif"), url("/assets/images/homepagehero1.webp") type("image/webp"), url("/assets/images/homepagehero1.jpg") type("image/jpeg")); }
 }
 
 /* Homepage parallax: pool image between suites and art (parallax1) */
