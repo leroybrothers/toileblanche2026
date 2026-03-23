@@ -80,15 +80,15 @@ export function getPropertyImages() {
       fullbleed: houses[2]!,
       extra: houses.slice(3),
     },
-    // rooms/suites: 6 portraits (suite10–12 × 2 rows), 3 top + 3 bottom, same portrait format.
+    // rooms/suites: 6 portraits, 3 top (suite10–12) + 3 bottom (DSCF5781, DSCF7283, IMG_6830).
     rooms: {
       portraits: [
         '/assets/images/theproperty/therooms/suite10.JPG',
         '/assets/images/theproperty/therooms/suite11.jpg',
         '/assets/images/theproperty/therooms/suite12.jpg',
-        '/assets/images/theproperty/therooms/suite10.JPG',
-        '/assets/images/theproperty/therooms/suite11.jpg',
-        '/assets/images/theproperty/therooms/suite12.jpg',
+        '/assets/images/theproperty/therooms/DSCF5781.JPG',
+        '/assets/images/theproperty/therooms/DSCF7283.JPG',
+        '/assets/images/theproperty/therooms/IMG_6830.jpg',
       ],
     },
     // table: hero + portraits + 2 landscapes (food1, food2 from restaurant — always used).
