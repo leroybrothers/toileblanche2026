@@ -107,11 +107,9 @@ export function getPropertyImages() {
       landscape2: pools[1]!,
       all: pools,
     },
-    // garden: all images in middle row. With 6: garden1–garden6.
+    // garden: 4 portraits (same format as table cluster), 2×2 grid.
     garden: {
-      hero: garden[0]!,
-      middle: garden,
-      fullbleed: (garden[3] ?? garden[2] ?? garden[1] ?? garden[0])!,
+      portraits: garden.slice(0, 4),
     },
     // atmosphere: 10 images — 1st=hero, text, then 9 in a 3×3 grid
     atmosphere: {

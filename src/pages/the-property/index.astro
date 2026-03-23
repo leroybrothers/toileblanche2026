@@ -159,11 +159,11 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
           <h2>{t.pages.theProperty.cluster7Title}</h2>
           <p>{t.pages.theProperty.cluster7Text}</p>
         </div>
-        {img.garden.middle.length > 0 && (
-          <div class={`prop-landscapes prop-landscapes-${img.garden.middle.length}`}>
-            {img.garden.middle.map((src) => (
-              <div class="prop-landscape">
-                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="The Garden at Toile Blanche" loading="lazy" />
+        {img.garden.portraits.length > 0 && (
+          <div class="prop-portraits prop-portraits-2">
+            {img.garden.portraits.map((src) => (
+              <div class="prop-portrait">
+                <img src={encodePath(src)} width="1200" height="1600" alt="The Garden at Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
