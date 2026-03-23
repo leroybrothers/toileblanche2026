@@ -25,8 +25,13 @@ const placeholders = {
   rooms: ['/assets/images/cabanat/gallery-4.jpg', '/assets/images/bronzette/gallery-2.jpg', '/assets/images/penequet/gallery-5.jpg', '/assets/images/suite-artiste/gallery-3.jpg', '/assets/images/art/artgallery/IMG_9658.jpg'],
   table: ['/assets/images/guinguette/IMG_7094.jpg', '/assets/images/restaurant/restaurantgallery/DSCF5723.JPG', '/assets/images/guinguette/DSCF0486.JPG', '/assets/images/restaurant/restaurantgallery/IMG_0597.jpg', '/assets/images/restaurant/food1.jpg', '/assets/images/restaurant/food2.jpg'],
   art: ['/assets/images/art/art1.jpg', '/assets/images/art/art2.jpg', '/assets/images/art/art3.jpg', '/assets/images/art/art5.jpg'],
-  pools: ['/assets/images/pools/IMG_2644.jpg', '/assets/images/pools/IMG_2979.jpg'],
-  garden: ['/assets/images/garden/garden1.jpg', '/assets/images/garden/garden2.jpg', '/assets/images/garden/garden3.jpg', '/assets/images/garden/garden4.jpg', '/assets/images/garden/garden5.jpg', '/assets/images/garden/garden6.jpg'],
+  pools: [
+    '/assets/images/pools/IMG_2644.jpg',
+    '/assets/images/pools/IMG_2979.jpg',
+    '/assets/images/theproperty/thegarden/IMG_3421.jpg',
+    '/assets/images/theproperty/thegarden/IMG_4379.jpg',
+  ],
+  garden: ['/assets/images/garden/garden1.jpg', '/assets/images/garden/garden2.jpg', '/assets/images/garden/garden5.jpg', '/assets/images/garden/garden6.jpg'],
   atmosphere: Array(10).fill('/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg'),
 };
 
@@ -55,7 +60,7 @@ export function getPropertyImages() {
   const table = orFallback(listImages('thetable'), placeholders.table);
   const art = orFallback(listImages('theart'), placeholders.art);
   const pools = orFallback(listImages('thepools'), placeholders.pools);
-  const garden = orFallback(listImages('thegarden'), placeholders.garden);
+  const garden = placeholders.garden; // Explicit: garden1, 2, 5, 6 (IMG_3421, IMG_4379 moved to pools)
   const atmosphere = orFallback(listImages('theatmosphere'), placeholders.atmosphere);
 
   return {
@@ -76,11 +81,11 @@ export function getPropertyImages() {
       portraits: rooms.slice(0, 3),
       landscapes: rooms.slice(3, 6),
     },
-    // table: hero + portraits + 2 landscapes (food1, food2 under).
+    // table: hero + portraits + 2 landscapes (food1, food2 from restaurant — always used).
     table: {
       hero: table[0]!,
       portraits: table.slice(1, 4),
-      landscapes: table.slice(4, 6),
+      landscapes: ['/assets/images/restaurant/food1.jpg', '/assets/images/restaurant/food2.jpg'],
     },
     // art: 2 landscapes + extra row (art1, art2, art3, art5).
     art: {
@@ -89,10 +94,11 @@ export function getPropertyImages() {
       fullbleed: art[2]!,
       extra: art.slice(2),
     },
-    // pools: 2 landscapes (not used in garden).
+    // pools: 4 landscapes (IMG_3421, IMG_4379 moved from garden).
     pools: {
       landscape1: pools[0]!,
       landscape2: pools[1]!,
+      all: pools,
     },
     // garden: all images in middle row. With 6: garden1–garden6.
     garden: {

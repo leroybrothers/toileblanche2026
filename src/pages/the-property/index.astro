@@ -18,7 +18,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
   description={t.pages.theProperty.description}
   ogImage="https://www.toileblanche.com/assets/images/property-hero.jpg"
 >
-  <Nav theme="both" />
+  <Nav theme="light" />
 
   <main id="main-content" class="prop-page">
     <!-- Cluster 1: The Place -->
@@ -98,14 +98,15 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
     <!-- Cluster 4: The Pools -->
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
-        <div class="prop-two-landscapes">
-          <div class="prop-landscape">
-            <img src={encodePath(img.pools.landscape1)} srcset={srcsetFor(img.pools.landscape1, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Pool at Toile Blanche" loading="lazy" />
+        {img.pools.all && img.pools.all.length > 0 && (
+          <div class={`prop-landscapes prop-landscapes-${img.pools.all.length}`}>
+            {img.pools.all.map((src) => (
+              <div class="prop-landscape">
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Pool at Toile Blanche" loading="lazy" />
+              </div>
+            ))}
           </div>
-          <div class="prop-landscape">
-            <img src={encodePath(img.pools.landscape2)} srcset={srcsetFor(img.pools.landscape2, 'gallery')} sizes="(max-width: 900px) 100vw, 50vw" width="2000" height="1333" alt="Pools at Toile Blanche" loading="lazy" />
-          </div>
-        </div>
+        )}
         <div class="prop-text-block prop-text-center">
           <h2>{t.pages.theProperty.cluster4Title}</h2>
           <p>{t.pages.theProperty.cluster4Text}</p>
@@ -291,6 +292,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
   .prop-landscapes-1 { grid-template-columns: 1fr; }
   .prop-landscapes-2 { grid-template-columns: repeat(2, 1fr); }
   .prop-landscapes-3 { grid-template-columns: repeat(3, 1fr); }
+  .prop-landscapes-4 { grid-template-columns: repeat(2, 1fr); }
   .prop-atmosphere-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -333,7 +335,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
       grid-template-columns: 1fr;
       gap: 24px;
     }
-    .prop-landscapes-1, .prop-landscapes-2, .prop-landscapes-3 {
+    .prop-landscapes-1, .prop-landscapes-2, .prop-landscapes-3, .prop-landscapes-4 {
       grid-template-columns: 1fr;
       gap: 24px;
     }
