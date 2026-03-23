@@ -3,7 +3,7 @@ import { readdir, stat, rename, unlink } from 'fs/promises';
 import { join, basename, extname, relative } from 'path';
 
 const BASE = 'public/assets/images';
-const QUALITY = 82;
+const QUALITY = 88;
 
 const SUITE_DIRS = [
   'penard', 'petanque', 'bronzette', 'cabanat',

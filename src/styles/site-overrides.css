@@ -1399,39 +1399,14 @@ body.tb-menu-open .overlap-section-top {
   .hero-bg-slide-1 { background-image: url("/assets/images/slideshow1.jpg"); background-image: image-set(url("/assets/images/slideshow1.avif") type("image/avif"), url("/assets/images/slideshow1.webp") type("image/webp"), url("/assets/images/slideshow1.jpg") type("image/jpeg")); }
 }
 
-/* Homepage parallax: pool image between suites and art (slideshow1) */
+/* Homepage parallax: pool image between suites and art */
 .homepage-parallax-pool {
-  min-height: 60vh;
+  min-height: 80vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-image: url("/assets/images/slideshow1-800w.jpg");
-  background-image: image-set(
-    url("/assets/images/slideshow1-800w.avif") type("image/avif"),
-    url("/assets/images/slideshow1-800w.webp") type("image/webp"),
-    url("/assets/images/slideshow1-800w.jpg") type("image/jpeg")
-  );
-}
-@media (min-width: 640px) {
-  .homepage-parallax-pool {
-    background-image: url("/assets/images/slideshow1-1200w.jpg");
-    background-image: image-set(
-      url("/assets/images/slideshow1-1200w.avif") type("image/avif"),
-      url("/assets/images/slideshow1-1200w.webp") type("image/webp"),
-      url("/assets/images/slideshow1-1200w.jpg") type("image/jpeg")
-    );
-  }
-}
-@media (min-width: 1280px) {
-  .homepage-parallax-pool {
-    background-image: url("/assets/images/slideshow1.jpg");
-    background-image: image-set(
-      url("/assets/images/slideshow1.avif") type("image/avif"),
-      url("/assets/images/slideshow1.webp") type("image/webp"),
-      url("/assets/images/slideshow1.jpg") type("image/jpeg")
-    );
-  }
+  background-image: url("/assets/images/parallax-pool.png");
 }
 @media (max-width: 640px) {
   .homepage-parallax-pool { background-attachment: scroll; }

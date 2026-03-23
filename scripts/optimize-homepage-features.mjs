@@ -12,9 +12,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const IMG = join(__dirname, '..', 'public', 'assets', 'images');
 
 const WIDTHS = [524, 800];
-const JPEG_Q = 78;
-const WEBP_Q = 80;
-const AVIF_Q = 65;
+const JPEG_Q = 88;
+const WEBP_Q = 88;
+const AVIF_Q = 72;
 
 async function processImage(sourcePath, baseName) {
   const img = sharp(sourcePath).rotate();
@@ -50,10 +50,10 @@ async function processFullframe(sourcePath, baseName) {
   const img = sharp(sourcePath).rotate();
 
   const webp = join(dir, `${baseName}.webp`);
-  await img.clone().webp({ quality: WEBP_Q }).toFile(webp);
+  await img.clone().webp({ quality: 90 }).toFile(webp);
 
   const avif = join(dir, `${baseName}.avif`);
-  await img.clone().avif({ quality: AVIF_Q }).toFile(avif);
+  await img.clone().avif({ quality: 75 }).toFile(avif);
 
   return (await stat(webp)).size + (await stat(avif)).size;
 }

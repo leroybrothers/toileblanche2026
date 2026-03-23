@@ -8,8 +8,8 @@ import { readdir, stat, rename, unlink } from 'fs/promises';
 import { join, basename, extname } from 'path';
 
 const HOMEPAGE = 'public/assets/images/Homepage';
-const JPEG_QUALITY = 78;
-const CARD_WIDTHS = [800, 400];
+const JPEG_QUALITY = 88;
+const CARD_WIDTHS = [1200, 800, 400];
 
 // Suite card files from suites.json (card field) — use existing .jpg sources
 const CARD_FILES = [

@@ -8,9 +8,9 @@ import { stat, rename, unlink } from 'fs/promises';
 import { join, basename, extname } from 'path';
 
 const BASE = 'public/assets/images';
-const JPEG_QUALITY = 78;
-const WEBP_QUALITY = 72;
-const AVIF_QUALITY = 50;
+const JPEG_QUALITY = 88;
+const WEBP_QUALITY = 86;
+const AVIF_QUALITY = 62;
 const MAX_BASE_WIDTH = 1920;
 const HERO_WIDTHS = [800, 1200];
 
