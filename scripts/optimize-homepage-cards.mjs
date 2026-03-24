@@ -5,27 +5,31 @@
  * Replace pixelated sources in this folder, then re-run. See CARD-SOURCES.md.
  */
 import sharp from 'sharp';
-import { stat, rename } from 'fs/promises';
+import { stat, rename, unlink } from 'fs/promises';
 import { existsSync } from 'fs';
-import { join, basename, extname } from 'path';
-import { RESIZE_OPTS, SHARPEN_OPTS } from './image-config.mjs';
+import { join } from 'path';
+import { RESIZE_OPTS } from './image-config.mjs';
+
+// No sharpen for homepage cards — sharpening on photos can create "sketch"/halo artifacts
+const HOMEPAGE_RESIZE_OPTS = { ...RESIZE_OPTS };
 
 const HOMEPAGE = 'public/assets/images/Homepage';
+const SOURCES_DIR = 'sources'; // Put originals here to avoid overwriting — script never writes to sources/
 const CARD_WIDTHS = [1800, 1200, 800, 400];
 const JPEG_Q = 93;
 const WEBP_Q = 92;
 const AVIF_Q = 78;
 
-// { out: outputBase (matches suites.json), find: [aliases to try] }
+// { out: outputBase (matches suites.json), find: [aliases to try], heroFallback: path from public/ for suite hero }
 const CARD_ENTRIES = [
   { out: 'suite-penard', find: ['suite-penard'] },
   { out: 'Suite pétanque', find: ['Suite pétanque'] },
-  { out: 'Suite bronzette', find: ['Suite bronzette'] },
-  { out: 'Suite cabanat', find: ['Suite cabanat'] },
-  { out: "suite de l'artiste", find: ["suite de l'artiste"] },
-  { out: 'mas-de-l-artiste', find: ['mas-de-l-artiste', "Mas de l'artist"] },
-  { out: 'Villa pénéquet', find: ['Villa pénéquet'] },
-  { out: 'Suite bon vivant', find: ['Suite bon vivant'] },
+  { out: 'Suite bronzette', find: ['Suite bronzette'], heroFallback: 'assets/images/bronzette/DSCF7633.jpg' },
+  { out: 'Suite cabanat', find: ['Suite cabanat'], heroFallback: 'assets/images/cabanat/hero.jpg' },
+  { out: "suite de l'artiste", find: ["suite de l'artiste"], heroFallback: 'assets/images/suite-artiste/hero.jpg' },
+  { out: 'mas-de-l-artiste', find: ['mas-de-l-artiste', "Mas de l'artist"], heroFallback: 'assets/images/mas-de-l-artiste/hero.jpg' },
+  { out: 'Villa pénéquet', find: ['Villa pénéquet'], heroFallback: 'assets/images/penequet/hero.jpg' },
+  { out: 'Suite bon vivant', find: ['Suite bon vivant'], heroFallback: 'assets/images/bon-vivant/hero.jpg' },
 ];
 const CARD_EXTS = ['.jpg', '.jpeg', '.png', '.JPG', '.PNG'];
 
@@ -35,7 +39,19 @@ function kb(bytes) {
     : `${(bytes / 1024 / 1024).toFixed(1)}MB`;
 }
 
-function findCardFile(baseName) {
+function findCardFile(baseName, heroFallback) {
+  // 1. sources/ — put originals here; never overwritten
+  const sourcesDir = join(HOMEPAGE, SOURCES_DIR);
+  for (const ext of CARD_EXTS) {
+    const p = join(sourcesDir, baseName + ext);
+    if (existsSync(p)) return p;
+  }
+  // 2. Hero fallback — use suite hero if no source (avoids reusing degraded output in Homepage/)
+  if (heroFallback) {
+    const heroPath = join('public', heroFallback);
+    if (existsSync(heroPath)) return heroPath;
+  }
+  // 3. Homepage/ — backwards compat (but may be degraded if script overwrote source previously)
   for (const ext of CARD_EXTS) {
     const p = join(HOMEPAGE, baseName + ext);
     if (existsSync(p)) return p;
@@ -46,8 +62,11 @@ function findCardFile(baseName) {
 async function processCard(entry) {
   let filePath = null;
   for (const findName of entry.find) {
-    filePath = findCardFile(findName);
+    filePath = findCardFile(findName, entry.heroFallback);
     if (filePath) break;
+  }
+  if (filePath && filePath.includes('assets/images/') && !filePath.includes('Homepage')) {
+    console.log(`  ℹ Using hero fallback for ${entry.out}`);
   }
   if (!filePath) {
     console.log(`  ⚠ ${entry.out}.* not found, skipping`);
@@ -56,8 +75,7 @@ async function processCard(entry) {
   const outBase = entry.out;
   let beforeTotal = (await stat(filePath)).size;
 
-  const dir = join(filePath, '..');
-  const outExt = '.jpg';
+  const dir = HOMEPAGE; // Always output to Homepage/, never to sources/
   let afterTotal = 0;
 
   const img = sharp(filePath).rotate();
@@ -67,8 +85,7 @@ async function processCard(entry) {
   for (const w of CARD_WIDTHS) {
     const resizeW = origW > 0 ? Math.min(w, origW) : w;
     const resized = img.clone()
-      .resize(resizeW, null, RESIZE_OPTS)
-      .sharpen(SHARPEN_OPTS);
+      .resize(resizeW, null, HOMEPAGE_RESIZE_OPTS);
 
     const outName = `${outBase}-${w}w`;
     const jpgPath = join(dir, `${outName}.jpg`);
@@ -87,17 +104,17 @@ async function processCard(entry) {
   }
 
   // Base = 800w for fallback. Use .tmp to avoid same-file error when input is .jpg
-  const baseOutPath = join(dir, `${outBase}.jpg`);
+  const baseOutPath = join(dir, `${outBase}.jpg`); // lowercase .jpg — suites.json expects it (Linux is case-sensitive)
   const baseResizeW = origW > 0 ? Math.min(800, origW) : 800;
   const tmpBase = baseOutPath + '.tmp';
   await img
     .clone()
-    .resize(baseResizeW, null, RESIZE_OPTS)
-    .sharpen(SHARPEN_OPTS)
+    .resize(baseResizeW, null, HOMEPAGE_RESIZE_OPTS)
     .jpeg({ quality: JPEG_Q, mozjpeg: true })
     .toFile(tmpBase);
 
   const baseSize = (await stat(tmpBase)).size;
+  await unlink(baseOutPath).catch(() => {}); // remove existing (fixes .JPG vs .jpg on case-sensitive servers)
   await rename(tmpBase, baseOutPath);
   afterTotal += baseSize;
   console.log(`  ✓ ${outBase}.jpg  ${kb(baseSize)}  (base)`);
