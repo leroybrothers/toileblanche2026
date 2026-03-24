@@ -21,7 +21,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
   <Nav theme="light" locale="fr" />
 
   <main id="main-content" class="prop-page">
-    <!-- Cluster 1: Le Lieu -->
+    <!-- Cluster 1: La Lumière -->
     <section class="prop-cluster">
       <div class="prop-cluster-inner">
         <div class="prop-text-block prop-text-center">
@@ -32,7 +32,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
           <div class={`prop-portraits prop-portraits-${img.place.portraits.length}`}>
             {img.place.portraits.map((src) => (
               <div class="prop-portrait">
-                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes={img.place.portraits.length === 1 ? "100vw" : "(max-width: 900px) 100vw, 33.33vw"} width="1200" height="1600" alt="Le lieu à Toile Blanche" loading="lazy" />
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes={img.place.portraits.length === 1 ? "100vw" : "(max-width: 900px) 100vw, 33.33vw"} width="1200" height="1600" alt="La lumière à Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
