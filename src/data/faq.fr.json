@@ -14,7 +14,7 @@
   {
     "label": "La Toile Vivante",
     "items": [
-      { "q": "Qu'est-ce qu'une « Œuvre Déclarée » ?", "a": "En 2026, le domaine a été formellement déclaré œuvre d'art par les Leroy Brothers. Bien qu'il fonctionne comme un hôtel, chaque choix architectural et horticole fait partie intégrante de l'archive permanente." },
+      { "q": "Qu'est-ce qu'une « Œuvre Déclarée » ?", "a": "En 2026, la propriété a été formellement déclarée œuvre d'art par les Leroy Brothers. Bien qu'il fonctionne comme un hôtel, chaque choix architectural et horticole fait partie intégrante de l'archive permanente." },
       { "q": "Puis-je visiter l'art sans séjourner ?", "a": "Les jardins et « L'Archive » sont accessibles à nos clients restaurant. Pour une visite formelle de la galerie, consultez <a href='https://toileblanchecontemporary.com'>Toile Blanche Contemporary</a>." }
     ]
   },
@@ -22,7 +22,7 @@
     "label": "Arrivée & Départ",
     "items": [
       { "q": "Quels sont les horaires d'arrivée et de départ ?", "a": "Arrivée : 16h00–20h00. Départ : 08h00–11h00. Les clients ayant réservé « à la Source » bénéficient d'une priorité pour l'arrivée anticipée et le <i>Pénéquet</i> (départ tardif) selon disponibilité." },
-      { "q": "Y a-t-il un transfert depuis l'aéroport de Nice ?", "a": "Le domaine est à 20 minutes de NCE. Nous pouvons organiser un transfert privé pour environ 60€. Notre concierge se charge de la coordination." }
+      { "q": "Y a-t-il un transfert depuis l'aéroport de Nice ?", "a": "La propriété est à 20 minutes de NCE. Nous pouvons organiser un transfert privé pour environ 60€. Notre concierge se charge de la coordination." }
     ]
   },
   {
@@ -34,11 +34,11 @@
     ]
   },
   {
-    "label": "Le Domaine",
+    "label": "La Propriété",
     "items": [
-      { "q": "Y a-t-il un parking sur place ?", "a": "Nous mettons à disposition un parking extérieur privé et sécurisé dans l'enceinte du domaine, offert à nos clients." },
+      { "q": "Y a-t-il un parking sur place ?", "a": "Nous mettons à disposition un parking extérieur privé et sécurisé dans l'enceinte de la propriété, offert à nos clients." },
       { "q": "Quand la piscine est-elle chauffée ?", "a": "Les piscines principales et les piscines privées des suites sont chauffées de mi-avril à mi-octobre. Elles restent accessibles pour les « bains froids » durant la saison hivernale, pour les plus courageux." },
-      { "q": "Les enfants et les animaux sont-ils acceptés ?", "a": "Nous accueillons les enfants avec des consignes spécifiques pour l'harmonie du domaine. Les animaux de compagnie, en revanche, ne sont pas admis dans les maisons et jardins de Toile Blanche." }
+      { "q": "Les enfants et les animaux sont-ils acceptés ?", "a": "Nous accueillons les enfants avec des consignes spécifiques pour l'harmonie de Toile Blanche. Les animaux de compagnie, en revanche, ne sont pas admis dans les maisons et jardins de Toile Blanche." }
     ]
   }
 ]

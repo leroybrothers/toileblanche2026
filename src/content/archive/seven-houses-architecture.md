@@ -6,15 +6,15 @@ author: "Leroy Brothers"
 image: "/assets/images/archive/seven-houses.jpg"
 imageWidth: 1200
 imageHeight: 800
-excerpt: "Why the estate is built as a village of separate houses rather than a single hotel block. A study on privacy, light, and the 'Mews' layout."
+excerpt: "Why the property is built as a village of separate houses rather than a single hotel block. A study on privacy, light, and the 'Mews' layout."
 lang: "en"
 ---
 
 ## The Village Logic
 
-Toile Blanche is not a hotel in the traditional sense; it is a fragment of a village. Rather than a singular, monolithic block of rooms, the estate is composed of seven distinct houses, each with its own history, its own masonry, and its own relationship to the sun.
+Toile Blanche is not a hotel in the traditional sense; it is a fragment of a village. Rather than a singular, monolithic block of rooms, the property is composed of seven distinct houses, each with its own history, its own masonry, and its own relationship to the sun.
 
-This decentralization is a deliberate architectural choice—a move away from the corporate "corridor" and toward the intimacy of the private estate.
+This decentralization is a deliberate architectural choice—a move away from the corporate "corridor" and toward the intimacy of the private property.
 
 ## The Mews Layout
 
@@ -30,7 +30,7 @@ This "Decentralization" means that privacy is not achieved through thick walls, 
 
 ## The Archive of Stone
 
-As we maintain these seven houses, we treat the stonework as an archival record. Each building represents a different era of the estate's twelve-year assembly—from the first stone ruins we rescued in 2014 to the final "Declared" additions of 2026.
+As we maintain these seven houses, we treat the stonework as an archival record. Each building represents a different era of the property's twelve-year assembly—from the first stone ruins we rescued in 2014 to the final "Declared" additions of 2026.
 
 Toile Blanche is a collection of homes that grew into one, and it is in the spaces between the houses where the soul of the work resides.
 

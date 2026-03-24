@@ -27,7 +27,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
       <div class="abt-gallery-inner">
         <div class="abt-gallery-grid">
           <div class="abt-gallery-cell">
-            <img src="/assets/images/aboutgrid/20240817_Toile Blanche-66.jpg" sizes="(max-width: 900px) 50vw, 25vw" width="1200" height="800" alt="Stone terrace and Provençal gardens at Toile Blanche estate" loading="lazy" />
+            <img src="/assets/images/aboutgrid/20240817_Toile Blanche-66.jpg" sizes="(max-width: 900px) 50vw, 25vw" width="1200" height="800" alt="Stone terrace and Provençal gardens at Toile Blanche" loading="lazy" />
           </div>
           <div class="abt-gallery-cell">
             <img src="/assets/images/aboutgrid/IMG_5950 (1).jpg" sizes="(max-width: 900px) 50vw, 25vw" width="1200" height="800" alt="Gardens and olive trees at Toile Blanche in Saint-Paul de Vence" loading="lazy" />
@@ -36,10 +36,10 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
             <img src="/assets/images/aboutgrid/StP25-ToileBlanche-c-GaelleSimon-21.jpg" sizes="(max-width: 900px) 50vw, 25vw" width="1200" height="800" alt="Pool area and Mediterranean architecture at Toile Blanche" loading="lazy" />
           </div>
           <div class="abt-gallery-cell">
-            <img src="/assets/images/aboutgrid/IMG_2069.jpg" sizes="(max-width: 900px) 50vw, 25vw" width="1200" height="800" alt="Courtyard and gardens at the Toile Blanche estate" loading="lazy" />
+            <img src="/assets/images/aboutgrid/IMG_2069.jpg" sizes="(max-width: 900px) 50vw, 25vw" width="1200" height="800" alt="Courtyard and gardens at Toile Blanche" loading="lazy" />
           </div>
           <div class="abt-gallery-cell">
-            <img src="/assets/images/aboutgrid/IMG_3081-800w.jpg" sizes="(max-width: 900px) 50vw, 25vw" width="800" height="533" alt="Estate buildings and sculpture in the gardens of Toile Blanche" loading="lazy" />
+            <img src="/assets/images/aboutgrid/IMG_3081-800w.jpg" sizes="(max-width: 900px) 50vw, 25vw" width="800" height="533" alt="Buildings and sculpture in the gardens of Toile Blanche" loading="lazy" />
           </div>
           <div class="abt-gallery-cell">
             <img src="/assets/images/aboutgrid/page-img-3babf958fd968c.avif" sizes="(max-width: 900px) 50vw, 25vw" width="1200" height="800" alt="Terrace overlooking the gardens at Toile Blanche" loading="lazy" />
@@ -73,7 +73,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
     <!-- FULL BLEED IMAGE -->
     <section class="abt-full-bleed">
       <div class="abt-full-bleed-wrap">
-        <OptimizedImage src="/assets/images/ambiance/StP25-ToileBlanche-c-GaelleSimon-38.jpg" sizes="100vw" width={1200} height={800} alt="The domain of Toile Blanche in Saint-Paul de Vence" loading="lazy" widths={[800, 1200]} />
+        <OptimizedImage src="/assets/images/ambiance/StP25-ToileBlanche-c-GaelleSimon-38.jpg" sizes="100vw" width={1200} height={800} alt="Toile Blanche in Saint-Paul de Vence" loading="lazy" widths={[800, 1200]} />
       </div>
     </section>
 
@@ -82,7 +82,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
       <div class="abt-vision-inner">
         <h2>A home away from home — for people who have exceptional homes.</h2>
         <p class="abt-vision-label">Strategy — Net-Zero 2030</p>
-        <p>In 2026, Toile Blanche was declared a work by the artists. It continues to operate normally, but with the added weight of an archival responsibility. Our goal is net-zero 2030 — ensuring that the Provençal memory persists for another two centuries. We prioritize local ingredients, maintain our gardens without pesticides, and partner with Hotels for Trees to preserve the landscape that shelters this work.</p>
+        <p>Our goal is net-zero 2030 — ensuring that the Provençal memory persists for another two centuries. We prioritize local ingredients, maintain our gardens without pesticides, and partner with Hotels for Trees to preserve the landscape that shelters this work.</p>
       </div>
     </section>
 
@@ -90,9 +90,9 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
     <section class="abt-cta">
       <p class="abt-cta-tagline">Enter the canvas.</p>
       <div class="abt-cta-actions">
-        <a href="/map" class="abt-cta-map-link" aria-label="View interactive estate map">
-          <img src="/assets/images/estate-map.png" alt="Toile Blanche estate map — view interactive map" class="abt-cta-map-img" width="1200" height="800" loading="lazy" />
-          <span class="abt-cta-map-label">View estate map</span>
+        <a href="/map" class="abt-cta-map-link" aria-label="View interactive property map">
+          <img src="/assets/images/estate-map.png" alt="Toile Blanche property map — view interactive map" class="abt-cta-map-img" width="1200" height="800" loading="lazy" />
+          <span class="abt-cta-map-label">View property map</span>
         </a>
         <a href="/restaurants" class="abt-cta-link">Discover the Tables &rarr;</a>
       </div>
@@ -237,20 +237,17 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
     background: #F5F2ED;
   }
   .abt-full-bleed-wrap {
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
+    width: 100%;
   }
   .abt-full-bleed-wrap picture {
     display: block;
     width: 100%;
-    height: 100%;
   }
   .abt-full-bleed-wrap img {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: block;
-    object-fit: cover;
-    object-position: center;
+    vertical-align: middle;
   }
 
   /* ─── VISION ─── */
@@ -365,10 +362,6 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
-    .abt-full-bleed-wrap {
-      aspect-ratio: 4 / 5;
-      min-height: 70vh;
-    }
     .abt-hero {
       padding: 140px 24px 64px;
     }

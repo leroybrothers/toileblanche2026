@@ -6,13 +6,13 @@ author: "Leroy Brothers"
 image: "/assets/images/archive/leroy-studio.jpg"
 imageWidth: 1200
 imageHeight: 800
-excerpt: "A rare look inside the on-site studio where the estate's 'Declared Artwork' status was conceived."
+excerpt: "A rare look inside the on-site studio where the property's 'Declared Artwork' status was conceived."
 lang: "en"
 ---
 
 ## The Source of the Declaration
 
-At the geographical heart of Toile Blanche lies a space that few guests enter, yet every guest experiences. The Studio is the intellectual engine of the estate. It is here, amidst the scent of turpentine and the hum of high-end processing units, that the Leroy Brothers conceived the formal declaration of the estate as a work of art.
+At the geographical heart of Toile Blanche lies a space that few guests enter, yet every guest experiences. The Studio is the intellectual engine of Toile Blanche. It is here, amidst the scent of turpentine and the hum of high-end processing units, that the Leroy Brothers conceived the formal declaration of the property as a work of art.
 
 ## The Post-Internet Register
 

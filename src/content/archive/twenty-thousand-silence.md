@@ -18,7 +18,7 @@ It is a space designed not to be looked at, but to be inhabited.
 
 ## Controlled Wilderness
 
-The horticulture of the estate is a study in "controlled wilderness." We have avoided the manicured, geometric gardens of the traditional resort. Instead, we allow the local flora—the wild rosemary, the ancient olive trees, and the native pines—to dictate the rhythm of the grounds.
+The horticulture of Toile Blanche is a study in "controlled wilderness." We have avoided the manicured, geometric gardens of the traditional resort. Instead, we allow the local flora—the wild rosemary, the ancient olive trees, and the native pines—to dictate the rhythm of the grounds.
 
 Our gardening philosophy is forensic: we intervene only to clarify the light or to protect the "technical residues" of the landscape. This approach supports our path toward Net-Zero 2030, ensuring the ecosystem remains resilient and authentic to the soil of Saint-Paul de Vence.
 
@@ -32,6 +32,6 @@ Each piece is sited to create a dialogue with the plants around it. A mirrored s
 
 The 20,000m² of silence is also an archive of scents and sounds. The smell of sun-baked earth after a brief rain, the specific hum of the cicadas in July, and the way the mistral moves through the valley are all part of the documented experience.
 
-When we say the art is the walls, we also mean the horizon. The garden is the frame that holds the estate together, providing a sanctuary where the only requirement is to witness the slow performance of nature.
+When we say the art is the walls, we also mean the horizon. The garden is the frame that holds Toile Blanche together, providing a sanctuary where the only requirement is to witness the slow performance of nature.
 
 The Gardens, Saint-Paul de Vence.

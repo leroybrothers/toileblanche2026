@@ -24,12 +24,12 @@ Nicolas often describes his approach as "Bistronomy," a term we view as the culi
 
 The Winter 2025/26 menu is a map of our local partnerships. It features the sweet onions of the Cevennes—transformed into a delicate vegetable foam—and the winter carrots that find their way into our handmade tortellini alongside roasted pumpkin and rosemary gomasio.
 
-These are not just ingredients; they are the "technical residues" of the landscape that surrounds the estate.
+These are not just ingredients; they are the "technical residues" of the landscape that surrounds Toile Blanche.
 
 ## The Final Note
 
 The conversation ends, as many do at Le Restaurant, with the darker registers of the cellar and the pantry. This season, the Ocoa 70% chocolate takes centre stage, paired with almond crumble and mascarpone ice cream. It is a dish that reflects our broader commitment: freshness, authentic taste, and a refusal to over-complicate what nature has already perfected.
 
-As the estate settles into the quiet of the season, the table remains the warmest place on the canvas.
+As Toile Blanche settles into the quiet of the season, the table remains the warmest place on the canvas.
 
 Le Restaurant, Saint-Paul de Vence

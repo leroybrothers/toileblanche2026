@@ -30,7 +30,7 @@ Fourme d'Ambert: One of France's oldest blues, providing a creamy, architectural
 
 ## The Local Connection
 
-While Maison Mons brings national expertise, the ritual is anchored in our local soil. We pair these selections with artisanal honeys from Vence and walnuts gathered from the valley below the estate.
+While Maison Mons brings national expertise, the ritual is anchored in our local soil. We pair these selections with artisanal honeys from Vence and walnuts gathered from the valley below Toile Blanche.
 
 This partnership reflects the Toile Blanche commitment to the community. By supporting MOF artisans, we ensure that the "technical residues" of traditional French gastronomy are preserved within the walls of the "Declared Artwork."
 

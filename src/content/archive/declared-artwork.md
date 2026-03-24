@@ -14,7 +14,7 @@ lang: "en"
 
 In early 2026, a fundamental shift occurred in how we view these twenty thousand square metres of Saint-Paul de Vence. What began as a series of agricultural ruins and village houses has been formally declared a Work of Art by the Leroy Brothers.
 
-This is not a metaphor. It is a re-categorization of the estate's DNA.
+This is not a metaphor. It is a re-categorization of the property's DNA.
 
 ## Beyond Hospitality
 
@@ -24,11 +24,11 @@ For twelve years, we operated under the standard definitions of hospitality. We 
 
 Toile Blanche now exists as a Living Canvas. It is a performance in which you, the guest, are a participant.
 
-By declaring the estate an artwork, we have moved from the role of "Hoteliers" to that of "Archivists." Every architectural detail, every sculpture by Arik Levy or Gregory Orekhov, and every seasonal change in the garden is now part of a permanent record.
+By declaring the property an artwork, we have moved from the role of "Hoteliers" to that of "Archivists." Every architectural detail, every sculpture by Arik Levy or Gregory Orekhov, and every seasonal change in the garden is now part of a permanent record.
 
 ## Continuity
 
-It is important to note that the estate continues to operate normally. You can still sleep within the artwork, dine at its tables, and swim in its pools. However, your stay is now a document—a moment in time captured within the broader history of the brothers' creative collective.
+It is important to note that Toile Blanche continues to operate normally. You can still sleep within the artwork, dine at its tables, and swim in its pools. However, your stay is now a document—a moment in time captured within the broader history of the brothers' creative collective.
 
 We invite you to experience the work, not as a visitor, but as a witness to its ongoing performance.
 

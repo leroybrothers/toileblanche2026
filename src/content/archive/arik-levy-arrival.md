@@ -24,13 +24,13 @@ The sculpture—a characteristic exploration of industrial form and natural geom
 
 ## Materiality and Resistance
 
-Crafted from high-performance materials that reflect both the sky and the earth, the piece serves as a visual anchor. It provides a contemporary counterpoint to the 200-year-old stone walls of the farmhouse. This tension between the ancient masonry and the modern precision of the sculpture is central to the Leroy Brothers' vision for the estate.
+Crafted from high-performance materials that reflect both the sky and the earth, the piece serves as a visual anchor. It provides a contemporary counterpoint to the 200-year-old stone walls of the farmhouse. This tension between the ancient masonry and the modern precision of the sculpture is central to the Leroy Brothers' vision for Toile Blanche.
 
 It is a reminder that Toile Blanche is a place of resistance—resisting the generic and the expected.
 
 ## The Archival Impact
 
-By documenting this arrival, we add another layer to the permanent record of the estate. The sculpture now belongs to the landscape as much as the vines and the olive trees. It is the first of several major international commissions that will further solidify Toile Blanche's status as a living gallery.
+By documenting this arrival, we add another layer to the permanent record of the property. The sculpture now belongs to the landscape as much as the vines and the olive trees. It is the first of several major international commissions that will further solidify Toile Blanche's status as a living gallery.
 
 As the garden matures around the work, the boundary between the "Found" and the "Created" continues to blur.
 

@@ -14,7 +14,7 @@
   {
     "label": "The Living Canvas",
     "items": [
-      { "q": "What is a 'Declared Artwork'?", "a": "In 2026, the estate was formally declared a work of art by the Leroy Brothers. While it operates as a luxury hotel, every architectural and horticultural choice is a permanent part of the archival record." },
+      { "q": "What is a 'Declared Artwork'?", "a": "In 2026, the property was formally declared a work of art by the Leroy Brothers. While it operates as a luxury hotel, every architectural and horticultural choice is a permanent part of the archival record." },
       { "q": "Can I visit the art without staying?", "a": "The gardens and 'The Archive' are open to our restaurant guests. For formal gallery visits, please refer to <a href='https://toileblanchecontemporary.com'>Toile Blanche Contemporary</a>." }
     ]
   },
@@ -22,7 +22,7 @@
     "label": "Arrival & Departure",
     "items": [
       { "q": "What are the check-in and check-out times?", "a": "Check-in: 16:00–20:00. Check-out: 08:00–11:00. Guests booking 'At the Source' receive priority for early arrival and the <i>Pénéquet</i> (late check-out) when available." },
-      { "q": "Is there a shuttle from Nice Airport?", "a": "The estate is 20 minutes from NCE. We can arrange a private transfer for approximately €60. Our concierge will handle the coordination." }
+      { "q": "Is there a shuttle from Nice Airport?", "a": "The property is 20 minutes from NCE. We can arrange a private transfer for approximately €60. Our concierge will handle the coordination." }
     ]
   },
   {
@@ -34,11 +34,11 @@
     ]
   },
   {
-    "label": "The Estate",
+    "label": "The Property",
     "items": [
-      { "q": "Is there parking on-site?", "a": "We provide secure, private outdoor parking within the walls of the estate, free of charge for our guests." },
+      { "q": "Is there parking on-site?", "a": "We provide secure, private outdoor parking within the walls of the property, free of charge for our guests." },
       { "q": "When is the pool heated?", "a": "The main pools and private suite pools are heated from mid-April to mid-October. They remain open for 'cold plunges' during the winter season for the brave." },
-      { "q": "Are children and pets welcome?", "a": "We welcome children with specific guidelines for the harmony of the estate. Pets, however, are not permitted within the houses or gardens of Toile Blanche." }
+      { "q": "Are children and pets welcome?", "a": "We welcome children with specific guidelines for the harmony of Toile Blanche. Pets, however, are not permitted within the houses or gardens of Toile Blanche." }
     ]
   }
 ]
