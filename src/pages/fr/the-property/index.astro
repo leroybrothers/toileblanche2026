@@ -116,7 +116,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
           <div class={`prop-portraits prop-portraits-${img.table.portraits.length}`}>
             {img.table.portraits.map((src) => (
               <div class="prop-portrait">
-                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes={img.table.portraits.length === 1 ? "100vw" : "(max-width: 900px) 100vw, 33.33vw"} width="1200" height="1600" alt="La table à Toile Blanche" loading="lazy" />
+                <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes={img.table.portraits.length === 1 ? "100vw" : img.table.portraits.length === 3 ? "(max-width: 900px) 100vw, 33.33vw" : "(max-width: 900px) 100vw, 50vw"} width="1200" height="1600" alt="La table à Toile Blanche" loading="lazy" />
               </div>
             ))}
           </div>
