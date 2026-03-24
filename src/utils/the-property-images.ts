@@ -65,7 +65,10 @@ export function getPropertyImages() {
   const art = placeholders.art; // Explicit: art1–4 from images/art + TB Session 2 FXO 1 (excludes Aerts 4, IMG_3266)
   const pools = orFallback(listImages('thepools'), placeholders.pools);
   const garden = placeholders.garden; // Explicit: garden1, 2, 5, 6 (IMG_3421, IMG_4379 moved to pools)
-  const atmosphere = orFallback(listImages('theatmosphere'), placeholders.atmosphere);
+  const atmosphereRaw = orFallback(listImages('theatmosphere'), placeholders.atmosphere);
+  const atmosphere = atmosphereRaw.map((src) =>
+    /DSCF9981/i.test(src) ? '/assets/images/ambiance/DSCF3490.JPG' : src
+  );
 
   return {
     // place: 1st=hero (or shared with page hero), rest=portraits. With 2: hero + 1 portrait.

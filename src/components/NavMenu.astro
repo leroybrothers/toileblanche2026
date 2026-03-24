@@ -116,12 +116,14 @@ const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
 
   <div class="tb-menu-mobile-secondary">
     <a href={lp('/gift-vouchers')} class="tb-menu-mobile-secondary-link">{t.nav.giftVouchers}</a>
-    <a href={lp('/about')} class="tb-menu-mobile-secondary-link">{t.nav.about}</a>
-    <a href={lp('/upcoming-events')} class="tb-menu-mobile-secondary-link">{t.nav.events}</a>
-    <a href={lp('/press')} class="tb-menu-mobile-secondary-link">{t.nav.press}</a>
-    <a href={lp('/faq')} class="tb-menu-mobile-secondary-link">{t.nav.faq}</a>
-    <a href={lp('/blog')} class="tb-menu-mobile-secondary-link">{t.nav.archive}</a>
-    <a href={lp('/careers')} class="tb-menu-mobile-secondary-link">{t.nav.careers}</a>
+    <div class="tb-menu-mobile-secondary-grid">
+      <a href={lp('/about')} class="tb-menu-mobile-secondary-link">{t.nav.about}</a>
+      <a href={lp('/upcoming-events')} class="tb-menu-mobile-secondary-link">{t.nav.events}</a>
+      <a href={lp('/press')} class="tb-menu-mobile-secondary-link">{t.nav.press}</a>
+      <a href={lp('/faq')} class="tb-menu-mobile-secondary-link">{t.nav.faq}</a>
+      <a href={lp('/blog')} class="tb-menu-mobile-secondary-link">{t.nav.archive}</a>
+      <a href={lp('/careers')} class="tb-menu-mobile-secondary-link">{t.nav.careers}</a>
+    </div>
   </div>
 
   <div class="tb-menu-mobile-affiliations">

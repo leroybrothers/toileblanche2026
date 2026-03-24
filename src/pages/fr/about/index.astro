@@ -69,8 +69,10 @@ import OptimizedImage from '../../../components/OptimizedImage.astro';
     </section>
 
     <section class="abt-full-bleed">
-      <div class="abt-full-bleed-wrap">
-        <OptimizedImage src="/assets/images/ambiance/StP25-ToileBlanche-c-GaelleSimon-38.jpg" sizes="100vw" width={1200} height={800} alt="Toile Blanche à Saint-Paul de Vence" loading="lazy" widths={[800, 1200]} />
+      <div class="abt-full-bleed-inner">
+        <div class="abt-full-bleed-wrap">
+          <OptimizedImage src="/assets/images/ambiance/StP25-ToileBlanche-c-GaelleSimon-38.jpg" sizes="(max-width: 1160px) calc(100vw - 160px), 1000px" width={1200} height={800} alt="Toile Blanche à Saint-Paul de Vence" loading="lazy" widths={[800, 1200]} />
+        </div>
       </div>
     </section>
 
@@ -118,8 +120,9 @@ import OptimizedImage from '../../../components/OptimizedImage.astro';
   .abt-callout-title { font-family: 'Gilda Display', serif; font-style: italic; font-size: 18px; color: #1C1917; margin-bottom: 12px; }
   .abt-callout p:last-child { font-family: 'Didact Gothic', sans-serif; font-size: 14px; line-height: 1.7; color: #6B6256; }
   .abt-narrative-quote { font-family: 'Gilda Display', serif; font-style: italic; font-size: 18px; line-height: 1.6; color: #6B6256; padding-top: 24px; border-top: 1px solid #E2D9CC; }
-  .abt-full-bleed { background: #F5F2ED; }
-  .abt-full-bleed-wrap { width: 100%; }
+  .abt-full-bleed { background: var(--color-bg, #faf8f3); border-bottom: 1px solid #e2d9cc; }
+  .abt-full-bleed-inner { max-width: 1000px; margin: 0 auto; padding: 64px 80px; }
+  .abt-full-bleed-wrap { width: 100%; max-width: 100%; margin: 0 auto; }
   .abt-full-bleed-wrap picture { display: block; width: 100%; }
   .abt-full-bleed-wrap img { width: 100%; height: auto; display: block; vertical-align: middle; }
   .abt-vision { border-bottom: 1px solid #E2D9CC; }
@@ -145,6 +148,7 @@ import OptimizedImage from '../../../components/OptimizedImage.astro';
     .abt-narrative-inner { grid-template-columns: 1fr; padding: 48px 24px; gap: 48px; }
     .abt-narrative-right { padding-top: 0; }
     .abt-vision-inner { padding: 64px 24px; }
+    .abt-full-bleed-inner { padding: 48px 24px; }
     .abt-cta { padding: 48px 24px; }
   }
 </style>

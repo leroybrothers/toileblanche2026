@@ -181,7 +181,7 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
         {img.atmosphere.grid.length > 0 && (
           <div class="prop-atmosphere-grid">
             {img.atmosphere.grid.map((src) => (
-              <div class={`prop-atmosphere-item${src.includes('DSCF9981') ? ' prop-desaturate-10' : ''}`}>
+              <div class="prop-atmosphere-item">
                 <img src={encodePath(src)} srcset={srcsetFor(src, 'gallery')} sizes="(max-width: 900px) 100vw, 33.33vw" width="1200" height="1600" alt="Ambiance à Toile Blanche" loading="lazy" />
               </div>
             ))}
@@ -287,9 +287,6 @@ const srcsetFor = (path: string, type: 'hero' | 'gallery') => gallerySrcset(path
     display: block;
     aspect-ratio: 3 / 4;
     object-fit: cover;
-  }
-  .prop-desaturate-10 img {
-    filter: saturate(0.9);
   }
   @media (max-width: 900px) {
     .prop-atmosphere-grid {
