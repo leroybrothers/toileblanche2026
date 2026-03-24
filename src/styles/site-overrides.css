@@ -89,8 +89,6 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
 @media (max-width: 640px) {
   #page-loader { display: none !important; }
   #hero { opacity: 1 !important; }
-  #hero-content { opacity: 1 !important; transform: none !important; }
-  #hero-arrow { transform: translateY(0) !important; }
   .hero-bg-slide { background-attachment: scroll !important; }
 }
 #page-loader .loader-logo-wrapper img {
@@ -545,6 +543,32 @@ body.tb-nav-light .navigation-light .nav-logo-text,
   background-color: var(--color-white-15);
 }
 
+
+/* ─── Hero tagline: editorial statement below the hero image ─────────────── */
+.tb-hero-tagline {
+  background: var(--color-bg);
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.tb-hero-tagline .container {
+  max-width: 900px;
+}
+
+.tb-hero-tagline-line {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: var(--weight-medium);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 1.5;
+  margin: 0 0 0.5em;
+  color: var(--color-ink);
+  text-align: left;
+}
+
+.tb-hero-tagline-line:last-child {
+  margin-bottom: 0;
+}
 
 /* ─── Intro section: equal space above and below Story & Feeling text ─────── */
 .tb-intro-section {
@@ -1331,17 +1355,7 @@ body.tb-menu-open .overlap-section-top {
   }
 }
 
-/* ─── Hero reveal animation ──────────────────────────────────────────────── */
-#hero-content {
-  opacity: 0;
-  transform: translateY(16px);
-}
-
-#hero-arrow {
-  transform: translateY(24px);
-}
-
-/* ─── Hero structure (video visible, proper stacking) ─────────────────────── */
+/* ─── Hero structure (full bleed image, Nav only) ─────────────────────────── */
 .hero1 {
   overflow: hidden;
   height: 100vh;
@@ -1350,11 +1364,6 @@ body.tb-menu-open .overlap-section-top {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-}
-
-/* Hero text: lower-middle positioning (more air above and below) ───────────── */
-.hero1-content-wrapper {
-  padding-bottom: clamp(10vh, 15vh, 22vh);
 }
 
 .hero-bg-wrapper {
@@ -2025,12 +2034,6 @@ a, button, [role="button"], [data-zc-action], .distributor-open,
     transform: none;
   }
   .hero-bg-slide { transition: none; }
-  #hero-content,
-  #hero-arrow {
-    transition: none;
-    opacity: 1;
-    transform: none;
-  }
   /* Image zoom on hover — disable decorative scale */
   .arc-entry:hover .arc-entry-image img,
   .lrs-gallery-item:hover img,

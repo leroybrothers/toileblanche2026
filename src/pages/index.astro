@@ -48,26 +48,16 @@ const suites = suitesData.suites.map(s => ({
     <div class="hero-bg-overlay"></div>
 
     <Nav theme="both" />
-
-    <div class="hero1-content-wrapper">
-      <div class="hero1-content" id="hero-content">
-        <h1 class="hero-headline light">The Côte d'Azur,<br />without the spectacle.</h1>
-        <div class="hero-second-line light">The art is not on the walls, it is the walls.</div>
-        <div class="hero-body light">And the particular pleasure of going nowhere for a few days.</div>
-        <div class="hero1-arrow">
-          <img
-            src="/assets/images/639af6c370637a631de3b0f3_big_arrow_down_light.svg"
-            loading="lazy"
-            alt="Scroll down"
-            class="hero-arrow-image"
-            id="hero-arrow"
-            width="24"
-            height="24"
-          />
-        </div>
-      </div>
-    </div>
   </header>
+
+  <!-- Hero tagline: editorial statement below the image -->
+  <section class="tb-hero-tagline" aria-label="Tagline">
+    <div class="container">
+      <p class="tb-hero-tagline-line">The Côte d'Azur, without the spectacle.</p>
+      <p class="tb-hero-tagline-line">The art is not on the walls, it is the walls.</p>
+      <p class="tb-hero-tagline-line">And the particular pleasure of going nowhere for a few days.</p>
+    </div>
+  </section>
 
   <!-- Introduction -->
   <div class="section tb-intro-section">
@@ -290,7 +280,7 @@ const suites = suitesData.suites.map(s => ({
   "description": "22 suites, two restaurants, and a contemporary art collection in Saint-Paul de Vence. A declared artwork by the Leroy Brothers on the Côte d'Azur.",
   "speakable": {
     "@type": "SpeakableSpecification",
-    "cssSelector": [".hero-headline", ".hero-second-line", ".hero-body", ".tb-intro-block"]
+    "cssSelector": [".tb-hero-tagline", ".tb-intro-block"]
   },
   "breadcrumb": {
     "@type": "BreadcrumbList",
