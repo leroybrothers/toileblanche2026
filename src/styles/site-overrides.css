@@ -552,7 +552,7 @@ body.tb-nav-light .navigation-light .nav-logo-text,
 }
 
 .tb-hero-tagline .container {
-  max-width: 900px;
+  max-width: 960px; /* enough for both lines at 3rem without breaking at comma */
 }
 
 .tb-hero-tagline-line {
@@ -564,6 +564,13 @@ body.tb-nav-light .navigation-light .nav-logo-text,
   margin: 0 0 0.5em;
   color: var(--color-ink);
   text-align: left;
+}
+
+/* Keep each sentence on one line (prevent break at comma on larger screens) */
+@media (min-width: 640px) {
+  .tb-hero-tagline-line {
+    white-space: nowrap;
+  }
 }
 
 .tb-hero-tagline-line:last-child {
