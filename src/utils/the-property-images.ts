@@ -65,7 +65,10 @@ export function getPropertyImages() {
   const art = placeholders.art; // Explicit: art1–4 from images/art + TB Session 2 FXO 1 (excludes Aerts 4, IMG_3266)
   const pools = orFallback(listImages('thepools'), placeholders.pools);
   const garden = placeholders.garden; // Explicit: garden1, 2, 5, 6 (IMG_3421, IMG_4379 moved to pools)
-  const atmosphere = orFallback(listImages('theatmosphere'), placeholders.atmosphere);
+  const atmosphereRaw = orFallback(listImages('theatmosphere'), placeholders.atmosphere);
+  const atmosphere = atmosphereRaw.map((src) =>
+    /DSCF9981/i.test(src) ? '/assets/images/ambiance/DSCF3490.JPG' : src
+  );
 
   return {
     // place: 1st=hero (or shared with page hero), rest=portraits. With 2: hero + 1 portrait.
@@ -91,11 +94,15 @@ export function getPropertyImages() {
         '/assets/images/theproperty/therooms/IMG_6830.jpg',
       ],
     },
-    // table: hero + portraits + 2 landscapes (food1, food2 from restaurant — always used).
+    // table: 4 portraits (same size and ratio — all 3:4 portrait)
     table: {
       hero: table[0]!,
-      portraits: table.slice(1, 4),
-      landscapes: ['/assets/images/restaurant/food1.jpg', '/assets/images/restaurant/food2.jpg'],
+      portraits: [
+        ...table.slice(1, 4),
+        '/assets/images/restaurant/food1.jpg',
+        '/assets/images/restaurant/food2.jpg',
+      ].slice(0, 4), // ensure exactly 4
+      landscapes: [],
     },
     // art: 6 portraits (art10–art15), 3 per row, same ratio.
     art: {

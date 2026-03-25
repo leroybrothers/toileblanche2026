@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
 import { cardSrcset, gallerySrcset, heroSrcset } from '../../../utils/images';
+import { sortGalleryByCategory } from '../../../utils/suite-gallery';
 import suitesData from '../../../data/suites.fr.json';
 
 export function getStaticPaths() {
@@ -76,7 +77,7 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
     </section>
 
     <section class="sd-gallery">
-      {suite.images.gallery.map((img, i) => (
+      {sortGalleryByCategory(suite.slug, suite.images.gallery).map((img, i) => (
         <div class={`sd-gallery-item sd-gallery-item-${i + 1} fade-up`}>
           <img src={img} srcset={gallerySrcset(img)} sizes="(max-width: 900px) 100vw, 50vw" alt={`${suite.name} — vue ${i + 1}`} loading="lazy" />
         </div>

@@ -91,6 +91,15 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   #hero { opacity: 1 !important; }
   .hero-bg-slide { background-attachment: scroll !important; }
 }
+/* Grid: column width follows the logo so the line matches and stays centered (Webflow used width:100% + block img, which left-aligned the mark and full-bleed the line). */
+#page-loader .loader-logo-wrapper {
+  display: grid;
+  justify-items: center;
+  row-gap: 32px;
+  width: max-content;
+  max-width: 300px;
+}
+
 #page-loader .loader-logo-wrapper img {
   display: block;
   width: auto;
@@ -99,6 +108,12 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   max-height: 60px;
   object-fit: contain;
   object-position: center;
+}
+
+#page-loader .loader-line {
+  width: 100%;
+  min-width: 0;
+  margin-top: 0;
 }
 
 /* ─── Fade-up entrance (below-fold only; works with Lenis) ─────────────────── */
@@ -872,8 +887,14 @@ body.tb-menu-open .overlap-section-top {
 
   .tb-menu-mobile-secondary {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.25rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .tb-menu-mobile-secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
   }
 
   .tb-menu-mobile-secondary-link {
@@ -1036,9 +1057,9 @@ body.tb-menu-open .overlap-section-top {
 
 .tb-menu-info-footer {
   grid-column: 1 / -1;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 0 var(--space-4);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3) var(--space-4);
   margin-top: var(--space-2);
   padding-top: var(--space-4);
   border-top: 1px solid var(--color-ink-12);

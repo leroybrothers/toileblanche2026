@@ -1,0 +1,96 @@
+{
+  "_comment": "Maps gallery image paths to display order. Categories: bed, interior, bathroom, exterior. Order: bed first, then interior, then bathroom, then exterior. Edit this file to assign categories; run npm run apply-gallery-order to update suites.json, or the site sorts at build time.",
+  "penard": {
+    "/assets/images/penard/gallery-1.jpg": "bed",
+    "/assets/images/penard/gallery-2.jpg": "interior",
+    "/assets/images/penard/Gallery3.JPG": "interior",
+    "/assets/images/penard/gallery-4.jpg": "interior",
+    "/assets/images/penard/gallery-5.jpg": "bathroom",
+    "/assets/images/penard/gallery6.JPG": "interior",
+    "/assets/images/penard/gallery7.JPG": "interior",
+    "/assets/images/penard/gallery8.JPG": "interior",
+    "/assets/images/penard/gallery9.JPG": "exterior"
+  },
+  "petanque": {
+    "/assets/images/petanque/gallery-1.jpg": "bed",
+    "/assets/images/petanque/gallery-2.jpg": "interior",
+    "/assets/images/petanque/gallery-3.jpg": "interior",
+    "/assets/images/petanque/gallery-4.jpg": "interior",
+    "/assets/images/petanque/gallery-5.jpg": "bathroom",
+    "/assets/images/petanque/gallery6.jpg": "interior",
+    "/assets/images/petanque/gallery7.JPG": "interior",
+    "/assets/images/petanque/gallery8.jpg": "interior",
+    "/assets/images/petanque/gallery-pool.jpg": "exterior"
+  },
+  "bronzette": {
+    "/assets/images/bronzette/DSCF7473.JPG": "bed",
+    "/assets/images/bronzette/DSCF7481.JPG": "interior",
+    "/assets/images/bronzette/DSCF7369.JPG": "interior",
+    "/assets/images/bronzette/DSCF7508.jpg": "interior",
+    "/assets/images/bronzette/DSCF7650.jpg": "bathroom",
+    "/assets/images/bronzette/gallery-1.jpg": "interior",
+    "/assets/images/bronzette/gallery-2.jpg": "interior",
+    "/assets/images/bronzette/gallery-3.jpg": "interior"
+  },
+  "cabanat": {
+    "/assets/images/cabanat/hero-legacy.jpg": "bed",
+    "/assets/images/cabanat/DSCF7158.JPG": "interior",
+    "/assets/images/cabanat/DSCF7143 (1).JPG": "interior",
+    "/assets/images/cabanat/DSCF7190.jpg": "interior",
+    "/assets/images/cabanat/gallery-1.jpg": "interior",
+    "/assets/images/cabanat/gallery-2.jpg": "bathroom",
+    "/assets/images/cabanat/gallery-3.jpg": "interior",
+    "/assets/images/cabanat/gallery-4.jpg": "interior",
+    "/assets/images/cabanat/gallery-5.jpg": "exterior"
+  },
+  "suite-artiste": {
+    "/assets/images/suite-artiste/gallery-5.jpg": "bed",
+    "/assets/images/suite-artiste/gallery-1.jpg": "interior",
+    "/assets/images/suite-artiste/gallery-2.jpg": "interior",
+    "/assets/images/suite-artiste/gallery-3.jpg": "interior",
+    "/assets/images/suite-artiste/gallery-4.jpg": "interior",
+    "/assets/images/suite-artiste/gallery-shower.jpg": "bathroom"
+  },
+  "mas-artiste": {
+    "/assets/images/mas-de-l-artiste/245C35A1-AD87-46D2-8CC5-A8D9A0755317.jpeg": "bed",
+    "/assets/images/mas-de-l-artiste/gallery-1.jpg": "interior",
+    "/assets/images/mas-de-l-artiste/gallery-2.jpg": "interior",
+    "/assets/images/mas-de-l-artiste/gallery-3.jpg": "interior",
+    "/assets/images/mas-de-l-artiste/gallery-4.jpg": "interior",
+    "/assets/images/mas-de-l-artiste/gallery-5.jpg": "bathroom",
+    "/assets/images/mas-de-l-artiste/gallery-7.jpg": "interior",
+    "/assets/images/mas-de-l-artiste/gallery-8.jpg": "interior",
+    "/assets/images/mas-de-l-artiste/galleery-9.jpg": "exterior"
+  },
+  "bonvivant": {
+    "/assets/images/bon-vivant/gallery-1.jpg": "bed",
+    "/assets/images/bon-vivant/gallery-2.jpg": "interior",
+    "/assets/images/bon-vivant/gallery-4.jpg": "interior",
+    "/assets/images/bon-vivant/gallery-5.jpg": "interior",
+    "/assets/images/bon-vivant/gallery-6.JPG": "bathroom",
+    "/assets/images/Homepage/Suite bon vivant.JPG": "interior",
+    "/assets/images/bon-vivant/gallery-8.JPG": "interior",
+    "/assets/images/bon-vivant/gallery-9.JPG": "exterior",
+    "/assets/images/bon-vivant/DSCF5652.JPG": "exterior",
+    "/assets/images/bon-vivant/DSCF6129.JPG": "exterior",
+    "/assets/images/bon-vivant/DSCF6632.JPG": "exterior",
+    "/assets/images/bon-vivant/DSCF6646.JPG": "exterior",
+    "/assets/images/bon-vivant/DSCF6681.JPG": "exterior"
+  },
+  "penequet": {
+    "/assets/images/penequet/IMG_4399.jpg": "bed",
+    "/assets/images/penequet/IMG_0093.jpg": "interior",
+    "/assets/images/penequet/IMG_2248.jpg": "interior",
+    "/assets/images/penequet/IMG_3771.jpg": "interior",
+    "/assets/images/penequet/DSCF6738.JPG": "interior",
+    "/assets/images/penequet/gallery-1.jpg": "interior",
+    "/assets/images/penequet/gallery-2.jpg": "interior",
+    "/assets/images/penequet/gallery-3.jpg": "bathroom",
+    "/assets/images/penequet/IMG_0375.jpg": "interior",
+    "/assets/images/penequet/IMG_3091.jpg": "exterior",
+    "/assets/images/penequet/IMG_2673.jpg": "exterior",
+    "/assets/images/penequet/IMG_3043.jpg": "exterior",
+    "/assets/images/penequet/IMG_2644.jpg": "exterior",
+    "/assets/images/penequet/gallery-5.jpg": "exterior"
+  }
+}
