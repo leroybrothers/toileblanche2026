@@ -21,10 +21,15 @@ import Footer from '../../../components/Footer.astro';
       </div>
     </section>
 
-    <!-- UBILIZ WIDGET -->
+    <!-- UBILIZ WIDGET (le script doit suivre la div cible — un script imbriqué échoue souvent à l'initialisation) -->
     <section class="gft-widget">
       <div class="gft-widget-inner">
-        <div class="ubiliz-offers-widget" data-url="https://app.ubiliz.com/widget/liste-bons/4788"><script is:inline src="https://app.ubiliz.com/widget/widget.js"></script></div>
+        <div class="ubiliz-offers-widget" data-url="https://app.ubiliz.com/widget/liste-bons/4788"></div>
+        <script is:inline src="https://app.ubiliz.com/widget/widget.js"></script>
+        <p class="gft-widget-direct">
+          <a href="https://giftvouchers.toileblanche.com/" target="_blank" rel="noopener noreferrer">Ouvrir la boutique de bons cadeaux</a>
+          <span class="gft-widget-direct-note"> — catalogue complet sur notre vitrine Ubiliz.</span>
+        </p>
         <p class="gft-widget-fallback">Si le widget ne s'affiche pas, <a href="mailto:info@toileblanche.com?subject=Demande%20de%20bon%20cadeau">contactez-nous</a> pour les bons cadeaux.</p>
       </div>
     </section>
@@ -105,6 +110,29 @@ import Footer from '../../../components/Footer.astro';
     max-width: 1200px;
     margin: 0 auto;
     padding: 80px;
+  }
+  .ubiliz-offers-widget {
+    min-height: 320px;
+  }
+  .gft-widget-direct {
+    margin-top: 28px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #3D3530;
+  }
+  .gft-widget-direct a {
+    color: #9e5c4a;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .gft-widget-direct a:hover {
+    opacity: 0.88;
+  }
+  .gft-widget-direct-note {
+    color: #6B6256;
+    font-weight: 400;
   }
   .gft-widget-fallback {
     margin-top: 24px;
