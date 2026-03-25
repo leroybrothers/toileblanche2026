@@ -21,14 +21,31 @@ import { heroSrcset } from '../../utils/images';
       </div>
     </section>
 
-    <section class="bkf-image">
-      <img src="/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg" srcset={heroSrcset('/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg')} sizes="100vw" width="4898" height="3265" alt="Breakfast spread at Toile Blanche" loading="eager" fetchpriority="high" />
+    <section class="bkf-grid" aria-label="Breakfast gallery">
+      <div class="bkf-grid-item">
+        <img src="/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg" srcset={heroSrcset('/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg')} sizes="(max-width: 900px) 100vw, 33.33vw" width="4898" height="3265" alt="Breakfast spread at Toile Blanche" loading="eager" fetchpriority="high" />
+      </div>
+      <div class="bkf-grid-item">
+        <img src="/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg" srcset={heroSrcset('/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg')} sizes="(max-width: 900px) 100vw, 33.33vw" width="3024" height="3780" alt="Breakfast at Toile Blanche" loading="lazy" />
+      </div>
+      <div class="bkf-grid-item">
+        <img src="/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg" srcset={heroSrcset('/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg')} sizes="(max-width: 900px) 100vw, 33.33vw" width="4898" height="3265" alt="Morning at Toile Blanche" loading="lazy" />
+      </div>
+      <div class="bkf-grid-item">
+        <img src="/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg" srcset={heroSrcset('/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg')} sizes="(max-width: 900px) 100vw, 33.33vw" width="3024" height="3780" alt="Breakfast details at Toile Blanche" loading="lazy" />
+      </div>
+      <div class="bkf-grid-item">
+        <img src="/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg" srcset={heroSrcset('/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg')} sizes="(max-width: 900px) 100vw, 33.33vw" width="4898" height="3265" alt="Breakfast terrace at Toile Blanche" loading="lazy" />
+      </div>
+      <div class="bkf-grid-item">
+        <img src="/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg" srcset={heroSrcset('/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg')} sizes="(max-width: 900px) 100vw, 33.33vw" width="3024" height="3780" alt="Coffee and breakfast at Toile Blanche" loading="lazy" />
+      </div>
     </section>
 
     <section class="info-body">
       <div class="info-body-inner">
         <h2>No need to rush</h2>
-        <p>Whether you are an early riser wanting to start the day as soon as possible, or a late sleeper, you can take breakfast at your own pace. We serve from the kitchen or to your suite.</p>
+        <p>Whether you are an early riser wanting to start the day as soon as possible, or a late sleeper, you can take breakfast at your own pace.</p>
 
         <h2>What to expect</h2>
         <p>Fresh bread and pastries from a local bakery. Seasonal fruit. Eggs prepared as you like them. Excellent coffee, and plenty of it. Local honey, jams, and cheeses. Orange juice pressed that morning.</p>
@@ -37,8 +54,6 @@ import { heroSrcset } from '../../utils/images';
         <p>Breakfast is served every day from <strong>8:00 AM to 10:30 AM</strong>.</p>
         <p>If you need an earlier start, please let reception know the evening before and we will arrange something.</p>
 
-        <h2>Where</h2>
-        <p>In the breakfast room, on the terrace overlooking the gardens, or delivered to your suite — your choice.</p>
       </div>
     </section>
   </main>
@@ -49,23 +64,39 @@ import { heroSrcset } from '../../utils/images';
 <style is:global>
   @import '/css/info-page.css';
 
-  .bkf-image {
-    width: 100%;
-    aspect-ratio: 16/9;
-    max-height: 400px;
+  .bkf-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 80px;
+  }
+  .bkf-grid-item {
+    aspect-ratio: 3 / 4;
     overflow: hidden;
   }
-  .bkf-image img {
+  .bkf-grid-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 40%;
     display: block;
   }
+  .bkf-grid-item:nth-child(1) img { object-position: 50% 42%; }
+  .bkf-grid-item:nth-child(2) img { object-position: 45% 50%; }
+  .bkf-grid-item:nth-child(3) img { object-position: 62% 45%; }
+  .bkf-grid-item:nth-child(4) img { object-position: 58% 45%; }
+  .bkf-grid-item:nth-child(5) img { object-position: 38% 56%; }
+  .bkf-grid-item:nth-child(6) img { object-position: 50% 62%; }
 
   @media (max-width: 900px) {
-    .bkf-image {
-      max-height: 280px;
+    .bkf-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 0 24px;
+    }
+    .bkf-grid-item {
+      aspect-ratio: 16 / 10;
     }
   }
 </style>

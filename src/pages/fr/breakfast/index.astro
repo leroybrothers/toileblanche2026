@@ -22,8 +22,25 @@ import { heroSrcset } from '../../../utils/images';
       </div>
     </section>
 
-    <section class="bkf-image">
-      <img src="/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg" srcset={heroSrcset('/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg')} sizes="100vw" width="4898" height="3265" alt="Petit-déjeuner à Toile Blanche" loading="eager" fetchpriority="high" />
+    <section class="bkf-grid" aria-label="Galerie petit-déjeuner">
+      <div class="bkf-grid-item">
+        <img src="/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg" srcset={heroSrcset('/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg')} sizes="(max-width: 900px) 100vw, 33.33vw" width="4898" height="3265" alt="Petit-déjeuner à Toile Blanche" loading="eager" fetchpriority="high" />
+      </div>
+      <div class="bkf-grid-item">
+        <img src="/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg" srcset={heroSrcset('/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg')} sizes="(max-width: 900px) 100vw, 33.33vw" width="3024" height="3780" alt="Petit-déjeuner à Toile Blanche" loading="lazy" />
+      </div>
+      <div class="bkf-grid-item">
+        <img src="/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg" srcset={heroSrcset('/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg')} sizes="(max-width: 900px) 100vw, 33.33vw" width="4898" height="3265" alt="Matin à Toile Blanche" loading="lazy" />
+      </div>
+      <div class="bkf-grid-item">
+        <img src="/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg" srcset={heroSrcset('/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg')} sizes="(max-width: 900px) 100vw, 33.33vw" width="3024" height="3780" alt="Détails du petit-déjeuner à Toile Blanche" loading="lazy" />
+      </div>
+      <div class="bkf-grid-item">
+        <img src="/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg" srcset={heroSrcset('/assets/images/breakfast/StP25-ToileBlanche-c-GaelleSimon-27.jpg')} sizes="(max-width: 900px) 100vw, 33.33vw" width="4898" height="3265" alt="Terrasse du petit-déjeuner à Toile Blanche" loading="lazy" />
+      </div>
+      <div class="bkf-grid-item">
+        <img src="/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg" srcset={heroSrcset('/assets/images/breakfast/4f3bf84f-fd91-4f40-84eb-dc95844afcda.jpg')} sizes="(max-width: 900px) 100vw, 33.33vw" width="3024" height="3780" alt="Café et petit-déjeuner à Toile Blanche" loading="lazy" />
+      </div>
     </section>
 
     <section class="info-body">
@@ -50,23 +67,39 @@ import { heroSrcset } from '../../../utils/images';
 <style is:global>
   @import '/css/info-page.css';
 
-  .bkf-image {
-    width: 100%;
-    aspect-ratio: 16/9;
-    max-height: 400px;
+  .bkf-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 80px;
+  }
+  .bkf-grid-item {
+    aspect-ratio: 3 / 4;
     overflow: hidden;
   }
-  .bkf-image img {
+  .bkf-grid-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 40%;
     display: block;
   }
+  .bkf-grid-item:nth-child(1) img { object-position: 50% 42%; }
+  .bkf-grid-item:nth-child(2) img { object-position: 45% 50%; }
+  .bkf-grid-item:nth-child(3) img { object-position: 62% 45%; }
+  .bkf-grid-item:nth-child(4) img { object-position: 58% 45%; }
+  .bkf-grid-item:nth-child(5) img { object-position: 38% 56%; }
+  .bkf-grid-item:nth-child(6) img { object-position: 50% 62%; }
 
   @media (max-width: 900px) {
-    .bkf-image {
-      max-height: 280px;
+    .bkf-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 0 24px;
+    }
+    .bkf-grid-item {
+      aspect-ratio: 16 / 10;
     }
   }
 </style>
