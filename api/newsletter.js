@@ -1,11 +1,4 @@
-/**
- * Newsletter signup — interim storage on Vercel Blob until migration to FamiliarHQ.
- * Saves email, firstName, lastName to newsletter/signups.json in Blob storage.
- * Export via GET /api/newsletter-export?key=YOUR_SECRET
- */
-import { list, get, put } from '@vercel/blob';
-
-const BLOB_PATH = 'newsletter/signups.json';
+const FLODESK_API = 'https://api.flodesk.com/v1/subscribers';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -19,45 +12,39 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Email is required' });
   }
 
-  const entry = {
+  const apiKey = process.env.FLODESK_API_KEY;
+  if (!apiKey) {
+    console.error('FLODESK_API_KEY is not set');
+    return res.status(500).json({ error: 'Newsletter service is not configured' });
+  }
+
+  const payload = {
     email: email.trim().toLowerCase(),
-    firstName: firstName ? String(firstName).trim() : '',
-    lastName: lastName ? String(lastName).trim() : '',
-    subscribedAt: new Date().toISOString(),
   };
+  if (firstName) payload.first_name = String(firstName).trim();
+  if (lastName) payload.last_name = String(lastName).trim();
+
+  const segmentId = process.env.FLODESK_SEGMENT_ID;
+  if (segmentId) payload.segment_ids = [segmentId];
 
   try {
-    let signups = [];
-
-    const { blobs } = await list({ prefix: 'newsletter/' });
-    const existing = blobs.find((b) => b.pathname === BLOB_PATH);
-    if (existing) {
-      const blob = await get(existing.url, { access: 'private' });
-      if (blob) {
-        const text = await blob.text();
-        try {
-          signups = JSON.parse(text || '[]');
-        } catch {
-          signups = [];
-        }
-      }
-    }
-
-    const exists = signups.some((s) => s.email === entry.email);
-    if (!exists) {
-      signups.push(entry);
-    }
-
-    await put(BLOB_PATH, JSON.stringify(signups, null, 2), {
-      access: 'private',
-      addRandomSuffix: false,
-      allowOverwrite: true,
-      contentType: 'application/json',
+    const response = await fetch(FLODESK_API, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${Buffer.from(apiKey + ':').toString('base64')}`,
+      },
+      body: JSON.stringify(payload),
     });
 
+    if (!response.ok) {
+      const text = await response.text();
+      console.error(`Flodesk API error ${response.status}: ${text}`);
+      return res.status(502).json({ error: 'Subscription failed. Please try again.' });
+    }
     return res.status(200).json({ ok: true });
   } catch (err) {
-    console.error('Newsletter storage failed:', err);
-    return res.status(500).json({ error: 'Subscription failed. Please try again.' });
+    console.error('Flodesk request failed:', err);
+    return res.status(502).json({ error: 'Subscription failed. Please try again.' });
   }
 }
