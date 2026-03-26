@@ -92,11 +92,10 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
     <section class="abt-cta">
       <p class="abt-cta-tagline">Enter the canvas.</p>
       <div class="abt-cta-actions">
-        <a href="/map" class="abt-cta-map-link" aria-label="View interactive property map">
-          <img src="/assets/images/estate-map.png" alt="Toile Blanche property map — view interactive map" class="abt-cta-map-img" width="1200" height="800" loading="lazy" />
-          <span class="abt-cta-map-label">View property map</span>
-        </a>
-        <a href="/restaurants" class="abt-cta-link">Discover the Tables &rarr;</a>
+        <div class="abt-cta-map-link">
+          <img src="/assets/images/PLAN%20DOMAINE%20TB.png" alt="Toile Blanche property map" class="abt-cta-map-img" width="1500" height="2000" loading="lazy" />
+          <span class="abt-cta-map-label">Property map</span>
+        </div>
       </div>
     </section>
   </main>
@@ -309,12 +308,6 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
     display: block;
     max-width: 900px;
     width: 100%;
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 0.2s;
-  }
-  .abt-cta-map-link:hover {
-    opacity: 0.92;
   }
   .abt-cta-map-img {
     width: 100%;
@@ -332,34 +325,6 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
     margin-top: 12px;
     text-align: center;
   }
-  .abt-cta-btn {
-    display: inline-block;
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #FAF8F3;
-    background: #9e5c4a;
-    padding: 16px 36px;
-    transition: opacity 0.2s;
-  }
-  .abt-cta-btn:hover {
-    opacity: 0.85;
-  }
-  .abt-cta-link {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #9C9080;
-    transition: color 0.2s;
-  }
-  .abt-cta-link:hover {
-    color: #3D3530;
-  }
-
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     .abt-hero {
