@@ -122,6 +122,7 @@ import { heroSrcset, gallerySrcset } from '../../utils/images';
   .art-hero-image {
     position: absolute;
     inset: 0;
+    background-color: #1c1917;
   }
   .art-hero-image img {
     width: 100%;
@@ -325,6 +326,10 @@ import { heroSrcset, gallerySrcset } from '../../utils/images';
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
+    .art-hero-image img {
+      object-fit: contain;
+      object-position: center center;
+    }
     .art-hero-content {
       padding: 0 24px 48px;
     }
