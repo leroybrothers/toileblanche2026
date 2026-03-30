@@ -28,7 +28,7 @@ export function srcsetAvif(path: string, widths: number[]): string {
   return widths.map((w) => `${encodePath(`${base}-${w}w.avif`)} ${w}w`).join(', ');
 }
 
-export const heroSrcset = (p: string) => srcset(p, [800, 1200]);
+export const heroSrcset = (p: string, originalWidth?: number) => srcset(p, [800, 1200], originalWidth);
 export const gallerySrcset = (p: string, originalWidth?: number) => srcset(p, [600, 1200], originalWidth);
 export const singleWidthSrcset = (p: string, w: number) => srcset(p, [w]);
 
