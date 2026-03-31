@@ -15,15 +15,15 @@ const { post } = Astro.props;
 const { frontmatter, default: Content } = post as { frontmatter: { slug: string; date: string; title: string; excerpt: string; image: string; imageWidth?: number; imageHeight?: number; author?: string }; default: import('astro').Component };
 const postUrl = `https://www.toileblanche.com/blog/${frontmatter.slug}`;
 const postImage = frontmatter.image.startsWith('/') ? `https://www.toileblanche.com${frontmatter.image}` : frontmatter.image;
-const authorName = frontmatter.author ?? 'Toile Blanche Editorial Team';
 const blogPostingSchema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   headline: frontmatter.title,
   datePublished: frontmatter.date,
   author: {
-    '@type': 'Person',
-    name: authorName,
+    '@type': 'Organization',
+    name: 'Leroy Brothers',
+    url: 'https://www.toileblanche.com',
   },
   image: postImage,
   description: frontmatter.excerpt,
