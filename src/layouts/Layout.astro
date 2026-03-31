@@ -191,53 +191,78 @@ const alternates = getAlternateUrls(currentPath);
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": ["Hotel", "ArtGallery"],
+      "@type": "Hotel",
       "name": "Toile Blanche",
-      "description": "22 suites, two restaurants, and a contemporary art collection in Saint-Paul de Vence. A declared artwork by the Leroy Brothers on the Côte d'Azur.",
-      "image": "https://www.toileblanche.com/assets/images/63c833490a337a19059088b6_Toile%20Blanche%20video%202020%20(1)-poster-00001.jpg",
-      "@id": "https://www.toileblanche.com#hotel",
+      "alternateName": "Toile Blanche Saint-Paul de Vence",
+      "description": "Toile Blanche is a 22-suite luxury hotel in Saint-Paul de Vence, French Riviera. Set in 20,000m² of gardens with a contemporary art collection, three pools, two restaurants, and a Michelin Key. Created and owned by the Leroy Brothers artist duo.",
       "url": "https://www.toileblanche.com",
+      "logo": "https://www.toileblanche.com/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif",
+      "image": "https://www.toileblanche.com/assets/images/Homepage/suite-penard.jpg",
       "telephone": "+33493327421",
       "email": "info@toileblanche.com",
-      "priceRange": "€€€€",
-      "starRating": {
-        "@type": "Rating",
-        "ratingValue": "4"
-      },
-      "numberOfRooms": 22,
-      "checkinTime": "16:00",
-      "checkoutTime": "11:00",
-      "petsAllowed": false,
-      "amenityFeature": [
-        { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Outdoor Pool", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Restaurant", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "EV Charging", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Spa Services", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Electric Bike Rental", "value": true }
-      ],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "826, chemin de la Pounchounière",
+        "streetAddress": "826 chemin de la Pounchounière",
         "addressLocality": "Saint-Paul de Vence",
-        "postalCode": "06570",
         "addressRegion": "Provence-Alpes-Côte d'Azur",
+        "postalCode": "06570",
         "addressCountry": "FR"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 43.6874494,
-        "longitude": 7.1285941
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "08:00",
-        "closes": "22:00"
+        "latitude": 43.6878268750464,
+        "longitude": 7.1285223537826665
       },
       "hasMap": "https://goo.gl/maps/VoKrme28X62qbvTk7",
+      "priceRange": "€€€€",
+      "numberOfRooms": 22,
+      "checkinTime": "16:00",
+      "checkoutTime": "11:00",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Credit Card",
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "award": ["Michelin Key 2024"],
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Outdoor pool", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Private pool suites", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Free parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "EV charging", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Restaurant", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Contemporary art collection", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Garden", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Breakfast included (direct bookings)", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Concierge", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Private transfer from Nice Airport", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Bike rental", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Pets not allowed", "value": false }
+      ],
+      "containsPlace": [
+        {
+          "@type": "FoodEstablishment",
+          "name": "Le Restaurant",
+          "servesCuisine": "French, Provençal",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "19:30",
+            "closes": "21:30"
+          }
+        },
+        {
+          "@type": "FoodEstablishment",
+          "name": "La Guinguette",
+          "servesCuisine": "Provençal, Mediterranean",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "12:00",
+            "closes": "22:00"
+          }
+        }
+      ],
       "sameAs": [
         "https://www.instagram.com/toileblanche/"
       ]
