@@ -13,6 +13,25 @@ export function getStaticPaths() {
 
 const { post } = Astro.props;
 const { frontmatter, default: Content } = post as { frontmatter: { slug: string; date: string; title: string; excerpt: string; image: string; imageWidth?: number; imageHeight?: number; author?: string }; default: import('astro').Component };
+const postUrl = `https://www.toileblanche.com/fr/blog/${frontmatter.slug}`;
+const postImage = frontmatter.image.startsWith('/') ? `https://www.toileblanche.com${frontmatter.image}` : frontmatter.image;
+const authorName = frontmatter.author ?? 'Rédaction Toile Blanche';
+const blogPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: frontmatter.title,
+  datePublished: frontmatter.date,
+  author: {
+    '@type': 'Person',
+    name: authorName,
+  },
+  image: postImage,
+  description: frontmatter.excerpt,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': postUrl,
+  },
+};
 
 const formatDate = (d: string) => {
   const date = new Date(d);
@@ -25,8 +44,10 @@ const formatDate = (d: string) => {
   locale="fr"
   title={`${frontmatter.title} | Les Archives | Toile Blanche`}
   description={frontmatter.excerpt}
-  ogImage={frontmatter.image.startsWith('/') ? `https://www.toileblanche.com${frontmatter.image}` : frontmatter.image}
+  ogImage={postImage}
+  canonicalURL={postUrl}
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
   <Nav locale="fr" theme="light" />
 
   <main id="main-content">
