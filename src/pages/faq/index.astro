@@ -3,26 +3,164 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import sections from '../../data/faq.json';
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": sections.flatMap(s => s.items.map(item => ({
-    "@type": "Question",
-    "name": item.q,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": item.a.replace(/<[^>]*>/g, ''),
-    },
-  }))),
-};
 ---
 
 <Layout
   title="FAQ | Toile Blanche | Saint-Paul de Vence"
   description="Frequently asked questions about Toile Blanche — booking, dining, the suites, and the domain."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why should I book directly at Toile Blanche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Booking directly through the official Toile Blanche website is the only way to secure the Best Rate Guarantee, priority for suite upgrades, and the daily Provençal Breakfast Ritual included as a complimentary gift."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Toile Blanche require a deposit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A 50% prepayment is debited upon reservation. Please refer to the booking conditions on the website for full details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the cancellation policy at Toile Blanche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flexible rate: free cancellation up to 14 days before arrival. Between 14 and 7 days before arrival, the deposit is retained. Less than 7 days before arrival, the full stay is charged."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the room rates at Toile Blanche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2026 rates: extra bed €80 per night, city tax €4.02 per person per night, private parking complimentary, EV charging €25, breakfast €35 per adult (included free for direct bookings), bike rental €35 half day or €49 full day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the check-in and check-out times at Toile Blanche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Check-in is between 16:00 and 20:00. Check-out is between 08:00 and 11:00. Guests who book directly receive priority for early arrival and late check-out (called the Pénéquet) when available."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a shuttle or transfer from Nice Airport to Toile Blanche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Toile Blanche is approximately 20 minutes from Nice Côte d'Azur Airport (NCE). The hotel can arrange a private transfer for approximately €60. The concierge handles all coordination."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there parking at Toile Blanche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Toile Blanche provides secure, private outdoor parking within the walls of the property, free of charge for all guests. EV charging is available at €25."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Toile Blanche have a pool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Toile Blanche has three pools in total. The main pools and private suite pools are heated from mid-April to mid-October. They remain open for cold plunges during winter. Two suites — Suite du Bon-Vivant and Villa du Pénéquet — each have their own private pool."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is breakfast included at Toile Blanche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Breakfast is included as a complimentary gift for all guests who book directly at the source via toileblanche.com. For bookings made through third-party platforms, breakfast is served from 08:00 to 10:30 at €35 per person."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the restaurants at Toile Blanche open year-round?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both restaurants are open daily. Le Restaurant serves dinner from 19:30 to 21:30. La Guinguette serves lunch from 12:00 to 15:00 in winter, and from 12:00 to 22:00 in summer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are children welcome at Toile Blanche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Children are welcome at Toile Blanche with specific guidelines in place to preserve the harmony of the property. Please contact the hotel directly to discuss arrangements before booking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are pets allowed at Toile Blanche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Pets are not permitted within the houses or gardens of Toile Blanche."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the art collection at Toile Blanche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Toile Blanche features a living contemporary art collection of paintings, sculptures, photographs and installations, each selected in conversation with the artist. Some works were created specifically for the property. In 2026, the property itself was formally declared a work of art by the Leroy Brothers. The collection is viewable by hotel and restaurant guests. For formal gallery visits, see Toile Blanche Contemporary at toileblanchecontemporary.com."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I visit Toile Blanche without staying as a guest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The gardens and art collection are accessible to restaurant guests. For formal gallery visits, please refer to Toile Blanche Contemporary. Hotel accommodation requires a reservation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What makes Toile Blanche unique?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Toile Blanche is a 22-suite luxury hotel in Saint-Paul de Vence on the French Riviera, created over 20 years by the Leroy Brothers artist trio. It holds a Michelin Key. The property combines hotel, contemporary art gallery, and gardens across 20,000m², with two restaurants, three pools, and suites ranging from 40m² to 90m² — including two with private pools. It is 10 minutes by car from the Fondation Maeght and 20 minutes from Nice Airport."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Toile Blanche good for a romantic stay or honeymoon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Toile Blanche is particularly well suited to romantic stays. Suite du Bon-Vivant and Villa du Pénéquet both feature private pools. Le Restaurant offers intimate candlelit dinners. The setting in the hills above Saint-Paul de Vence, surrounded by sculpture gardens and with views over the valley, is among the most serene on the Côte d'Azur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far is Toile Blanche from the Fondation Maeght?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Fondation Maeght, one of Europe's foremost modern art foundations, is approximately 5 minutes by car from Toile Blanche. The hotel can arrange transport and tickets on request."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What languages are spoken at Toile Blanche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The team at Toile Blanche speaks French and English. Additional language assistance can be arranged on request for other languages."
+          }
+        }
+      ]
+    }
+  </script>
   <Nav theme="light" />
 
   <main id="main-content">
