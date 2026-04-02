@@ -16,7 +16,23 @@ import { gallerySrcset, heroSrcset } from '../../../utils/images';
   <main id="main-content">
     <section class="art-hero">
       <div class="art-hero-image">
-        <img src="/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg" srcset={heroSrcset('/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg')} sizes="100vw" width="4898" height="3265" alt="Art contemporain et sculptures dans les jardins de Toile Blanche, Saint-Paul de Vence" loading="eager" fetchpriority="high" />
+        <picture>
+          <source
+            media="(max-width: 900px)"
+            srcset={heroSrcset('/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-30-mobile.jpg', 1200)}
+            sizes="100vw"
+          />
+          <img
+            src="/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg"
+            srcset={heroSrcset('/assets/images/art/StP25-ToileBlanche-c-GaelleSimon-36.jpg', 4898)}
+            sizes="100vw"
+            width="4898"
+            height="3265"
+            alt="Art contemporain et sculptures dans les jardins de Toile Blanche, Saint-Paul de Vence"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </picture>
         <div class="art-hero-overlay"></div>
       </div>
       <div class="art-hero-content">
@@ -120,6 +136,11 @@ import { gallerySrcset, heroSrcset } from '../../../utils/images';
   .art-hero-image {
     position: absolute;
     inset: 0;
+  }
+  .art-hero-image picture {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
   .art-hero-image img {
     width: 100%;

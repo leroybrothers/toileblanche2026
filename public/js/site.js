@@ -88,7 +88,7 @@
   function initNavColorToggle() {
     var navDark = document.getElementById('nav-dark');
     var navLight = document.getElementById('nav-light');
-    var hero = document.getElementById('hero') || document.querySelector('.art-hero, .exp-hero, .rst-hero, .lgn-hero, .lrs-hero, .prop-hero');
+    var hero = document.getElementById('hero') || document.querySelector('.art-hero, .exp-ref-hero, .exp-hero, .rst-hero, .lgn-hero, .lrs-hero, .prop-hero');
     if (!navDark || !navLight) {
       if (navLight) document.body.classList.add('tb-nav-light');
       return;

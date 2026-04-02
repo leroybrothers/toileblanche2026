@@ -21,6 +21,35 @@ export function getStaticPaths() {
 
 const { suite, allSuites, amenities } = Astro.props;
 const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
+
+const defaultSuiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "HotelRoom",
+  "name": suite.name,
+  "description": suite.tagline,
+  "image": `https://www.toileblanche.com${suite.images.hero}`,
+  "url": `https://www.toileblanche.com/suites/${suite.slug}`,
+  "occupancy": {
+    "@type": "QuantitativeValue",
+    "value": parseInt(suite.specs.occupancy) || 2,
+    "unitText": "guests"
+  },
+  "floorSize": {
+    "@type": "QuantitativeValue",
+    "value": suite.specs.size,
+    "unitCode": "MTK"
+  },
+  "numberOfRooms": suite.specs.count,
+  "amenityFeature": [
+    ...suite.extras.map(e => ({ "@type": "LocationFeatureSpecification", "name": e, "value": true })),
+    { "@type": "LocationFeatureSpecification", "name": suite.specs.view, "value": true }
+  ],
+  "containedInPlace": {
+    "@type": "Hotel",
+    "name": "Toile Blanche",
+    "url": "https://www.toileblanche.com"
+  }
+};
 ---
 
 <Layout
@@ -28,6 +57,397 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
   description={suite.tagline}
   ogImage={`https://www.toileblanche.com${suite.images.hero}`}
 >
+  {suite.slug === 'penard' ? (
+    <script slot="head" type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HotelRoom",
+        "name": "Suite Pénard",
+        "description": "The smallest and most refined suite at Toile Blanche. 30m², French windows, a private patio, and morning garden views. King size Tréca bed, walk-in shower, curated minibar with full bottles. 6 suites in this category.",
+        "url": "https://www.toileblanche.com/suites/penard",
+        "image": "https://www.toileblanche.com/assets/images/penard/hero.jpg",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 30,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2
+        },
+        "bed": {
+          "@type": "BedDetails",
+          "typeOfBed": "King size",
+          "numberOfBeds": 1
+        },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Private patio", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Walk-in shower", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "King size Tréca bed", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Flat screen TV", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bluetooth audio", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "In-room safe", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bean-to-cup coffee machine", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Curated minibar with full wine bottles", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Les Grandes Vacances toiletries", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathrobes and slippers", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Private pool", "value": false }
+        ],
+        "containedInPlace": {
+          "@type": "Hotel",
+          "name": "Toile Blanche",
+          "url": "https://www.toileblanche.com"
+        }
+      }
+    </script>
+  ) : suite.slug === 'petanque' ? (
+    <script slot="head" type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HotelRoom",
+        "name": "Suite Pétanque",
+        "description": "40m² suite at Toile Blanche, named for the game played in the shade nearby. Features a living area, private terrace, and garden views. Set in a beautifully renovated residence. King size Tréca bed, walk-in shower, curated minibar with full bottles. 4 suites in this category.",
+        "url": "https://www.toileblanche.com/suites/petanque",
+        "image": "https://www.toileblanche.com/assets/images/petanque/hero.jpg",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 40,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2
+        },
+        "bed": {
+          "@type": "BedDetails",
+          "typeOfBed": "King size",
+          "numberOfBeds": 1
+        },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Private terrace", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Living area", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Walk-in shower", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "King size Tréca bed", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Flat screen TV", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bluetooth audio", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "In-room safe", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bean-to-cup coffee machine", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Curated minibar with full wine bottles", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Les Grandes Vacances toiletries", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathrobes and slippers", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Private pool", "value": false }
+        ],
+        "containedInPlace": {
+          "@type": "Hotel",
+          "name": "Toile Blanche",
+          "url": "https://www.toileblanche.com"
+        }
+      }
+    </script>
+  ) : suite.slug === 'bronzette' ? (
+    <script slot="head" type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HotelRoom",
+        "name": "Suite de la Bronzette",
+        "description": "55m² suite at Toile Blanche with separate bedroom and living room, spa-like bathroom with bathtub and walk-in shower, and a large private outdoor area with sunbeds. Garden views, option for extra bed. King size bed, maximum 3 guests. Named for the Provençal art of tanning.",
+        "url": "https://www.toileblanche.com/suites/bronzette",
+        "image": "https://www.toileblanche.com/assets/images/bronzette/hero.jpg",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 55,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3
+        },
+        "bed": {
+          "@type": "BedDetails",
+          "typeOfBed": "King size",
+          "numberOfBeds": 1
+        },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Private outdoor area with sunbeds", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Living room", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathtub", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Walk-in shower", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Extra bed available", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Smart TV", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Espresso machine", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Minibar", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "In-room safe", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathrobes and slippers", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Room service", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Private pool", "value": false }
+        ],
+        "containedInPlace": {
+          "@type": "Hotel",
+          "name": "Toile Blanche",
+          "url": "https://www.toileblanche.com"
+        }
+      }
+    </script>
+  ) : suite.slug === 'cabanat' ? (
+    <script slot="head" type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HotelRoom",
+        "name": "Suite Cabanat",
+        "description": "55m² split-level suite at Toile Blanche with unobstructed views over the valley and Saint-Paul de Vence. The only category with a direct view of the village. Private sunbed cabana, private garden, bathtub, walk-in shower, and outdoor shower. King size Tréca bed, maximum 2 guests. 3 suites in this category.",
+        "url": "https://www.toileblanche.com/suites/cabanat",
+        "image": "https://www.toileblanche.com/assets/images/cabanat/hero.jpg",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 55,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2
+        },
+        "bed": {
+          "@type": "BedDetails",
+          "typeOfBed": "King size",
+          "numberOfBeds": 1
+        },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Valley and village view", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Split-level layout", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Private sunbed cabana", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Private garden", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathtub", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Walk-in shower", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Outdoor shower", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "King size Tréca bed", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Flat screen TV", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bluetooth audio", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "In-room safe", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bean-to-cup coffee machine", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Curated minibar with full wine bottles", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Les Grandes Vacances toiletries", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathrobes and slippers", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Private pool", "value": false }
+        ],
+        "containedInPlace": {
+          "@type": "Hotel",
+          "name": "Toile Blanche",
+          "url": "https://www.toileblanche.com"
+        }
+      }
+    </script>
+  ) : suite.slug === 'suite-artiste' ? (
+    <script slot="head" type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HotelRoom",
+        "name": "Suite de l'Artiste",
+        "description": "60–70m² suite at Toile Blanche set within the oldest walls on the property — a 200-year-old farmhouse with original stone and beams preserved as atmosphere, not decoration. Private balcony with garden view unchanged for two centuries. Bathtub and walk-in shower. King size Tréca bed, maximum 2 guests. 2 suites in this category.",
+        "url": "https://www.toileblanche.com/suites/suite-artiste",
+        "image": "https://www.toileblanche.com/assets/images/suite-artiste/hero.jpg",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "minValue": 60,
+          "maxValue": 70,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2
+        },
+        "bed": {
+          "@type": "BedDetails",
+          "typeOfBed": "King size",
+          "numberOfBeds": 1
+        },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Private balcony", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Original 200-year-old stone and beams", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Garden view", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathtub", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Walk-in shower", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "King size Tréca bed", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Flat screen TV", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bluetooth audio", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "In-room safe", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bean-to-cup coffee machine", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Curated minibar with full wine bottles", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Les Grandes Vacances toiletries", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathrobes and slippers", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Private pool", "value": false }
+        ],
+        "containedInPlace": {
+          "@type": "Hotel",
+          "name": "Toile Blanche",
+          "url": "https://www.toileblanche.com"
+        }
+      }
+    </script>
+  ) : suite.slug === 'mas-artiste' ? (
+    <script slot="head" type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HotelRoom",
+        "name": "Mas de l'Artiste",
+        "description": "90m² maisonette suite at Toile Blanche — the largest suite in the oldest building on the property. A 200-year-old farmhouse with original beams and stone, two floors, a private Provençal courtyard, bathtub and walk-in shower. King size Tréca bed plus second room. Up to 4 guests. 1 suite in this category.",
+        "url": "https://www.toileblanche.com/suites/mas-artiste",
+        "image": "https://www.toileblanche.com/assets/images/mas-de-l-artiste/hero.jpg",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 90,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 4
+        },
+        "bed": {
+          "@type": "BedDetails",
+          "typeOfBed": "King size",
+          "numberOfBeds": 1
+        },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Private Provençal courtyard", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Maisonette — two floors", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Second bedroom", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Original 200-year-old stone and beams", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathtub", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Walk-in shower", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Extra bed available", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "King size Tréca bed", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Flat screen TV", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bluetooth audio", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "In-room safe", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bean-to-cup coffee machine", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Curated minibar with full wine bottles", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Les Grandes Vacances toiletries", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathrobes and slippers", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Private pool", "value": false }
+        ],
+        "containedInPlace": {
+          "@type": "Hotel",
+          "name": "Toile Blanche",
+          "url": "https://www.toileblanche.com"
+        }
+      }
+    </script>
+  ) : suite.slug === 'bonvivant' ? (
+    <script slot="head" type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HotelRoom",
+        "name": "Suite du Bon-Vivant",
+        "description": "55–60m² suite at Toile Blanche with a private pool and exceptional west-facing terrace. Bright, generous spaces designed for the bon-vivant. Bathtub, walk-in shower, king size Tréca bed. Ideal for couples seeking a private pool with magical sunsets over the Provençal hills. Maximum 2 guests.",
+        "url": "https://www.toileblanche.com/suites/bonvivant",
+        "image": "https://www.toileblanche.com/assets/images/bonvivant/hero.jpg",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "minValue": 55,
+          "maxValue": 60,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2
+        },
+        "bed": {
+          "@type": "BedDetails",
+          "typeOfBed": "King size",
+          "numberOfBeds": 1
+        },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Private pool", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Private terrace", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathtub", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Walk-in shower", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "King size Tréca bed", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Smart TV", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "In-room safe", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Minibar", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Les Grandes Vacances toiletries", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathrobes and slippers", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Outdoor furniture", "value": true }
+        ],
+        "containedInPlace": {
+          "@type": "Hotel",
+          "name": "Toile Blanche",
+          "url": "https://www.toileblanche.com"
+        }
+      }
+    </script>
+  ) : suite.slug === 'penequet' ? (
+    <script slot="head" type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HotelRoom",
+        "name": "Villa du Pénéquet",
+        "description": "80m² two-floor villa at Toile Blanche with private pool. The largest suite category on the property. Living area with direct pool access on the ground floor, master bedroom with bathtub and walk-in shower on the first floor. Named after the Provençal word for a restorative nap. Garden view, extra bed available. Maximum 2 guests.",
+        "url": "https://www.toileblanche.com/suites/penequet",
+        "image": "https://www.toileblanche.com/assets/images/penequet/hero.jpg",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 80,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2
+        },
+        "bed": {
+          "@type": "BedDetails",
+          "typeOfBed": "King size",
+          "numberOfBeds": 1
+        },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Private pool", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Two floors", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Living area with direct pool access", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Garden view", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathtub", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Walk-in shower", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Extra bed available", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Outdoor furniture", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Sun loungers", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Smart TV", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "In-room safe", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Minibar", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Les Grandes Vacances toiletries", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bathrobes and slippers", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Room service", "value": true }
+        ],
+        "containedInPlace": {
+          "@type": "Hotel",
+          "name": "Toile Blanche",
+          "url": "https://www.toileblanche.com"
+        }
+      }
+    </script>
+  ) : (
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(defaultSuiteSchema)} />
+  )}
   <Nav theme="both" />
 
   <main id="main-content">
@@ -142,35 +562,6 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
 
   <Footer />
 </Layout>
-
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "HotelRoom",
-  "name": suite.name,
-  "description": suite.tagline,
-  "image": `https://www.toileblanche.com${suite.images.hero}`,
-  "url": `https://www.toileblanche.com/suites/${suite.slug}`,
-  "occupancy": {
-    "@type": "QuantitativeValue",
-    "value": parseInt(suite.specs.occupancy) || 2,
-    "unitText": "guests"
-  },
-  "floorSize": {
-    "@type": "QuantitativeValue",
-    "value": suite.specs.size,
-    "unitCode": "MTK"
-  },
-  "numberOfRooms": suite.specs.count,
-  "amenityFeature": [
-    ...suite.extras.map(e => ({ "@type": "LocationFeatureSpecification", "name": e, "value": true })),
-    { "@type": "LocationFeatureSpecification", "name": suite.specs.view, "value": true }
-  ],
-  "containedInPlace": {
-    "@type": "Hotel",
-    "name": "Toile Blanche",
-    "url": "https://www.toileblanche.com"
-  }
-})} />
 
 <style>
   /* ─── HERO ─── */

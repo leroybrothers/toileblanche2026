@@ -80,7 +80,7 @@ const { reviews, clippings } = pressData;
         <p class="prs-clippings-intro">Press coverage from international publications. Click to open the full article.</p>
         <div class="prs-clippings-grid">
           {clippings.map((c) => (
-            <a href={c.pdf} target="_blank" rel="noopener noreferrer" class="prs-clipping">
+            <a href={c.articleUrl ?? c.pdf} target="_blank" rel="noopener noreferrer" class="prs-clipping">
               <div class="prs-clipping-thumb">
                 <img src={c.thumbnail} alt={`${c.publication} — Toile Blanche press coverage`} loading="lazy" />
               </div>

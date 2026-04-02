@@ -3,7 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
 import menu from '../../../data/menu-restaurant.json';
-import { gallerySrcset, encodePath } from '../../../utils/images';
+import { gallerySrcset } from '../../../utils/images';
 import { useTranslations } from '../../../i18n/index';
 const lang = 'fr';
 const t = useTranslations(lang);
@@ -62,7 +62,7 @@ const t = useTranslations(lang);
               <p class="lrs-menu-label">{menu.meta.season[lang]}</p>
               <h2>La Carte</h2>
               <p class="lrs-menu-intro">{menu.meta.philosophy[lang]}</p>
-              <p class="lrs-menu-chefs">Chefs {menu.meta.chefs.join(' et ')}</p>
+              <p class="lrs-menu-chefs">Chefs Chef Nicolas Leclair et Chef adjoint Melissa Giordano</p>
               <span class="lrs-menu-expand">
                 <span class="lrs-menu-expand-text">{t.common.viewMenu}</span>
                 <svg class="lrs-menu-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -152,7 +152,7 @@ const t = useTranslations(lang);
       <div class="lrs-narrative-inner">
         <div class="lrs-narrative-text">
           <h2>La table</h2>
-          <p>Le menu des chefs Nicolas Leclair et Melissa Giordano suit le rythme des saisons. Ce qui est arrivé le matin, ce qui pousse dans le jardin d'herbes à vingt mètres de la cuisine, ce que les pêcheurs ont ramené à l'aube.</p>
+          <p>Le menu du Chef Nicolas Leclair et de la Chef adjointe Melissa Giordano suit le rythme des saisons. Ce qui est arrivé le matin, ce qui pousse dans le jardin d'herbes à vingt mètres de la cuisine, ce que les pêcheurs ont ramené à l'aube.</p>
           <p>La carte des vins est une déclaration d'amour à la région. L'accent est mis sur les producteurs à portée de voiture, domaines de Bellet, Bandol, Cassis et des collines au-dessus de Vence. Certaines bouteilles sont introuvables ailleurs.</p>
           <h2>Le soir</h2>
           <p>Dès que le temps le permet, le dîner se savoure en terrasse. La vue sur la vallée s'invite à table, comme un ingrédient en plus. En hiver, le service se tient en salle, dans une atmosphère plus intime.</p>
@@ -206,13 +206,13 @@ const t = useTranslations(lang);
         <img src="/assets/images/restaurant/IMG_5342.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_5342.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Terrasse du Restaurant en plein air" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src={encodePath('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Terrasse du Restaurant" loading="lazy" />
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_0275-2.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0275-2.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Terrasse du Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/IMG_4849.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_4849.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Dîner au Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_3983.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_3983.jpg')} sizes="(max-width: 900px) 100vw, 50vw" alt="Table au Restaurant" loading="lazy" />
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_3983.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_3983.jpg', 1800)} sizes="(max-width: 900px) 100vw, 50vw" width="1800" height="2066" alt="Table au Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/restaurantgallery/resto1.jpg" alt="Le Restaurant" loading="lazy" />

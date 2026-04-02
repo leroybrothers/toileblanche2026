@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import menu from '../../data/menu-restaurant.json';
-import { gallerySrcset, encodePath } from '../../utils/images';
+import { gallerySrcset } from '../../utils/images';
 import { useTranslations } from '../../i18n/index';
 const lang = 'en';
 const t = useTranslations(lang);
@@ -61,7 +61,7 @@ const t = useTranslations(lang);
               <p class="lrs-menu-label">{menu.meta.season[lang]}</p>
               <h2>The Menu</h2>
               <p class="lrs-menu-intro">{menu.meta.philosophy[lang]}</p>
-              <p class="lrs-menu-chefs">Chefs {menu.meta.chefs.join(' and ')}</p>
+              <p class="lrs-menu-chefs">Chefs Chef Nicolas Leclair and Assistant Chef Melissa Giordano</p>
               <span class="lrs-menu-expand">
                 <span class="lrs-menu-expand-text">{t.common.viewMenu}</span>
                 <svg class="lrs-menu-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -151,7 +151,7 @@ const t = useTranslations(lang);
       <div class="lrs-narrative-inner">
         <div class="lrs-narrative-text">
           <h2>The Table</h2>
-          <p>Chefs Nicolas Leclair and Melissa Giordano's menu is built around the rhythm of the seasons. What arrived that morning, what is growing in the herb garden twenty metres from the kitchen, what the fishermen brought in at dawn.</p>
+          <p>The menu by Chef Nicolas Leclair and Assistant Chef Melissa Giordano is built around the rhythm of the seasons. What arrived that morning, what is growing in the herb garden twenty metres from the kitchen, what the fishermen brought in at dawn.</p>
           <p>The wine list reads like a declaration of love for the region. The focus is on producers within driving distance, estates in Bellet, Bandol, Cassis, and the hills above Vence. Some bottles are available nowhere else.</p>
           <h2>The Evening</h2>
           <p>When the weather allows, dinner is served on the terrace. The valley view joins the table like an extra ingredient. In winter, service moves inside, and the atmosphere becomes more intimate still.</p>
@@ -205,13 +205,13 @@ const t = useTranslations(lang);
         <img src="/assets/images/restaurant/IMG_5342.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_5342.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Outdoor dining terrace at Le Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src={encodePath('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0275 (2).jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant terrace" loading="lazy" />
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_0275-2.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_0275-2.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant terrace" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/IMG_4849.jpg" srcset={gallerySrcset('/assets/images/restaurant/IMG_4849.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Dinner at Le Restaurant" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
-        <img src="/assets/images/restaurant/restaurantgallery/IMG_3983.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_3983.jpg')} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt="Le Restaurant table" loading="lazy" />
+        <img src="/assets/images/restaurant/restaurantgallery/IMG_3983.jpg" srcset={gallerySrcset('/assets/images/restaurant/restaurantgallery/IMG_3983.jpg', 1800)} sizes="(max-width: 900px) 100vw, 50vw" width="1800" height="2066" alt="Le Restaurant table" loading="lazy" />
       </div>
       <div class="lrs-gallery-item">
         <img src="/assets/images/restaurant/restaurantgallery/resto1.jpg" width="1200" height="800" alt="Le Restaurant" loading="lazy" />

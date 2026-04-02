@@ -6,11 +6,13 @@ export function encodePath(path: string): string {
   return encodeURI(path);
 }
 
-export function srcset(path: string, widths: number[]): string {
+/** @param originalWidth — optional intrinsic width of the full file for the srcset fallback `w` value. */
+export function srcset(path: string, widths: number[], originalWidth?: number): string {
   const ext = path.substring(path.lastIndexOf('.'));
   const base = path.substring(0, path.lastIndexOf('.'));
   const parts = widths.map((w) => `${encodePath(`${base}-${w}w${ext}`)} ${w}w`);
-  parts.push(`${encodePath(path)} ${widths[widths.length - 1]! * 2}w`);
+  const fallbackW = originalWidth ?? widths[widths.length - 1]! * 2;
+  parts.push(`${encodePath(path)} ${fallbackW}w`);
   return parts.join(', ');
 }
 
@@ -26,8 +28,8 @@ export function srcsetAvif(path: string, widths: number[]): string {
   return widths.map((w) => `${encodePath(`${base}-${w}w.avif`)} ${w}w`).join(', ');
 }
 
-export const heroSrcset = (p: string) => srcset(p, [800, 1200]);
-export const gallerySrcset = (p: string) => srcset(p, [600, 1200]);
+export const heroSrcset = (p: string, originalWidth?: number) => srcset(p, [800, 1200], originalWidth);
+export const gallerySrcset = (p: string, originalWidth?: number) => srcset(p, [600, 1200], originalWidth);
 export const singleWidthSrcset = (p: string, w: number) => srcset(p, [w]);
 
 /** Homepage suite cards: 400, 800, 1200, 1800 (matches optimize-homepage-cards output). */

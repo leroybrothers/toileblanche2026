@@ -81,7 +81,7 @@ const { reviews, clippings } = pressData;
         <p class="prs-clippings-intro">Couverture presse des publications internationales. Cliquez pour ouvrir l'article complet.</p>
         <div class="prs-clippings-grid">
           {clippings.map((c) => (
-            <a href={c.pdf} target="_blank" rel="noopener noreferrer" class="prs-clipping">
+            <a href={c.articleUrl ?? c.pdf} target="_blank" rel="noopener noreferrer" class="prs-clipping">
               <div class="prs-clipping-thumb">
                 <img src={c.thumbnail} alt={`${c.publication} — couverture presse Toile Blanche`} loading="lazy" />
               </div>
