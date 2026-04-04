@@ -568,6 +568,9 @@ body.tb-nav-light .navigation-light .nav-logo-text,
 
 .tb-hero-tagline .container {
   max-width: 960px; /* enough for both lines at 3rem without breaking at comma */
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tb-hero-tagline-line {
