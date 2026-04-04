@@ -29,7 +29,6 @@
     "label": "The Tables",
     "items": [
       { "q": "Are the restaurants open year-round?", "a": "<strong>Le Restaurant:</strong> Dinner 19:30–21:30.<br/><strong>La Guinguette:</strong> Lunch 12:00–15:00 (Winter) / 12:00–22:00 (Summer). Open daily." },
-      { "q": "Is breakfast included?", "a": "Breakfast is included as a complimentary gift for all guests who <strong>book directly at the source</strong>. For external bookings, it is served from 08:00–10:30 at €35 per person." },
       { "q": "Can I bring outside food or wine?", "a": "As each suite features a curated <strong>Maxibar</strong> with full bottles from local domains and artisanal provisions, we kindly request that no outside groceries or beverages are consumed in the common areas or suites." }
     ]
   },
@@ -37,7 +36,7 @@
     "label": "The Property",
     "items": [
       { "q": "Is there parking on-site?", "a": "We provide secure, private outdoor parking within the walls of the property, free of charge for our guests." },
-      { "q": "When is the pool heated?", "a": "The main pools and private suite pools are heated from mid-April to mid-October. They remain open for 'cold plunges' during the winter season for the brave." },
+      { "q": "When is the pool heated?", "a": "The pools are heated from mid-April, weather and temperatures permitting. They remain open for cold plunges during the winter months, for the brave." },
       { "q": "Are children and pets welcome?", "a": "We welcome children with specific guidelines for the harmony of Toile Blanche. Pets, however, are not permitted within the houses or gardens of Toile Blanche." }
     ]
   }

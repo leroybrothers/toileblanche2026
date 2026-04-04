@@ -29,7 +29,6 @@
     "label": "Les Tables",
     "items": [
       { "q": "Les restaurants sont-ils ouverts toute l'année ?", "a": "<strong>Le Restaurant :</strong> dîner 19h30–21h30.<br/><strong>La Guinguette :</strong> déjeuner 12h00–15h00 (hiver) / 12h00–22h00 (été). Ouvert tous les jours." },
-      { "q": "Le petit-déjeuner est-il inclus ?", "a": "Le petit-déjeuner est offert pour tous les clients ayant <strong>réservé directement à la source</strong>. Pour les réservations externes, il est servi de 08h00 à 10h30 au tarif de 35€ par personne." },
       { "q": "Puis-je apporter de la nourriture ou du vin ?", "a": "Chaque suite dispose d'un <strong>Maxibar</strong> garni de bouteilles entières de domaines locaux et de provisions artisanales. Nous vous prions de ne pas consommer de provisions extérieures dans les espaces communs ou les suites." }
     ]
   },
@@ -37,7 +36,7 @@
     "label": "La Propriété",
     "items": [
       { "q": "Y a-t-il un parking sur place ?", "a": "Nous mettons à disposition un parking extérieur privé et sécurisé dans l'enceinte de la propriété, offert à nos clients." },
-      { "q": "Quand la piscine est-elle chauffée ?", "a": "Les piscines principales et les piscines privées des suites sont chauffées de mi-avril à mi-octobre. Elles restent accessibles pour les « bains froids » durant la saison hivernale, pour les plus courageux." },
+      { "q": "Quand la piscine est-elle chauffée ?", "a": "Les piscines sont chauffées à partir de mi-avril, selon les conditions météorologiques et les températures. Elles restent ouvertes pour les plus courageux durant les mois d'hiver." },
       { "q": "Les enfants et les animaux sont-ils acceptés ?", "a": "Nous accueillons les enfants avec des consignes spécifiques pour l'harmonie de Toile Blanche. Les animaux de compagnie, en revanche, ne sont pas admis dans les maisons et jardins de Toile Blanche." }
     ]
   }
