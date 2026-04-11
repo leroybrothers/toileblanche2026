@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
 import menu from '../../../data/menu-restaurant.json';
+import seasonalMenus from '../../../data/le-restaurant-seasonal-menus.json';
 import { gallerySrcset } from '../../../utils/images';
 import { useTranslations } from '../../../i18n/index';
 const lang = 'fr';
@@ -43,15 +44,19 @@ const t = useTranslations(lang);
       </div>
     </section>
 
-    <!-- SPECIALS -->
+    <!-- SPECIALS: set "menus" to [] in le-restaurant-seasonal-menus.json to hide this block -->
+    {seasonalMenus.menus.length > 0 ? (
     <section class="lrs-specials">
       <div class="lrs-specials-inner">
         <h3 class="lrs-specials-title">Menus de saison</h3>
         <div class="lrs-specials-list">
-          <a href="https://online.fliphtml5.com/mxrbl/xkdg/" target="_blank" rel="noopener noreferrer" class="lrs-specials-link">Menu de Pâques →</a>
+          {seasonalMenus.menus.map((item) => (
+            <a href={item.href} target="_blank" rel="noopener noreferrer" class="lrs-specials-link">{item.label[lang]} →</a>
+          ))}
         </div>
       </div>
     </section>
+    ) : null}
 
     <!-- SEASONAL MENU (accordion) -->
     <section class="lrs-menu">
