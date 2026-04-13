@@ -1,0 +1,276 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Le Séminaire — Toile Blanche, Saint-Paul-de-Vence",
+  description = "A working retreat for leadership groups. Three to five days in Provence, off-season. Working sessions at Fondation CAB. Accommodation and all meals at Toile Blanche.",
+  ogImage = "/assets/images/seminaire/seminaire-hero.jpg",
+} = Astro.props;
+
+const GTM_ID = "GTM-52R8BBP";
+const AXEPTIO_ID = "63ce737f6a87883d8a3d1f79";
+
+const canonicalURL = new URL(Astro.url.pathname, "https://leseminaire.toileblanche.com");
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex" />
+
+    <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Le Séminaire — Toile Blanche" />
+    <meta property="og:description" content="A working retreat for leadership groups. November through March. Saint-Paul-de-Vence." />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalURL.toString()} />
+    <meta property="og:type" content="website" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Fonts — same stack as main site -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&family=Heebo:wght@100;400&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&family=Heebo:wght@100;400&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Design tokens + base CSS -->
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/toile-blanche.min.css" />
+
+    <!-- GTM consent initialisation (must run before GTM loads) -->
+    <script define:vars={{ GTM_ID, AXEPTIO_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 2000
+      });
+      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'url_passthrough', true);
+
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        function loadGTM() {
+          if (d.querySelector('script[src*="gtm"]')) return;
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+
+        if ('requestIdleCallback' in w) {
+          requestIdleCallback(loadGTM, { timeout: 4000 });
+        } else {
+          setTimeout(loadGTM, 4000);
+        }
+      })(window, document, 'script', 'dataLayer', GTM_ID);
+
+      // Axeptio consent manager
+      window.axeptioSettings = {
+        clientId: AXEPTIO_ID,
+        cookiesVersion: "toileblanche-en",
+        googleConsentMode: "enable",
+      };
+      (function(d, s) {
+        if (document.querySelector('script[src*="axept.io"]') || window.axeptio) return;
+        var t = d.getElementsByTagName(s)[0],
+          e = d.createElement(s);
+        e.async = true;
+        e.src = "//static.axept.io/sdk.js";
+        t.parentNode.insertBefore(e, t);
+      })(document, "script");
+
+      void 0 === window._axcb && (window._axcb = []);
+      window._axcb.push(function(axeptio) {
+        axeptio.on("cookies:complete", function(choices) {
+          gtag('consent', 'update', {
+            'analytics_storage': choices.google_analytics ? 'granted' : 'denied',
+            'ad_storage': choices.google_ads ? 'granted' : 'denied',
+            'ad_user_data': choices.google_ads ? 'granted' : 'denied',
+            'ad_personalization': choices.google_ads ? 'granted' : 'denied',
+          });
+        });
+      });
+    </script>
+
+    <slot name="head" />
+  </head>
+
+  <body class="sm-body">
+    <!-- GTM noscript fallback -->
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe>
+    </noscript>
+
+    <!-- Minimal header -->
+    <header class="sm-header">
+      <a href="https://www.toileblanche.com" class="sm-header-logo" aria-label="Toile Blanche">
+        TOILE BLANCHE <span class="sm-header-x">×</span> FONDATION CAB
+      </a>
+      <a href="mailto:seminaire@toileblanche.com" class="sm-header-link">
+        Write to us
+      </a>
+    </header>
+
+    <!-- Page content -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- Minimal footer -->
+    <footer class="sm-footer">
+      <a href="https://www.toileblanche.com" class="sm-footer-logo" aria-label="Toile Blanche">
+        <img
+          src="/assets/images/63a19dacd6b229843a52a138_Toile%20Blanche%20Logo%202022%20black.avif"
+          alt="Toile Blanche"
+          width="80"
+          height="auto"
+        />
+      </a>
+      <p class="sm-footer-label">A Toile Blanche programme</p>
+      <a href="https://www.toileblanche.com" class="sm-footer-site">toileblanche.com</a>
+    </footer>
+
+    <!-- Vercel Analytics -->
+    <script>
+      import { inject } from '@vercel/analytics';
+      inject({ beforeSend: (event) => {
+        return { ...event, url: 'seminaire_' + event.url };
+      }});
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* ─── Seminaire layout chrome ─────────────────────────────────────────────── */
+
+  .sm-body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+  }
+
+  /* Header */
+  .sm-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-section-x);
+    border-bottom: 1px solid var(--color-border-faint);
+    background-color: var(--color-bg);
+  }
+
+  .sm-header-logo {
+    font-family: 'Heebo', var(--font-body);
+    font-weight: var(--weight-regular);
+    font-size: var(--text-base);
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-ink-deep);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .sm-header-logo:hover {
+    color: var(--color-terracotta);
+  }
+
+  .sm-header-x {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-stone-muted);
+    margin: 0 0.3em;
+    letter-spacing: 0;
+  }
+
+  .sm-header-link {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-stone);
+    text-decoration: none;
+    letter-spacing: var(--tracking-normal);
+    transition: color var(--transition-fast);
+  }
+
+  .sm-header-link:hover {
+    color: var(--color-terracotta);
+  }
+
+  /* Footer */
+  .sm-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-10) var(--space-section-x) var(--space-8);
+    border-top: 1px solid var(--color-border-faint);
+    gap: var(--space-2);
+  }
+
+  .sm-footer-logo img {
+    display: block;
+    height: 20px;
+    width: auto;
+    opacity: 0.55;
+  }
+
+  .sm-footer-label {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-variant: small-caps;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-stone-muted);
+    margin: 0;
+  }
+
+  .sm-footer-site {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: var(--color-stone-muted);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .sm-footer-site:hover {
+    color: var(--color-terracotta);
+  }
+</style>
