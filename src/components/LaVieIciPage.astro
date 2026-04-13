@@ -1,0 +1,712 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import type { Locale } from '../i18n/index';
+import { getLaVieIciCopy } from '../data/la-vie-ici';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const c = getLaVieIciCopy(locale);
+const img = (name: string) => `/assets/images/Lavieici/${name}`;
+const mail = (subject: string) =>
+  `mailto:lavieici@toileblanche.com?subject=${encodeURIComponent(subject)}`;
+---
+
+<Layout
+  locale={locale}
+  title={c.metaTitle}
+  description={c.metaDescription}
+  ogImage="https://www.toileblanche.com/assets/images/Lavieici/FAMILY_PHOTO.jpg"
+>
+  <Nav theme="light" locale={locale} />
+
+  <main id="main-content" class="lvi">
+    <div class="lvi-inner">
+      <header class="lvi-header">
+        <p class="lvi-eyebrow">{c.eyebrow}</p>
+        <h1 class="lvi-page-title">La Vie Ici</h1>
+        <p class="lvi-subtitle">{c.subtitle}</p>
+      </header>
+
+      <section class="lvi-block lvi-family">
+        {c.familyParagraphs.map((para) => (
+          <p class="lvi-body">{para}</p>
+        ))}
+      </section>
+
+      {c.namesBelowPortrait ? (
+        <figure class="lvi-figure lvi-figure-portrait">
+          <div class="lvi-aspect">
+            <img src={img('FAMILY_PHOTO.jpg')} width="1200" height="800" alt="" loading="lazy" decoding="async" />
+          </div>
+          <figcaption class="lvi-names-caption">{c.namesLine}</figcaption>
+        </figure>
+      ) : (
+        <>
+          <p class="lvi-names-line">{c.namesLine}</p>
+          <figure class="lvi-figure lvi-figure-portrait">
+            <div class="lvi-aspect">
+              <img src={img('FAMILY_PHOTO.jpg')} width="1200" height="800" alt="" loading="lazy" decoding="async" />
+            </div>
+          </figure>
+        </>
+      )}
+
+      <blockquote class="lvi-bridge">
+        {c.bridgeParagraphs.map((para) => (
+          <p>{para}</p>
+        ))}
+      </blockquote>
+
+      <section class="lvi-block lvi-radart" aria-labelledby="lvi-radart-heading">
+        <figure class="lvi-figure">
+          <div class="lvi-aspect">
+            <img
+              src={img('FONDATION_MAEGHT.png')}
+              width="1024"
+              height="682"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </figure>
+        <p class="lvi-label">{c.radart.label}</p>
+        <h2 id="lvi-radart-heading" class="lvi-h2">RAD/ART</h2>
+        {c.radart.paragraphs.map((p) => (
+          <p class="lvi-body">{p}</p>
+        ))}
+        <p class="lvi-body">
+          <a href="https://radart.net" class="lvi-inline-link" target="_blank" rel="noopener noreferrer">{c.radart.linkText}</a>
+        </p>
+      </section>
+
+      <article class="lvi-programme" aria-labelledby="lvi-semaine-heading">
+        <figure class="lvi-figure">
+          <div class="lvi-aspect">
+            <img src={img('LA_SEMAINE.jpg')} width="1200" height="800" alt="" loading="lazy" decoding="async" />
+          </div>
+        </figure>
+        <p class="lvi-meta">{c.semaine.meta}</p>
+        <h2 id="lvi-semaine-heading" class="lvi-h2">La Semaine</h2>
+        {c.semaine.bodyParagraphs.map((p) => (
+          <p class="lvi-body">{p}</p>
+        ))}
+
+        <div class="lvi-includes lvi-semaine-includes">
+          <p class="lvi-label">{c.semaine.includesLabel}</p>
+          <div class="lvi-stacked">
+            {c.semaine.includes.map((line) => (
+              <p>{line}</p>
+            ))}
+          </div>
+        </div>
+
+        <aside
+          class="lvi-access lvi-semaine-structured-moment"
+          aria-labelledby="lvi-semaine-structured-heading"
+        >
+          <h3 id="lvi-semaine-structured-heading" class="lvi-structured-moment-title">
+            {c.semaine.structuredMoment.title}
+          </h3>
+          {c.semaine.structuredMoment.paragraphs.map((p) => (
+            <p class="lvi-body lvi-structured-moment-text">{p}</p>
+          ))}
+        </aside>
+
+        <div class="lvi-season-grid" role="list">
+          {c.semaine.seasonStanzas.map((stanza, i) => {
+            const sid = `lvi-semaine-season-${i}`;
+            return (
+              <section
+                class="lvi-season-card lvi-season-stanza"
+                role="listitem"
+                aria-labelledby={sid}
+              >
+                <h3 id={sid} class="lvi-season-title">{stanza.heading}</h3>
+                {stanza.paragraphs.map((line) => (
+                  <p class="lvi-season-body">{line}</p>
+                ))}
+              </section>
+            );
+          })}
+        </div>
+
+        <p class="lvi-tariff-line">{c.semaine.rate}</p>
+        <p class="lvi-cta-wrap">
+          <a href={mail(c.semaine.mailSubject)} class="lvi-cta">{c.semaine.cta}</a>
+        </p>
+      </article>
+
+      <article class="lvi-programme" aria-labelledby="lvi-atelier-heading">
+        <figure class="lvi-figure">
+          <div class="lvi-aspect">
+            <img src={img('LATELIER.jpg')} width="1200" height="800" alt="" loading="lazy" decoding="async" />
+          </div>
+        </figure>
+        <p class="lvi-meta">{c.atelier.meta}</p>
+        <h2 id="lvi-atelier-heading" class="lvi-h2"><span class="lvi-elide">L&#8217;</span>Atelier</h2>
+        <p class="lvi-lede">{c.atelier.lede}</p>
+        <p class="lvi-body">{c.atelier.body1}</p>
+        <p class="lvi-body">{c.atelier.body2}</p>
+        <p class="lvi-body">{c.atelier.body3}</p>
+        <p class="lvi-body">{c.atelier.body4}</p>
+        <p class="lvi-body">{c.atelier.body5}</p>
+
+        <aside class="lvi-access">
+          <p class="lvi-label">{c.atelier.accessLabel}</p>
+          <p class="lvi-access-value">{c.atelier.accessValue}</p>
+          <p class="lvi-access-note">{c.atelier.accessNote}</p>
+        </aside>
+
+        <p class="lvi-rate">{c.atelier.rate}</p>
+        <p class="lvi-cta-wrap">
+          <a href={mail(c.atelier.mailSubject)} class="lvi-cta">{c.atelier.cta}</a>
+        </p>
+      </article>
+
+      <article class="lvi-programme" aria-labelledby="lvi-vv-heading">
+        <figure class="lvi-figure">
+          <div class="lvi-aspect">
+            <img src={img('VIGNES_VIVANTES.jpg')} width="1200" height="800" alt="" loading="lazy" decoding="async" />
+          </div>
+        </figure>
+        <p class="lvi-meta">{c.vignes.meta}</p>
+        <h2 id="lvi-vv-heading" class="lvi-h2">Vignes Vivantes</h2>
+        {c.vignes.bodyParagraphs.map((p) => (
+          <p class="lvi-body">{p}</p>
+        ))}
+
+        <div class="lvi-includes lvi-vv-four-days">
+          <p class="lvi-label">{c.vignes.daysLabel}</p>
+          <div class="lvi-season-grid" role="list">
+            {c.vignes.dayBlocks.map((day, i) => {
+              const vid = `lvi-vv-day-${i}`;
+              return (
+                <section
+                  class="lvi-season-card lvi-vv-day-card"
+                  role="listitem"
+                  aria-labelledby={vid}
+                >
+                  <h3 id={vid} class="lvi-season-title">{day.heading}</h3>
+                  {day.paragraphs.map((line) => (
+                    <p class="lvi-season-body">{line}</p>
+                  ))}
+                </section>
+              );
+            })}
+          </div>
+        </div>
+
+        <p class="lvi-rate">{c.vignes.rate}</p>
+        <p class="lvi-cta-wrap">
+          <a href={mail(c.vignes.mailSubject)} class="lvi-cta">{c.vignes.cta}</a>
+        </p>
+      </article>
+
+      <article class="lvi-programme" aria-labelledby="lvi-sessions-heading">
+        <figure class="lvi-figure">
+          <div class="lvi-aspect">
+            <img src={img('LES_SESSIONS.jpg')} width="1800" height="2700" alt="" loading="lazy" decoding="async" />
+          </div>
+        </figure>
+        <p class="lvi-meta">{c.sessions.meta}</p>
+        <h2 id="lvi-sessions-heading" class="lvi-h2">{c.sessions.title}</h2>
+        <p class="lvi-lede">{c.sessions.lede}</p>
+        {c.sessions.bodyParagraphs.map((p) => (
+          <p class="lvi-body">{p}</p>
+        ))}
+        <p class="lvi-body">
+          <a href="https://www.toileblanchecontemporary.com/events/" class="lvi-inline-link" target="_blank" rel="noopener noreferrer">{c.sessions.linkText}</a>
+        </p>
+      </article>
+
+      <article class="lvi-programme" aria-labelledby="lvi-artiste-heading">
+        <figure class="lvi-figure">
+          <div class="lvi-aspect">
+            <img src={img('LARTISTE_INVITE.png')} width="1200" height="800" alt="" loading="lazy" decoding="async" />
+          </div>
+        </figure>
+        <p class="lvi-meta">{c.artiste.meta}</p>
+        <h2 id="lvi-artiste-heading" class="lvi-h2"><span class="lvi-elide">L&#8217;</span>Artiste Invité</h2>
+        <p class="lvi-lede">{c.artiste.lede}</p>
+        <p class="lvi-body">{c.artiste.body1}</p>
+        <p class="lvi-body">{c.artiste.body2}</p>
+        <p class="lvi-body">{c.artiste.body3}</p>
+
+        <aside class="lvi-access">
+          <p class="lvi-label">{c.artiste.accessLabel}</p>
+          <p class="lvi-access-value">{c.artiste.accessValue}</p>
+          <p class="lvi-access-note">{c.artiste.accessNote}</p>
+        </aside>
+      </article>
+
+      <article class="lvi-programme" aria-labelledby="lvi-ecrivain-heading">
+        <figure class="lvi-figure">
+          <div class="lvi-aspect">
+            <img src={img('LECRIVAIN.jpg')} width="1200" height="800" alt="" loading="lazy" decoding="async" />
+          </div>
+        </figure>
+        <p class="lvi-meta">{c.ecrivain.meta}</p>
+        <h2 id="lvi-ecrivain-heading" class="lvi-h2"><span class="lvi-elide">L&#8217;</span>Écrivain</h2>
+        <p class="lvi-lede">{c.ecrivain.lede}</p>
+        <p class="lvi-body">{c.ecrivain.body1}</p>
+        <p class="lvi-body">{c.ecrivain.body2}</p>
+        <p class="lvi-body">{c.ecrivain.body3}</p>
+        <p class="lvi-body">{c.ecrivain.body4}</p>
+
+        <aside class="lvi-access">
+          <p class="lvi-label">{c.ecrivain.accessLabel}</p>
+          <p class="lvi-access-value">{c.ecrivain.accessValue}</p>
+          <p class="lvi-access-note">{c.ecrivain.accessNote}</p>
+        </aside>
+      </article>
+
+      <footer class="lvi-closing">
+        <p class="lvi-body lvi-closing-text">{c.closing.p1}</p>
+        <p class="lvi-body lvi-closing-text">{c.closing.p2}</p>
+
+        <aside class="lvi-contact">
+          <p class="lvi-label">{c.closing.contactLabel}</p>
+          <p class="lvi-contact-title">{c.closing.contactTitle}</p>
+          <p class="lvi-body">{c.closing.contactP1}</p>
+          <p class="lvi-body">{c.closing.contactP2}</p>
+          <p class="lvi-contact-email">
+            <a href="mailto:lavieici@toileblanche.com" class="lvi-inline-link">lavieici@toileblanche.com</a>
+          </p>
+        </aside>
+      </footer>
+    </div>
+  </main>
+
+  <Footer locale={locale} />
+</Layout>
+
+<style>
+  .lvi {
+    --lvi-olive: #adb4a0;
+    --lvi-cta: #ac6b53;
+    --lvi-tertiary: var(--color-stone-muted, #9c9080);
+    --lvi-ink: var(--color-ink-mid, #3d3530);
+    --lvi-secondary: var(--color-stone, #6b6256);
+    background: var(--color-bg);
+    padding: clamp(72px, 12vw, 120px) 24px clamp(100px, 14vw, 160px);
+  }
+
+  .lvi-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .lvi-header {
+    margin-bottom: clamp(48px, 8vw, 88px);
+    text-align: center;
+  }
+
+  .lvi-eyebrow {
+    font-family: 'Heebo', var(--font-body, sans-serif);
+    font-weight: 100;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lvi-tertiary);
+    margin: 0 0 20px;
+  }
+
+  .lvi-page-title {
+    font-family: 'Heebo', var(--font-body, sans-serif) !important;
+    font-weight: 400;
+    font-size: clamp(32px, 6vw, 48px) !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-ink-deep, #1c1917);
+    margin: 0 0 20px;
+  }
+
+  .lvi-subtitle {
+    font-family: 'Gilda Display', Georgia, serif;
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--lvi-secondary);
+    margin: 0;
+  }
+
+  .lvi-block {
+    margin-bottom: clamp(56px, 9vw, 96px);
+  }
+
+  .lvi-h2 {
+    font-family: 'Gilda Display', Georgia, serif !important;
+    font-size: clamp(22px, 2.8vw, 28px) !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    text-transform: none;
+    color: var(--color-ink-deep, #1c1917);
+    margin: 0 0 12px;
+  }
+
+  /* Gilda Display kerns L’ + capitals tightly; loosen elision in programme titles */
+  .lvi-h2 .lvi-elide {
+    letter-spacing: 0.04em;
+    margin-right: 0.08em;
+  }
+
+  .lvi-label {
+    font-family: 'Heebo', var(--font-body, sans-serif);
+    font-weight: 100;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lvi-tertiary);
+    margin: 0 0 16px;
+  }
+
+  .lvi-meta {
+    font-family: 'Heebo', var(--font-body, sans-serif);
+    font-weight: 100;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--lvi-secondary);
+    margin: 0 0 12px;
+  }
+
+  .lvi-lede {
+    font-family: 'Gilda Display', Georgia, serif;
+    font-size: clamp(17px, 2vw, 20px);
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--lvi-secondary);
+    margin: 0 0 24px;
+  }
+
+  .lvi-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--lvi-ink);
+    margin: 0 0 1.25em;
+  }
+
+  .lvi-body:last-child {
+    margin-bottom: 0;
+  }
+
+  .lvi-name {
+    font-weight: 500;
+  }
+
+  .lvi-names-line {
+    font-family: 'Heebo', var(--font-body, sans-serif);
+    font-weight: 100;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--lvi-tertiary);
+    margin: 0 0 clamp(28px, 5vw, 40px);
+    padding: clamp(28px, 5vw, 48px) 0;
+    border-top: 1px solid rgba(173, 180, 160, 0.45);
+    border-bottom: 1px solid rgba(173, 180, 160, 0.45);
+  }
+
+  .lvi-names-caption {
+    font-family: 'Heebo', var(--font-body, sans-serif);
+    font-weight: 100;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--lvi-tertiary);
+    margin: 18px 0 0;
+    padding: 0;
+    line-height: 1.65;
+  }
+
+  .lvi-figure {
+    margin: 0 0 clamp(56px, 9vw, 96px);
+  }
+
+  .lvi-aspect {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+
+  .lvi-aspect img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .lvi-bridge {
+    margin: 0 0 clamp(56px, 9vw, 96px);
+    padding: 0 0 0 20px;
+    border-left: 3px solid var(--lvi-olive);
+    font-family: 'Gilda Display', Georgia, serif;
+    font-size: clamp(16px, 1.8vw, 18px);
+    font-style: italic;
+    line-height: 1.65;
+    color: var(--lvi-secondary);
+  }
+
+  .lvi-bridge p {
+    margin: 0;
+  }
+
+  .lvi-bridge p + p {
+    margin-top: 0.85em;
+  }
+
+  .lvi-radart {
+    margin-bottom: clamp(72px, 11vw, 120px);
+  }
+
+  .lvi-programme {
+    margin-bottom: clamp(80px, 12vw, 140px);
+  }
+
+  .lvi-programme .lvi-figure {
+    margin-top: 0;
+  }
+
+  .lvi-season-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: clamp(32px, 6vw, 56px) 0;
+  }
+
+  @media (max-width: 640px) {
+    .lvi-season-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .lvi-season-card {
+    background: rgba(173, 180, 160, 0.22);
+    padding: 24px 22px;
+    border-radius: 8px;
+  }
+
+  .lvi-season-title {
+    font-family: 'Gilda Display', Georgia, serif !important;
+    font-size: clamp(18px, 2vw, 20px) !important;
+    font-weight: 400 !important;
+    margin: 0 0 8px;
+    color: var(--color-ink-deep, #1c1917);
+  }
+
+  .lvi-season-when {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 100;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lvi-tertiary);
+    margin: 0 0 12px;
+  }
+
+  .lvi-season-body {
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-loose);
+  }
+
+  .lvi-season-dates-note {
+    font-family: 'Heebo', var(--font-body, sans-serif);
+    font-weight: 100;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--lvi-tertiary);
+    margin: clamp(8px, 2vw, 16px) 0 clamp(28px, 5vw, 40px);
+  }
+
+  .lvi-season-card .lvi-season-title {
+    margin: 0 0 12px;
+  }
+
+  .lvi-season-card .lvi-season-body {
+    margin: 0 0 0.65em;
+  }
+
+  .lvi-season-card .lvi-season-body:last-child {
+    margin-bottom: 0;
+  }
+
+  .lvi-includes {
+    margin: clamp(36px, 6vw, 56px) 0;
+  }
+
+  .lvi-vv-four-days .lvi-season-grid {
+    margin: clamp(18px, 3vw, 28px) 0 0;
+  }
+
+  .lvi-stacked p {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--lvi-ink);
+    margin: 0 0 0.85em;
+  }
+
+  .lvi-stacked p:last-child {
+    margin-bottom: 0;
+  }
+
+  .lvi-access {
+    background: rgba(173, 180, 160, 0.2);
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin: clamp(32px, 5vw, 48px) 0;
+  }
+
+  .lvi-access-value {
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    font-weight: 500;
+    line-height: var(--leading-normal);
+    color: var(--color-ink-deep, #1c1917);
+    margin: 0 0 12px;
+  }
+
+  .lvi-access-note {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-style: italic;
+    line-height: var(--leading-loose);
+    color: var(--lvi-secondary);
+    margin: 0;
+  }
+
+  .lvi-semaine-structured-moment .lvi-structured-moment-title {
+    font-family: 'Gilda Display', Georgia, serif;
+    font-size: clamp(18px, 2.1vw, 22px);
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--color-ink-deep, #1c1917);
+    margin: 0 0 16px;
+  }
+
+  .lvi-semaine-structured-moment .lvi-structured-moment-text {
+    margin: 0 0 0.75em;
+  }
+
+  .lvi-semaine-structured-moment .lvi-structured-moment-text:last-child {
+    margin-bottom: 0;
+  }
+
+  .lvi-rate {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 100;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    line-height: 1.7;
+    text-transform: uppercase;
+    color: var(--lvi-tertiary);
+    margin: clamp(24px, 4vw, 36px) 0 20px;
+  }
+
+  .lvi-tariff-line {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-light);
+    line-height: var(--leading-loose);
+    color: var(--lvi-secondary);
+    margin: clamp(24px, 4vw, 36px) 0 20px;
+  }
+
+  .lvi-cta-wrap {
+    margin: 0;
+  }
+
+  .lvi-cta {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background: var(--lvi-cta);
+    padding: 14px 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .lvi-cta:hover {
+    background: #965a47;
+    transform: translateY(-1px);
+  }
+
+  .lvi-cta:active {
+    transform: translateY(0);
+  }
+
+  .lvi-inline-link {
+    font-size: 0.9em;
+    color: var(--lvi-cta);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .lvi-inline-link:hover {
+    color: #965a47;
+  }
+
+  .lvi-closing {
+    margin-top: clamp(48px, 8vw, 80px);
+    padding-top: clamp(40px, 7vw, 72px);
+    border-top: 1px solid rgba(173, 180, 160, 0.35);
+  }
+
+  .lvi-closing-text {
+    color: var(--lvi-secondary);
+  }
+
+  .lvi-contact {
+    background: rgba(173, 180, 160, 0.2);
+    border-radius: 10px;
+    padding: 32px 28px;
+    margin-top: clamp(40px, 7vw, 64px);
+  }
+
+  .lvi-contact-title {
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    font-weight: 500;
+    color: var(--color-ink-deep, #1c1917);
+    margin: 0 0 16px;
+  }
+
+  .lvi-contact-email {
+    margin: 20px 0 0;
+    font-family: 'Gilda Display', Georgia, serif;
+    font-size: clamp(17px, 2vw, 19px);
+    font-style: italic;
+  }
+
+  .lvi-contact-email .lvi-inline-link {
+    font-style: italic;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lvi-cta:hover,
+    .lvi-cta:active {
+      transform: none;
+    }
+  }
+</style>

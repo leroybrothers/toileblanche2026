@@ -134,21 +134,72 @@ const formatDate = (d: string) => {
     margin-bottom: 48px;
   }
   .arc-post-content {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
-    color: #3D3530;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    font-weight: var(--weight-light);
+    color: var(--color-ink-mid);
   }
+  /* Webflow global `p { font-size: 1.5vw }` otherwise wins over inherited size */
   .arc-post-content :global(p) {
-    margin-bottom: 20px;
+    font-family: var(--font-body) !important;
+    font-size: var(--text-base) !important;
+    line-height: var(--leading-loose) !important;
+    font-weight: var(--weight-light) !important;
+    color: var(--color-ink-mid) !important;
+    margin-bottom: 1.25rem;
+  }
+  .arc-post-content :global(ul),
+  .arc-post-content :global(ol) {
+    font-family: var(--font-body) !important;
+    font-size: var(--text-base) !important;
+    line-height: var(--leading-loose) !important;
+    font-weight: var(--weight-light) !important;
+    color: var(--color-ink-mid) !important;
+  }
+  .arc-post-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .arc-post-content :global(blockquote) {
+    font-family: var(--font-editorial) !important;
+    font-size: var(--text-base) !important;
+    line-height: var(--leading-loose) !important;
+    color: var(--color-stone) !important;
   }
   .arc-post-content :global(h2) {
-    font-family: 'Gilda Display', serif;
-    font-size: 24px;
-    font-weight: 400;
-    margin-top: 40px;
-    margin-bottom: 16px;
-    color: #1C1917;
+    font-family: var(--font-display) !important;
+    font-size: clamp(var(--text-lg), 2vw, var(--text-xl)) !important;
+    font-weight: 400 !important;
+    line-height: 1.35 !important;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-ink-deep) !important;
+  }
+  .arc-post-content :global(h3) {
+    font-family: var(--font-display) !important;
+    font-size: var(--text-md) !important;
+    font-weight: 400 !important;
+    line-height: 1.4 !important;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-ink-deep) !important;
+  }
+
+  .arc-post-content :global(.arc-video-wrap) {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 2rem 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #1c1917;
+  }
+  .arc-post-content :global(.arc-video-wrap iframe) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
   }
 
   @media (max-width: 900px) {
