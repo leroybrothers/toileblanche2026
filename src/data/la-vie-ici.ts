@@ -6,6 +6,8 @@ export type LaVieIciStrings = {
   metaDescription: string;
   eyebrow: string;
   subtitle: string;
+  openingLead: string;
+  openingParagraphs: string[];
   familyParagraphs: string[];
   namesLine: string;
   namesBelowPortrait: boolean;
@@ -95,6 +97,13 @@ const en: LaVieIciStrings = {
     "Life at Toile Blanche across every season. La Semaine, L\u2019Atelier, Vignes Vivantes, Toile Blanche Sessions, and more.",
   eyebrow: 'Toile Blanche, Saint Paul de Vence',
   subtitle: 'Life at Toile Blanche, across every season',
+  openingLead: 'La Vie Ici,',
+  openingParagraphs: [
+    'La Vie Ici is not defined as programming.',
+    'It follows neither a strict calendar nor an events-industry logic.',
+    'It unfolds in a more organic rhythm, tied to the seasons, to who is present, and to a particular idea of hospitality.',
+    'Toile Blanche offers a range of formats — stays, residencies, and gatherings — that share one intention: to live well, in a place conceived and built with care.',
+  ],
   familyParagraphs: [
     'The mas has stood here for nearly two centuries, rooted in Saint-Paul-de-Vence.',
     'In 1999, Nadine and Dany found it. They did not come to change it, but to reveal what it already was. Three rooms opened, simply. A home, before anything else.',
@@ -305,6 +314,13 @@ const fr: LaVieIciStrings = {
     "La vie à Toile Blanche à travers chaque saison. La Semaine, L\u2019Atelier, Vignes Vivantes, Toile Blanche Sessions, et plus encore.",
   eyebrow: 'Toile Blanche, Saint-Paul-de-Vence',
   subtitle: 'La vie à Toile Blanche, à travers chaque saison',
+  openingLead: 'La Vie Ici,',
+  openingParagraphs: [
+    'La Vie Ici ne se définit pas comme une programmation.',
+    'Elle ne suit ni calendrier strict, ni logique événementielle.',
+    'Elle s\u2019inscrit dans un rythme plus organique, lié aux saisons, aux présences et à une certaine idée de l\u2019hospitalité.',
+    'Toile Blanche propose une série de formats, séjours, résidences, rencontres, qui ont en commun une même intention : bien vivre, dans un lieu pensé et construit avec exigence.',
+  ],
   familyParagraphs: [
     'Depuis près de deux siècles, le mas est là, ancré à Saint-Paul-de-Vence.',
     "En 1999, Nadine et Dany la découvrent. Ils ne cherchent pas à la transformer, mais à révéler ce qu\u2019il est déjà. Trois chambres ouvrent, simplement. Une maison, avant tout.",

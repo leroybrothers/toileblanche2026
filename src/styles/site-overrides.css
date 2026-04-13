@@ -251,6 +251,15 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
   opacity: 0.9;
 }
 
+/* Nav bar only: same CTA width EN/FR so logo + hamburger do not shift */
+@media (min-width: 768px) {
+  .navigation-bar .book-button .tb-book-cta {
+    min-width: 13rem;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+
 @media (max-width: 767px) {
   .tb-book-cta,
   .book-now-trigger {
