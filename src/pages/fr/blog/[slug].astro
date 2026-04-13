@@ -202,6 +202,16 @@ const formatDate = (d: string) => {
     border: 0;
   }
 
+  .arc-post-content :global(.arc-video-wrap + p) {
+    margin-top: 0.35rem;
+    margin-bottom: 0;
+  }
+  .arc-post-content :global(.arc-video-wrap + p a) {
+    font-size: 0.625rem;
+    letter-spacing: 0.04em;
+    color: var(--color-stone-muted, #9c9080);
+  }
+
   @media (max-width: 900px) {
     .arc-post-body {
       padding: 0 24px;
