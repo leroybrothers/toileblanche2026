@@ -81,6 +81,7 @@ export type LaVieIciStrings = {
   closing: {
     p1: string;
     p2: string;
+    p3: string;
     contactLabel: string;
     contactTitle: string;
     contactP1: string;
@@ -287,9 +288,10 @@ const en: LaVieIciStrings = {
   },
   closing: {
     p1: 'Some guests arrive once and carry the place with them for years. Some come back until it feels like theirs. A few, eventually, become part of it. We have a name for each, though we rarely use them out loud.',
-    p2: 'La Vie Ici is not a calendar of events. It is an invitation to remember what it feels like to live well, in a place built by people who have never stopped asking what that means.',
-    contactLabel: 'For all La Vie Ici enquiries',
-    contactTitle: 'Write to us directly',
+    p2: 'Some guests come to Toile Blanche in winter with no intention of joining anything. They come because the village is quieter, the foundations less crowded, the table at Le Restaurant easier to find. Because they have spent a lifetime developing a relationship with culture and they know that its best version happens slowly, without a programme, in a place that understands what they are looking for.',
+    p3: 'For those guests, La Vie Ici is simply the reason to come in November rather than July. The rest takes care of itself.',
+    contactLabel: '',
+    contactTitle: 'Write to us',
     contactP1:
       "For La Semaine, L\u2019Atelier, and Vignes Vivantes, tell us which programme interests you, your preferred season, and how many guests. We will come back to you within 48 hours.",
     contactP2:
@@ -496,9 +498,10 @@ const fr: LaVieIciStrings = {
   },
   closing: {
     p1: 'Certains hôtes arrivent une fois et portent le lieu avec eux pendant des années. D\u2019autres reviennent jusqu\u2019à ce que cela leur semble le leur. Quelques-uns, avec le temps, en font partie. Nous avons un nom pour chacun, même si nous les utilisons rarement à voix haute.',
-    p2: 'La Vie Ici n\u2019est pas un calendrier d\u2019événements. C\u2019est une invitation à se souvenir de ce que signifie bien vivre, dans un lieu construit par des gens qui n\u2019ont jamais cessé de se poser la question.',
-    contactLabel: 'Pour toute demande relative à La Vie Ici',
-    contactTitle: 'Écrivez-nous directement',
+    p2: 'Certains hôtes viennent à Toile Blanche en hiver sans intention de rejoindre quoi que ce soit. Ils viennent parce que le village est plus calme, les fondations moins fréquentées, la table au Restaurant plus facile à trouver. Parce qu\u2019ils ont passé une vie à construire une relation avec la culture, et qu\u2019ils savent que sa meilleure version se vit lentement, sans programme, dans un lieu qui comprend ce qu\u2019ils cherchent.',
+    p3: 'Pour ces hôtes-là, La Vie Ici est simplement la raison de venir en novembre plutôt qu\u2019en juillet. Le reste se fait naturellement.',
+    contactLabel: '',
+    contactTitle: 'Écrivez-nous',
     contactP1:
       'Pour La Semaine, L\u2019Atelier et Vignes Vivantes, indiquez-nous le programme qui vous intéresse, la saison souhaitée et le nombre d\u2019hôtes. Nous vous répondrons dans les 48 heures.',
     contactP2:

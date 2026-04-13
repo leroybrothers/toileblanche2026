@@ -269,9 +269,10 @@ const mail = (subject: string) =>
       <footer class="lvi-closing">
         <p class="lvi-body lvi-closing-text">{c.closing.p1}</p>
         <p class="lvi-body lvi-closing-text">{c.closing.p2}</p>
+        <p class="lvi-body lvi-closing-text">{c.closing.p3}</p>
 
         <aside class="lvi-contact">
-          <p class="lvi-label">{c.closing.contactLabel}</p>
+          {c.closing.contactLabel.trim() ? <p class="lvi-label">{c.closing.contactLabel}</p> : null}
           <p class="lvi-contact-title">{c.closing.contactTitle}</p>
           <p class="lvi-body">{c.closing.contactP1}</p>
           <p class="lvi-body">{c.closing.contactP2}</p>
