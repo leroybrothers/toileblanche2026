@@ -95,7 +95,7 @@ const en: LaVieIciStrings = {
   eyebrow: 'Toile Blanche, Saint Paul de Vence',
   subtitle: 'Life at Toile Blanche, across every season',
   familyParagraphs: [
-    'The farmhouse has stood here for nearly two centuries, rooted in Saint-Paul-de-Vence.',
+    'The mas has stood here for nearly two centuries, rooted in Saint-Paul-de-Vence.',
     'In 1999, Nadine and Dany found it. They did not come to change it, but to reveal what it already was. Three rooms opened, simply. A home, before anything else.',
     'Their sons, Gregory, Gilles, and Nicolas, grew up between the North and Provence. They became artists. Saw the world. Then came back to build the version of Toile Blanche you are looking at now. They are the Leroy Brothers.',
     'Toile Blanche has grown, without rupture, without losing itself. A place to live, open and essential. A family. A home. A work of art that is lived in.',
@@ -121,7 +121,7 @@ const en: LaVieIciStrings = {
   semaine: {
     meta: 'Four times a year · spring · summer · autumn · winter',
     bodyParagraphs: [
-      'Four times a year, spring, summer, autumn, winter, the Leroy Brothers welcome a small number of guests. Collectors, artists, attentive travellers. Five days, at their own pace.',
+      'Four times a year, spring, summer, autumn, winter, the Leroy Brothers welcome a small number of guests. Collectors, amateurs, artists, attentive travellers. Five days, at their own pace.',
       'You arrive on Wednesday. You leave on Sunday. Your own suite. Time.',
       'One evening during the week, the Leroy Brothers share the table with their guests. Nothing is imposed in a house conceived as a work of art from its very first day.',
     ],
@@ -130,7 +130,7 @@ const en: LaVieIciStrings = {
       'Breakfast, every morning.',
       'Served at table, at your time.',
       'Discovery of the place and its collection. A walk through the village galleries.',
-      'One organised visit \u2014 Fondation Maeght or Fondation CAB.',
+      'One organised visit, Fondation Maeght and Fondation CAB. A few galleries. At your own pace.',
       'One evening, a longer table for dinner with the Leroy Brothers and other guests.',
     ],
     structuredMoment: {
@@ -304,8 +304,8 @@ const fr: LaVieIciStrings = {
   eyebrow: 'Toile Blanche, Saint-Paul-de-Vence',
   subtitle: 'La vie à Toile Blanche, à travers chaque saison',
   familyParagraphs: [
-    'Depuis près de deux siècles, la ferme est là, ancrée à Saint-Paul-de-Vence.',
-    "En 1999, Nadine et Dany la découvrent. Ils ne cherchent pas à la transformer, mais à révéler ce qu'elle est déjà. Trois chambres ouvrent, simplement. Une maison, avant tout.",
+    'Depuis près de deux siècles, le mas est là, ancré à Saint-Paul-de-Vence.',
+    "En 1999, Nadine et Dany la découvrent. Ils ne cherchent pas à la transformer, mais à révéler ce qu\u2019il est déjà. Trois chambres ouvrent, simplement. Une maison, avant tout.",
     "Leurs fils, Gregory, Gilles et Nicolas, grandissent entre le Nord et la Provence. Ils deviennent artistes. Découvrent le monde. Puis ils reviennent pour construire la version de Toile Blanche que vous regardez aujourd'hui. Ce sont les Leroy Brothers.",
     'Toile Blanche évolue. Sans rupture. Avec justesse. Un lieu de vie, ouvert, essentiel. Une famille. Une maison. Une \u0153uvre habitée.',
   ],
@@ -330,7 +330,7 @@ const fr: LaVieIciStrings = {
   semaine: {
     meta: 'Quatre fois par an · printemps · été · automne · hiver',
     bodyParagraphs: [
-      'Quatre fois par an, printemps, été, automne, hiver, les Leroy Brothers accueillent un petit nombre d\u2019hôtes. Collectionneurs, artistes, voyageurs attentifs. Cinq jours, à leur rythme.',
+      'Quatre fois par an, printemps, été, automne, hiver, les Leroy Brothers accueillent un petit nombre d\u2019hôtes. Collectionneurs, amateurs, artistes, voyageurs attentifs. Cinq jours, à leur rythme.',
       'On arrive le mercredi. On repart le dimanche. Une suite à soi. Du temps.',
       'Un soir dans la semaine, les Leroy Brothers partagent la table avec leurs invités. Rien n\u2019est imposé dans cette maison pensée comme une \u0153uvre depuis le premier jour.',
     ],
@@ -339,7 +339,7 @@ const fr: LaVieIciStrings = {
       'Le petit-déjeuner, chaque matin.',
       'Servi à table, à votre heure.',
       'Découverte du lieu et de sa collection. Un parcours de galeries au village.',
-      'Une visite organisée \u2014 Fondation Maeght ou Fondation CAB.',
+      'Une visite organisée, Fondation Maeght et Fondation CAB. Quelques galeries. À votre rythme.',
       'Un soir, une table plus longue pour le dîner avec les Leroy Brothers et d\u2019autres convives.',
     ],
     structuredMoment: {
@@ -387,7 +387,7 @@ const fr: LaVieIciStrings = {
   },
   atelier: {
     meta: 'Novembre à mars, long séjour, sur demande',
-    lede: 'Un long séjour, pensé pour le travail.',
+    lede: 'Un long séjour, pensé pour le travail ou la détente.',
     body1:
       'Entre novembre et mars, lorsque la saison s\u2019efface, Toile Blanche ouvre ses portes à un petit nombre d\u2019hôtes.',
     body2:

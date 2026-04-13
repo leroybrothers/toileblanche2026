@@ -7,6 +7,12 @@ const archiveFiles = import.meta.glob('../../../content/archive-fr/*.md', { eage
 const entries = Object.values(archiveFiles)
   .map((file: any) => file.frontmatter)
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const formatArchiveDate = (d: string) => {
+  const date = new Date(d);
+  if (isNaN(date.getTime())) return d;
+  return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+};
 ---
 
 <Layout
@@ -34,7 +40,7 @@ const entries = Object.values(archiveFiles)
             <img src={entry.image} alt={entry.title} loading="lazy" />
           </div>
           <div class="arc-entry-content">
-            <span class="arc-entry-date">{entry.date}</span>
+            <span class="arc-entry-date">{formatArchiveDate(entry.date)}</span>
             <h2>{entry.title}</h2>
             <p>{entry.excerpt}</p>
           </div>
