@@ -33,7 +33,7 @@ const mail = (subject: string) =>
       </header>
 
       <section class="lvi-block lvi-opening">
-        <p class="lvi-opening-lead">{c.openingLead}</p>
+        <p class="lvi-body">{c.openingLead}</p>
         {c.openingParagraphs.map((p) => (
           <p class="lvi-body">{p}</p>
         ))}
@@ -353,15 +353,6 @@ const mail = (subject: string) =>
 
   .lvi-opening {
     margin-bottom: clamp(56px, 8vw, 88px);
-  }
-
-  .lvi-opening-lead {
-    font-family: 'Gilda Display', Georgia, serif;
-    font-size: clamp(17px, 2vw, 20px);
-    font-style: italic;
-    line-height: 1.45;
-    color: var(--lvi-secondary);
-    margin: 0 0 0.55em;
   }
 
   .lvi-opening .lvi-body {
