@@ -2,7 +2,7 @@
   {
     "title": "Bien-être",
     "tagline": "Massages dans le jardin ou dans votre suite.",
-    "body": "Amandine et Eve, nos thérapeutes résidentes, proposent une gamme de soins — massage profond, relaxation et rituels signature — conçus pour vous restaurer complètement. Réservez une séance dès votre arrivée et oubliez tout ce qui se passe hors des murs.",
+    "body": "Amandine et Eve, nos thérapeutes résidentes, proposent une gamme de soins, massage profond, relaxation et rituels signature, conçus pour vous restaurer complètement. Réservez une séance dès votre arrivée et oubliez tout ce qui se passe hors des murs.",
     "image": "wellness.png",
     "cta": { "text": "Se renseigner ou réserver un soin", "href": "https://toileblanche.bowo.app/pages/2826" }
   },
@@ -16,14 +16,14 @@
   {
     "title": "Vélos électriques",
     "tagline": "Explorez les collines à votre rythme.",
-    "body": "Deux vélos électriques Moustache sont à disposition des hôtes. Le terrain autour de Saint-Paul de Vence est vallonné et magnifique — pédalez vers les villages voisins, à travers les vignes ou le long de la route côtière.",
+    "body": "Deux vélos électriques Moustache sont à disposition des hôtes. Le terrain autour de Saint-Paul de Vence est vallonné et magnifique, pédalez vers les villages voisins, à travers les vignes ou le long de la route côtière.",
     "image": "page-img-5a95d37e2cdbac.avif",
     "cta": { "text": "Se renseigner à la réception", "href": "mailto:info@toileblanche.com" }
   },
   {
     "title": "Les Piscines",
     "tagline": "Trois pour tous. Quatre autres rien que pour vous.",
-    "body": "Sept piscines sont disséminées dans les jardins — trois communes, quatre privées rattachées à certaines suites. C'est l'endroit idéal pour lire un livre, parfaire son bronzage et laisser les conversations se dérouler à leur rythme.",
+    "body": "Sept piscines sont disséminées dans les jardins, trois communes, quatre privées rattachées à certaines suites. C'est l'endroit idéal pour lire un livre, parfaire son bronzage et laisser les conversations se dérouler à leur rythme.",
     "image": "page-img-9539260525abcd.jpg",
     "cta": null
   }

@@ -18,9 +18,9 @@ const { reviews, clippings } = pressData;
     <!-- HEADER -->
     <section class="prs-header">
       <div class="prs-header-inner">
-        <p class="prs-header-eyebrow">Réception — Les Registres</p>
+        <p class="prs-header-eyebrow">Réception, Les Registres</p>
         <h1>Presse</h1>
-        <p class="prs-header-tagline">Une archive soignée de la réception critique. Ce qui suit est un registre de la façon dont le monde l'a reçue — avant et après.</p>
+        <p class="prs-header-tagline">Une archive soignée de la réception critique. Ce qui suit est un registre de la façon dont le monde l'a reçue, avant et après.</p>
       </div>
     </section>
 
@@ -83,7 +83,7 @@ const { reviews, clippings } = pressData;
           {clippings.map((c) => (
             <a href={c.articleUrl ?? c.pdf} target="_blank" rel="noopener noreferrer" class="prs-clipping">
               <div class="prs-clipping-thumb">
-                <img src={c.thumbnail} alt={`${c.publication} — couverture presse Toile Blanche`} loading="lazy" />
+                <img src={c.thumbnail} alt={`${c.publication}, couverture presse Toile Blanche`} loading="lazy" />
               </div>
               <p class="prs-clipping-pub">{c.publication}</p>
               {c.year && <span class="prs-clipping-year">{c.year}</span>}

@@ -38,7 +38,7 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
         <div class="sd-hero-overlay"></div>
       </div>
       <div class="sd-hero-content">
-        <p class="sd-hero-eyebrow">{suite.index} — {suite.specs.count}</p>
+        <p class="sd-hero-eyebrow">{suite.index}, {suite.specs.count}</p>
         <h1>{suite.name}</h1>
       </div>
     </section>
@@ -79,7 +79,7 @@ const otherSuites = allSuites.filter(s => s.slug !== suite.slug);
     <section class="sd-gallery">
       {sortGalleryByCategory(suite.slug, suite.images.gallery).map((img, i) => (
         <div class={`sd-gallery-item sd-gallery-item-${i + 1} fade-up`}>
-          <img src={img} srcset={gallerySrcset(img)} sizes="(max-width: 900px) 100vw, 50vw" alt={`${suite.name} — vue ${i + 1}`} loading="lazy" />
+          <img src={img} srcset={gallerySrcset(img)} sizes="(max-width: 900px) 100vw, 50vw" alt={`${suite.name}, vue ${i + 1}`} loading="lazy" />
         </div>
       ))}
     </section>

@@ -16,8 +16,8 @@ const hotspots = [
   { label: 'Les Vélos', href: '/fr/experiences' },
   { label: 'Ora Ïto (2024)', href: 'https://www.toileblanchecontemporary.com/artworks/9475-ora-ito-2024/' },
   { label: 'Gao Brothers', href: 'https://www.toileblanchecontemporary.com/artists/32-gao-brothers/overview/' },
-  { label: 'Leroy Brothers — Lerneaen Strouthion', href: 'https://www.toileblanchecontemporary.com/artists/29-leroy-brothers/works/9410-leroy-brothers-lerneaen-strouthion-2010/' },
-  { label: 'Leroy Brothers — Art for Money, Money for Art', href: 'https://www.toileblanchecontemporary.com/artists/29-leroy-brothers/works/9422-leroy-brothers-art-for-money-money-for-art-the-2010/' },
+  { label: 'Leroy Brothers, Lerneaen Strouthion', href: 'https://www.toileblanchecontemporary.com/artists/29-leroy-brothers/works/9410-leroy-brothers-lerneaen-strouthion-2010/' },
+  { label: 'Leroy Brothers, Art for Money, Money for Art', href: 'https://www.toileblanchecontemporary.com/artists/29-leroy-brothers/works/9422-leroy-brothers-art-for-money-money-for-art-the-2010/' },
 ];
 
 const hotspotPositions: Record<string, { left: number; top: number }> = {
@@ -33,15 +33,15 @@ const hotspotPositions: Record<string, { left: number; top: number }> = {
   'Les Vélos': { left: 58, top: 78 },
   'Ora Ïto (2024)': { left: 72, top: 42 },
   'Gao Brothers': { left: 26, top: 58 },
-  'Leroy Brothers — Lerneaen Strouthion': { left: 38, top: 52 },
-  'Leroy Brothers — Art for Money, Money for Art': { left: 62, top: 48 },
+  'Leroy Brothers, Lerneaen Strouthion': { left: 38, top: 52 },
+  'Leroy Brothers, Art for Money, Money for Art': { left: 62, top: 48 },
 };
 ---
 
 <Layout
   locale="fr"
   title="Plan de la propriété | Toile Blanche | Saint-Paul de Vence"
-  description="Plan de la propriété Toile Blanche — suites, restaurants, sculptures et jardins à Saint-Paul de Vence."
+  description="Plan de la propriété Toile Blanche, suites, restaurants, sculptures et jardins à Saint-Paul de Vence."
   ogImage="https://www.toileblanche.com/assets/images/estate-map.png"
 >
   <Nav theme="light" locale="fr" />
@@ -71,7 +71,7 @@ const hotspotPositions: Record<string, { left: number; top: number }> = {
           <div class="map-page-image-inner">
             <img
               src="/assets/images/estate-map.png"
-              alt="Plan de la propriété Toile Blanche — Le Restaurant, L'Hôtel, La Guinguette, suites, sculptures et jardins"
+              alt="Plan de la propriété Toile Blanche, Le Restaurant, L'Hôtel, La Guinguette, suites, sculptures et jardins"
               class="map-page-image"
               width="768"
               height="1024"
@@ -92,7 +92,7 @@ const hotspotPositions: Record<string, { left: number; top: number }> = {
                   title={label}
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  aria-label={`${label} — aller à la page`}
+                  aria-label={`${label}, aller à la page`}
                 />
               ) : (
                 <span
@@ -105,7 +105,7 @@ const hotspotPositions: Record<string, { left: number; top: number }> = {
             })}
           </div>
         </div>
-        <p class="map-page-caption">Toile Blanche, 826 chemin de la Pounchounière — Saint-Paul de Vence</p>
+        <p class="map-page-caption">Toile Blanche, 826 chemin de la Pounchounière, Saint-Paul de Vence</p>
       </div>
     </section>
   </main>

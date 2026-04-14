@@ -6,7 +6,7 @@ interface Props {
 }
 
 const {
-  title = "Le Séminaire — Toile Blanche, Saint-Paul-de-Vence",
+  title = "Le Séminaire, Toile Blanche, Saint-Paul-de-Vence",
   description = "A working retreat for leadership groups. Three to five days in Provence, off-season. Working sessions at Fondation CAB. Accommodation and all meals at Toile Blanche.",
   ogImage = "/assets/images/seminaire/seminaire-hero.jpg",
 } = Astro.props;
@@ -28,7 +28,7 @@ const canonicalURL = new URL(Astro.url.pathname, "https://leseminaire.toileblanc
     <title>{title}</title>
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Le Séminaire — Toile Blanche" />
+    <meta property="og:title" content="Le Séminaire, Toile Blanche" />
     <meta property="og:description" content="A working retreat for leadership groups. November through March. Saint-Paul-de-Vence." />
     <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={canonicalURL.toString()} />
@@ -44,7 +44,7 @@ const canonicalURL = new URL(Astro.url.pathname, "https://leseminaire.toileblanc
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
 
-    <!-- Fonts — same stack as main site -->
+    <!-- Fonts, same stack as main site -->
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&family=Heebo:wght@100;400&display=swap"
       rel="stylesheet"

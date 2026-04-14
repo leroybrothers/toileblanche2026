@@ -254,7 +254,7 @@ const defaultSuiteSchema = {
         "@context": "https://schema.org",
         "@type": "HotelRoom",
         "name": "Suite de l'Artiste",
-        "description": "60–70m² suite at Toile Blanche set within the oldest walls on the property — a 200-year-old farmhouse with original stone and beams preserved as atmosphere, not decoration. Private balcony with garden view unchanged for two centuries. Bathtub and walk-in shower. King size Tréca bed, maximum 2 guests. 2 suites in this category.",
+        "description": "60–70m² suite at Toile Blanche set within the oldest walls on the property, a 200-year-old farmhouse with original stone and beams preserved as atmosphere, not decoration. Private balcony with garden view unchanged for two centuries. Bathtub and walk-in shower. King size Tréca bed, maximum 2 guests. 2 suites in this category.",
         "url": "https://www.toileblanche.com/suites/suite-artiste",
         "image": "https://www.toileblanche.com/assets/images/suite-artiste/hero.jpg",
         "floorSize": {
@@ -304,7 +304,7 @@ const defaultSuiteSchema = {
         "@context": "https://schema.org",
         "@type": "HotelRoom",
         "name": "Mas de l'Artiste",
-        "description": "90m² maisonette suite at Toile Blanche — the largest suite in the oldest building on the property. A 200-year-old farmhouse with original beams and stone, two floors, a private Provençal courtyard, bathtub and walk-in shower. King size Tréca bed plus second room. Up to 4 guests. 1 suite in this category.",
+        "description": "90m² maisonette suite at Toile Blanche, the largest suite in the oldest building on the property. A 200-year-old farmhouse with original beams and stone, two floors, a private Provençal courtyard, bathtub and walk-in shower. King size Tréca bed plus second room. Up to 4 guests. 1 suite in this category.",
         "url": "https://www.toileblanche.com/suites/mas-artiste",
         "image": "https://www.toileblanche.com/assets/images/mas-de-l-artiste/hero.jpg",
         "floorSize": {
@@ -324,7 +324,7 @@ const defaultSuiteSchema = {
         },
         "amenityFeature": [
           { "@type": "LocationFeatureSpecification", "name": "Private Provençal courtyard", "value": true },
-          { "@type": "LocationFeatureSpecification", "name": "Maisonette — two floors", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Maisonette, two floors", "value": true },
           { "@type": "LocationFeatureSpecification", "name": "Second bedroom", "value": true },
           { "@type": "LocationFeatureSpecification", "name": "Original 200-year-old stone and beams", "value": true },
           { "@type": "LocationFeatureSpecification", "name": "Bathtub", "value": true },
@@ -458,7 +458,7 @@ const defaultSuiteSchema = {
         <div class="sd-hero-overlay"></div>
       </div>
       <div class="sd-hero-content">
-        <p class="sd-hero-eyebrow">{suite.index} — {suite.specs.count}</p>
+        <p class="sd-hero-eyebrow">{suite.index}, {suite.specs.count}</p>
         <h1>{suite.name}</h1>
       </div>
     </section>
@@ -502,7 +502,7 @@ const defaultSuiteSchema = {
     <section class="sd-gallery">
       {sortGalleryByCategory(suite.slug, suite.images.gallery).map((img, i) => (
         <div class={`sd-gallery-item sd-gallery-item-${i + 1} fade-up`}>
-          <img src={img} srcset={gallerySrcset(img)} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt={`${suite.name} — view ${i + 1}`} loading="lazy" />
+          <img src={img} srcset={gallerySrcset(img)} sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" alt={`${suite.name}, view ${i + 1}`} loading="lazy" />
         </div>
       ))}
     </section>

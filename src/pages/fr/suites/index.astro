@@ -38,7 +38,7 @@ const suites = suitesData.suites;
               {suite.hasPool && <span class="pool-tag">Piscine privée</span>}
             </a>
             <div class="card-body">
-              <p class="card-meta">{suite.index} — {suite.specs.count} · {suite.specs.size} · {suite.specs.occupancy}</p>
+              <p class="card-meta">{suite.index}, {suite.specs.count} · {suite.specs.size} · {suite.specs.occupancy}</p>
               <h2>{suite.name}</h2>
               <p class="card-headline">{suite.headline}</p>
               <p class="card-desc">{suite.tagline}</p>
@@ -117,7 +117,7 @@ const suites = suitesData.suites;
   .suite-card.reversed .card-image { order: 2; }
   .suite-card.reversed .card-body  { order: 1; }
 
-  /* Image — fills full grid cell height, no gaps */
+  /* Image fills full grid cell height, no gaps */
   .card-image {
     display: block;
     position: relative;
