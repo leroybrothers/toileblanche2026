@@ -76,6 +76,7 @@ export type LaVieIciStrings = {
     body2: string;
     body3: string;
     body4: string;
+    body5: string;
     accessLabel: string;
     accessValue: string;
     accessNote: string;
@@ -84,6 +85,7 @@ export type LaVieIciStrings = {
     p1: string;
     p2: string;
     p3: string;
+    p4: string;
     contactLabel: string;
     contactTitle: string;
     contactP1: string;
@@ -105,10 +107,10 @@ const en: LaVieIciStrings = {
     'Toile Blanche offers a range of formats — stays, residencies, and gatherings — that share one intention: to live well, in a place conceived and built with care.',
   ],
   familyParagraphs: [
-    'The mas has stood here for nearly two centuries, rooted in Saint-Paul-de-Vence.',
+    'For nearly two centuries, the mas where it all began has stood here, rooted in Saint-Paul-de-Vence.',
     'In 1999, Nadine and Dany found it. They did not come to change it, but to reveal what it already was. Three rooms opened, simply. A home, before anything else.',
-    'Their sons, Gregory, Gilles, and Nicolas, grew up between the North and Provence. They became artists. Saw the world. Then came back to build the version of Toile Blanche you are looking at now. They are the Leroy Brothers.',
-    'Toile Blanche has grown, without rupture, without losing itself. A place to live, open and essential. A family. A home. A work of art that is lived in.',
+    'Their sons, Gregory, Gilles, and Nicolas, grew up between Belgium and Provence. They are artists. They saw the world. Then they came back. They are known as the Leroy Brothers.',
+    'Slowly, the place evolved. Without rupture. Without losing itself. A place to live, open and essential. A family. A home. A work of art that is lived in.',
   ],
   namesLine:
     'Nadine · Dany · Gregory · Gilles · Nicolas · Caroline · Tahnee · Alexis · Agathe · Marius · Isaac',
@@ -133,20 +135,20 @@ const en: LaVieIciStrings = {
     bodyParagraphs: [
       'Four times a year, spring, summer, autumn, winter, the Leroy Brothers welcome a small number of guests. Collectors, amateurs, artists, attentive travellers. Five days, at their own pace.',
       'You arrive on Wednesday. You leave on Sunday. Your own suite. Time.',
-      'One evening during the week, the Leroy Brothers share the table with their guests. Nothing is imposed in a house conceived as a work of art from its very first day.',
+      'One evening, the Leroy Brothers share the table with their guests. Nothing is imposed in a house conceived as a work of art from its very first day.',
     ],
     includesLabel: 'What La Semaine includes',
     includes: [
       'Breakfast, every morning.',
       'Served at table, at your time.',
-      'Discovery of the place and its collection. A walk through the village galleries.',
-      'One organised visit, Fondation Maeght and Fondation CAB. A few galleries. At your own pace.',
+      'Discovery of the place and its collection. A RAD/ART gallery walk in the village.',
+      'Organised visits: Fondation Maeght, Fondation CAB, Arik Levy sculpture park. A few galleries. At your own pace.',
       'One evening, a longer table for dinner with the Leroy Brothers and other guests.',
     ],
     structuredMoment: {
       title: 'The one structured moment',
       paragraphs: [
-        "A visit to the Leroy Brothers\u2019 studio.",
+        'A conversation with the Leroy Brothers.',
         'Arranged during the week, for the group. Around forty-five minutes. Never announced in advance.',
         'Not a guided tour, a conversation about what is being made, and why.',
       ],
@@ -281,30 +283,31 @@ const en: LaVieIciStrings = {
       "L\u2019Artiste Invité has no application process and no jury. It is an invitation extended by artists to an artist, once a year, in winter. The work that results is a consequence of the stay, not a deliverable.",
   },
   ecrivain: {
-    meta: 'Two or three times each winter, November through March',
-    lede: 'A writer in residence at Toile Blanche',
-    body1: 'Two or three times each winter, a writer comes to stay.',
+    meta: 'Each winter, November through March',
+    lede: 'A writer in residence.',
+    body1:
+      'In winter, someone arrives. Not to teach. Not to produce anything defined. To write.',
     body2:
-      'Not to teach. Not to perform. Not to produce anything in particular. To work on whatever they are working on, in a suite at Toile Blanche, for ten days or two weeks, in the company of a place that takes seriously what it means to make something.',
-    body3:
-      'The writer is invited personally by the Leroy Brothers. The category does not matter, novelist, essayist, critic, architect, filmmaker. What matters is that their relationship with language is serious enough that other people want to be near it.',
+      'In a suite, a few days, sometimes two weeks. Time ahead. The light, the silence. Toile Blanche does not intervene.',
+    body3: 'The form matters little. Novel, essay, criticism, film.',
     body4:
-      'If a La Semaine gathering happens to be in residence at the same time, the writer is welcome at the table. They decide on the night.',
+      'What matters is the relationship to language. Strong enough that others want to be near it.',
+    body5: 'The evening decides.',
     accessLabel: 'How it works',
-    accessValue: 'A personal invitation, not applied for, not advertised',
-    accessNote:
-      "L\u2019Écrivain goes to a different person each time. It is not a writer in residence programme with that name. It is an invitation, and it is the highest compliment Toile Blanche knows how to pay.",
+    accessValue: 'An invitation. No application. No announcement.',
+    accessNote: 'This is not a programme. It is an opening.',
   },
   closing: {
-    p1: 'Some guests arrive once and carry the place with them for years. Some come back until it feels like theirs. A few, eventually, become part of it. We have a name for each, though we rarely use them out loud.',
-    p2: 'Some guests come to Toile Blanche in winter with no intention of joining anything. They come because the village is quieter, the foundations less crowded, the table at Le Restaurant easier to find. Because they have spent a lifetime developing a relationship with culture and they know that its best version happens slowly, without a programme, in a place that understands what they are looking for.',
+    p1: 'Some come once and carry the place with them. Others return until everything feels familiar. With time, a few simply become part of it. We have a name for each, though we rarely use them out loud.',
+    p2: 'Some guests come to Toile Blanche in winter with no intention of joining anything. They come because the village is quieter, the foundations less crowded, the table at Le Restaurant easier to find. Because they have spent a lifetime building a relationship with culture and they know that its best version happens slowly, without a programme, in a place that understands what they are looking for.',
     p3: 'For those guests, La Vie Ici is simply the reason to come in November rather than July. The rest takes care of itself.',
-    contactLabel: '',
-    contactTitle: 'Write to us',
+    p4: 'La Vie Ici is not a calendar of events.',
+    contactLabel: 'For any enquiry',
+    contactTitle: 'Write to us.',
     contactP1:
-      "For La Semaine, L\u2019Atelier, and Vignes Vivantes, tell us which programme interests you, your preferred season, and how many guests. We will come back to you within 48 hours.",
+      'For La Semaine, L\u2019Atelier, and Vignes Vivantes,\ntell us the programme, the season,\nand how many people.\nWe reply within 48 hours.',
     contactP2:
-      "For L\u2019Artiste Invité and L\u2019Écrivain, these are invitations only. If you believe someone should be considered, you are welcome to write to us about them.",
+      'For L\u2019Artiste and L\u2019Écrivain,\nby invitation only.\nIf someone seems right for it,\nyou are welcome to write to us about them.',
   },
 };
 
@@ -322,10 +325,10 @@ const fr: LaVieIciStrings = {
     'Toile Blanche propose une série de formats, séjours, résidences, rencontres, qui ont en commun une même intention : bien vivre, dans un lieu pensé et construit avec exigence.',
   ],
   familyParagraphs: [
-    'Depuis près de deux siècles, le mas est là, ancré à Saint-Paul-de-Vence.',
-    "En 1999, Nadine et Dany la découvrent. Ils ne cherchent pas à la transformer, mais à révéler ce qu\u2019il est déjà. Trois chambres ouvrent, simplement. Une maison, avant tout.",
-    "Leurs fils, Gregory, Gilles et Nicolas, grandissent entre le Nord et la Provence. Ils deviennent artistes. Découvrent le monde. Puis ils reviennent pour construire la version de Toile Blanche que vous regardez aujourd'hui. Ce sont les Leroy Brothers.",
-    'Toile Blanche évolue. Sans rupture. Avec justesse. Un lieu de vie, ouvert, essentiel. Une famille. Une maison. Une \u0153uvre habitée.',
+    'Depuis près de deux siècles, le mas où tout a commencé est là, ancré à Saint-Paul-de-Vence.',
+    'En 1999, Nadine et Dany le découvrent. Ils ne cherchent pas à le transformer, mais à révéler ce qu\u2019il est déjà. Trois chambres s\u2019ouvrent, simplement. Une maison, avant tout.',
+    'Leurs fils, Gregory, Gilles et Nicolas, grandissent entre la Belgique et la Provence. Ils sont artistes. Découvrent le monde. Puis ils reviennent. On les connaît comme les Leroy Brothers.',
+    'Peu à peu, le lieu évolue. Sans rupture. Avec justesse. Un lieu de vie, ouvert, essentiel. Une famille. Une maison. Une \u0153uvre d\u2019art habitée.',
   ],
   namesLine:
     'Nadine · Dany · Gregory · Gilles · Nicolas · Caroline · Tahnee · Alexis · Agathe · Marius · Isaac',
@@ -339,7 +342,7 @@ const fr: LaVieIciStrings = {
   radart: {
     label: 'Le parcours culturel',
     paragraphs: [
-      'Saint-Paul-de-Vence concentre différents lieux d\u2019art contemporain. Fondations, galeries, espaces indépendants, un parcours que l\u2019on traverse à pied, simplement.',
+      'Saint-Paul-de-Vence concentre différents lieux d\u2019art contemporain. Fondations, galeries, ateliers, un parcours que l\u2019on traverse à pied.',
       'En 2026, les Leroy Brothers créent RAD/ART, Rendez-Vous Actuel d\u2019Art. Un guide vivant. Des expositions, des vernissages, des moments qui rythment la vie du village au fil de l\u2019année.',
       'Chaque hôte de Toile Blanche y a accès. Une manière de se repérer dans le village, sans jamais s\u2019imposer.',
     ],
@@ -350,20 +353,20 @@ const fr: LaVieIciStrings = {
     bodyParagraphs: [
       'Quatre fois par an, printemps, été, automne, hiver, les Leroy Brothers accueillent un petit nombre d\u2019hôtes. Collectionneurs, amateurs, artistes, voyageurs attentifs. Cinq jours, à leur rythme.',
       'On arrive le mercredi. On repart le dimanche. Une suite à soi. Du temps.',
-      'Un soir dans la semaine, les Leroy Brothers partagent la table avec leurs invités. Rien n\u2019est imposé dans cette maison pensée comme une \u0153uvre depuis le premier jour.',
+      'Un soir, les Leroy Brothers partagent la table avec leurs invités. Rien n\u2019est imposé dans cette maison pensée comme une \u0153uvre depuis le premier jour.',
     ],
     includesLabel: 'Ce que comprend la semaine',
     includes: [
       'Le petit-déjeuner, chaque matin.',
       'Servi à table, à votre heure.',
-      'Découverte du lieu et de sa collection. Un parcours de galeries au village.',
-      'Une visite organisée, Fondation Maeght et Fondation CAB. Quelques galeries. À votre rythme.',
+      'Découverte du lieu et de sa collection. Un parcours de galeries RAD/ART au village.',
+      'Des visites organisées, Fondation Maeght, Fondation CAB, Arik Levy parc de sculpture. Quelques galeries. À votre rythme.',
       'Un soir, une table plus longue pour le dîner avec les Leroy Brothers et d\u2019autres convives.',
     ],
     structuredMoment: {
       title: 'Le moment structuré',
       paragraphs: [
-        'Une visite de l\u2019atelier des Leroy Brothers.',
+        'Une conversation avec les Leroy Brothers.',
         'Un arrangement dans la semaine, pour le groupe. Quarante-cinq minutes, environ. Jamais annoncé.',
         'Pas une visite guidée, une conversation sur ce qui se fait, et le \u201cpourquoi\u201d.',
       ],
@@ -498,30 +501,31 @@ const fr: LaVieIciStrings = {
       'L\u2019Artiste Invité n\u2019a ni processus de candidature ni jury. C\u2019est une invitation faite par des artistes à un artiste, une fois par an, en hiver. La \u0153uvre qui en résulte est une conséquence du séjour, pas une commande.',
   },
   ecrivain: {
-    meta: 'Deux à trois fois chaque hiver, novembre à mars',
-    lede: 'Un écrivain en résidence à Toile Blanche',
-    body1: 'Deux à trois fois chaque hiver, un écrivain vient séjourner.',
+    meta: 'Chaque hiver, novembre à mars',
+    lede: 'Un écrivain en résidence.',
+    body1:
+      'En hiver, quelqu\u2019un arrive. Pas pour enseigner. Pas pour produire quelque chose de défini. Pour écrire.',
     body2:
-      'Pas pour enseigner. Pas pour se produire. Pas pour produire quoi que ce soit en particulier. Pour travailler sur ce sur quoi il travaille, dans une suite à Toile Blanche, pendant dix jours ou deux semaines, dans la compagnie d\u2019un lieu qui prend au sérieux ce que signifie faire quelque chose.',
-    body3:
-      'L\u2019écrivain est invité personnellement par les Leroy Brothers. La catégorie n\u2019a pas d\u2019importance, romancier, essayiste, critique, architecte, cinéaste. Ce qui compte, c\u2019est que sa relation avec le langage soit suffisamment sérieuse pour que d\u2019autres personnes veuillent être près d\u2019elle.',
+      'Dans une suite, quelques jours, parfois deux semaines. Le temps devant soi. La lumière, le silence. Toile Blanche n\u2019intervient pas.',
+    body3: 'La forme importe peu. Roman, essai, critique, film.',
     body4:
-      'Si un rassemblement de La Semaine se trouve en résidence au même moment, l\u2019écrivain est le bienvenu à table. Il décide le soir venu.',
+      'Ce qui compte, c\u2019est la relation au langage. Suffisamment forte pour que d\u2019autres aient envie d\u2019être là.',
+    body5: 'Le soir décide.',
     accessLabel: 'Comment cela fonctionne',
-    accessValue: 'Une invitation personnelle, sans candidature, sans annonce',
-    accessNote:
-      'L\u2019Écrivain va à une personne différente à chaque fois. Ce n\u2019est pas un programme de résidence d\u2019écrivain avec ce nom. C\u2019est une invitation, et c\u2019est le plus grand compliment que Toile Blanche sache faire.',
+    accessValue: 'Une invitation. Pas de candidature. Pas d\u2019annonce.',
+    accessNote: 'Ce n\u2019est pas un programme. C\u2019est une ouverture.',
   },
   closing: {
-    p1: 'Certains hôtes arrivent une fois et portent le lieu avec eux pendant des années. D\u2019autres reviennent jusqu\u2019à ce que cela leur semble le leur. Quelques-uns, avec le temps, en font partie. Nous avons un nom pour chacun, même si nous les utilisons rarement à voix haute.',
+    p1: 'Certains viennent une seule fois et emportent le lieu en souvenir. D\u2019autres reviennent, jusqu\u2019à ce que tout leur semble familier. Avec le temps, quelques-uns en font simplement partie. Nous avons un nom pour chacun, même si nous les utilisons rarement à voix haute.',
     p2: 'Certains hôtes viennent à Toile Blanche en hiver sans intention de rejoindre quoi que ce soit. Ils viennent parce que le village est plus calme, les fondations moins fréquentées, la table au Restaurant plus facile à trouver. Parce qu\u2019ils ont passé une vie à construire une relation avec la culture, et qu\u2019ils savent que sa meilleure version se vit lentement, sans programme, dans un lieu qui comprend ce qu\u2019ils cherchent.',
     p3: 'Pour ces hôtes-là, La Vie Ici est simplement la raison de venir en novembre plutôt qu\u2019en juillet. Le reste se fait naturellement.',
-    contactLabel: '',
-    contactTitle: 'Écrivez-nous',
+    p4: 'La Vie Ici n\u2019est pas un calendrier d\u2019événements.',
+    contactLabel: 'Pour toute demande',
+    contactTitle: 'Écrivez-nous.',
     contactP1:
-      'Pour La Semaine, L\u2019Atelier et Vignes Vivantes, indiquez-nous le programme qui vous intéresse, la saison souhaitée et le nombre d\u2019hôtes. Nous vous répondrons dans les 48 heures.',
+      'Pour La Semaine, L\u2019Atelier et Vignes Vivantes,\nindiquez le programme, la saison,\net le nombre de personnes.\nNous répondons sous 48 heures.',
     contactP2:
-      'Pour L\u2019Artiste Invité et L\u2019Écrivain, il s\u2019agit uniquement d\u2019invitations. Si vous pensez que quelqu\u2019un devrait être considéré, vous êtes les bienvenus pour nous écrire à son sujet.',
+      'Pour L\u2019Artiste et L\u2019Écrivain,\nUniquement sur invitation.\nSi une personne vous semble éligible,\nvous pouvez nous écrire à son sujet.',
   },
 };
 

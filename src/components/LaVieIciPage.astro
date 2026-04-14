@@ -265,6 +265,7 @@ const mail = (subject: string) =>
         <p class="lvi-body">{c.ecrivain.body2}</p>
         <p class="lvi-body">{c.ecrivain.body3}</p>
         <p class="lvi-body">{c.ecrivain.body4}</p>
+        <p class="lvi-body">{c.ecrivain.body5}</p>
 
         <aside class="lvi-access">
           <p class="lvi-label">{c.ecrivain.accessLabel}</p>
@@ -277,12 +278,13 @@ const mail = (subject: string) =>
         <p class="lvi-body lvi-closing-text">{c.closing.p1}</p>
         <p class="lvi-body lvi-closing-text">{c.closing.p2}</p>
         <p class="lvi-body lvi-closing-text">{c.closing.p3}</p>
+        <p class="lvi-body lvi-closing-text">{c.closing.p4}</p>
 
         <aside class="lvi-contact">
-          {c.closing.contactLabel.trim() ? <p class="lvi-label">{c.closing.contactLabel}</p> : null}
+          {c.closing.contactLabel.trim() ? <p class="lvi-contact-preface">{c.closing.contactLabel}</p> : null}
           <p class="lvi-contact-title">{c.closing.contactTitle}</p>
-          <p class="lvi-body">{c.closing.contactP1}</p>
-          <p class="lvi-body">{c.closing.contactP2}</p>
+          <p class="lvi-body lvi-contact-lines">{c.closing.contactP1}</p>
+          <p class="lvi-body lvi-contact-lines">{c.closing.contactP2}</p>
           <p class="lvi-contact-email">
             <a href="mailto:lavieici@toileblanche.com" class="lvi-inline-link">lavieici@toileblanche.com</a>
           </p>
@@ -712,6 +714,19 @@ const mail = (subject: string) =>
     border-radius: 10px;
     padding: 32px 28px;
     margin-top: clamp(40px, 7vw, 64px);
+  }
+
+  .lvi-contact-preface {
+    font-family: 'Heebo', var(--font-body, sans-serif);
+    font-weight: 100;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--lvi-tertiary);
+    margin: 0 0 12px;
+  }
+
+  .lvi-contact-lines {
+    white-space: pre-line;
   }
 
   .lvi-contact-title {
