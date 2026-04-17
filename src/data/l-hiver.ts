@@ -8,7 +8,7 @@ export type LHiverCopy = {
   subtitle: string;
   opening: string[];
   offersLabel: string;
-  offers: { title: string; body: string[] }[];
+  offers: { body: string[] }[];
   includesBoxLabel: string;
   includesLines: string[];
   cta: string;
@@ -22,7 +22,7 @@ export type LHiverCopy = {
 const en: LHiverCopy = {
   metaTitle: "L'Hiver, Winter Stays at Toile Blanche",
   metaDescription:
-    "Toile Blanche in winter. Longer stays, one or two nights offered. From three nights with one offered to a full week. November through March. Direct booking only.",
+    "Toile Blanche in winter. Four nights or more, one night offered; seven nights or more, two offered. November through March. Direct booking only.",
   eyebrow: 'Toile Blanche, Saint-Paul-de-Vence',
   h1: "L'Hiver",
   subtitle: 'Toile Blanche in its quietest, most itself season',
@@ -34,32 +34,17 @@ const en: LHiverCopy = {
   offersLabel: 'Winter stays',
   offers: [
     {
-      title: 'Three nights, one offered',
       body: [
-        'Book three nights and the fourth is ours to offer.',
-        'An extra morning. A slower departure.',
+        'Four nights or more, one offered.',
+        'The right duration to stop counting days',
+        'and simply be here.',
       ],
     },
     {
-      title: 'Four nights, one offered',
       body: [
-        'Book four nights and the fifth is ours to offer.',
-        'Five nights is the right duration, enough to stop counting days and simply be here.',
-      ],
-    },
-    {
-      title: 'Five nights, two offered',
-      body: [
-        'Book five nights and the sixth and seventh are ours to offer.',
-        'A week. Worth the extra days.',
-      ],
-    },
-    {
-      title: 'Seven nights',
-      body: [
+        'Seven nights or more, two offered.',
         'A week, in the same suite throughout.',
         'The pace changes somewhere around day three.',
-        'That is when the stay becomes something other than a holiday.',
       ],
     },
   ],
@@ -74,7 +59,7 @@ const en: LHiverCopy = {
     'The best version of Toile Blanche in winter is the one where you arrive with nothing urgent and leave with something you did not expect to find.',
   winterHintLabel: 'Winter offer available for your dates',
   winterHintBody:
-    'Stay longer, pay less per night. From three nights with one night offered, to seven nights with the full week advantage.',
+    'Stay longer, pay less per night. Four nights or more with one night offered; seven nights or more with two.',
   winterHintLink: 'See winter offers →',
   galleryAriaLabel: 'Winter at Toile Blanche',
 };
@@ -82,7 +67,7 @@ const en: LHiverCopy = {
 const fr: LHiverCopy = {
   metaTitle: "L'Hiver, Séjours hiver à Toile Blanche",
   metaDescription:
-    'Toile Blanche en hiver. Séjours prolongés, une ou deux nuits offertes. De trois nuits avec une offerte à une semaine complète. Novembre à mars. Réservation directe uniquement.',
+    'Toile Blanche en hiver. Quatre nuits ou plus, une nuit offerte ; sept nuits ou plus, deux offertes. Novembre à mars. Réservation directe uniquement.',
   eyebrow: 'Toile Blanche, Saint-Paul-de-Vence',
   h1: "L'Hiver",
   subtitle: 'Toile Blanche dans sa saison la plus calme, la plus elle-même',
@@ -94,32 +79,17 @@ const fr: LHiverCopy = {
   offersLabel: 'Séjours hiver',
   offers: [
     {
-      title: 'Trois nuits, une offerte',
       body: [
-        'Réservez trois nuits et la quatrième est offerte.',
-        'Une matinée de plus. Un départ sans hâte.',
+        'Quatre nuits ou plus, une offerte.',
+        'La durée idéale pour cesser de compter les jours',
+        'et simplement être là.',
       ],
     },
     {
-      title: 'Quatre nuits, une offerte',
       body: [
-        'Réservez quatre nuits et la cinquième est offerte.',
-        "Cinq nuits, c'est la bonne durée, assez pour cesser de compter les jours et simplement être là.",
-      ],
-    },
-    {
-      title: 'Cinq nuits, deux offertes',
-      body: [
-        'Réservez cinq nuits et la sixième et septième sont offertes.',
-        'Une semaine. Les jours supplémentaires valent la peine.',
-      ],
-    },
-    {
-      title: 'Sept nuits',
-      body: [
+        'Sept nuits ou plus, deux offertes.',
         'Une semaine, dans la même suite du début à la fin.',
         'Le rythme change vers le troisième jour.',
-        "C'est là que le séjour devient autre chose qu'un voyage.",
       ],
     },
   ],
@@ -134,7 +104,7 @@ const fr: LHiverCopy = {
     "La meilleure version de Toile Blanche en hiver, c'est celle où l'on arrive sans urgence et où l'on repart avec quelque chose que l'on n'attendait pas.",
   winterHintLabel: 'Une offre hiver est disponible pour vos dates',
   winterHintBody:
-    "Prolongez votre séjour, réduisez le tarif par nuit. À partir de trois nuits avec une nuit offerte, jusqu'à sept nuits avec l'avantage semaine complète.",
+    'Prolongez votre séjour, réduisez le tarif par nuit. Quatre nuits ou plus avec une nuit offerte ; sept nuits ou plus avec deux.',
   winterHintLink: 'Voir les offres hiver →',
   galleryAriaLabel: "L\u2019hiver à Toile Blanche",
 };
