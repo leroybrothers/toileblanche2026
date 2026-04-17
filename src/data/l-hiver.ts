@@ -67,6 +67,7 @@ const en: LHiverCopy = {
   includesLines: [
     'Breakfast, always included.',
     'Direct booking only. November through March.',
+    'Offers are not valid during the weeks of Christmas and New Year.',
   ],
   cta: 'Check availability',
   closing:
@@ -126,6 +127,7 @@ const fr: LHiverCopy = {
   includesLines: [
     'Petit-déjeuner, toujours inclus.',
     'Réservation directe uniquement. Novembre à mars.',
+    'Les offres ne sont pas valables durant les semaines de Noël et du Nouvel An.',
   ],
   cta: 'Vérifier les disponibilités',
   closing:
