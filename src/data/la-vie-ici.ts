@@ -81,6 +81,13 @@ export type LaVieIciStrings = {
     accessValue: string;
     accessNote: string;
   };
+  seminaire: {
+    meta: string;
+    title: string;
+    subtitle: string;
+    bodyParagraphs: string[];
+    linkText: string;
+  };
   closing: {
     p1: string;
     p2: string;
@@ -291,6 +298,18 @@ const en: LaVieIciStrings = {
     accessLabel: 'How it works',
     accessValue: 'An invitation. No application. No announcement.',
     accessNote: 'This is not a programme. It is an opening.',
+  },
+  seminaire: {
+    meta: 'November through March, weekdays only',
+    title: 'Le Séminaire',
+    subtitle: 'A working retreat for leadership groups',
+    bodyParagraphs: [
+      'The environment in which a group thinks determines the quality of what it produces. This is the premise of Le Séminaire.',
+      'Between November and March, Toile Blanche opens to small leadership groups for two to four days of serious work. Up to sixteen people, one suite each, weekdays only.',
+      'The working sessions take place in Mas de l\u2019Artiste, the oldest building at Toile Blanche, configured around a long table in a two-hundred-year-old mas. The room has stone walls, original beams, and a work from the collection on the wall. The environment is not incidental to the thinking. It is part of it.',
+      'Mornings are for work. Afternoons belong to Toile Blanche. The Leroy Brothers join for a drink before dinner on the first evening, if the group wishes. What happens after that is up to the group.',
+    ],
+    linkText: 'Full information and rates at leseminaire.toileblanche.com',
   },
   closing: {
     p1: 'Some come once and carry the place with them. Others return until everything feels familiar. With time, a few simply become part of it. We have a name for each, though we rarely use them out loud.',
@@ -504,6 +523,18 @@ const fr: LaVieIciStrings = {
     accessLabel: 'Comment cela fonctionne',
     accessValue: 'Une invitation. Pas de candidature. Pas d\u2019annonce.',
     accessNote: 'Ce n\u2019est pas un programme. C\u2019est une ouverture.',
+  },
+  seminaire: {
+    meta: 'Novembre à mars, en semaine uniquement',
+    title: 'Le Séminaire',
+    subtitle: 'Un lieu de travail pour les équipes dirigeantes',
+    bodyParagraphs: [
+      'L\u2019environnement dans lequel un groupe pense détermine la qualité de ce qu\u2019il produit. Telle est la prémisse du Séminaire.',
+      'Entre novembre et mars, Toile Blanche accueille de petits groupes de direction pour deux à quatre jours de travail sérieux. Jusqu\u2019à seize personnes, une suite chacun, en semaine uniquement.',
+      'Les sessions de travail se déroulent au Mas de l\u2019Artiste, le plus ancien bâtiment de Toile Blanche, aménagé autour d\u2019une longue table dans un mas de deux cents ans. La pièce a des murs de pierre, des poutres d\u2019origine, et une \u0153uvre de la collection au mur. L\u2019environnement n\u2019est pas accessoire à la réflexion. Il en fait partie.',
+      'Les matinées sont au travail. Les après-midi appartiennent à Toile Blanche. Les Leroy Brothers se joignent pour un verre avant le dîner le premier soir, si le groupe le souhaite. Ce qui suit dépend du groupe.',
+    ],
+    linkText: 'Informations complètes et tarifs sur leseminaire.toileblanche.com',
   },
   closing: {
     p1: 'Certains viennent une seule fois et emportent le lieu en souvenir. D\u2019autres reviennent, jusqu\u2019à ce que tout leur semble familier. Avec le temps, quelques-uns en font simplement partie. Nous avons un nom pour chacun, même si nous les utilisons rarement à voix haute.',

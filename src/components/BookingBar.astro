@@ -1,5 +1,6 @@
 ---
-import { getLocaleFromPath, type Locale } from '../i18n/index';
+import { getLocaleFromPath, localePath, type Locale } from '../i18n/index';
+import { getLHiverCopy } from '../data/l-hiver';
 
 export interface Props {
   locale?: Locale;
@@ -22,10 +23,17 @@ const copy = {
 };
 
 const t = copy[locale];
+const winter = getLHiverCopy(locale);
+const winterHref = localePath('/l-hiver', locale);
 ---
 
 <div class="bb-wrap" id="booking-bar">
   <div class="bb-inner">
+    <div id="bb-winter-offer" class="bb-winter-offer" hidden>
+      <p class="bb-winter-label">{winter.winterHintLabel}</p>
+      <p class="bb-winter-body">{winter.winterHintBody}</p>
+      <a href={winterHref} class="bb-winter-link">{winter.winterHintLink}</a>
+    </div>
     <div class="bb-content">
       <div class="bb-info">
         <span class="bb-label">{t.label}</span>
@@ -59,6 +67,43 @@ const t = copy[locale];
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 40px;
+  }
+
+  .bb-winter-offer {
+    text-align: center;
+    padding-bottom: 12px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .bb-winter-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #9c9080;
+    margin: 0 0 6px;
+  }
+
+  .bb-winter-body {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #3d3530;
+    margin: 0 0 8px;
+    opacity: 0.92;
+  }
+
+  .bb-winter-link {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+    color: #ac6b53;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .bb-winter-link:hover {
+    color: #8a4e3e;
   }
 
   .bb-content {
@@ -210,5 +255,15 @@ const t = copy[locale];
       new MutationObserver(syncBarWithMenu).observe(m, { attributes: true, attributeFilter: ['hidden'] });
     });
     syncBarWithMenu();
+  })();
+</script>
+
+<script is:inline>
+  (function () {
+    var el = document.getElementById('bb-winter-offer');
+    if (!el) return;
+    var m = new Date().getMonth();
+    var winter = m === 10 || m === 11 || m === 0 || m === 1 || m === 2;
+    if (winter) el.removeAttribute('hidden');
   })();
 </script>

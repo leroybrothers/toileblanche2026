@@ -936,6 +936,11 @@ body.tb-menu-open .overlap-section-top {
     object-fit: contain;
     opacity: 0.6;
   }
+
+  .tb-menu-mobile-affiliations .tb-affil-cnt img {
+    height: 48px !important;
+    width: auto !important;
+  }
 }
 
 .tb-menu-header {
@@ -1216,7 +1221,7 @@ body.tb-menu-open .overlap-section-top {
   }
 }
 
-/* ─── Menu affiliations (Michelin Key + SLH) ──────────────────────────── */
+/* ─── Menu affiliations (Michelin Key + Condé Nast + SLH) ───────────────── */
 .tb-menu-affiliations {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1230,11 +1235,20 @@ body.tb-menu-open .overlap-section-top {
   border-top: 1px solid var(--color-ink-06);
 }
 
+.tb-menu-affiliations-leading {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
 .tb-affil-michelin {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.6rem;
+  flex-shrink: 0;
   opacity: 0.85;
   transition: opacity 0.6s ease;
 }
@@ -1249,6 +1263,38 @@ body.tb-menu-open .overlap-section-top {
   object-fit: contain !important;
   object-position: left center !important;
   display: block !important;
+}
+
+.tb-affil-cnt {
+  display: block;
+  flex-shrink: 0;
+  line-height: 0;
+  opacity: 0.85;
+  transition: opacity 0.6s ease;
+}
+
+.tb-affil-cnt:hover {
+  opacity: 1;
+}
+
+.tb-affil-cnt:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+/* Match Michelin column height without flex % (avoids intrinsic 1024px image blowing up the row) */
+.tb-affil-cnt img {
+  height: calc(80px + 0.6rem + var(--text-xs)) !important;
+  width: auto !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  display: block !important;
+}
+
+.tb-affil-cnt--mobile {
+  display: flex;
+  align-items: center;
 }
 
 .tb-affil-label {
@@ -1297,12 +1343,18 @@ body.tb-menu-open .overlap-section-top {
     padding-top: 2rem;
   }
 
-  .tb-affil-michelin img {
+  /* Desktop menu is hidden <768px; scope so mobile menu CNT keeps .tb-menu-mobile-affil-img height */
+  .tb-menu-desktop .tb-affil-michelin img {
     height: 64px !important;
     width: 62px !important;
   }
 
-  .tb-affil-slh img {
+  .tb-menu-desktop .tb-affil-cnt img {
+    height: calc(64px + 0.6rem + var(--text-xs)) !important;
+    width: auto !important;
+  }
+
+  .tb-menu-desktop .tb-affil-slh img {
     height: 64px !important;
     width: 62px !important;
   }
@@ -1827,6 +1879,20 @@ body.tb-menu-open .overlap-section-top {
   margin: 0;
 }
 
+.footer-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-cnt-badge-img {
+  height: 48px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
 .divider._96px {
   border: none !important;
 }
@@ -1948,6 +2014,30 @@ a.tb-book-cta-link {
   line-height: 1.7;
   color: var(--color-stone);
   margin: 0;
+}
+
+.tb-dp-winter {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-stone);
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto 28px;
+}
+
+.tb-dp-winter-link {
+  font-size: 0.875em;
+  line-height: inherit;
+  color: var(--color-terracotta);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-left: 0.35em;
+  white-space: nowrap;
+}
+
+.tb-dp-winter-link:hover {
+  color: var(--color-terracotta-deep);
 }
 
 .tb-dp-cta-wrap {

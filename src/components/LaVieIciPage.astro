@@ -274,6 +274,23 @@ const mail = (subject: string) =>
         </aside>
       </article>
 
+      <article class="lvi-programme" aria-labelledby="lvi-seminaire-heading">
+        <figure class="lvi-figure">
+          <div class="lvi-aspect">
+            <img src="/assets/images/seminaire/seminaire-hero.jpg" width="1200" height="800" alt="" loading="lazy" decoding="async" />
+          </div>
+        </figure>
+        <p class="lvi-meta">{c.seminaire.meta}</p>
+        <h2 id="lvi-seminaire-heading" class="lvi-h2">Le Séminaire</h2>
+        <p class="lvi-lede">{c.seminaire.subtitle}</p>
+        {c.seminaire.bodyParagraphs.map((p) => (
+          <p class="lvi-body">{p}</p>
+        ))}
+        <p class="lvi-body">
+          <a href="https://leseminaire.toileblanche.com" class="lvi-inline-link" target="_blank" rel="noopener noreferrer">{c.seminaire.linkText}</a>
+        </p>
+      </article>
+
       <footer class="lvi-closing">
         <p class="lvi-body lvi-closing-text">{c.closing.p1}</p>
         <p class="lvi-body lvi-closing-text">{c.closing.p2}</p>
