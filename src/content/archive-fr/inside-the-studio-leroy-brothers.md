@@ -1,6 +1,6 @@
 ---
 slug: inside-the-studio-leroy-brothers
-date: "2026-06-05"
+date: "2026-03-07"
 title: "Dans l'Atelier : L'art post-internet des Leroy Brothers"
 excerpt: "Un regard rare à l'intérieur de l'atelier sur site où le statut d'« Œuvre Déclarée » de la propriété a été conçu."
 image: "/assets/images/archive/leroy-studio.jpg"

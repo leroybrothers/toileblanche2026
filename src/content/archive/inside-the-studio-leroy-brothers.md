@@ -1,7 +1,7 @@
 ---
 slug: inside-the-studio-leroy-brothers
 title: "Inside the Studio: The Post-Internet Art of the Leroy Brothers"
-date: "2026-06-05"
+date: "2026-03-07"
 author: "Leroy Brothers"
 image: "/assets/images/archive/leroy-studio.jpg"
 imageWidth: 1200
