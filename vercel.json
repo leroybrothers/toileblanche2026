@@ -61,16 +61,6 @@
     {
       "source": "/mews/distributor.min.js",
       "destination": "https://api.mews.com/distributor/distributor.min.js"
-    },
-    {
-      "source": "/",
-      "destination": "/seminaire",
-      "has": [
-        {
-          "type": "host",
-          "value": "leseminaire.toileblanche.com"
-        }
-      ]
     }
   ]
 }

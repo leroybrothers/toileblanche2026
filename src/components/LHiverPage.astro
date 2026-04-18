@@ -14,7 +14,7 @@ const { locale } = Astro.props;
 const c = getLHiverCopy(locale);
 const canonical = new URL(localePath('/l-hiver', locale), 'https://www.toileblanche.com').href;
 
-/** Web compatible only; add converted JPG if you replace a HEIC in public/assets/images/lhiver */
+/** Gallery filenames must be web-safe (JPEG/WebP); paths are URL-encoded when built */
 const lhiverGalleryFiles = [
   'IMG_4776.jpg',
   'IMG_4324.jpg',
