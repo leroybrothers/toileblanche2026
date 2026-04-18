@@ -21,6 +21,9 @@
     "optimize-gallery-webp": "node scripts/optimize-gallery-webp.mjs",
     "optimize-restaurant-guinguette": "node scripts/optimize-restaurant-guinguette.mjs",
     "compress-images": "node scripts/compress-images.mjs",
+    "compress-images-pass2": "node scripts/compress-images-pass2.mjs",
+    "compress-images-pass3": "node scripts/compress-images-pass3.mjs",
+    "optimize-pass3-webp": "node scripts/optimize-pass3-webp-assets.mjs",
     "optimize-lhiver": "node scripts/optimize-lhiver.mjs",
     "audit:public-orphans": "node scripts/audit-public-orphans.mjs",
     "optimize-all": "npm run optimize-slideshow && npm run optimize-images && npm run optimize-restaurant-guinguette && npm run optimize-homepage-cards && npm run optimize-homepage-features && npm run optimize-gallery-webp && node scripts/optimize-archive-images.mjs && npm run optimize-lhiver"

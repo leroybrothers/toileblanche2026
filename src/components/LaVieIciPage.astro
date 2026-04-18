@@ -235,7 +235,11 @@ const mail = (subject: string) =>
       <article class="lvi-programme" aria-labelledby="lvi-artiste-heading">
         <figure class="lvi-figure">
           <div class="lvi-aspect">
-            <img src={img('LARTISTE_INVITE.png')} width="1200" height="800" alt="" loading="lazy" decoding="async" />
+            <picture>
+              <source type="image/avif" srcset={`${img('LARTISTE_INVITE.avif')}`} />
+              <source type="image/webp" srcset={`${img('LARTISTE_INVITE.webp')}`} />
+              <img src={img('LARTISTE_INVITE.png')} width="1200" height="800" alt="" loading="lazy" decoding="async" />
+            </picture>
           </div>
         </figure>
         <p class="lvi-meta">{c.artiste.meta}</p>

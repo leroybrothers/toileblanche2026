@@ -28,3 +28,8 @@ export const QUALITY = {
 export const QUALITY_COMPACT = {
   jpeg: 86,
 };
+
+/** Second-pass / heavy assets — smaller files, acceptable on web (pass 2 only) */
+export const QUALITY_TIGHT = {
+  jpeg: 82,
+};
