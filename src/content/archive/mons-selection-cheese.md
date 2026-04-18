@@ -1,7 +1,7 @@
 ---
 slug: mons-selection-cheese
 title: "The Mons Selection: A Critical Tasting"
-date: "2026-06-20"
+date: "2026-01-05"
 author: "Leroy Brothers"
 image: "/assets/images/archive/mons-cheese.jpg"
 imageWidth: 654

@@ -1,6 +1,6 @@
 ---
 slug: declared-artwork
-date: "2026-02-15"
+date: "2026-04-25"
 title: "Toile Blanche: The Declared Artwork"
 author: "Leroy Brothers"
 image: "/assets/images/archive/declared-artwork.png"

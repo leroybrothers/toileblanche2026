@@ -1,7 +1,7 @@
 ---
 slug: twenty-thousand-silence
 title: "20,000m² of Silence: The Garden as a Living Medium"
-date: "2026-05-10"
+date: "2026-03-28"
 author: "Leroy Brothers"
 image: "/assets/images/archive/garden-silence.jpg"
 imageWidth: 1170
