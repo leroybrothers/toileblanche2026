@@ -32,6 +32,6 @@ This "Decentralization" means that privacy is not achieved through thick walls, 
 
 As we maintain these seven houses, we treat the stonework as an archival record. Each building represents a different era of the property's twelve-year assembly—from the first stone ruins we rescued in 2014 to the final "Declared" additions of 2026.
 
-Toile Blanche is a collection of homes that grew into one, and it is in the spaces between the houses where the soul of the work resides.
+Toile Blanche is a collection of homes that grew into one, and it is in the spaces between the houses where the soul of the artwork resides.
 
 Saint-Paul de Vence, 2026.

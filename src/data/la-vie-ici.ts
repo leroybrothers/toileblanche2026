@@ -112,7 +112,7 @@ const en: LaVieIciStrings = {
     'For nearly two centuries, the mas where it all began has stood here, rooted in Saint-Paul-de-Vence.',
     'In 1999, the Leroy family found it. They did not come to change it, but to reveal what it already was. Three rooms opened, simply. A home, before anything else.',
     'Their sons, Gregory, Gilles, and Nicolas, grew up between Belgium and Provence. They are artists. They saw the world. Then they came back. They are known as the Leroy Brothers.',
-    'Slowly, the place evolved. Without rupture. Without losing itself. A place to live, open and essential. A family. A home. A work of art that is lived in.',
+    'Slowly, the place evolved. Without rupture. Without losing itself. A place to live, open and essential. A family. A home. An artwork that is lived in.',
   ],
   namesLine:
     'Nadine · Dany · Gregory · Gilles · Nicolas · Caroline · Tahnee · Alexis · Agathe · Marius · Isaac',
@@ -137,7 +137,7 @@ const en: LaVieIciStrings = {
     bodyParagraphs: [
       'Four times a year, spring, summer, autumn, winter, the Leroy Brothers welcome a small number of guests. Collectors, amateurs, artists, attentive travellers. Five days, at their own pace.',
       'You arrive on Wednesday. You leave on Sunday. Your own suite. Time.',
-      'One evening, the Leroy Brothers share the table with their guests. Nothing is imposed in a house conceived as a work of art from its very first day.',
+      'One evening, the Leroy Brothers share the table with their guests. Nothing is imposed in a house conceived as an artwork from its very first day.',
     ],
     includesLabel: 'What La Semaine includes',
     includes: [
@@ -201,7 +201,7 @@ const en: LaVieIciStrings = {
       'L\u2019Atelier is a long stay, two weeks minimum, in the same suite throughout.',
     body4: 'Breakfast. The restaurant.',
     body5:
-      'The Leroy Brothers are here, engaged in their own work. The proximity is real, in shared moments, in conversations that emerge without ever being arranged.',
+      'The Leroy Brothers are here, working on their own artworks. The proximity is real, in shared moments, in conversations that emerge without ever being arranged.',
     accessLabel: 'Two moments',
     accessValue: 'Arrival. A conversation mid-stay.',
     accessNote:
@@ -266,23 +266,23 @@ const en: LaVieIciStrings = {
       'Several times a year, in spring, in summer, at the moment when the seasons shift, Toile Blanche opens wider.',
       'The circles expand.',
       'Artists, musicians, neighbours, collectors, friends, strangers passing through, presences mix without hierarchy.',
-      'An afternoon that slides into evening. A work that appears. A musician who plays. A table that lengthens. You arrive, you move through, you stay. Conversations begin, cross, continue elsewhere.',
+      'An afternoon that slides into evening. An artwork that appears. A musician who plays. A table that lengthens. You arrive, you move through, you stay. Conversations begin, cross, continue elsewhere.',
       'Les Sessions began in 2024. It is the most open thing we do. The most free, also.',
     ],
     linkText: 'Dates and upcoming sessions at toileblanchecontemporary.com',
   },
   artiste: {
     meta: 'Once a year, January or February',
-    lede: 'One artist. One month. One work that stays.',
+    lede: 'One artist. One month. One artwork that stays.',
     body1: 'Each winter, the Leroy Brothers invite one artist to come to Toile Blanche for a month.',
     body2:
       'The artist has full use of Toile Blanche. They work as they need to work, in the suite, in the grounds, in the studio by arrangement. The Brothers are present but not directive. The relationship develops as it develops.',
     body3:
-      'At the end of the stay, one work enters the permanent collection. It is installed and it remains. Future guests encounter it without being told its story, until they ask. The asking is the beginning of the conversation the invitation set in motion months earlier.',
+      'At the end of the stay, one artwork enters the permanent collection. It is installed and it remains. Future guests encounter it without being told its story, until they ask. The asking is the beginning of the conversation the invitation set in motion months earlier.',
     accessLabel: 'How it works',
     accessValue: 'A personal invitation, not an open call',
     accessNote:
-      "L\u2019Artiste Invité has no application process and no jury. It is an invitation extended by artists to an artist, once a year, in winter. The work that results is a consequence of the stay, not a deliverable.",
+      "L\u2019Artiste Invité has no application process and no jury. It is an invitation extended by artists to an artist, once a year, in winter. The artwork that results is a consequence of the stay, not a deliverable.",
   },
   ecrivain: {
     meta: 'Each winter, November through March',
@@ -306,7 +306,7 @@ const en: LaVieIciStrings = {
     bodyParagraphs: [
       'The environment in which a group thinks determines the quality of what it produces. This is the premise of Le Séminaire.',
       'Between November and March, Toile Blanche opens to small leadership groups for two to four days of serious work. Up to sixteen people, one suite each, weekdays only.',
-      'The working sessions take place in Mas de l\u2019Artiste, the oldest building at Toile Blanche, configured around a long table in a two-hundred-year-old mas. The room has stone walls, original beams, and a work from the collection on the wall. The environment is not incidental to the thinking. It is part of it.',
+      'The working sessions take place in Mas de l\u2019Artiste, the oldest building at Toile Blanche, configured around a long table in a two-hundred-year-old mas. The room has stone walls, original beams, and an artwork from the collection on the wall. The environment is not incidental to the thinking. It is part of it.',
       'Mornings are for work. Afternoons belong to Toile Blanche. The Leroy Brothers join for a drink before dinner on the first evening, if the group wishes. What happens after that is up to the group.',
     ],
     linkText: 'Full information and rates at leseminaire.toileblanche.com',

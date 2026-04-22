@@ -34,10 +34,6 @@ function extractQuotedAssetPaths(filePath) {
   while ((m = re.exec(s))) refs.add(m[1]);
 }
 
-const DATA_GLOBS = [
-  'src/data/**/*.json',
-];
-
 function walkDirForQuoted(dir, exts) {
   for (const name of readdirSync(dir)) {
     if (name === 'node_modules' || name === 'dist') continue;

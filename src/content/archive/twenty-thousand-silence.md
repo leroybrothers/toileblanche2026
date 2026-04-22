@@ -26,7 +26,7 @@ Our gardening philosophy is forensic: we intervene only to clarify the light or 
 
 The garden serves as the gallery floor for our permanent collection. The placement of works by Arik Levy, Gregory Orekhov, and the Leroy Brothers is never arbitrary.
 
-Each piece is sited to create a dialogue with the plants around it. A mirrored sculpture might be positioned to catch the silver undersides of olive leaves in the wind; a heavy stone work might be placed where the roots of a pine tree anchor the earth. As the seasons shift, the vegetation changes the context of the art. In summer, the lavender softens the industrial lines; in winter, the bare branches reveal the structural core of the pieces.
+Each piece is sited to create a dialogue with the plants around it. A mirrored sculpture might be positioned to catch the silver undersides of olive leaves in the wind; a heavy stone artwork might be placed where the roots of a pine tree anchor the earth. As the seasons shift, the vegetation changes the context of the art. In summer, the lavender softens the industrial lines; in winter, the bare branches reveal the structural core of the pieces.
 
 ## The Sensory Archive
 

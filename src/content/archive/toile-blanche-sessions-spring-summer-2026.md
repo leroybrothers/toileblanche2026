@@ -16,7 +16,7 @@ Since 2024, Toile Blanche Contemporary has presented artists through the Session
 
 **On now until 18 May**
 
-Holly Hendry (London, 1990) trained at the Slade School of Fine Art and the Royal College of Art. Her practice spans sculpture and works on paper, exploring the body, material systems, and organic processes. Public commissions include a permanent work for Birmingham City University. Solo exhibitions at the De La Warr Pavilion and Yorkshire Sculpture Park, with recent presentations at the Hayward Gallery and SCAD Museum of Art.
+Holly Hendry (London, 1990) trained at the Slade School of Fine Art and the Royal College of Art. Her practice spans sculpture and works on paper, exploring the body, material systems, and organic processes. Public commissions include a permanent artwork for Birmingham City University. Solo exhibitions at the De La Warr Pavilion and Yorkshire Sculpture Park, with recent presentations at the Hayward Gallery and SCAD Museum of Art.
 
 For Toile Blanche she presents a series of cyanotypes — raw works in which intense blues and abstracted forms interrogate light and shadow — alongside two sculptures.
 
@@ -24,7 +24,7 @@ For Toile Blanche she presents a series of cyanotypes — raw works in which int
 
 **21 May to 18 June**
 
-Belgian photographer Kris Dewitte (born 1967) has worked as a stills photographer on over a hundred international film productions, among them films by Justine Triet, Leos Carax, Abel Ferrara, and Joachim Lafosse. Selected for the Cannes Film Festival's 50th anniversary exhibition, his work has been shown at the Suntory Museum of Art in Japan, Kunst Forum Würth in Germany, and the Melkweg Gallery in Amsterdam. Fifteen books published, cinema as their primary subject.
+Belgian photographer Kris Dewitte (born 1967) has worked as a stills photographer on over a hundred international film productions, among them films by Justine Triet, Leos Carax, Abel Ferrara, and Joachim Lafosse. Selected for the Cannes Film Festival's 50th anniversary exhibition, his photographs have been shown at the Suntory Museum of Art in Japan, Kunst Forum Würth in Germany, and the Melkweg Gallery in Amsterdam. Fifteen books published, cinema as their primary subject.
 
 The exhibition opens during the Cannes Film Festival. It brings together photographs from his career on set — Scarlett Johansson, Morgan Freeman, Quentin Tarantino, Monica Bellucci, Ryan Gosling, David Lynch among others, caught in the unguarded space the camera rarely sees — alongside a new series made during his stay at Toile Blanche.
 
@@ -48,11 +48,11 @@ Presented in collaboration with Galerie Podgorny.
 
 **Mid-September to end of October**
 
-Gregory, Gilles, and Nicolas Leroy close the season with their own work. In 2026, the Brothers formally designated Toile Blanche a durational conceptual artwork — a declaration that reframes the building, its operations, its legal instruments, and its physical contents as a single artistic system.
+Gregory, Gilles, and Nicolas Leroy close the season with their own artworks. In 2026, the Brothers formally designated Toile Blanche a durational conceptual artwork — a declaration that reframes the building, its operations, its legal instruments, and its physical contents as a single artistic system.
 
 Since that designation, they have been producing a series of study drawings documenting the works contained within the property: pencil on Arches 300gsm, executed in a register borrowed from architectural drafting and forensic field documentation.
 
-This exhibition presents a selection from that body of work in progress.
+This exhibition presents a selection from those artworks in progress.
 
 ---
 
