@@ -1961,7 +1961,7 @@ a.tb-book-cta-link {
 
 /* ─── Direct Privilege (pre-footer conversion block) ─────────────────────── */
 .tb-direct-privilege {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 96px 80px;
   text-align: center;
@@ -1987,10 +1987,16 @@ a.tb-book-cta-link {
 
 .tb-dp-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 48px;
   text-align: left;
   margin-bottom: 56px;
+}
+
+@media (max-width: 1200px) {
+  .tb-dp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .tb-dp-item {
