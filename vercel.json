@@ -11,6 +11,11 @@
       "has": [{"type": "host", "value": "guinguette.toileblanche.com"}],
       "destination": "https://toileblanche.com/la-guinguette",
       "permanent": true
+    },
+    {
+      "source": "/soir",
+      "destination": "https://open.spotify.com/playlist/3QkhqHiuPlUBnJG4iI260v?si=52891d2548f54775&nd=1&dlsi=40e46e19ff654258",
+      "permanent": true
     }
   ],
   "headers": [
