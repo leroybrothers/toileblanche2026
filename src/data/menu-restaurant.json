@@ -13,18 +13,18 @@
   },
   "set_menu": {
     "title": "Toile Blanche",
-    "price": 69,
+    "price": 71,
     "courses": [
       {
         "type": { "fr": "Entrée", "en": "Starter" },
         "options": [
           {
-            "fr": "Langoustines rôties puis saisies dans une nage de crustacés, avocat, citron combawa, céleri et poire nashi, Goma wakamé.",
-            "en": "Roasted langoustines seared in a shellfish broth, avocado, combawa lemon, celery and nashi pear, Goma wakame."
+            "fr": "Feuille à feuille de betteraves multicolores : Marinées au vinaigre kalamansi, ricotta, câpres frites, pamplemousse et pralin noisette.",
+            "en": "Multicoloured Beetroot: Leaf-by-leaf arrangement marinated in kalamansi vinegar, with ricotta, fried capers, grapefruit, and hazelnut praline."
           },
           {
-            "fr": "Tortellinis maison de carotte d'hiver, potimarron, gomasio au romarin, écume végétale d'oignons doux des Cévennes.",
-            "en": "Homemade tortellini with winter carrots, pumpkin, rosemary gomasio, and a vegetable foam made from sweet onions from the Cévennes."
+            "fr": "Gravlax de Sériole de Méditerranée : Avocat, vinaigrette « passion, citronnelle, Granny Smith », huile verte de capucine.",
+            "en": "Mediterranean Amberjack Gravlax: Served with avocado, \"passion fruit, lemongrass, and Granny Smith\" vinaigrette, and nasturtium oil."
           }
         ]
       },
@@ -32,12 +32,12 @@
         "type": { "fr": "Plat", "en": "Main" },
         "options": [
           {
-            "fr": "Lieu jaune sauvage grillé, écume chaude de haddock, chips de riz aux algues nori, pomme de terre fondante, condiment au citron cédrat.",
-            "en": "Grilled wild pollock, warm haddock foam, nori seaweed rice crisps, creamy potatoes, cedrat lemon condiment."
+            "fr": "Dos de bar rôti : Tomate cœur de bœuf, fenouil confit, venus, granola salé, sauce Maltaise.",
+            "en": "Roasted Sea Bass Fillet: Served with tomato, confit fennel, Venus clams, savoury granola, and Maltese sauce."
           },
           {
-            "fr": "Volaille fermière grillée au barbecue, panais, cacahuètes, lard de Colonnata et jus de viande.",
-            "en": "Barbecued free-range poultry, parsnips, peanuts, Colonnata bacon and meat juices."
+            "fr": "Carré d'agneau des Alpilles : Fine ratatouille en cannelloni d'aubergine, pommes dauphine aux pignons de pins et jus de viande.",
+            "en": "Rack of Lamb from the Alpilles: Served with delicate ratatouille in aubergine cannelloni, dauphine potatoes with pine nuts, and gravy."
           }
         ]
       },
@@ -45,12 +45,12 @@
         "type": { "fr": "Dessert", "en": "Dessert" },
         "options": [
           {
-            "fr": "Chocolat Ocoa 70%, crumble aux amandes, crème glacée mascarpone, fleur de sel et réduction de balsamique.",
-            "en": "Ocoa 70% chocolate, crumble with almonds, mascarpone ice cream, fleur de sel, and balsamic reduction."
+            "fr": "Chocolat Ocoa 70% : Crumble aux amandes, crème glacée mascarpone, fleur de sel et réduction de balsamique.",
+            "en": "Ocoa 70% Chocolate: With almond crumble, mascarpone ice cream, fleur de sel, and balsamic reduction."
           },
           {
-            "fr": "Baba au Rhum, ananas rôti au poivre de Timut, crème végétale au lait de coco, condiment fruit de la passion.",
-            "en": "Rum Baba, roasted pineapple with Timut pepper, coconut milk cream, passion fruit condiment."
+            "fr": "Financiers aux éclats de pistache : Framboise au jus, écume froide au lait vanillé, riz soufflé.",
+            "en": "Pistachio Financiers: With raspberry juice, cold vanilla milk foam, and puffed rice."
           }
         ]
       }
@@ -61,24 +61,29 @@
       "title": { "fr": "Nos Entrées", "en": "Starters" },
       "items": [
         {
-          "fr": "Langoustines rôties puis saisies dans une nage de crustacés, avocat, citron combawa, céleri et poire nashi, Goma wakamé.",
-          "en": "Roasted langoustines seared in a shellfish broth, avocado, combawa lemon, celery and nashi pear, Goma wakame.",
-          "price": 26
+          "fr": "Tentacule de poulpe grillé au BBQ : Courgette du pays en écrasée, la trompette en salade, sumac, citron confit et aïoli provençal.",
+          "en": "BBQ-Grilled Octopus Tentacle: Mashed local zucchini, zucchini trumpet salad, sumac, candied lemon, and Provençal aïoli.",
+          "price": 28
         },
         {
-          "fr": "Pot-au-feu de foie gras et os à moelle, pousses de moutarde, navet boule d'or, rutabaga et chou kale.",
-          "en": "Pot-au-feu with foie gras and marrow bones, mustard shoots, golden turnips, rutabaga and kale.",
-          "price": 29
+          "fr": "6 escargots du Var à la bourguignonne.",
+          "en": "Snails from the Var (6 pieces): Prepared Burgundy-style.",
+          "price": 21
         },
         {
-          "fr": "Tortellinis maison de carotte d'hiver, potimarron, gomasio au romarin, écume végétale d'oignons doux des Cévennes.",
-          "en": "Homemade tortellini with winter carrots, pumpkin, rosemary gomasio, and a vegetable foam made from sweet onions from the Cévennes.",
-          "price": 22
+          "fr": "Feuille à feuille de betteraves multicolores marinées (V).",
+          "en": "Multicoloured Beetroot Arrangement: Marinated in kalamansi vinegar, ricotta, fried capers, and hazelnut praline.",
+          "price": 25
         },
         {
-          "fr": "Les incontournables 'Petits Farcis Niçois'",
-          "en": "The must-have 'Petits Farcis Niçois'",
-          "price": 24
+          "fr": "Tartare de veau au couteau : Artichaut poivrade en barigoule, parmesan, cœur de sucrine grillée, sauce tonnato.",
+          "en": "Knife-cut Veal Tartare: Artichoke poivrade, Parmesan, grilled Sucrine, and tonnato sauce.",
+          "price": 27
+        },
+        {
+          "fr": "Gravlax de Sériole de Méditerranée : Avocat, vinaigrette passion, citronnelle, Granny Smith.",
+          "en": "Mediterranean Amberjack Gravlax: Avocado, lemongrass and Granny Smith vinaigrette.",
+          "price": 28
         }
       ]
     },
@@ -88,7 +93,7 @@
         "items": [
           {
             "fr": "Légumes de saison rôtis, déclinés en différentes textures, Pesto basilic et parmesan.",
-            "en": "Roasted seasonal vegetables in different textures, basil and parmesan pesto.",
+            "en": "Roasted Seasonal Vegetables: Various textures with basil and Parmesan pesto.",
             "price": 24
           }
         ]
@@ -97,19 +102,19 @@
         "title": { "fr": "La Mer", "en": "The Sea" },
         "items": [
           {
-            "fr": "Lieu jaune sauvage grillé, écume chaude de haddock, chips de riz aux algues nori, pomme de terre fondante, condiment au citron cédrat.",
-            "en": "Grilled wild pollock, warm haddock foam, nori seaweed rice crisps, creamy potatoes, cedrat lemon condiment.",
-            "price": 36
+            "fr": "Dos de bar rôti : Tomate cœur de bœuf, fenouil confit, Vénus, granola « salé », sauce Maltaise.",
+            "en": "Roasted Sea Bass Fillet: Tomato, confit fennel, Venus clams, and Maltese sauce.",
+            "price": 38
           },
           {
-            "fr": "Linguine de Gragnano, homard rôti au beurre de Salicorne, bisque de crustacés et citron confit.",
-            "en": "Gragnano linguine, lobster roasted with samphire butter, shellfish bisque and candied lemon.",
-            "price": 48
+            "fr": "Linguine de Gragnano : Homard rôti au beurre de Salicorne, bisque de crustacés et citron confits.",
+            "en": "Gragnano Linguine with Lobster: Roasted with sea samphire butter, shellfish bisque, and candied lemon.",
+            "price": 49
           },
           {
             "fr": "Poisson du jour grillé, sauce vierge de saison, accompagnement au choix.",
-            "en": "Grilled fish of the day, seasonal virgin sauce, choice of side dishes.",
-            "price": 32
+            "en": "Grilled Fish of the Day: Seasonal virgin sauce and choice of side.",
+            "price": 36
           }
         ]
       },
@@ -117,18 +122,18 @@
         "title": { "fr": "La Terre", "en": "The Land" },
         "items": [
           {
-            "fr": "Volaille fermière grillée au barbecue, panais, cacahuètes, lard de Colonnata et jus de viande.",
-            "en": "Barbecued free-range poultry, parsnips, peanuts, Colonnata bacon and meat juices.",
-            "price": 32
+            "fr": "Pluma ibérique juste grillée au romarin : Petits pois/carottes à la française, sucrine, jus court au wasabi.",
+            "en": "Pluma Iberico: Lightly grilled with rosemary, French-style peas and carrots, and wasabi reduction.",
+            "price": 39
           },
           {
-            "fr": "Filet de Boeuf Simmenthal, petite salade avec vinaigrette, frites maison au Parmesan et à l'huile de Truffe. Sauce poivre vert ou jus de veau.",
-            "en": "Simmenthal beef fillet, small salad with vinaigrette, homemade fries with Parmesan and truffle oil. Green pepper sauce or veal gravy.",
-            "price": 43
+            "fr": "Filet de Boeuf Simmental : Petite salade avec vinaigrette, frites maison au Parmesan et à l'huile de Truffe. Sauce poivre vert ou jus de veau.",
+            "en": "Simmental Beef Fillet: Homemade fries with Parmesan and truffle oil, served with green pepper sauce or veal gravy.",
+            "price": 45
           },
           {
-            "fr": "Carré de Porcelet braisé au romarin, feuille à feuille de blettes et oignons blancs, pomme gaufrette, moutarde à l'ancienne.",
-            "en": "Braised rack of pork with rosemary, Swiss chard and white onions, waffle potatoes, with traditional wholegrain mustard.",
+            "fr": "Carré d'agneau des Alpilles : Fine ratatouille en cannelloni d'aubergine, pommes dauphine aux pignons de pins et jus de viande.",
+            "en": "Rack of Lamb from the Alpilles: Ratatouille in aubergine cannelloni and pine nut dauphine potatoes.",
             "price": 37
           }
         ]
@@ -150,28 +155,28 @@
       "items": [
         {
           "fr": "Sélection de fromages par la maison Mons (MOF)",
-          "en": "Selection of cheeses by Maison Mons (MOF)",
-          "price": 14
+          "en": "Selection by Mons (MOF): Comté (24 months), Langres, Goat cheese, and Fourme d'Ambert.",
+          "price": 17
         },
         {
-          "fr": "Chocolat Ocoa 70% crumble aux amandes, crème glacée mascarpone, fleur de sel et réduction de balsamique.",
-          "en": "Ocoa 70% chocolate crumble with almonds, mascarpone ice cream, fleur de sel, and balsamic reduction.",
-          "price": 14
+          "fr": "Chocolat Ocoa 70% : Crumble aux amandes, crème glacée mascarpone, fleur de sel et réduction de balsamique.",
+          "en": "Ocoa 70% Chocolate Crumble: Almonds, mascarpone ice cream, and balsamic reduction.",
+          "price": 15
         },
         {
-          "fr": "Baba au Rhum, ananas rôti au poivre de Timut, crème végétale au lait de coco, condiment fruit de la passion.",
-          "en": "Rum Baba, roasted pineapple with Timut pepper, coconut milk cream, passion fruit condiment.",
-          "price": 14
+          "fr": "Financiers aux éclats de pistache : Framboise au jus, écume froide au lait vanillé, riz soufflé.",
+          "en": "Pistachio Financiers: Raspberry juice, cold vanilla milk foam, and puffed rice.",
+          "price": 15
         },
         {
-          "fr": "L'agrume dans tous ses états : cédrat confit, limoncello en fine gelée, orange sanguine, kalamansi et sorbet lemon curd.",
-          "en": "Citrus fruits in all their forms: candied citron, limoncello in fine jelly, blood orange, kalamansi and lemon curd sorbet.",
-          "price": 14
+          "fr": "Variation autour du pamplemousse : Écorce confite, Apérol en fine gelée, sorbet et segment de pamplemousse, meringue verveine.",
+          "en": "Grapefruit Variation: Candied bark, Aperol jelly, sorbet, and verbena meringue.",
+          "price": 15
         },
         {
-          "fr": "Pain d'épices grillé, glace yaourt, pollen, lavande et miel de rayon.",
-          "en": "Toasted gingerbread, yogurt ice cream, pollen, lavender, and honeycomb honey.",
-          "price": 14
+          "fr": "Millefeuille de pomme façon tarte Tatin : Caramel au beurre salé, crème végétale légèrement acidulée, Granny Smith au vinaigre de grenade.",
+          "en": "Apple Millefeuille (Tatin-style): Salted butter caramel and Granny Smith in pomegranate vinegar.",
+          "price": 15
         }
       ]
     }
