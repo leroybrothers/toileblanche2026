@@ -50,7 +50,7 @@ const en: LHiverCopy = {
   ],
   includesBoxLabel: 'Every winter offer includes',
   includesLines: [
-    'Breakfast, always included.',
+    'Complimentary breakfast, always.',
     'Direct booking only. November through March.',
     'Offers are not valid during the weeks of Christmas and New Year.',
   ],
@@ -95,7 +95,7 @@ const fr: LHiverCopy = {
   ],
   includesBoxLabel: 'Chaque offre hiver comprend',
   includesLines: [
-    'Petit-déjeuner, toujours inclus.',
+    'Petit-déjeuner, toujours offert.',
     'Réservation directe uniquement. Novembre à mars.',
     'Les offres ne sont pas valables durant les semaines de Noël et du Nouvel An.',
   ],
