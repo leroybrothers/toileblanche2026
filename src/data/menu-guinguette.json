@@ -16,11 +16,6 @@
       "title": { "fr": "Salé", "en": "Savoury" },
       "items": [
         {
-          "fr": "Menu enfant : nuggets / patatas bravas + glace enfant (vanille, citron ou chocolat)",
-          "en": "Children's meal: chicken nuggets / patatas bravas + ice cream (vanilla, lemon or chocolate)",
-          "price": 14
-        },
-        {
           "fr": "Jambon de Bayonne « Domaine Abotia »",
           "en": "Bayonne ham « Domaine Abotia »",
           "price": 16
@@ -129,6 +124,11 @@
           "fr": "Patatas bravas",
           "en": "Patatas bravas, spicy potatoes",
           "price": 9
+        },
+        {
+          "fr": "Menu enfant : nuggets / patatas bravas + glace enfant (vanille, citron ou chocolat)",
+          "en": "Children's meal: chicken nuggets / patatas bravas + ice cream (vanilla, lemon or chocolate)",
+          "price": 14
         }
       ]
     },
