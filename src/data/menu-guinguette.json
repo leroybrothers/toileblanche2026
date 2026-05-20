@@ -2,12 +2,12 @@
   "meta": {
     "restaurant": "La Guinguette de Toile Blanche",
     "season": {
-      "fr": "Hiver 2025/26",
-      "en": "Winter 2025/26"
+      "fr": "Été 2026",
+      "en": "Summer 2026"
     },
     "philosophy": {
-      "fr": "La carte est variée. Les producteurs et le jardin donnent le ton.",
-      "en": "The menu is varied. Producers and the garden set the tone."
+      "fr": "La Méditerranée s'invite à votre table ! Choisissez vos plats préférés, ils seront servis en milieu de table pour que tous les convives puissent se régaler.",
+      "en": "The Mediterranean invites itself to your table! Choose your favourite dishes, which will be served centre-on the table so everyone can enjoy their meal."
     }
   },
   "sections": [
@@ -16,99 +16,119 @@
       "title": { "fr": "Salé", "en": "Savoury" },
       "items": [
         {
-          "fr": "Sardines à l'huile d'olive 'Made in Provence' Maison FERRIGNO",
-          "en": "Sardines in olive oil 'Made in Provence' by Maison Ferrigno",
-          "price": 13
+          "fr": "Menu enfant : nuggets / patatas bravas + glace enfant (vanille, citron ou chocolat)",
+          "en": "Children's meal: chicken nuggets / patatas bravas + ice cream (vanilla, lemon or chocolate)",
+          "price": 14
         },
         {
-          "fr": "Jambon à la truffe d'été de la maison 'Bobosse', cornichons",
-          "en": "Summer truffle ham from Maison Bobosse, pickles",
-          "price": 17
+          "fr": "Jambon de Bayonne « Domaine Abotia »",
+          "en": "Bayonne ham « Domaine Abotia »",
+          "price": 16
         },
         {
-          "fr": "Saucisson fermier, pickles de légumes",
-          "en": "Farmhouse sausage, homemade vegetable pickles",
+          "fr": "Saucisson fermier, « Maison Targe », pickles de légumes",
+          "en": "Farmhouse sausage « Maison Targe », vegetable pickles",
+          "price": 12
+        },
+        {
+          "fr": "Sardines à l'huile d'olive « Made in Provence » Maison FERRIGNO",
+          "en": "Sardines in olive oil « Made in Provence » Maison FERRIGNO",
           "price": 12
         },
         {
           "fr": "Focaccia façon pissaladière, anchoïade et olives taggiasche",
           "en": "Pissaladière-style focaccia, anchovy paste and Taggiasca olives",
-          "price": 14
-        },
-        {
-          "fr": "Bol de mesclun niçois, pignons grillés, huile d'olive 'Maison Lucangeli'",
-          "en": "Niçois mesclun salad, toasted pine nuts, Maison Lucangeli olive oil",
-          "price": 9
-        },
-        {
-          "fr": "Taboulé Méditerranéen, citron confit, concombre, pruneaux, grenade et coriandre fraîche",
-          "en": "Mediterranean tabbouleh, candied lemon, cucumber, prunes, pomegranate, fresh coriander",
-          "price": 14
-        },
-        {
-          "fr": "Frites de panisse, origan du jardin, huile d'olive",
-          "en": "Panisse fries, garden oregano, olive oil",
-          "price": 11
-        },
-        {
-          "fr": "L'œuf de poule, aïoli vert, romaine et graine de moutarde",
-          "en": "Egg, green aïoli, romaine lettuce, mustard seeds",
-          "price": 14
-        },
-        {
-          "fr": "Escargots du Var à la bourguignonne (6 pièces)",
-          "en": "Burgundy-style snails from the Var (6 pieces)",
-          "price": 19
-        },
-        {
-          "fr": "Carpaccio de betteraves, noisettes, agrumes, kalamansi, câpres, ricotta",
-          "en": "Beetroot carpaccio, hazelnuts, citrus, kalamansi, capers, ricotta",
-          "price": 14
-        },
-        {
-          "fr": "Poivrons grillés à l'huile d'olive, filets d'anchois, ail confit",
-          "en": "Grilled peppers, olive oil, anchovy fillets, garlic confit",
           "price": 13
         },
         {
-          "fr": "Couteaux gratinés, gremolata au citron et herbes fraîches",
-          "en": "Gratinated razor clams, lemon gremolata, fresh herbs",
-          "price": 19
+          "fr": "Beignets de fleurs de courgettes, pesto tomate basilic",
+          "en": "Zucchini flower fritters, tomato-basil pesto",
+          "price": 16
         },
         {
-          "fr": "'Pêche du Jour' fumée au bois de genévrier, crème légère ciboulette, pickles de navets 'Daikon'",
-          "en": "Catch of the day, juniper-smoked, light chive cream, daikon turnip pickles",
-          "price": 21
+          "fr": "Poivrons grillés à l'huile d'olive, filets d'anchois, ail confit, olives taggiasche",
+          "en": "Grilled peppers with olive oil, anchovy fillets, confit garlic, Taggiasca olives",
+          "price": 15
         },
         {
-          "fr": "Tentacule de poulpe à la plancha, courge butternut, olive taggiasche, tahini",
-          "en": "Plancha-grilled octopus tentacle, butternut squash, Taggiasca olives, tahini",
-          "price": 22
+          "fr": "Frites de panisse à l'origan, pesto tomate maison",
+          "en": "Panisse fries with oregano, homemade tomato pesto",
+          "price": 12
         },
         {
-          "fr": "Patatas bravas aux paprika doux fumé",
-          "en": "Patatas bravas, smoked sweet paprika",
+          "fr": "Burrata artisanale, tomate « cœur de bœuf », nectarine",
+          "en": "Artisanal burrata, « Coeur de boeuf » tomato and nectarine",
+          "price": 17
+        },
+        {
+          "fr": "Taboulé méditerranéen au citron confit, concombre, tomate",
+          "en": "Mediterranean tabbouleh with preserved lemon, cucumber, tomato",
+          "price": 15
+        },
+        {
+          "fr": "Bol de mesclun niçois, pignons grillés, huile d'olive « Maison Lucangeli »",
+          "en": "Niçois mesclun salad, toasted pine nuts, « Maison Lucangeli » olive oil",
           "price": 9
         },
         {
-          "fr": "Chou farci comme un 'Lu Capoun', légumes de saison confits, pesto basilic",
-          "en": "Stuffed cabbage 'Lu Capoun' style, confit seasonal vegetables, basil pesto",
+          "fr": "Tranche de pastèque, feta, grenade, basilic",
+          "en": "Slice of watermelon, feta, pomegranate and balsamico",
+          "price": 12
+        },
+        {
+          "fr": "Salade Niçoise, Tataki de thon rouge, artichauts, cébette",
+          "en": "Niçoise salad with red tuna tataki, artichokes, spring onion",
+          "price": 18
+        },
+        {
+          "fr": "Les Petits farcis Niçois (3 pièces), l'incontournable",
+          "en": "Les Petits farcis Niçois (3 stuffed vegetables), the classic",
+          "price": 15
+        },
+        {
+          "fr": "Le traditionnel Pan Bagnat (servi en bouchées)",
+          "en": "Traditional Pan Bagnat (served as sharing bites)",
+          "price": 14
+        },
+        {
+          "fr": "La « pêche du jour » en gravlax, guacamole d'avocat, passion",
+          "en": "Catch of the day gravlax, avocado guacamole, passion fruit",
           "price": 19
         },
         {
-          "fr": "Picanha de bœuf grillé, sauce chimichurri",
-          "en": "Grilled picanha beef, chimichurri sauce",
+          "fr": "Carpaccio de poulpe, marinade citron-xérès-sumac, roquette",
+          "en": "Octopus carpaccio, lemon, sherry and sumac marinade, arugula",
+          "price": 23
+        },
+        {
+          "fr": "Pescaito fritto, tarama maison aux épices zaatar",
+          "en": "Fried pescaito, house tarama with zaatar spices",
+          "price": 18
+        },
+        {
+          "fr": "Noix de veau Vitello Tonnato, câpres, oignons rouges, roquette",
+          "en": "Veal Vitello Tonnato, capers, red onions, arugula",
+          "price": 21
+        },
+        {
+          "fr": "Gambas à la plancha (4 pièces), citron vert, basilic",
+          "en": "Grilled prawns (4 pieces), lime, basil",
           "price": 24
         },
         {
-          "fr": "Côte de veau (600/700g) braisée au romarin, moutarde à l'ancienne et jus de viande",
-          "en": "Rosemary-braised veal chop (600/700g), wholegrain mustard, meat juices",
-          "price": 56
+          "fr": "Picanha de cochon à la plancha, marinade soja & sésame",
+          "en": "Grilled pork picanha, soy & sesame marinade",
+          "price": 20
         },
         {
-          "fr": "Le plat enfant (nuggets/patatas bravas) & glace enfant (vanille, citron ou chocolat)",
-          "en": "Children's meal (nuggets/patatas bravas) & ice cream (vanilla, lemon or chocolate)",
-          "price": 14
+          "fr": "Carré d'agneau grillé (4 côtes), épices cajun, ail confit",
+          "en": "Grilled rack of lamb (4 chops), Cajun spices, confit garlic",
+          "price": 28
+        },
+        {
+          "fr": "Patatas bravas",
+          "en": "Patatas bravas, spicy potatoes",
+          "price": 9
         }
       ]
     },
@@ -117,38 +137,38 @@
       "title": { "fr": "Sucré", "en": "Sweet" },
       "items": [
         {
+          "fr": "Gaspacho de fruit, citron, basilic",
+          "en": "Fruit gazpacho, lemon, basil",
+          "price": 9
+        },
+        {
           "fr": "Chocolat Ocoa 70%, crumble cacao, fleur de sel",
           "en": "Ocoa 70% chocolate, cocoa crumble, fleur de sel",
+          "price": 12
+        },
+        {
+          "fr": "Fougassette maison, mascarpone, fruits rouges",
+          "en": "Homemade fougassette, mascarpone, red berries",
           "price": 9
         },
         {
-          "fr": "Cheesecake maison, ananas, noix de coco, citron vert",
-          "en": "Homemade cheesecake, pineapple, coconut, lime",
+          "fr": "Tranche de clafoutis maison aux fruits de saison",
+          "en": "Slice of homemade seasonal fruit clafoutis",
           "price": 9
         },
         {
-          "fr": "Ganse niçoise, pomme confite à la fleur d'oranger",
-          "en": "Niçoise ganse pastry, confit apple, orange blossom",
+          "fr": "Coupe sorbets (mangue, ananas, citron)",
+          "en": "Sorbet cup (mango, passion fruit, lemon)",
           "price": 9
         },
         {
-          "fr": "Sélection de fromages de la maison Mons (MOF), confit de fruits de saison",
-          "en": "Cheese selection by Maison Mons (MOF), seasonal fruit confit",
-          "price": 16
+          "fr": "Coupe colonel citron vodka",
+          "en": "Colonel cup (lemon sorbet, vodka)",
+          "price": 12
         },
         {
-          "fr": "Dame blanche",
-          "en": "Dame Blanche sundae",
-          "price": 9
-        },
-        {
-          "fr": "Coupe sorbets (mangue, ananas, agrumes)",
-          "en": "Sorbet cup (mango, pineapple, citrus)",
-          "price": 9
-        },
-        {
-          "fr": "Café affogato, noisettes",
-          "en": "Affogato, hazelnut",
+          "fr": "Coupe Affogato (expresso over gelato)",
+          "en": "Affogato cup (espresso poured over ice cream)",
           "price": 9
         }
       ]
