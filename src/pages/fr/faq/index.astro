@@ -152,16 +152,23 @@ const faqSchema = {
     color: #6B6256;
     max-width: 700px;
   }
-  .faq-answer a {
+  .faq-answer :global(a) {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
     color: #9e5c4a;
     text-decoration: none;
     border-bottom: 1px solid rgba(158, 92, 74, 0.3);
     transition: border-color 0.2s;
   }
-  .faq-answer a:hover {
+  .faq-answer :global(a:hover) {
     border-color: #9e5c4a;
   }
-  .faq-answer strong {
+  .faq-answer :global(strong) {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 600;
     color: #3D3530;
   }
 
