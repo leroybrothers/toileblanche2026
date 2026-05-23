@@ -1882,8 +1882,16 @@ body.tb-menu-open .overlap-section-top {
   gap: 0.75rem;
 }
 
-.footer-slh img {
+.footer-michelin-key img {
   height: 48px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* SLH mark has inset padding in the SVG — scale up for optical match with Michelin Key */
+.footer-slh img {
+  height: 60px;
   width: auto;
   display: block;
   object-fit: contain;
