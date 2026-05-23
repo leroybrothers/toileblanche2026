@@ -916,6 +916,7 @@ body.tb-menu-open .overlap-section-top {
     color: var(--color-ink) !important;
     text-decoration: none;
     opacity: 0.7;
+    white-space: nowrap;
   }
 
   .tb-menu-mobile-secondary-link:hover {
@@ -1085,6 +1086,7 @@ body.tb-menu-open .overlap-section-top {
 
 .tb-menu-info-footer .tb-menu-info-link {
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 /* ─── Suite Explorer: hidden in menu (desktop menu = clean nav only, like mobile) ─── */
