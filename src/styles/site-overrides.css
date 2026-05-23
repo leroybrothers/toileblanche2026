@@ -1225,10 +1225,8 @@ body.tb-menu-open .overlap-section-top {
 
 /* ─── Menu affiliations (Michelin Key + Condé Nast + SLH) ───────────────── */
 .tb-menu-affiliations {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
-  align-items: end;
+  display: flex;
+  align-items: flex-end;
   width: 100%;
   max-width: var(--max-w-wide);
   margin-inline: auto;
@@ -1311,14 +1309,15 @@ body.tb-menu-open .overlap-section-top {
 .tb-affil-slh {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 0.5rem;
-  opacity: 0.55;
+  flex-shrink: 0;
+  opacity: 0.85;
   transition: opacity 0.6s ease;
 }
 
 .tb-affil-slh:hover {
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .tb-affil-caption {
@@ -1331,10 +1330,11 @@ body.tb-menu-open .overlap-section-top {
 }
 
 .tb-affil-slh img {
-  height: 80px !important;
-  width: 78px !important;
+  height: calc(80px + 0.6rem + var(--text-xs)) !important;
+  width: auto !important;
+  max-width: none !important;
   object-fit: contain !important;
-  object-position: right center !important;
+  object-position: left center !important;
   display: block !important;
 }
 
@@ -1357,15 +1357,9 @@ body.tb-menu-open .overlap-section-top {
   }
 
   .tb-menu-desktop .tb-affil-slh img {
-    height: 64px !important;
-    width: 62px !important;
+    height: calc(64px + 0.6rem + var(--text-xs)) !important;
+    width: auto !important;
   }
-}
-
-/* Temporary: hide SLH logo in menu — remove this block to restore */
-.tb-affil-slh,
-.tb-menu-mobile-affiliations .tb-menu-mobile-affil-img:last-child {
-  display: none !important;
 }
 
 /* ─── Hero text color: white over images, dark on plain backgrounds ────────── */
@@ -1886,6 +1880,13 @@ body.tb-menu-open .overlap-section-top {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
+}
+
+.footer-slh img {
+  height: 48px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .footer-cnt-badge-img {

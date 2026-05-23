@@ -91,6 +91,10 @@ const cntReadersChoiceUrl =
         <img src="/assets/images/affiliations/michelin-key.png" alt="MICHELIN Key" width="80" height="80" loading="lazy" />
         <span class="tb-affil-label">Michelin Key</span>
       </div>
+      <div class="tb-affil-slh">
+        <img src="/assets/images/affiliations/logo-slh.svg" alt="Small Luxury Hotels of the World" width="80" height="40" loading="lazy" />
+        <span class="tb-affil-caption">{locale === 'fr' ? 'Affilié' : 'Affiliated'}</span>
+      </div>
       <a
         href={cntReadersChoiceUrl}
         class="tb-affil-cnt"
@@ -106,10 +110,6 @@ const cntReadersChoiceUrl =
           loading="lazy"
         />
       </a>
-    </div>
-    <div class="tb-affil-slh">
-      <img src="/assets/images/affiliations/logo-slh.svg" alt="Small Luxury Hotels of the World" width="80" height="40" loading="lazy" />
-      <span class="tb-affil-caption">{locale === 'fr' ? 'Affilié' : 'Affiliated'}</span>
     </div>
   </div>
 </div>
@@ -161,6 +161,7 @@ const cntReadersChoiceUrl =
 
   <div class="tb-menu-mobile-affiliations">
     <img src="/assets/images/affiliations/michelin-key.png" alt="MICHELIN Key" width="80" height="80" loading="lazy" class="tb-menu-mobile-affil-img" />
+    <img src="/assets/images/affiliations/logo-slh.svg" alt="Small Luxury Hotels of the World" width="80" height="40" loading="lazy" class="tb-menu-mobile-affil-img tb-menu-mobile-affil-slh" />
     <a
       href={cntReadersChoiceUrl}
       class="tb-affil-cnt tb-affil-cnt--mobile"
@@ -177,6 +178,5 @@ const cntReadersChoiceUrl =
         class="tb-menu-mobile-affil-img"
       />
     </a>
-    <img src="/assets/images/affiliations/logo-slh.svg" alt="SLH" width="80" height="40" loading="lazy" class="tb-menu-mobile-affil-img" />
   </div>
 </div>
