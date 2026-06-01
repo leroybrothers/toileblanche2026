@@ -7,6 +7,8 @@ export interface Props {
 const locale = Astro.props.locale ?? getLocaleFromPath(Astro.url.pathname);
 const t = useTranslations(locale);
 const lp = (path: string) => localePath(path, locale);
+const cntReadersChoiceUrl =
+  'https://condenast-interactive.typeform.com/to/ECgybVMv?typeform-source=www.cntraveller.com';
 ---
 
 <footer class="footer-section">
@@ -28,6 +30,25 @@ const lp = (path: string) => localePath(path, locale);
             <span class="footer-social-link footer-michelin-key" aria-hidden="true">
               <img src="/assets/images/affiliations/michelin-key.png" alt="MICHELIN Key" width="48" height="48" loading="lazy" />
             </span>
+            <span class="footer-social-link footer-slh" aria-hidden="true">
+              <img src="/assets/images/affiliations/logo-slh.svg" alt="Small Luxury Hotels of the World" loading="lazy" class="footer-slh-img" />
+            </span>
+            <a
+              href={cntReadersChoiceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-social-link footer-cnt-readers-choice w-inline-block"
+              aria-label={t.nav.cntReadersChoiceAria}
+            >
+              <img
+                src="/assets/images/affiliations/conde-nast-traveller-readers-choice.png"
+                alt=""
+                width="48"
+                height="48"
+                loading="lazy"
+                class="footer-cnt-badge-img"
+              />
+            </a>
           </div>
         </div>
 
@@ -35,16 +56,23 @@ const lp = (path: string) => localePath(path, locale);
           <a href={lp('/suites')} class="footer-link">{t.nav.suites}</a>
           <a href={lp('/restaurants')} class="footer-link">{t.nav.restaurants}</a>
           <a href={lp('/art')} class="footer-link">{t.nav.theArt}</a>
+          <a href={lp('/la-vie-ici')} class="footer-link">{t.nav.laVieIci}</a>
           <a href={lp('/experiences')} class="footer-link">{t.nav.experiences}</a>
           <a href={lp('/the-property')} class="footer-link">{t.nav.theProperty}</a>
         </nav>
 
         <nav class="footer-menu" aria-label="Footer navigation - secondary">
           <a href={lp('/about')} class="footer-link">{t.nav.about}</a>
-          <a href={lp('/upcoming-events')} class="footer-link">{t.nav.events}</a>
+          <a href={lp('/l-hiver')} class="footer-link">{t.nav.lHiver}</a>
           <a href={lp('/blog')} class="footer-link">{t.nav.archive}</a>
           <a href={lp('/press')} class="footer-link">{t.nav.press}</a>
           <a href={lp('/faq')} class="footer-link">{t.nav.faq}</a>
+          <a
+            href="https://leseminaire.toileblanche.com"
+            class="footer-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >{t.nav.seminaire}</a>
         </nav>
 
         <div class="footer-contact">

@@ -1,24 +1,24 @@
 ---
 slug: declared-artwork
-date: "2026-02-15"
+date: "2026-04-25"
 title: "Toile Blanche: The Declared Artwork"
 author: "Leroy Brothers"
 image: "/assets/images/archive/declared-artwork.png"
 imageWidth: 1200
 imageHeight: 770
-excerpt: "A formal note on the transition from hospitality domain to a recognized work by the Leroy Brothers."
+excerpt: "A formal note on the transition from hospitality domain to a recognized artwork by the Leroy Brothers."
 lang: "en"
 ---
 
 ## The Declaration
 
-In early 2026, a fundamental shift occurred in how we view these twenty thousand square metres of Saint-Paul de Vence. What began as a series of agricultural ruins and village houses has been formally declared a Work of Art by the Leroy Brothers.
+In early 2026, a fundamental shift occurred in how we view these twenty thousand square metres of Saint-Paul de Vence. What began as a series of agricultural ruins and village houses has been formally declared an artwork by the Leroy Brothers.
 
 This is not a metaphor. It is a re-categorization of the property's DNA.
 
 ## Beyond Hospitality
 
-For twelve years, we operated under the standard definitions of hospitality. We built suites, we planted gardens, and we served tables. But as the collection grew—and as the seven houses began to function as a singular visual system—we realized that the "hotel" was merely the medium. The work itself is the atmosphere we have engineered.
+For twelve years, we operated under the standard definitions of hospitality. We built suites, we planted gardens, and we served tables. But as the collection grew—and as the seven houses began to function as a singular visual system—we realized that the "hotel" was merely the medium. The artwork itself is the atmosphere we have engineered.
 
 ## The Living Canvas
 
@@ -30,6 +30,6 @@ By declaring the property an artwork, we have moved from the role of "Hoteliers"
 
 It is important to note that Toile Blanche continues to operate normally. You can still sleep within the artwork, dine at its tables, and swim in its pools. However, your stay is now a document—a moment in time captured within the broader history of the brothers' creative collective.
 
-We invite you to experience the work, not as a visitor, but as a witness to its ongoing performance.
+We invite you to experience the artwork, not as a visitor, but as a witness to its ongoing performance.
 
 Saint-Paul de Vence, 2026.

@@ -28,7 +28,7 @@ const t = useTranslations(lang);
         <div class="lrs-hero-overlay"></div>
       </div>
       <div class="lrs-hero-content">
-        <p class="lrs-hero-eyebrow">Dîner — Toute l'année</p>
+        <p class="lrs-hero-eyebrow">Dîner, Toute l'année</p>
         <h1>Le Restaurant</h1>
         <a href="https://www.instagram.com/lerestaurant.toileblanche/" target="_blank" rel="noopener noreferrer" class="lrs-insta-ref">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -120,7 +120,7 @@ const t = useTranslations(lang);
         <!-- EXTRAS -->
         <div class="lrs-menu-section lrs-menu-extras">
           <h3>{menu.a_la_carte.extras.title[lang]}</h3>
-          <p class="lrs-extras-intro">Une touche de gourmandise pour accompagner votre plat — à savourer seul ou à partager.</p>
+          <p class="lrs-extras-intro">Une touche de gourmandise pour accompagner votre plat, à savourer seul ou à partager.</p>
           <div class="lrs-menu-extras-grid">
             {menu.a_la_carte.extras.items.map(item => (
               <div class="lrs-menu-item">
@@ -288,7 +288,7 @@ const t = useTranslations(lang);
 {
   "@context": "https://schema.org",
   "@type": "Restaurant",
-  "name": "Le Restaurant — Toile Blanche",
+  "name": "Le Restaurant, Toile Blanche",
   "description": "Cuisine bistronomique toute en finesse. Tous les plats sont faits maison et mettent en valeur des ingrédients locaux de qualité. Menu d'hiver par les chefs Nicolas Leclair et Melissa Giordano.",
   "image": "https://www.toileblanche.com/assets/images/le-restaurant-hero.jpg",
   "url": "https://www.toileblanche.com/fr/le-restaurant",
@@ -320,53 +320,55 @@ const t = useTranslations(lang);
     "hasMenuSection": [
       {
         "@type": "MenuSection",
-        "name": "Menu Toile Blanche (69€)",
+        "name": "Menu Toile Blanche (71€)",
         "hasMenuItem": [
-          {"@type": "MenuItem", "name": "Langoustines rôties dans une nage de crustacés", "description": "Avocat, citron combawa, céleri et poire nashi, Goma wakamé"},
-          {"@type": "MenuItem", "name": "Tortellinis maison de carotte d'hiver", "description": "Potimarron, gomasio au romarin, écume végétale d'oignons doux des Cévennes"},
-          {"@type": "MenuItem", "name": "Lieu jaune sauvage grillé", "description": "Écume chaude de haddock, chips de riz aux algues nori, pomme de terre fondante"},
-          {"@type": "MenuItem", "name": "Volaille fermière grillée au barbecue", "description": "Panais, cacahuètes, lard de Colonnata et jus de viande"},
+          {"@type": "MenuItem", "name": "Feuille à feuille de betteraves multicolores", "description": "Marinées au vinaigre kalamansi, ricotta, câpres frites, pamplemousse et pralin noisette"},
+          {"@type": "MenuItem", "name": "Gravlax de Sériole de Méditerranée", "description": "Avocat, vinaigrette « passion, citronnelle, Granny Smith », huile verte de capucine"},
+          {"@type": "MenuItem", "name": "Dos de bar rôti", "description": "Tomate cœur de bœuf, fenouil confit, venus, granola salé, sauce Maltaise"},
+          {"@type": "MenuItem", "name": "Carré d'agneau des Alpilles", "description": "Fine ratatouille en cannelloni d'aubergine, pommes dauphine aux pignons de pins et jus de viande"},
           {"@type": "MenuItem", "name": "Chocolat Ocoa 70%", "description": "Crumble aux amandes, crème glacée mascarpone, fleur de sel et réduction de balsamique"},
-          {"@type": "MenuItem", "name": "Baba au Rhum", "description": "Ananas rôti au poivre de Timut, crème végétale au lait de coco, condiment fruit de la passion"}
+          {"@type": "MenuItem", "name": "Financiers aux éclats de pistache", "description": "Framboise au jus, écume froide au lait vanillé, riz soufflé"}
         ]
       },
       {
         "@type": "MenuSection",
         "name": "Nos Entrées",
         "hasMenuItem": [
-          {"@type": "MenuItem", "name": "Langoustines rôties", "offers": {"@type": "Offer", "price": "26", "priceCurrency": "EUR"}},
-          {"@type": "MenuItem", "name": "Pot-au-feu de foie gras et os à moelle", "offers": {"@type": "Offer", "price": "29", "priceCurrency": "EUR"}},
-          {"@type": "MenuItem", "name": "Tortellinis maison de carotte d'hiver", "offers": {"@type": "Offer", "price": "22", "priceCurrency": "EUR"}},
-          {"@type": "MenuItem", "name": "Petits Farcis Niçois", "offers": {"@type": "Offer", "price": "24", "priceCurrency": "EUR"}}
+          {"@type": "MenuItem", "name": "Tentacule de poulpe grillé au BBQ", "offers": {"@type": "Offer", "price": "28", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "6 escargots du Var à la bourguignonne", "offers": {"@type": "Offer", "price": "21", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Feuille à feuille de betteraves multicolores marinées", "offers": {"@type": "Offer", "price": "25", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Tartare de veau au couteau", "offers": {"@type": "Offer", "price": "27", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Gravlax de Sériole de Méditerranée", "offers": {"@type": "Offer", "price": "28", "priceCurrency": "EUR"}}
         ]
       },
       {
         "@type": "MenuSection",
         "name": "La Mer",
         "hasMenuItem": [
-          {"@type": "MenuItem", "name": "Lieu jaune sauvage grillé", "offers": {"@type": "Offer", "price": "36", "priceCurrency": "EUR"}},
-          {"@type": "MenuItem", "name": "Linguine de Gragnano au homard", "offers": {"@type": "Offer", "price": "48", "priceCurrency": "EUR"}},
-          {"@type": "MenuItem", "name": "Poisson du jour grillé", "offers": {"@type": "Offer", "price": "32", "priceCurrency": "EUR"}}
+          {"@type": "MenuItem", "name": "Légumes de saison rôtis", "offers": {"@type": "Offer", "price": "24", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Dos de bar rôti", "offers": {"@type": "Offer", "price": "38", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Linguine de Gragnano", "offers": {"@type": "Offer", "price": "49", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Poisson du jour grillé", "offers": {"@type": "Offer", "price": "36", "priceCurrency": "EUR"}}
         ]
       },
       {
         "@type": "MenuSection",
         "name": "La Terre",
         "hasMenuItem": [
-          {"@type": "MenuItem", "name": "Volaille fermière grillée au barbecue", "offers": {"@type": "Offer", "price": "32", "priceCurrency": "EUR"}},
-          {"@type": "MenuItem", "name": "Filet de Boeuf Simmenthal", "offers": {"@type": "Offer", "price": "43", "priceCurrency": "EUR"}},
-          {"@type": "MenuItem", "name": "Carré de Porcelet braisé au romarin", "offers": {"@type": "Offer", "price": "37", "priceCurrency": "EUR"}}
+          {"@type": "MenuItem", "name": "Pluma ibérique juste grillée au romarin", "offers": {"@type": "Offer", "price": "39", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Filet de Boeuf Simmental", "offers": {"@type": "Offer", "price": "45", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Carré d'agneau des Alpilles", "offers": {"@type": "Offer", "price": "37", "priceCurrency": "EUR"}}
         ]
       },
       {
         "@type": "MenuSection",
         "name": "Nos Desserts",
         "hasMenuItem": [
-          {"@type": "MenuItem", "name": "Sélection de fromages par la maison Mons (MOF)", "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR"}},
-          {"@type": "MenuItem", "name": "Chocolat Ocoa 70% crumble aux amandes", "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR"}},
-          {"@type": "MenuItem", "name": "Baba au Rhum", "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR"}},
-          {"@type": "MenuItem", "name": "L'agrume dans tous ses états", "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR"}},
-          {"@type": "MenuItem", "name": "Pain d'épices grillé, glace yaourt", "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR"}}
+          {"@type": "MenuItem", "name": "Sélection de fromages par la maison Mons (MOF)", "offers": {"@type": "Offer", "price": "17", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Chocolat Ocoa 70%", "offers": {"@type": "Offer", "price": "15", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Financiers aux éclats de pistache", "offers": {"@type": "Offer", "price": "15", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Variation autour du pamplemousse", "offers": {"@type": "Offer", "price": "15", "priceCurrency": "EUR"}},
+          {"@type": "MenuItem", "name": "Millefeuille de pomme façon tarte Tatin", "offers": {"@type": "Offer", "price": "15", "priceCurrency": "EUR"}}
         ]
       }
     ]

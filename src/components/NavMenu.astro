@@ -19,6 +19,8 @@ const ctaText = Astro.props.ctaText ?? t.nav.bookStay;
 const lp = (path: string) => localePath(path, locale);
 const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current' : '';
 const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
+const cntReadersChoiceUrl =
+  'https://condenast-interactive.typeform.com/to/ECgybVMv?typeform-source=www.cntraveller.com';
 ---
 
 <!-- Desktop menu (≥768px): full layout with Suite Explorer -->
@@ -43,6 +45,7 @@ const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
       <a href={lp('/suites')} class={`tb-menu-link${linkClass(lp('/suites'))}`}>{t.nav.suites}</a>
       <a href={lp('/restaurants')} class={`tb-menu-link${linkClass(lp('/restaurants'))}`}>{t.nav.restaurants}</a>
       <a href={lp('/art')} class={`tb-menu-link${linkClass(lp('/art'))}`}>{t.nav.theArt}</a>
+      <a href={lp('/la-vie-ici')} class={`tb-menu-link${linkClass(lp('/la-vie-ici'))}`}>{t.nav.laVieIci}</a>
       <a href={lp('/experiences')} class={`tb-menu-link${linkClass(lp('/experiences'))}`}>{t.nav.experiences}</a>
       <a href={lp('/the-property')} class={`tb-menu-link tb-menu-link-last${linkClass(lp('/the-property'))}`}>{t.nav.theProperty}</a>
     </nav>
@@ -67,23 +70,45 @@ const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
       </div>
       <div class="tb-menu-info-cell tb-menu-info-footer">
         <a href={lp('/about')} class="tb-menu-info-link">{t.nav.about}</a>
-        <a href={lp('/upcoming-events')} class="tb-menu-info-link">{t.nav.events}</a>
+        <a href={lp('/l-hiver')} class={`tb-menu-info-link${linkClass(lp('/l-hiver'))}`}>{t.nav.lHiver}</a>
         <a href={lp('/press')} class="tb-menu-info-link">{t.nav.press}</a>
         <a href={lp('/faq')} class="tb-menu-info-link">{t.nav.faq}</a>
         <a href={lp('/blog')} class="tb-menu-info-link">{t.nav.archive}</a>
+        <a
+          href="https://leseminaire.toileblanche.com"
+          class={`tb-menu-info-link${linkClass('/seminaire')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >{t.nav.seminaire}</a>
         <a href={lp('/careers')} class="tb-menu-info-link">{t.nav.careers}</a>
       </div>
     </div>
   </div>
 
   <div class="tb-menu-affiliations">
-    <div class="tb-affil-michelin">
-      <img src="/assets/images/affiliations/michelin-key.png" alt="MICHELIN Key" width="80" height="80" loading="lazy" />
-      <span class="tb-affil-label">Michelin Key</span>
-    </div>
-    <div class="tb-affil-slh">
-      <img src="/assets/images/affiliations/logo-slh.svg" alt="Small Luxury Hotels of the World" width="80" height="40" loading="lazy" />
-      <span class="tb-affil-caption">{locale === 'fr' ? 'Affilié' : 'Affiliated'}</span>
+    <div class="tb-menu-affiliations-leading">
+      <div class="tb-affil-michelin">
+        <img src="/assets/images/affiliations/michelin-key.png" alt="MICHELIN Key" width="80" height="80" loading="lazy" />
+        <span class="tb-affil-label">Michelin Key</span>
+      </div>
+      <div class="tb-affil-slh">
+        <img src="/assets/images/affiliations/logo-slh.svg" alt="Small Luxury Hotels of the World" width="80" height="40" loading="lazy" />
+      </div>
+      <a
+        href={cntReadersChoiceUrl}
+        class="tb-affil-cnt"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={t.nav.cntReadersChoiceAria}
+      >
+        <img
+          src="/assets/images/affiliations/conde-nast-traveller-readers-choice.png"
+          alt=""
+          width="101"
+          height="101"
+          loading="lazy"
+        />
+      </a>
     </div>
   </div>
 </div>
@@ -105,6 +130,7 @@ const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
     <a href={lp('/suites')} class={`tb-menu-mobile-link${linkClass(lp('/suites'))}`}>{t.nav.suites}</a>
     <a href={lp('/restaurants')} class={`tb-menu-mobile-link${linkClass(lp('/restaurants'))}`}>{t.nav.restaurants}</a>
     <a href={lp('/art')} class={`tb-menu-mobile-link${linkClass(lp('/art'))}`}>{t.nav.theArt}</a>
+    <a href={lp('/la-vie-ici')} class={`tb-menu-mobile-link${linkClass(lp('/la-vie-ici'))}`}>{t.nav.laVieIci}</a>
     <a href={lp('/experiences')} class={`tb-menu-mobile-link${linkClass(lp('/experiences'))}`}>{t.nav.experiences}</a>
     <a href={lp('/the-property')} class={`tb-menu-mobile-link${linkClass(lp('/the-property'))}`}>{t.nav.theProperty}</a>
   </nav>
@@ -118,16 +144,38 @@ const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
     <a href={lp('/gift-vouchers')} class="tb-menu-mobile-secondary-link">{t.nav.giftVouchers}</a>
     <div class="tb-menu-mobile-secondary-grid">
       <a href={lp('/about')} class="tb-menu-mobile-secondary-link">{t.nav.about}</a>
-      <a href={lp('/upcoming-events')} class="tb-menu-mobile-secondary-link">{t.nav.events}</a>
+      <a href={lp('/l-hiver')} class={`tb-menu-mobile-secondary-link${linkClass(lp('/l-hiver'))}`}>{t.nav.lHiver}</a>
       <a href={lp('/press')} class="tb-menu-mobile-secondary-link">{t.nav.press}</a>
       <a href={lp('/faq')} class="tb-menu-mobile-secondary-link">{t.nav.faq}</a>
       <a href={lp('/blog')} class="tb-menu-mobile-secondary-link">{t.nav.archive}</a>
+      <a
+        href="https://leseminaire.toileblanche.com"
+        class={`tb-menu-mobile-secondary-link${linkClass('/seminaire')}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >{t.nav.seminaire}</a>
       <a href={lp('/careers')} class="tb-menu-mobile-secondary-link">{t.nav.careers}</a>
     </div>
   </div>
 
   <div class="tb-menu-mobile-affiliations">
     <img src="/assets/images/affiliations/michelin-key.png" alt="MICHELIN Key" width="80" height="80" loading="lazy" class="tb-menu-mobile-affil-img" />
-    <img src="/assets/images/affiliations/logo-slh.svg" alt="SLH" width="80" height="40" loading="lazy" class="tb-menu-mobile-affil-img" />
+    <img src="/assets/images/affiliations/logo-slh.svg" alt="Small Luxury Hotels of the World" width="80" height="40" loading="lazy" class="tb-menu-mobile-affil-img tb-menu-mobile-affil-slh" />
+    <a
+      href={cntReadersChoiceUrl}
+      class="tb-affil-cnt tb-affil-cnt--mobile"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={t.nav.cntReadersChoiceAria}
+    >
+      <img
+        src="/assets/images/affiliations/conde-nast-traveller-readers-choice.png"
+        alt=""
+        width="101"
+        height="101"
+        loading="lazy"
+        class="tb-menu-mobile-affil-img"
+      />
+    </a>
   </div>
 </div>

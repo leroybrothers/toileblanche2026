@@ -2,12 +2,18 @@
 interface Props {
   title?: string;
   description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
   ogImage?: string;
 }
 
 const {
-  title = "Le Séminaire — Toile Blanche, Saint-Paul-de-Vence",
-  description = "A working retreat for leadership groups. Three to five days in Provence, off-season. Working sessions at Fondation CAB. Accommodation and all meals at Toile Blanche.",
+  title = "Le Séminaire, Toile Blanche, Saint-Paul-de-Vence",
+  description =
+    "A working retreat for leadership groups. Two to four nights in a two-hundred-year-old mas at Toile Blanche. Working sessions, all meals, one suite per person. From €690 per person per night. November through March, weekdays only.",
+  ogTitle = "Le Séminaire, Toile Blanche",
+  ogDescription =
+    "A working retreat for leadership groups. November through March. Saint-Paul-de-Vence.",
   ogImage = "/assets/images/seminaire/seminaire-hero.jpg",
 } = Astro.props;
 
@@ -15,6 +21,13 @@ const GTM_ID = "GTM-52R8BBP";
 const AXEPTIO_ID = "63ce737f6a87883d8a3d1f79";
 
 const canonicalURL = new URL(Astro.url.pathname, "https://leseminaire.toileblanche.com");
+const ogImageAbsolute = ogImage.startsWith("http")
+  ? ogImage
+  : new URL(ogImage.replace(/^\//, ""), canonicalURL).toString();
+
+/** English stays on this host/path; French leads to La Vie Ici (no FR microsite). */
+const enSeminaireUrl = new URL(Astro.url.pathname, Astro.url.origin).href;
+const frProgrammeUrl = "https://www.toileblanche.com/fr/la-vie-ici#lvi-seminaire-heading";
 ---
 
 <!DOCTYPE html>
@@ -28,9 +41,9 @@ const canonicalURL = new URL(Astro.url.pathname, "https://leseminaire.toileblanc
     <title>{title}</title>
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Le Séminaire — Toile Blanche" />
-    <meta property="og:description" content="A working retreat for leadership groups. November through March. Saint-Paul-de-Vence." />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImageAbsolute} />
     <meta property="og:url" content={canonicalURL.toString()} />
     <meta property="og:type" content="website" />
 
@@ -44,7 +57,7 @@ const canonicalURL = new URL(Astro.url.pathname, "https://leseminaire.toileblanc
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
 
-    <!-- Fonts — same stack as main site -->
+    <!-- Fonts, same stack as main site -->
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&family=Heebo:wght@100;400&display=swap"
       rel="stylesheet"
@@ -120,8 +133,32 @@ const canonicalURL = new URL(Astro.url.pathname, "https://leseminaire.toileblanc
             'ad_user_data': choices.google_ads ? 'granted' : 'denied',
             'ad_personalization': choices.google_ads ? 'granted' : 'denied',
           });
+          var marketing = !!(choices && (choices.google_ads || choices.facebook_pixel));
+          if (typeof fbq === 'function') {
+            if (marketing) {
+              fbq('consent', 'grant');
+              fbq('track', 'PageView');
+            } else {
+              fbq('consent', 'revoke');
+            }
+          }
         });
       });
+    </script>
+
+    <!-- Meta Pixel (is:inline — do not bundle; required for fbq). Consent: revoke until Axeptio grants marketing. -->
+    <script is:inline>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('consent', 'revoke');
+      fbq('init', '517991158551582');
+      fbq('track', 'PageView');
     </script>
 
     <slot name="head" />
@@ -141,11 +178,30 @@ const canonicalURL = new URL(Astro.url.pathname, "https://leseminaire.toileblanc
     <!-- Minimal header -->
     <header class="sm-header">
       <a href="https://www.toileblanche.com" class="sm-header-logo" aria-label="Toile Blanche">
-        TOILE BLANCHE <span class="sm-header-x">×</span> FONDATION CAB
+        Toile Blanche
       </a>
-      <a href="mailto:seminaire@toileblanche.com" class="sm-header-link">
-        Write to us
-      </a>
+      <div class="sm-header-right">
+        <nav class="sm-lang" aria-label="Language">
+          <a
+            href={enSeminaireUrl}
+            class="sm-lang-link sm-lang-link--current"
+            lang="en"
+            hreflang="en"
+            aria-current="page"
+          >EN</a>
+          <span class="sm-lang-sep" aria-hidden="true">·</span>
+          <a
+            href={frProgrammeUrl}
+            class="sm-lang-link"
+            lang="fr"
+            hreflang="fr"
+            aria-label="Français, programme sur toileblanche.com"
+          >FR</a>
+        </nav>
+        <a href="mailto:seminaire@toileblanche.com" class="sm-header-link">
+          Write to us
+        </a>
+      </div>
     </header>
 
     <!-- Page content -->
@@ -193,9 +249,56 @@ const canonicalURL = new URL(Astro.url.pathname, "https://leseminaire.toileblanc
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
     padding: var(--space-3) var(--space-section-x);
     border-bottom: 1px solid var(--color-border-faint);
     background-color: var(--color-bg);
+  }
+
+  .sm-header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-left: auto;
+  }
+
+  .sm-lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .sm-lang-link {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    text-decoration: none;
+    color: var(--color-ink-deep);
+    border: 1px solid var(--color-ink-deep-30);
+    padding: var(--space-1) 12px;
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .sm-lang-link:hover {
+    border-color: var(--color-ink-deep-60);
+    background: var(--color-ink-06);
+  }
+
+  .sm-lang-link--current {
+    font-weight: var(--weight-medium);
+    border-color: var(--color-ink-deep);
+    background: var(--color-ink-06);
+  }
+
+  .sm-lang-sep {
+    color: var(--color-stone-muted);
+    font-size: var(--text-xs);
+    user-select: none;
   }
 
   .sm-header-logo {
@@ -212,14 +315,6 @@ const canonicalURL = new URL(Astro.url.pathname, "https://leseminaire.toileblanc
 
   .sm-header-logo:hover {
     color: var(--color-terracotta);
-  }
-
-  .sm-header-x {
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    color: var(--color-stone-muted);
-    margin: 0 0.3em;
-    letter-spacing: 0;
   }
 
   .sm-header-link {

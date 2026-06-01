@@ -1,7 +1,7 @@
 ---
 slug: inside-the-studio-leroy-brothers
 title: "Inside the Studio: The Post-Internet Art of the Leroy Brothers"
-date: "2026-06-05"
+date: "2026-03-07"
 author: "Leroy Brothers"
 image: "/assets/images/archive/leroy-studio.jpg"
 imageWidth: 1200
@@ -12,11 +12,11 @@ lang: "en"
 
 ## The Source of the Declaration
 
-At the geographical heart of Toile Blanche lies a space that few guests enter, yet every guest experiences. The Studio is the intellectual engine of Toile Blanche. It is here, amidst the scent of turpentine and the hum of high-end processing units, that the Leroy Brothers conceived the formal declaration of the property as a work of art.
+At the geographical heart of Toile Blanche lies a space that few guests enter, yet every guest experiences. The Studio is the intellectual engine of Toile Blanche. It is here, amidst the scent of turpentine and the hum of high-end processing units, that the Leroy Brothers conceived the formal declaration of the property as an artwork.
 
 ## The Post-Internet Register
 
-The work of Nicolas, Gilles, and Gregory Leroy has always occupied the intersection of the physical and the digital. As a collective, their "Post-Internet" approach uses the vast data of the modern world as a raw material—much like a sculptor uses clay.
+The artworks of Nicolas, Gilles, and Gregory Leroy have always occupied the intersection of the physical and the digital. As a collective, their "Post-Internet" approach uses the vast data of the modern world as a raw material—much like a sculptor uses clay.
 
 Inside the studio, large-scale canvases lean against 18th-century stone walls. Digital projections flicker across antique beams. This juxtaposition is the core of Toile Blanche. The brothers believe that art in 2026 cannot ignore the digital archive, yet it must be anchored in the "heavy" reality of stone and soil.
 

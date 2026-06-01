@@ -6,7 +6,7 @@
     "TV écran plat · Audio Bluetooth",
     "Coffre-fort privatif",
     "Machine à café grain",
-    "Minibar soigné — bouteilles entières",
+    "Minibar soigné, bouteilles entières",
     "Produits Les Grandes Vacances",
     "Peignoirs & chaussons",
     "Douche à l'italienne"
@@ -121,7 +121,7 @@
         ]
       },
       "hasPool": false,
-      "note": "Lit supplémentaire disponible — 80€/nuit"
+      "note": "Lit supplémentaire disponible, 80€/nuit"
     },
     {
       "slug": "cabanat",
@@ -229,7 +229,7 @@
         ]
       },
       "hasPool": false,
-      "note": "Lit supplémentaire disponible — 80€/nuit"
+      "note": "Lit supplémentaire disponible, 80€/nuit"
     },
     {
       "slug": "bonvivant",
@@ -259,7 +259,7 @@
           "/assets/images/bon-vivant/gallery-4.jpg",
           "/assets/images/bon-vivant/gallery-5.jpg",
           "/assets/images/bon-vivant/gallery-6.JPG",
-          "/assets/images/Homepage/Suite bon vivant.JPG",
+          "/assets/images/Homepage/Suite bon vivant.jpg",
           "/assets/images/bon-vivant/gallery-8.JPG",
           "/assets/images/bon-vivant/gallery-9.JPG",
           "/assets/images/bon-vivant/DSCF5652.JPG",
@@ -270,7 +270,7 @@
         ]
       },
       "hasPool": true,
-      "note": "Lit supplémentaire disponible — 80€/nuit"
+      "note": "Lit supplémentaire disponible, 80€/nuit"
     },
     {
       "slug": "penequet",

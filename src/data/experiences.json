@@ -2,28 +2,28 @@
   {
     "title": "Wellness",
     "tagline": "Massages in the garden, or in your suite.",
-    "body": "Amandine and Eve, our resident therapists, offer a range of treatments — deep tissue, relaxation, and signature rituals — designed to restore you completely. Book a session on arrival and forget everything outside the walls.",
+    "body": "Amandine and Eve, our resident therapists, offer a range of treatments, deep tissue, relaxation, and signature rituals, designed to restore you completely. Book a session on arrival and forget everything outside the walls.",
     "image": "wellness.png",
     "cta": { "text": "Inquire or Book a Treatment", "href": "https://toileblanche.bowo.app/pages/2826" }
   },
   {
     "title": "The Leroy Brothers Studio",
     "tagline": "Visit the artists behind the artwork.",
-    "body": "Nicolas, Gilles, and Gregory Leroy maintain a working studio near the property. Subject to availability, guests can arrange a private visit to see the current body of work in progress.",
+    "body": "Nicolas, Gilles, and Gregory Leroy maintain a working studio near the property. Subject to availability, guests can arrange a private visit to see the current artworks in progress.",
     "image": "page-img-63eececa2d86be.jpg",
     "cta": { "text": "Inquire at reception", "href": "mailto:info@toileblanche.com" }
   },
   {
     "title": "Electric Bikes",
     "tagline": "Explore the hills at your own pace.",
-    "body": "Two Moustache electric bikes are available for guests. The terrain around Saint-Paul de Vence is hilly and beautiful — ride to neighbouring villages, through the vineyards, or along the coast road.",
+    "body": "Two Moustache electric bikes are available for guests. The terrain around Saint-Paul de Vence is hilly and beautiful, ride to neighbouring villages, through the vineyards, or along the coast road.",
     "image": "page-img-5a95d37e2cdbac.avif",
     "cta": { "text": "Inquire at reception", "href": "mailto:info@toileblanche.com" }
   },
   {
     "title": "The Pools",
     "tagline": "Three for everyone. Four more that are entirely yours.",
-    "body": "Seven pools are scattered through the gardens — three shared, four private to specific suites. This is the place to read a book, work on a tan, and let conversations happen at their own pace.",
+    "body": "Seven pools are scattered through the gardens, three shared, four private to specific suites. This is the place to read a book, work on a tan, and let conversations happen at their own pace.",
     "image": "page-img-9539260525abcd.jpg",
     "cta": null
   }

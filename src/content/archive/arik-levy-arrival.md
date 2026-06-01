@@ -12,15 +12,15 @@ lang: "en"
 
 ## A Structural Dialogue
 
-In late 2025, the lower gardens of Toile Blanche underwent a quiet but profound transformation. The arrival of a major structural work by Arik Levy marked a significant moment in the evolution of our "Declared Artwork."
+In late 2025, the lower gardens of Toile Blanche underwent a quiet but profound transformation. The arrival of a major structural artwork by Arik Levy marked a significant moment in the evolution of our "Declared Artwork."
 
-Levy's work does not merely sit in the garden; it interrogates it.
+Levy's artwork does not merely sit in the garden; it interrogates it.
 
 ## The Weight of Light
 
 The sculpture—a characteristic exploration of industrial form and natural geometry—was positioned to interact with the sharp, southern light that defines Saint-Paul de Vence. Arik Levy, an artist who famously navigates the space between the emotional and the technical, chose a site where the shadows of the surrounding pines create a constantly shifting grid across the sculpture's surface.
 
-"The work is not static," Levy noted during the installation. "It is a collector of time."
+"The artwork is not static," Levy noted during the installation. "It is a collector of time."
 
 ## Materiality and Resistance
 
@@ -32,6 +32,6 @@ It is a reminder that Toile Blanche is a place of resistance—resisting the gen
 
 By documenting this arrival, we add another layer to the permanent record of the property. The sculpture now belongs to the landscape as much as the vines and the olive trees. It is the first of several major international commissions that will further solidify Toile Blanche's status as a living gallery.
 
-As the garden matures around the work, the boundary between the "Found" and the "Created" continues to blur.
+As the garden matures around the artwork, the boundary between the "Found" and the "Created" continues to blur.
 
 Lower Gardens, Saint-Paul de Vence.

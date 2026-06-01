@@ -1,0 +1,301 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import type { Locale } from '../i18n/index';
+import { localePath } from '../i18n/index';
+import { getLHiverCopy } from '../data/l-hiver';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const c = getLHiverCopy(locale);
+const canonical = new URL(localePath('/l-hiver', locale), 'https://www.toileblanche.com').href;
+
+/** Gallery filenames must be web-safe (JPEG/WebP); paths are URL-encoded when built */
+const lhiverGalleryFiles = [
+  'IMG_4776.jpg',
+  'IMG_4324.jpg',
+  'IMG_4326.jpg',
+  'IMG_4332.jpg',
+  'IMG_4772.jpg',
+  'DSCF4393 2.JPG',
+  'DSCF4087 2.JPG',
+  'DSCF4202 2.JPG',
+] as const;
+
+const lhiverGallerySrc = (file: string) => `/assets/images/lhiver/${encodeURIComponent(file)}`;
+---
+
+<Layout
+  locale={locale}
+  title={c.metaTitle}
+  description={c.metaDescription}
+  canonicalURL={canonical}
+  ogImage="https://www.toileblanche.com/assets/images/parallax1.jpg"
+>
+  <meta slot="head" name="robots" content="index, follow" />
+
+  <Nav theme="light" locale={locale} />
+
+  <main id="main-content" class="lhiver">
+    <div class="lhiver-inner">
+      <header class="lhiver-header">
+        <p class="lhiver-eyebrow">{c.eyebrow}</p>
+        <h1 class="lhiver-h1">
+          <span class="lhiver-h1-elide">L&#8217;</span>Hiver
+        </h1>
+        <p class="lhiver-subtitle">{c.subtitle}</p>
+      </header>
+
+      <section class="lhiver-block lhiver-opening">
+        {c.opening.map((p) => (
+          <p class="lhiver-body">{p}</p>
+        ))}
+      </section>
+
+      <section class="lhiver-gallery" aria-label={c.galleryAriaLabel}>
+        <div class="lhiver-gallery-grid">
+          {lhiverGalleryFiles.map((file, i) => (
+            <div class="lhiver-gallery-cell">
+              <img
+                src={lhiverGallerySrc(file)}
+                width="900"
+                height="600"
+                alt=""
+                loading={i < 2 ? 'eager' : 'lazy'}
+                decoding="async"
+                class="lhiver-gallery-img"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="lhiver-offers" aria-labelledby="lhiver-offers-label">
+        <p id="lhiver-offers-label" class="lhiver-label">{c.offersLabel}</p>
+        {c.offers.map((offer, i) => (
+          <div class:list={['lhiver-offer', { 'lhiver-offer--first': i === 0 }]}>
+            {offer.body.map((line) => (
+              <p class="lhiver-body">{line}</p>
+            ))}
+          </div>
+        ))}
+      </section>
+
+      <aside class="lhiver-includes" aria-labelledby="lhiver-includes-label">
+        <p id="lhiver-includes-label" class="lhiver-label">{c.includesBoxLabel}</p>
+        <div class="lhiver-includes-stack">
+          {c.includesLines.map((line) => (
+            <p>{line}</p>
+          ))}
+        </div>
+      </aside>
+
+      <p class="lhiver-cta-wrap">
+        <button type="button" class="lhiver-cta distributor-open">{c.cta}</button>
+      </p>
+
+      <section class="lhiver-closing">
+        <p class="lhiver-body lhiver-closing-text">{c.closing}</p>
+      </section>
+    </div>
+  </main>
+
+  <Footer locale={locale} />
+</Layout>
+
+<style>
+  .lhiver {
+    padding: clamp(72px, 12vw, 120px) 24px clamp(100px, 14vw, 160px);
+    background: var(--color-bg);
+  }
+
+  .lhiver-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .lhiver-header {
+    margin-bottom: clamp(40px, 6vw, 72px);
+  }
+
+  .lhiver-eyebrow {
+    font-family: 'Heebo', var(--font-body, sans-serif);
+    font-weight: 100;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-stone-muted, #9c9080);
+    margin: 0 0 20px;
+  }
+
+  .lhiver-h1 {
+    font-family: 'Heebo', var(--font-body, sans-serif);
+    font-weight: 400;
+    font-size: clamp(32px, 6vw, 48px);
+    line-height: 1.15;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-ink-deep, #1c1917);
+    margin: 0 0 20px;
+    white-space: nowrap;
+  }
+
+  .lhiver-h1-elide {
+    letter-spacing: 0.04em;
+    margin-right: 0.02em;
+  }
+
+  .lhiver-subtitle {
+    font-family: 'Gilda Display', Georgia, serif;
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--color-stone, #6b6256);
+    margin: 0;
+  }
+
+  .lhiver-block {
+    margin-bottom: clamp(48px, 8vw, 88px);
+  }
+
+  .lhiver-gallery {
+    margin-bottom: clamp(48px, 8vw, 88px);
+  }
+
+  .lhiver-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .lhiver-gallery-cell {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--color-bg-warm);
+  }
+
+  .lhiver-gallery-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 520px) {
+    .lhiver-gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .lhiver-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 2;
+    color: var(--color-ink, #3d3530);
+    margin: 0 0 1.25em;
+  }
+
+  .lhiver-body:last-child {
+    margin-bottom: 0;
+  }
+
+  .lhiver-label {
+    font-family: 'Heebo', var(--font-body, sans-serif);
+    font-weight: 100;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-stone-muted, #9c9080);
+    margin: 0 0 28px;
+  }
+
+  .lhiver-offers {
+    margin-bottom: clamp(48px, 8vw, 80px);
+  }
+
+  .lhiver-offer {
+    padding-top: clamp(32px, 5vw, 48px);
+    border-top: 1px solid #c8b89a;
+    margin-bottom: clamp(32px, 5vw, 48px);
+  }
+
+  .lhiver-offer--first {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .lhiver-offer:last-child {
+    margin-bottom: 0;
+  }
+
+  .lhiver-includes {
+    background: rgba(173, 180, 160, 0.15);
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin-bottom: clamp(40px, 6vw, 64px);
+  }
+
+  .lhiver-includes .lhiver-label {
+    margin-bottom: 20px;
+  }
+
+  .lhiver-includes-stack p {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-ink, #3d3530);
+    margin: 0 0 0.85em;
+  }
+
+  .lhiver-includes-stack p:last-child {
+    margin-bottom: 0;
+  }
+
+  .lhiver-cta-wrap {
+    margin: 0 0 clamp(48px, 8vw, 80px);
+    text-align: center;
+  }
+
+  .lhiver-cta {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background: #ac6b53;
+    padding: 14px 28px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .lhiver-cta:hover {
+    background: #965a47;
+    transform: translateY(-1px);
+  }
+
+  .lhiver-closing {
+    padding-top: clamp(32px, 5vw, 48px);
+    border-top: 1px solid #c8b89a;
+  }
+
+  .lhiver-closing-text {
+    margin-bottom: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lhiver-cta:hover {
+      transform: none;
+    }
+  }
+</style>

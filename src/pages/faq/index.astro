@@ -7,7 +7,7 @@ import sections from '../../data/faq.json';
 
 <Layout
   title="FAQ | Toile Blanche | Saint-Paul de Vence"
-  description="Frequently asked questions about Toile Blanche — booking, dining, the suites, and the domain."
+  description="Frequently asked questions about Toile Blanche, booking, dining, the suites, and the domain."
 >
   <script slot="head" type="application/ld+json">
     {
@@ -19,7 +19,7 @@ import sections from '../../data/faq.json';
           "name": "Why should I book directly at Toile Blanche?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Booking directly through the official Toile Blanche website is the only way to secure the Best Rate Guarantee, priority for suite upgrades, and the daily Provençal Breakfast Ritual included as a complimentary gift in high season (May–Oct)."
+            "text": "Booking directly through the official Toile Blanche website is the only way to secure the Best Rate Guarantee, priority for suite upgrades, and complimentary breakfast through the daily Provençal Breakfast Ritual year-round."
           }
         },
         {
@@ -43,7 +43,7 @@ import sections from '../../data/faq.json';
           "name": "What are the room rates at Toile Blanche?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "2026 rates: extra bed €80 per night, city tax €4.02 per person per night, private parking complimentary, EV charging €25, breakfast €35 per adult (included free for direct bookings), bike rental €35 half day or €49 full day."
+            "text": "2026 rates: extra bed €80 per night, city tax €4.02 per person per night, private parking complimentary, EV charging €25, bike rental €35 half day or €49 full day."
           }
         },
         {
@@ -75,15 +75,15 @@ import sections from '../../data/faq.json';
           "name": "Does Toile Blanche have a pool?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Toile Blanche has three pools in total. The main pools and private suite pools are heated from mid-April to mid-October. They remain open for cold plunges during winter. Two suites — Suite du Bon-Vivant and Villa du Pénéquet — each have their own private pool."
+            "text": "Yes. Toile Blanche has three pools in total. The main pools and private suite pools are heated from mid-April to mid-October. They remain open for cold plunges during winter. Two suites, Suite du Bon-Vivant and Villa du Pénéquet, each have their own private pool."
           }
         },
         {
           "@type": "Question",
-          "name": "Is breakfast included at Toile Blanche?",
+          "name": "Is breakfast complimentary at Toile Blanche?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Breakfast is included as a complimentary gift for all guests who book directly at the source via toileblanche.com. For bookings made through third-party platforms, breakfast is served from 08:00 to 10:30 at €35 per person."
+            "text": "Complimentary breakfast is offered to all guests who book directly at the source via toileblanche.com. For bookings made through third-party platforms, breakfast is served from 08:00 to 10:30 at €35 per person."
           }
         },
         {
@@ -115,7 +115,7 @@ import sections from '../../data/faq.json';
           "name": "What is the art collection at Toile Blanche?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Toile Blanche features a living contemporary art collection of paintings, sculptures, photographs and installations, each selected in conversation with the artist. Some works were created specifically for the property. In 2026, the property itself was formally declared a work of art by the Leroy Brothers. The collection is viewable by hotel and restaurant guests. For formal gallery visits, see Toile Blanche Contemporary at toileblanchecontemporary.com."
+            "text": "Toile Blanche features a living contemporary art collection of paintings, sculptures, photographs and installations, each selected in conversation with the artist. Some works were created specifically for the property. In 2026, the property itself was formally declared an artwork by the Leroy Brothers. The collection is viewable by hotel and restaurant guests. For formal gallery visits, see Toile Blanche Contemporary at toileblanchecontemporary.com."
           }
         },
         {
@@ -131,7 +131,7 @@ import sections from '../../data/faq.json';
           "name": "What makes Toile Blanche unique?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Toile Blanche is a 22-suite luxury hotel in Saint-Paul de Vence on the French Riviera, created over 20 years by the Leroy Brothers artist trio. It holds a Michelin Key. The property combines hotel, contemporary art gallery, and gardens across 20,000m², with two restaurants, three pools, and suites ranging from 40m² to 90m² — including two with private pools. It is 10 minutes by car from the Fondation Maeght and 20 minutes from Nice Airport."
+            "text": "Toile Blanche is a 22-suite luxury hotel in Saint-Paul de Vence on the French Riviera, created over 20 years by the Leroy Brothers artist trio. It holds a Michelin Key. The property combines hotel, contemporary art gallery, and gardens across 20,000m², with two restaurants, three pools, and suites ranging from 40m² to 90m², including two with private pools. It is 10 minutes by car from the Fondation Maeght and 20 minutes from Nice Airport."
           }
         },
         {
@@ -289,16 +289,23 @@ import sections from '../../data/faq.json';
     color: #6B6256;
     max-width: 700px;
   }
-  .faq-answer a {
+  .faq-answer :global(a) {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
     color: #9e5c4a;
     text-decoration: none;
     border-bottom: 1px solid rgba(158, 92, 74, 0.3);
     transition: border-color 0.2s;
   }
-  .faq-answer a:hover {
+  .faq-answer :global(a:hover) {
     border-color: #9e5c4a;
   }
-  .faq-answer strong {
+  .faq-answer :global(strong) {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 600;
     color: #3D3530;
   }
 

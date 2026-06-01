@@ -53,10 +53,22 @@
   ],
   "clippings": [
     {
+      "publication": "Square Mile (UK)",
+      "articleUrl": "https://squaremile.com/travel/best-hotels-cote-dazur-france/",
+      "thumbnail": "/assets/press/thumbnails/2026-05-14_SquareMile_UK_Online.jpg",
+      "year": "2026"
+    },
+    {
       "publication": "Roadbook",
       "pdf": "/assets/press/2026-02-26_Roadbook_UK_Online.pdf",
       "articleUrl": "https://roadbook.com/travel/europe-uk-scenic-art-design-destinations/",
       "thumbnail": "/assets/press/thumbnails/2026-02-26_Roadbook_UK_Online.jpg",
+      "year": "2026"
+    },
+    {
+      "publication": "Hinton (UK)",
+      "articleUrl": "https://www.hintonmagazine.com/post/toile-blanche-is-reimagining-the-riviera-hotel-as-a-living-contemporary-art-space",
+      "thumbnail": "/assets/press/thumbnails/2026-05-13_Hinton_UK_Online.jpg",
       "year": "2026"
     },
     {
@@ -146,6 +158,7 @@
     {
       "publication": "Sheer Luxe",
       "pdf": "/assets/press/2025-08-22_SheerLuxe_UK_Online.pdf",
+      "articleUrl": "https://sheerluxe.com/culture/travel/europe/where-to-stay-in-provence",
       "thumbnail": "/assets/press/thumbnails/2025-08-22_SheerLuxe_UK_Online.jpg",
       "year": "2025"
     },
@@ -170,6 +183,7 @@
     {
       "publication": "Mr And Mrs Smith",
       "pdf": "/assets/press/2025-07-25_MrAndMrsSmith_UK_Online.pdf",
+      "articleUrl": "https://www.mrandmrssmith.com/editorial/travel-guides/best-hotels-south-of-france",
       "thumbnail": "/assets/press/thumbnails/2025-07-25_MrAndMrsSmith_UK_Online.jpg",
       "year": "2025"
     },
@@ -224,6 +238,7 @@
     {
       "publication": "Sheer Luxe",
       "pdf": "/assets/press/2025-06-12_SheerLuxe_UK_Online.pdf",
+      "articleUrl": "https://sheerluxe.com/culture/travel/europe/where-to-stay-in-provence",
       "thumbnail": "/assets/press/thumbnails/2025-06-12_SheerLuxe_UK_Online.jpg",
       "year": "2025"
     },
@@ -381,6 +396,12 @@
       "publication": "Infrarouge",
       "pdf": "/assets/press/2024-07-11_Infrarouge_France_Print.pdf",
       "thumbnail": "/assets/press/thumbnails/2024-07-11_Infrarouge_France_Print.jpg",
+      "year": "2024"
+    },
+    {
+      "publication": "Sabato (Belgium)",
+      "pdf": "/assets/press/2024-05-25_Sabato_Belgium_Print.pdf",
+      "thumbnail": "/assets/press/thumbnails/2024-05-25_Sabato_Belgium_Print.jpg",
       "year": "2024"
     }
   ]

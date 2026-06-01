@@ -7,12 +7,18 @@ const archiveFiles = import.meta.glob('../../../content/archive-fr/*.md', { eage
 const entries = Object.values(archiveFiles)
   .map((file: any) => file.frontmatter)
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const formatArchiveDate = (d: string) => {
+  const date = new Date(d);
+  if (isNaN(date.getTime())) return d;
+  return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+};
 ---
 
 <Layout
   locale="fr"
   title="Les Archives | Toile Blanche | Saint-Paul de Vence"
-  description="Notes occasionnelles depuis Saint-Paul de Vence — nouvelles acquisitions dans la collection, tables de saison et résidus techniques de l'œuvre vivante."
+  description="Notes occasionnelles depuis Saint-Paul de Vence, nouvelles acquisitions dans la collection, tables de saison et résidus techniques de l'œuvre vivante."
 >
   <Nav locale="fr" theme="light" />
 
@@ -20,9 +26,9 @@ const entries = Object.values(archiveFiles)
     <!-- HEADER -->
     <section class="arc-header">
       <div class="arc-header-inner">
-        <p class="arc-header-eyebrow">ADN — Les Registres</p>
+        <p class="arc-header-eyebrow">ADN, Les Registres</p>
         <h1>Les Archives</h1>
-        <p class="arc-header-tagline">Notes occasionnelles depuis Saint-Paul de Vence — nouvelles acquisitions dans la collection, tables de saison et résidus techniques de l'œuvre vivante.</p>
+        <p class="arc-header-tagline">Notes occasionnelles depuis Saint-Paul de Vence, nouvelles acquisitions dans la collection, tables de saison et résidus techniques de l'œuvre vivante.</p>
       </div>
     </section>
 
@@ -34,7 +40,7 @@ const entries = Object.values(archiveFiles)
             <img src={entry.image} alt={entry.title} loading="lazy" />
           </div>
           <div class="arc-entry-content">
-            <span class="arc-entry-date">{entry.date}</span>
+            <span class="arc-entry-date">{formatArchiveDate(entry.date)}</span>
             <h2>{entry.title}</h2>
             <p>{entry.excerpt}</p>
           </div>
@@ -46,7 +52,7 @@ const entries = Object.values(archiveFiles)
     <section class="arc-newsletter">
       <div class="arc-newsletter-inner">
         <h2>Le Journal</h2>
-        <p>Pas trop souvent. Juste assez. La note occasionnelle depuis Saint-Paul de Vence — nouvelles acquisitions dans la collection et les choses à savoir avant votre visite.</p>
+        <p>Pas trop souvent. Juste assez. La note occasionnelle depuis Saint-Paul de Vence, nouvelles acquisitions dans la collection et les choses à savoir avant votre visite.</p>
         <form id="newsletter-form" class="arc-nl-form">
           <input name="email" type="email" placeholder="Adresse email" required />
           <button type="submit">S'abonner</button>

@@ -1,5 +1,17 @@
 ---
 import SeminaireLayout from '../layouts/SeminaireLayout.astro';
+
+const smImg = (file: string) => `/assets/images/seminaire/${encodeURIComponent(file)}`;
+
+/** Non-hero assets in public/assets/images/seminaire (hero stays seminaire-hero.jpg). */
+const img = {
+  guinguette: 'etoileblanche58.jpg',
+  restaurant: 'DSCF4780.JPG',
+  roomWide: 'ToileBlanche_MegWhitePhotography_15.jpg',
+  roomDetail: 'B502F29D-C840-4732-9401-7E5291B05A1E.jpeg',
+  toileblanche: 'DSCF6159 2.JPG',
+  landscape: 'IMG_7629.jpg',
+} as const;
 ---
 
 <SeminaireLayout>
@@ -10,23 +22,23 @@ import SeminaireLayout from '../layouts/SeminaireLayout.astro';
     <div class="sm-hero-image">
       <img
         src="/assets/images/seminaire/seminaire-hero.jpg"
-        alt="Fondation CAB, Saint-Paul-de-Vence"
-        loading="lazy"
+        alt="Mas de l'Artiste, Toile Blanche"
+        loading="eager"
         class="sm-img"
       />
     </div>
 
     <div class="sm-container">
-      <p class="sm-eyebrow">Saint-Paul-de-Vence</p>
+      <p class="sm-eyebrow">Toile Blanche, Saint-Paul-de-Vence</p>
 
       <h1 class="sm-h1">Le Séminaire</h1>
 
-      <p class="sm-subtitle">A working retreat for leadership groups.<br />November through March.</p>
+      <p class="sm-subtitle">A working retreat for leadership groups.<br />November through March. Weekdays only.</p>
 
       <div class="sm-body-text">
         <p>The best decisions a team ever makes rarely happen in a meeting room. They happen at dinner, on a walk, in the space between one conversation and the next.</p>
 
-        <p>Le Séminaire is two to five days in Provence, off-season, with the people who matter most to what you are building. Twenty-two suites at Toile Blanche, a declared work of art run by three artist brothers. Working sessions at Fondation CAB, one of Europe's most serious spaces for minimal and conceptual art. Breakfast, lunch, and dinner taken seriously.</p>
+        <p>Le Séminaire is two to four nights in Provence, off-season, with the people who matter most to what you are building. Up to sixteen people, one suite each. Working sessions in a two-hundred-year-old mas that is itself part of a declared artwork. All meals at Toile Blanche. Weekdays only.</p>
 
         <p>No flip charts. No team-building exercises. No hotel conference wing. Just a small group of people, a remarkable place, and enough time to think properly.</p>
       </div>
@@ -42,37 +54,45 @@ import SeminaireLayout from '../layouts/SeminaireLayout.astro';
       <h2 class="sm-h2">The rhythm</h2>
 
       <div class="sm-body-text">
-        <p>Mornings belong to the work. The group transfers to Fondation CAB by organised van, ten minutes from Toile Blanche. The space is yours for a half or full day, configured for the group's needs. Before the session begins, a brief introduction to the current exhibition from the foundation's team, for those who want it.</p>
+        <p>Mornings belong to the work. The group moves to the working room, a fifty-square-metre ground floor of a two-hundred-year-old mas, configured around a long table with natural light on both sides. Coffee and croissants are already there.</p>
+
+        <p>The room is not a meeting room. It is a mas, with stone walls, original beams, and an artwork from the Toile Blanche collection on the wall. The environment is not incidental to the thinking. It is part of it.</p>
       </div>
 
       <div class="sm-inline-image">
         <img
-        src="/assets/images/guinguette/IMG_7092.jpg"
-        alt="La Guinguette, lunch"
+          src={smImg(img.guinguette)}
+          alt="La Guinguette"
           loading="lazy"
           class="sm-img"
         />
       </div>
 
       <div class="sm-body-text">
-        <p>Lunch is at La Guinguette. Sharing plates, Provençal produce, rosé if the afternoon allows it.</p>
+        <p>Lunch is at La Guinguette. Sharing plates, Provençal produce, the particular pleasure of stepping outside in the middle of a working day.</p>
 
-        <p>Afternoons are unstructured. The village, the foundations, the pool if the season permits, the particular pleasure of doing nothing in a place that rewards attention.</p>
+        <p>Afternoons are unstructured. The village, the foundations, the grounds, a walk. The conversations that started at the table tend to continue here.</p>
       </div>
 
       <div class="sm-inline-image">
         <img
-        src="/assets/images/restaurant/IMG_4849.jpg"
-        alt="Le Restaurant, evening"
+          src={smImg(img.restaurant)}
+          alt="Le Restaurant"
           loading="lazy"
           class="sm-img"
         />
       </div>
 
       <div class="sm-body-text">
-        <p>Evenings are at Le Restaurant. On the first night, the Leroy Brothers join the apéritif.</p>
+        <p>In the evening, a drink with the Leroy Brothers before dinner, if the group wishes. Then dinner at Le Restaurant.</p>
       </div>
 
+      <div class="sm-day-rhythm">
+        <p>Morning, Mas de l'Artiste working room</p>
+        <p>Midday, La Guinguette</p>
+        <p>Afternoon, Toile Blanche</p>
+        <p>Evening, Le Restaurant</p>
+      </div>
 
     </div>
   </section>
@@ -81,44 +101,44 @@ import SeminaireLayout from '../layouts/SeminaireLayout.astro';
   <section class="sm-section sm-section--spaces">
     <div class="sm-container">
 
-      <p class="sm-section-label">Where you meet. Where you stay.</p>
+      <p class="sm-section-label">Where you work. Where you stay.</p>
 
-      <!-- CAB subsection -->
       <div class="sm-subsection">
-        <div class="sm-inline-image">
+        <div class="sm-inline-image sm-inline-image--flush-top">
           <img
-        src="/assets/images/pools/IMG_3049.jpg"
-        alt="Fondation CAB working space"
+            src={smImg(img.roomWide)}
+            alt="Mas de l'Artiste working room"
             loading="lazy"
             class="sm-img"
           />
         </div>
 
-        <p class="sm-subsection-label">The meeting space</p>
-        <h2 class="sm-h2">Fondation CAB</h2>
+        <p class="sm-subsection-label">The working room</p>
+        <h2 class="sm-h2">Mas de l'Artiste</h2>
 
         <div class="sm-body-text">
-          <p>Fondation CAB is a private foundation dedicated to minimal and conceptual art, five minutes on foot from the centre of Saint-Paul-de-Vence. Founded by Hubert Bonnet, it houses one of the most important collections of its kind in Europe.</p>
+          <p>The working room is the ground floor of Mas de l'Artiste, the oldest building at Toile Blanche. Two centuries of stone walls, original beams, and a fireplace. Fifty square metres around a single long table that seats up to sixteen.</p>
 
-          <p>The working space is available for half or full day sessions, with seating for up to twenty-two. Natural light, architectural calm, and a current exhibition always visible to the group. The environment is not incidental to the work, it is part of it.</p>
+          <p>Natural light from full-height windows. An artwork from the permanent collection. A separate WC. Coffee and breakfast provisions from the kitchenette. Nothing that looks like a conference room.</p>
+
+          <p>The Leroy Brothers' studios are steps away. The proximity is available, not imposed.</p>
         </div>
 
         <div class="sm-inline-image">
           <img
-        src="/assets/images/art/IMG_4376.jpg"
-        alt="Work from the CAB collection"
+            src={smImg(img.roomDetail)}
+            alt="Working room detail"
             loading="lazy"
             class="sm-img"
           />
         </div>
       </div>
 
-      <!-- Toile Blanche subsection -->
       <div class="sm-subsection">
-        <div class="sm-inline-image">
+        <div class="sm-inline-image sm-inline-image--flush-top">
           <img
-        src="/assets/images/theproperty/closingfullwidth.jpg"
-        alt="Toile Blanche, Saint-Paul-de-Vence"
+            src={smImg(img.toileblanche)}
+            alt="Toile Blanche"
             loading="lazy"
             class="sm-img"
           />
@@ -128,9 +148,9 @@ import SeminaireLayout from '../layouts/SeminaireLayout.astro';
         <h2 class="sm-h2">Toile Blanche</h2>
 
         <div class="sm-body-text">
-          <p>Twenty-two suites across seven buildings on a property declared a conceptual artwork in 2026 by the Leroy Brothers, the artists who own and run it. Each suite is different. All have been designed to feel like a home rather than a hotel room.</p>
+          <p>Twenty-two suites across seven buildings on a property declared a conceptual artwork in 2026 by the Leroy Brothers, the three artists who own and run it. One suite per person. Each suite is different. All have been designed to feel like a home rather than a hotel room.</p>
 
-          <p>Two restaurants, three shared pools, and the Alpes-Maritimes in every direction.</p>
+          <p>Two restaurants. The village of Saint-Paul-de-Vence ten minutes on foot. The foundations within reach.</p>
 
           <p>
             <a href="https://www.toileblanche.com" class="sm-inline-link">Full details at toileblanche.com</a>
@@ -148,28 +168,26 @@ import SeminaireLayout from '../layouts/SeminaireLayout.astro';
       <p class="sm-section-label">What is included</p>
 
       <div class="sm-includes">
-        <p>Twenty-two suites available, minimum group of eight.</p>
-        <p>Breakfast daily at Toile Blanche, always included.</p>
+        <p>One suite per person throughout.</p>
+        <p>Complimentary breakfast daily at Toile Blanche.</p>
         <p>Lunch daily at La Guinguette.</p>
         <p>Dinner daily at Le Restaurant.</p>
-        <p>Working sessions at Fondation CAB, half or full day.</p>
-        <p>Morning exhibition introduction at CAB, for the group.</p>
-        <p>Organised van transfers between Toile Blanche and CAB.</p>
-        <p>One dinner joined by the Leroy Brothers.</p>
-        <p>Concierge available throughout for individual needs.</p>
+        <p>The working room in Mas de l'Artiste, full days.</p>
+        <p>Coffee, water, and morning provisions in the room.</p>
+        <p>A pre-dinner drink with the Leroy Brothers, on the first evening, if you wish.</p>
+        <p>Basic AV: screen, HDMI connection, wifi throughout.</p>
+        <p>Concierge available for individual needs.</p>
       </div>
 
       <div class="sm-rates-block">
         <p class="sm-section-label">Rates</p>
-        <p class="sm-rate-line">From <em class="sm-rate-placeholder">À confirmer / To be confirmed</em> per person per night</p>
+        <p class="sm-rate-line">From €690 per person per night, all-inclusive</p>
 
         <div class="sm-rates-supporting">
-          <p>All meals included as above.</p>
-          <p>Minimum three nights. Maximum five nights.</p>
-          <p>Two nights by arrangement only.</p>
-          <p>Groups of eight to twenty-two.</p>
-          <p>November through March only.</p>
-          <p>All bookings direct. No third-party platforms.</p>
+          <p>Two to four nights. Weekdays only.</p>
+          <p>Eight to sixteen people. One suite per person.</p>
+          <p>November through March.</p>
+          <p>Direct enquiry only.</p>
         </div>
 
         <a href="mailto:seminaire@toileblanche.com" class="sm-cta">
@@ -185,7 +203,7 @@ import SeminaireLayout from '../layouts/SeminaireLayout.astro';
 
     <div class="sm-closing-image">
       <img
-        src="/assets/images/parallax1.jpg"
+        src={smImg(img.landscape)}
         alt="Provence, off-season"
         loading="lazy"
         class="sm-img"
@@ -196,7 +214,7 @@ import SeminaireLayout from '../layouts/SeminaireLayout.astro';
       <div class="sm-closing-text">
         <p>Le Séminaire is not for every group. It is for the ones who understand that where you think changes what you think.</p>
 
-        <p>If that is your team, write to us. We begin with a conversation about what you are working on and what you need the week to produce. Everything else follows from there.</p>
+        <p>If that is your team, write to us. We begin with a conversation about what you are working on and what you need the days to produce. Everything else follows from there.</p>
 
         <a href="mailto:seminaire@toileblanche.com" class="sm-closing-email">
           seminaire@toileblanche.com
@@ -250,6 +268,10 @@ import SeminaireLayout from '../layouts/SeminaireLayout.astro';
     margin-bottom: var(--space-8);
   }
 
+  .sm-inline-image--flush-top {
+    margin-top: 0;
+  }
+
   .sm-img {
     display: block;
     width: 100%;
@@ -280,10 +302,10 @@ import SeminaireLayout from '../layouts/SeminaireLayout.astro';
     margin-bottom: var(--space-3);
   }
 
-  /* H1: Heebo Regular, uppercase, tracked */
+  /* H1: Heebo (same stack as La Vie Ici / L'Hiver); size unchanged from original seminaire scale */
   .sm-h1 {
-    font-family: 'Heebo', var(--font-body);
-    font-weight: var(--weight-regular);
+    font-family: 'Heebo', var(--font-body, sans-serif);
+    font-weight: 400;
     font-size: clamp(2rem, 5vw, 4.5rem);
     text-transform: uppercase;
     letter-spacing: var(--tracking-wider);
@@ -328,22 +350,15 @@ import SeminaireLayout from '../layouts/SeminaireLayout.astro';
     margin-top: var(--space-8);
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-5);
   }
 
   .sm-day-rhythm p {
     font-family: var(--font-body);
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-normal);
+    font-size: var(--text-sm);
     color: var(--color-stone);
     margin: 0;
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--color-border-faint);
-  }
-
-  .sm-day-rhythm p:last-child {
-    border-bottom: none;
+    line-height: var(--leading-relaxed);
   }
 
   .sm-subsection {
@@ -408,12 +423,6 @@ import SeminaireLayout from '../layouts/SeminaireLayout.astro';
     margin: 0 0 var(--space-4);
   }
 
-  .sm-rate-placeholder {
-    font-style: italic;
-    color: var(--color-stone);
-    font-weight: var(--weight-regular);
-  }
-
   .sm-rates-supporting {
     margin-bottom: var(--space-6);
   }
@@ -434,7 +443,7 @@ import SeminaireLayout from '../layouts/SeminaireLayout.astro';
     letter-spacing: var(--tracking-normal);
     text-transform: uppercase;
     color: var(--color-bg);
-    background-color: var(--color-terracotta);
+    background-color: #ac6b53;
     text-decoration: none;
     padding: var(--space-2) var(--space-5);
     border-radius: var(--radius-sm);

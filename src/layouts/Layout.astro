@@ -90,8 +90,8 @@ const alternates = getAlternateUrls(currentPath);
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
   <link rel="preconnect" href="https://static.axept.io" crossorigin />
   <!-- Fonts: load async to avoid render blocking (display=swap already in URL) -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&family=Heebo:wght@400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&family=Heebo:wght@400&display=swap" rel="stylesheet" /></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&family=Heebo:wght@100;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500;1,600&family=Didact+Gothic&family=Gilda+Display&family=Heebo:wght@100;400&display=swap" rel="stylesheet" /></noscript>
 
   <!-- Site Stylesheet (site-overrides imported above — Vite minifies in prod) -->
   <link rel="stylesheet" href="/css/tokens.css" />
@@ -113,6 +113,21 @@ const alternates = getAlternateUrls(currentPath);
 
   <!-- Google Site Verification -->
   <meta name="google-site-verification" content="ybV56V__njW0TIX5AEH_299IVdVUSQYtEk-I8KSaeQQ" />
+
+  <!-- Meta Pixel (is:inline — do not bundle; required for fbq). Consent: revoke until Axeptio grants marketing. -->
+  <script is:inline>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('consent', 'revoke');
+    fbq('init', '517991158551582');
+    fbq('track', 'PageView');
+  </script>
 
   <!-- Consent Mode V2 -->
   <script>
@@ -179,6 +194,15 @@ const alternates = getAlternateUrls(currentPath);
             'ad_user_data': choices.google_ads ? 'granted' : 'denied',
             'ad_personalization': choices.google_ads ? 'granted' : 'denied'
           });
+          var marketing = !!(choices && (choices.google_ads || choices.facebook_pixel));
+          if (typeof fbq === 'function') {
+            if (marketing) {
+              fbq('consent', 'grant');
+              fbq('track', 'PageView');
+            } else {
+              fbq('consent', 'revoke');
+            }
+          }
         });
       });
     }
@@ -233,7 +257,7 @@ const alternates = getAlternateUrls(currentPath);
         { "@type": "LocationFeatureSpecification", "name": "Restaurant", "value": true },
         { "@type": "LocationFeatureSpecification", "name": "Contemporary art collection", "value": true },
         { "@type": "LocationFeatureSpecification", "name": "Garden", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Breakfast included (direct bookings)", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Complimentary breakfast (direct bookings)", "value": true },
         { "@type": "LocationFeatureSpecification", "name": "Concierge", "value": true },
         { "@type": "LocationFeatureSpecification", "name": "Private transfer from Nice Airport", "value": true },
         { "@type": "LocationFeatureSpecification", "name": "Bike rental", "value": true },

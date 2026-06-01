@@ -1,7 +1,7 @@
 ---
 slug: light-shadow-photo-essay
 title: "Light & Shadow: 14:00 at the South Pool"
-date: "2026-07-15"
+date: "2026-04-08"
 author: "Leroy Brothers"
 image: "/assets/images/archive/light-shadow.jpg"
 imageWidth: 1170

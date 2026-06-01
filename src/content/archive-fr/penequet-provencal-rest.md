@@ -1,7 +1,7 @@
 ---
 slug: penequet-provencal-rest
 title: "Pénéquet : L'Art provençal du repos"
-date: "2026-04-01"
+date: "2025-12-01"
 author: "Leroy Brothers"
 image: "/assets/images/archive/penequet-ritual.jpeg"
 imageWidth: 1200
