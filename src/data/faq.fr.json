@@ -37,7 +37,7 @@
     "items": [
       { "q": "Y a-t-il un parking sur place ?", "a": "Nous mettons à disposition un parking extérieur privé et sécurisé dans l'enceinte de la propriété, offert à nos clients." },
       { "q": "Quand la piscine est-elle chauffée ?", "a": "Les piscines sont chauffées à partir de mi-avril, selon les conditions météorologiques et les températures. Elles restent ouvertes pour les plus courageux durant les mois d'hiver." },
-      { "q": "Les enfants et les animaux sont-ils acceptés ?", "a": "Nous accueillons les enfants avec des consignes spécifiques pour l'harmonie de Toile Blanche. Les animaux de compagnie, en revanche, ne sont pas admis dans les maisons et jardins de Toile Blanche." }
+      { "q": "Les enfants et les animaux sont-ils acceptés ?", "a": "Nous accueillons les enfants avec des consignes spécifiques pour l'harmonie de Toile Blanche. Les animaux de compagnie, en revanche, ne sont pas admis dans les maisons de Toile Blanche." }
     ]
   }
 ]
