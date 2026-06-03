@@ -114,6 +114,91 @@ const alternates = getAlternateUrls(currentPath);
   <!-- Google Site Verification -->
   <meta name="google-site-verification" content="ybV56V__njW0TIX5AEH_299IVdVUSQYtEk-I8KSaeQQ" />
 
+  <!-- Axeptio + Consent Mode defaults (is:inline — synchronous, not bundled by Astro) -->
+  {locale === 'fr' ? (
+    <script is:inline>
+      window.axeptioSettings = {
+        clientId: "63ce737f6a87883d8a3d1f79",
+        cookiesVersion: "toileblanche-fr",
+        googleConsentMode: {
+          default: {
+            analytics_storage: "denied",
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+            wait_for_update: 500
+          }
+        }
+      };
+
+      (function(d, s) {
+        var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+        e.async = true; e.src = "//static.axept.io/sdk.js";
+        t.parentNode.insertBefore(e, t);
+      })(document, "script");
+
+      void 0 === window._axcb && (window._axcb = []);
+      window._axcb.push(function(axeptio) {
+        axeptio.on("cookies:complete", function(choices) {
+          var marketing = !!(choices && (choices.google_ads || choices.facebook_pixel));
+          if (typeof fbq === "function") {
+            if (marketing) {
+              fbq("consent", "grant");
+              fbq("track", "PageView");
+            } else {
+              fbq("consent", "revoke");
+            }
+          }
+        });
+      });
+    </script>
+  ) : (
+    <script is:inline>
+      window.axeptioSettings = {
+        clientId: "63ce737f6a87883d8a3d1f79",
+        cookiesVersion: "toileblanche-en",
+        googleConsentMode: {
+          default: {
+            analytics_storage: "denied",
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+            wait_for_update: 500
+          }
+        }
+      };
+
+      (function(d, s) {
+        var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+        e.async = true; e.src = "//static.axept.io/sdk.js";
+        t.parentNode.insertBefore(e, t);
+      })(document, "script");
+
+      void 0 === window._axcb && (window._axcb = []);
+      window._axcb.push(function(axeptio) {
+        axeptio.on("cookies:complete", function(choices) {
+          var marketing = !!(choices && (choices.google_ads || choices.facebook_pixel));
+          if (typeof fbq === "function") {
+            if (marketing) {
+              fbq("consent", "grant");
+              fbq("track", "PageView");
+            } else {
+              fbq("consent", "revoke");
+            }
+          }
+        });
+      });
+    </script>
+  )}
+
+  <script is:inline>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-52R8BBP');
+  </script>
+
   <!-- Meta Pixel (is:inline — do not bundle; required for fbq). Consent: revoke until Axeptio grants marketing. -->
   <script is:inline>
     !function(f,b,e,v,n,t,s)
@@ -127,86 +212,6 @@ const alternates = getAlternateUrls(currentPath);
     fbq('consent', 'revoke');
     fbq('init', '517991158551582');
     fbq('track', 'PageView');
-  </script>
-
-  <!-- Consent Mode V2 -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('consent', 'default', {
-      'analytics_storage': 'denied',
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'wait_for_update': 500
-    });
-  </script>
-
-  <!-- Google Tag Manager: load on first scroll/click to reduce unused JS on initial load -->
-  <script define:vars={{ GTM_ID }}>
-    (function(w,d,s,l,i){
-      var loaded = false;
-      function loadGTM(){
-        if (loaded) return;
-        loaded = true;
-        w[l]=w[l]||[];
-        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-        var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true;
-        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        f.parentNode.insertBefore(j,f);
-      }
-      function onInteraction() {
-        loadGTM();
-        w.removeEventListener('scroll', onInteraction, true);
-        w.removeEventListener('click', onInteraction, true);
-        w.removeEventListener('keydown', onInteraction, true);
-      }
-      w.addEventListener('scroll', onInteraction, { passive: true, capture: true });
-      w.addEventListener('click', onInteraction, true);
-      w.addEventListener('keydown', onInteraction, true);
-      setTimeout(loadGTM, 4000);
-    })(window,document,'script','dataLayer', GTM_ID);
-  </script>
-
-  <!-- Axeptio Consent Manager: deferred 1.5s to reduce initial JS payload -->
-  <script define:vars={{ AXEPTIO_ID, locale }}>
-    window.axeptioSettings = {
-      clientId: AXEPTIO_ID,
-      cookiesVersion: locale === 'fr' ? 'toileblanche-fr' : 'toileblanche-en'
-    };
-
-    function loadAxeptio() {
-      if (document.querySelector('script[src*="axept.io"]') || window.axeptio) return;
-      var d = document, s = 'script', t = d.getElementsByTagName(s)[0], e = d.createElement(s);
-      e.async = true;
-      e.src = "https://static.axept.io/sdk.js";
-      t.parentNode.insertBefore(e, t);
-
-      void 0 === window._axcb && (window._axcb = []);
-      window._axcb.push(function(axeptio) {
-        axeptio.on("cookies:complete", function(choices) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          gtag('consent', 'update', {
-            'analytics_storage': choices.google_analytics ? 'granted' : 'denied',
-            'ad_storage': choices.google_ads ? 'granted' : 'denied',
-            'ad_user_data': choices.google_ads ? 'granted' : 'denied',
-            'ad_personalization': choices.google_ads ? 'granted' : 'denied'
-          });
-          var marketing = !!(choices && (choices.google_ads || choices.facebook_pixel));
-          if (typeof fbq === 'function') {
-            if (marketing) {
-              fbq('consent', 'grant');
-              fbq('track', 'PageView');
-            } else {
-              fbq('consent', 'revoke');
-            }
-          }
-        });
-      });
-    }
-    setTimeout(loadAxeptio, 1500);
   </script>
 
   <!-- Mews Booking Engine: loaded on demand when user clicks Book (saves ~1.2MB initial payload) -->

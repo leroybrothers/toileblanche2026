@@ -75,8 +75,8 @@ const frProgrammeUrl = "https://www.toileblanche.com/fr/la-vie-ici#lvi-seminaire
     <link rel="stylesheet" href="/css/tokens.css" />
     <link rel="stylesheet" href="/css/toile-blanche.min.css" />
 
-    <!-- GTM consent initialisation (must run before GTM loads) -->
-    <script define:vars={{ GTM_ID, AXEPTIO_ID }}>
+    <!-- Consent Mode V2: synchronous before GTM / vendors (is:inline) -->
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       gtag('consent', 'default', {
@@ -84,54 +84,36 @@ const frProgrammeUrl = "https://www.toileblanche.com/fr/la-vie-ici#lvi-seminaire
         'analytics_storage': 'denied',
         'ad_user_data': 'denied',
         'ad_personalization': 'denied',
-        'wait_for_update': 2000
+        'wait_for_update': 500
       });
       gtag('set', 'ads_data_redaction', true);
       gtag('set', 'url_passthrough', true);
+    </script>
 
-      (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        function loadGTM() {
-          if (d.querySelector('script[src*="gtm"]')) return;
-          var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-          j.async = true;
-          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-          f.parentNode.insertBefore(j, f);
-        }
-
-        if ('requestIdleCallback' in w) {
-          requestIdleCallback(loadGTM, { timeout: 4000 });
-        } else {
-          setTimeout(loadGTM, 4000);
-        }
-      })(window, document, 'script', 'dataLayer', GTM_ID);
-
-      // Axeptio consent manager
+    <!-- Axeptio: native Google Consent Mode -->
+    <script is:inline define:vars={{ AXEPTIO_ID }}>
       window.axeptioSettings = {
         clientId: AXEPTIO_ID,
-        cookiesVersion: "toileblanche-en",
-        googleConsentMode: "enable",
+        cookiesVersion: 'toileblanche-en',
+        googleConsentMode: 'enable'
       };
+
       (function(d, s) {
-        if (document.querySelector('script[src*="axept.io"]') || window.axeptio) return;
-        var t = d.getElementsByTagName(s)[0],
-          e = d.createElement(s);
+        if (d.querySelector('script[src*="axept"]') || window.axeptio) return;
+        var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
         e.async = true;
-        e.src = "//static.axept.io/sdk.js";
+        e.src = 'https://static.axept.io/sdk.js';
         t.parentNode.insertBefore(e, t);
-      })(document, "script");
+      })(document, 'script');
 
       void 0 === window._axcb && (window._axcb = []);
       window._axcb.push(function(axeptio) {
-        axeptio.on("cookies:complete", function(choices) {
+        axeptio.on('cookies:complete', function(choices) {
           gtag('consent', 'update', {
             'analytics_storage': choices.google_analytics ? 'granted' : 'denied',
             'ad_storage': choices.google_ads ? 'granted' : 'denied',
             'ad_user_data': choices.google_ads ? 'granted' : 'denied',
-            'ad_personalization': choices.google_ads ? 'granted' : 'denied',
+            'ad_personalization': choices.google_ads ? 'granted' : 'denied'
           });
           var marketing = !!(choices && (choices.google_ads || choices.facebook_pixel));
           if (typeof fbq === 'function') {
@@ -144,6 +126,15 @@ const frProgrammeUrl = "https://www.toileblanche.com/fr/la-vie-ici#lvi-seminaire
           }
         });
       });
+    </script>
+
+    <!-- GTM: immediate load after consent init (is:inline) -->
+    <script is:inline define:vars={{ gtmId: GTM_ID }}>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer',gtmId);
     </script>
 
     <!-- Meta Pixel (is:inline — do not bundle; required for fbq). Consent: revoke until Axeptio grants marketing. -->
