@@ -1,0 +1,153 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import { gallerySrcset } from '../../../utils/images';
+
+const estateImages = [
+  {
+    src: '/assets/images/theproperty/theplace/00-hero.jpg',
+    alt: 'Domaine Toile Blanche à Saint-Paul de Vence',
+  },
+  {
+    src: '/assets/images/theproperty/thehouses/DSC09886.jpg',
+    alt: 'Les maisons de Toile Blanche',
+  },
+  {
+    src: '/assets/images/theproperty/thegarden/IMG_3421.jpg',
+    alt: 'Les jardins de Toile Blanche',
+  },
+];
+
+const gdsCodes = [
+  { system: 'Code chaîne GDS', code: 'LX (Luxury)' },
+  { system: 'Amadeus', code: 'LX NCETBL' },
+  { system: 'Sabre', code: 'LX 624246' },
+  { system: 'Galileo/Apollo', code: 'LX DL937' },
+  { system: 'Worldspan', code: 'LX A0261' },
+];
+---
+
+<Layout
+  locale="fr"
+  title="Conseillers en voyages & Partenaires | Toile Blanche | Saint-Paul de Vence"
+  description="Codes GDS et informations partenaires pour les conseillers en voyages réservant l'Hôtel Toile Blanche à Saint-Paul de Vence."
+>
+  <Nav locale="fr" theme="light" />
+
+  <main id="main-content">
+    <section class="info-header">
+      <div class="info-header-inner">
+        <p class="info-eyebrow">Partenaires</p>
+        <h1>Conseillers en voyages &amp; Partenaires</h1>
+        <p class="info-tagline">Bienvenue à l'Hôtel Toile Blanche. Nous accordons une grande importance à notre partenariat avec la communauté internationale du voyage et nous réjouissons d'accueillir vos clients VIP dans notre domaine contemporain à Saint-Paul de Vence.</p>
+      </div>
+    </section>
+
+    <section class="tadv-gallery" aria-label="Le domaine">
+      {estateImages.map((image) => (
+        <div class="tadv-gallery-item">
+          <img
+            src={image.src}
+            srcset={gallerySrcset(image.src)}
+            sizes="(max-width: 900px) 100vw, 33.33vw"
+            width="2000"
+            height="1333"
+            alt={image.alt}
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </section>
+
+    <section class="info-body">
+      <div class="info-body-inner">
+        <h2>Informations GDS</h2>
+        <dl class="tadv-gds">
+          {gdsCodes.map((item) => (
+            <div class="tadv-gds-row">
+              <dt>{item.system}</dt>
+              <dd>{item.code}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <p class="tadv-contact">Pour les demandes consortia spécialisées, les privatisations de suites ou les attentions VIP dédiées, veuillez contacter directement notre équipe relations clients à <a href="mailto:info@toileblanche.com">info@toileblanche.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale="fr" />
+</Layout>
+
+<style is:global>
+  @import '/css/info-page.css';
+
+  .tadv-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px 72px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .tadv-gallery-item {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+  .tadv-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .tadv-gds {
+    margin: 8px 0 40px;
+    border: 1px solid var(--color-border);
+  }
+  .tadv-gds-row {
+    display: grid;
+    grid-template-columns: minmax(140px, 1fr) 1fr;
+    gap: 12px 32px;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .tadv-gds-row:last-child {
+    border-bottom: none;
+  }
+  .tadv-gds-row dt {
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-stone-muted);
+    margin: 0;
+  }
+  .tadv-gds-row dd {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color-ink-deep);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .tadv-contact {
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+    max-width: 52ch;
+  }
+
+  @media (max-width: 900px) {
+    .tadv-gallery {
+      grid-template-columns: 1fr;
+      padding: 0 24px 48px;
+      gap: 12px;
+    }
+    .tadv-gds-row {
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 16px 20px;
+    }
+  }
+</style>
