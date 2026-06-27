@@ -10,6 +10,7 @@ export type LaVieIciStrings = {
   openingParagraphs: string[];
   familyParagraphs: string[];
   namesLine: string;
+  familyPhotoCredit: string;
   namesBelowPortrait: boolean;
   bridgeParagraphs: string[];
   radart: {
@@ -115,7 +116,8 @@ const en: LaVieIciStrings = {
     'Slowly, the place evolved. Without rupture. Without losing itself. A place to live, open and essential. A family. A home. An artwork that is lived in.',
   ],
   namesLine:
-    'Nadine · Dany · Gregory · Gilles · Nicolas · Caroline · Tahnee · Alexis · Agathe · Marius · Isaac',
+    'Alexis · Gregory · Caroline · Agathe · Dany · Nadine · Gilles · Tahnee · Izaak · Nicolas · Marius',
+  familyPhotoCredit: 'Patricia Parinejad',
   namesBelowPortrait: true,
   bridgeParagraphs: [
     'What follows is not a programme.',
@@ -340,7 +342,8 @@ const fr: LaVieIciStrings = {
     'Peu à peu, le lieu évolue. Sans rupture. Avec justesse. Un lieu de vie, ouvert, essentiel. Une famille. Une maison. Une \u0153uvre d\u2019art habitée.',
   ],
   namesLine:
-    'Nadine · Dany · Gregory · Gilles · Nicolas · Caroline · Tahnee · Alexis · Agathe · Marius · Isaac',
+    'Alexis · Gregory · Caroline · Agathe · Dany · Nadine · Gilles · Tahnee · Izaak · Nicolas · Marius',
+  familyPhotoCredit: 'Patricia Parinejad',
   namesBelowPortrait: true,
   bridgeParagraphs: [
     'Ce qui suit n\u2019est pas un programme.',
