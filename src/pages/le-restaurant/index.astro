@@ -17,7 +17,7 @@ const t = useTranslations(lang);
   hideBookingBar={true}
   loadZenchef={true}
 >
-  <Nav theme="both" ctaText="Book my Table" ctaAction="zenchef" />
+  <Nav theme="both" ctaText={t.nav.bookLeRestaurant} ctaAction="zenchef" />
 
   <main id="main-content">
     <!-- HERO -->
@@ -178,7 +178,7 @@ const t = useTranslations(lang);
           </div>
 
           <div class="lrs-details-block lrs-details-cta">
-            <a href="https://bookings.zenchef.com/results?rid=357953&lang=en" target="_blank" rel="noopener noreferrer" data-zc-action="open" class="lrs-btn">Reserve a Table</a>
+            <a href="https://bookings.zenchef.com/results?rid=357953&lang=en" target="_blank" rel="noopener noreferrer" data-zc-action="open" class="lrs-btn">{t.nav.bookLeRestaurant}</a>
           </div>
 
           <div class="lrs-details-block">
@@ -257,7 +257,7 @@ const t = useTranslations(lang);
     <!-- CTA -->
     <section class="lrs-cta">
       <p>The table is set.</p>
-      <a href="https://bookings.zenchef.com/results?rid=357953&lang=en" target="_blank" rel="noopener noreferrer" data-zc-action="open" class="lrs-cta-btn">Reserve a Table</a>
+      <a href="https://bookings.zenchef.com/results?rid=357953&lang=en" target="_blank" rel="noopener noreferrer" data-zc-action="open" class="lrs-cta-btn">{t.nav.bookLeRestaurant}</a>
     </section>
   </main>
 
