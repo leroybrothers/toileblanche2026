@@ -3,6 +3,8 @@
   "nav": {
     "bookStay": "Réserver",
     "bookTable": "Réserver une table",
+    "bookLeRestaurant": "Réserver Le Restaurant",
+    "bookLaGuinguette": "Réserver La Guinguette",
     "toggleMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
     "suites": "Suites",

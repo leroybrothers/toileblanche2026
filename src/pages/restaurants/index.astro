@@ -3,6 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { gallerySrcset } from '../../utils/images';
+import { useTranslations } from '../../i18n/index';
+
+const t = useTranslations('en');
 ---
 
 <Layout
@@ -12,7 +15,15 @@ import { gallerySrcset } from '../../utils/images';
   hideBookingBar={true}
   loadZenchef={true}
 >
-  <Nav theme="both" ctaText="Book my Table" ctaAction="zenchef" />
+  <Nav
+    theme="both"
+    ctaText={t.nav.bookLeRestaurant}
+    ctaAction="zenchef"
+    secondaryCtaText={t.nav.bookLaGuinguette}
+    secondaryCtaAction="zenchef"
+    secondaryZenchefRid="375927"
+    secondaryZenchefPid="1001"
+  />
 
   <main id="main-content">
     <!-- HERO -->

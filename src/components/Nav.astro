@@ -10,16 +10,42 @@ export interface Props {
   zenchefRid?: string;
   zenchefPid?: string;
   locale?: Locale;
+  showTableCta?: boolean;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+  secondaryCtaAction?: 'zenchef';
+  secondaryZenchefRid?: string;
+  secondaryZenchefPid?: string;
 }
 
 const currentPath = Astro.url.pathname;
 const locale = Astro.props.locale ?? getLocaleFromPath(currentPath);
 const t = useTranslations(locale);
-const { theme = 'both', ctaText = t.nav.bookStay, ctaHref, ctaAction, zenchefRid = '357953', zenchefPid } = Astro.props;
+const {
+  theme = 'both',
+  ctaText = t.nav.bookStay,
+  ctaHref,
+  ctaAction,
+  zenchefRid = '357953',
+  zenchefPid,
+  showTableCta = false,
+  secondaryCtaText,
+  secondaryCtaHref,
+  secondaryCtaAction,
+  secondaryZenchefRid,
+  secondaryZenchefPid,
+} = Astro.props;
 const ctaIsLink = !!ctaHref && ctaAction !== 'zenchef';
-const zenchefUrl = zenchefPid
-  ? `https://bookings.zenchef.com/results?rid=${zenchefRid}&pid=${zenchefPid}&lang=${locale}`
-  : `https://bookings.zenchef.com/results?rid=${zenchefRid}&lang=${locale}`;
+const restaurantsPath = localePath('/restaurants', locale);
+const zenchefBookingUrl = (rid: string, pid?: string) =>
+  pid
+    ? `https://bookings.zenchef.com/results?rid=${rid}&pid=${pid}&lang=${locale}`
+    : `https://bookings.zenchef.com/results?rid=${rid}&lang=${locale}`;
+const zenchefUrl = zenchefBookingUrl(zenchefRid, zenchefPid);
+const secondaryZenchefUrl =
+  secondaryCtaAction === 'zenchef' && secondaryZenchefRid
+    ? zenchefBookingUrl(secondaryZenchefRid, secondaryZenchefPid)
+    : secondaryCtaHref;
 const homePath = localePath('/', locale);
 const altLocale: Locale = locale === 'en' ? 'fr' : 'en';
 const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/fr/, '') || '/';
@@ -46,6 +72,16 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
             ) : (
               <button type="button" class="distributor-open tb-book-cta">{ctaText}</button>
             )}
+            {showTableCta && (
+              <a href={restaurantsPath} class="tb-book-cta tb-book-cta-link">{t.nav.bookTable}</a>
+            )}
+            {secondaryCtaText && secondaryZenchefUrl && (
+              secondaryCtaAction === 'zenchef' ? (
+                <a href={secondaryZenchefUrl} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-book-cta">{secondaryCtaText}</a>
+              ) : (
+                <a href={secondaryZenchefUrl} target="_blank" rel="noopener noreferrer" class="tb-book-cta tb-book-cta-link">{secondaryCtaText}</a>
+              )
+            )}
           </div>
           <button class="menu-button w-inline-block js-menu-toggle" aria-label={t.nav.toggleMenu} aria-expanded="false">
             <div class="menu-icon-wrap">
@@ -59,7 +95,20 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
     </div>
 
     <div class="nav-links-container tb-fullpage-menu dark js-nav-links" hidden>
-      <NavMenu currentPath={currentPath} ctaText={ctaText} ctaAction={ctaAction} zenchefRid={zenchefRid} zenchefPid={zenchefPid} locale={locale} />
+      <NavMenu
+        currentPath={currentPath}
+        ctaText={ctaText}
+        ctaHref={ctaHref}
+        ctaAction={ctaAction}
+        zenchefRid={zenchefRid}
+        zenchefPid={zenchefPid}
+        secondaryCtaText={secondaryCtaText}
+        secondaryCtaHref={secondaryCtaHref}
+        secondaryCtaAction={secondaryCtaAction}
+        secondaryZenchefRid={secondaryZenchefRid}
+        secondaryZenchefPid={secondaryZenchefPid}
+        locale={locale}
+      />
     </div>
   </nav>
 )}
@@ -85,6 +134,16 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
             ) : (
               <button type="button" class="distributor-open tb-book-cta">{ctaText}</button>
             )}
+            {showTableCta && (
+              <a href={restaurantsPath} class="tb-book-cta tb-book-cta-link">{t.nav.bookTable}</a>
+            )}
+            {secondaryCtaText && secondaryZenchefUrl && (
+              secondaryCtaAction === 'zenchef' ? (
+                <a href={secondaryZenchefUrl} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-book-cta">{secondaryCtaText}</a>
+              ) : (
+                <a href={secondaryZenchefUrl} target="_blank" rel="noopener noreferrer" class="tb-book-cta tb-book-cta-link">{secondaryCtaText}</a>
+              )
+            )}
           </div>
           <button class="menu-button w-inline-block js-menu-toggle" aria-label={t.nav.toggleMenu} aria-expanded="false">
             <div class="menu-icon-wrap">
@@ -98,7 +157,20 @@ const altPath = locale === 'en' ? `/fr${currentPath}` : currentPath.replace(/^\/
     </div>
 
     <div class="nav-links-container tb-fullpage-menu light js-nav-links" hidden>
-      <NavMenu currentPath={currentPath} ctaText={ctaText} ctaAction={ctaAction} zenchefRid={zenchefRid} zenchefPid={zenchefPid} locale={locale} />
+      <NavMenu
+        currentPath={currentPath}
+        ctaText={ctaText}
+        ctaHref={ctaHref}
+        ctaAction={ctaAction}
+        zenchefRid={zenchefRid}
+        zenchefPid={zenchefPid}
+        secondaryCtaText={secondaryCtaText}
+        secondaryCtaHref={secondaryCtaHref}
+        secondaryCtaAction={secondaryCtaAction}
+        secondaryZenchefRid={secondaryZenchefRid}
+        secondaryZenchefPid={secondaryZenchefPid}
+        locale={locale}
+      />
     </div>
   </nav>
 )}

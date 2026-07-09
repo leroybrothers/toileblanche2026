@@ -3,6 +3,8 @@
   "nav": {
     "bookStay": "Book my Stay",
     "bookTable": "Book my Table",
+    "bookLeRestaurant": "Book Le Restaurant",
+    "bookLaGuinguette": "Book La Guinguette",
     "toggleMenu": "Toggle menu",
     "closeMenu": "Close menu",
     "suites": "Suites",

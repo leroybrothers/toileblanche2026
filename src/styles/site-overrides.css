@@ -253,8 +253,13 @@ h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)) !important; }
 
 /* Nav bar only: same CTA width EN/FR so logo + hamburger do not shift */
 @media (min-width: 768px) {
+  .book-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
   .navigation-bar .book-button .tb-book-cta {
-    min-width: 13rem;
+    min-width: 11.5rem;
     text-align: center;
     box-sizing: border-box;
   }
@@ -952,6 +957,14 @@ body.tb-menu-open .overlap-section-top {
   width: 100%;
   max-width: var(--max-w-wide);
   margin-inline: auto;
+}
+
+.tb-menu-header-ctas {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .tb-menu-cta {

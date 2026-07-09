@@ -11,11 +11,36 @@ export interface Props {
   ctaAction?: 'mews' | 'zenchef';
   zenchefRid?: string;
   zenchefPid?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+  secondaryCtaAction?: 'zenchef';
+  secondaryZenchefRid?: string;
+  secondaryZenchefPid?: string;
   locale?: Locale;
 }
-const { currentPath, ctaHref, ctaAction, zenchefRid = '357953', zenchefPid, locale = 'en' } = Astro.props;
+const {
+  currentPath,
+  ctaHref,
+  ctaAction,
+  zenchefRid = '357953',
+  zenchefPid,
+  secondaryCtaText,
+  secondaryCtaHref,
+  secondaryCtaAction,
+  secondaryZenchefRid,
+  secondaryZenchefPid,
+  locale = 'en',
+} = Astro.props;
 const t = useTranslations(locale);
 const ctaText = Astro.props.ctaText ?? t.nav.bookStay;
+const zenchefBookingUrl = (rid: string, pid?: string) =>
+  pid
+    ? `https://bookings.zenchef.com/results?rid=${rid}&pid=${pid}&lang=${locale}`
+    : `https://bookings.zenchef.com/results?rid=${rid}&lang=${locale}`;
+const secondaryZenchefUrl =
+  secondaryCtaAction === 'zenchef' && secondaryZenchefRid
+    ? zenchefBookingUrl(secondaryZenchefRid, secondaryZenchefPid)
+    : secondaryCtaHref;
 const lp = (path: string) => localePath(path, locale);
 const linkClass = (path: string) => currentPath.startsWith(path) ? ' tb-current' : '';
 const suites = locale === 'fr' ? suitesFr.suites : suitesEn.suites;
@@ -26,13 +51,22 @@ const cntReadersChoiceUrl =
 <!-- Desktop menu (≥768px): full layout with Suite Explorer -->
 <div class="tb-menu-desktop">
   <header class="tb-menu-header">
-    {ctaAction === 'zenchef' ? (
-      <a href={zenchefPid ? `https://bookings.zenchef.com/results?rid=${zenchefRid}&pid=${zenchefPid}&lang=${locale}` : `https://bookings.zenchef.com/results?rid=${zenchefRid}&lang=${locale}`} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-menu-cta">{ctaText}</a>
-    ) : ctaHref ? (
-      <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-menu-cta">{ctaText}</a>
-    ) : (
-      <a href="#" class="tb-menu-cta distributor-open">{ctaText}</a>
-    )}
+    <div class="tb-menu-header-ctas">
+      {ctaAction === 'zenchef' ? (
+        <a href={zenchefBookingUrl(zenchefRid, zenchefPid)} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-menu-cta">{ctaText}</a>
+      ) : ctaHref ? (
+        <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-menu-cta">{ctaText}</a>
+      ) : (
+        <a href="#" class="tb-menu-cta distributor-open">{ctaText}</a>
+      )}
+      {secondaryCtaText && secondaryZenchefUrl && (
+        secondaryCtaAction === 'zenchef' ? (
+          <a href={secondaryZenchefUrl} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-menu-cta">{secondaryCtaText}</a>
+        ) : (
+          <a href={secondaryZenchefUrl} target="_blank" rel="noopener noreferrer" class="tb-menu-cta">{secondaryCtaText}</a>
+        )
+      )}
+    </div>
     <button type="button" class="tb-menu-close js-menu-toggle" aria-label={t.nav.closeMenu}>×</button>
   </header>
 
@@ -117,13 +151,22 @@ const cntReadersChoiceUrl =
 <!-- Mobile menu (<768px): simplified, readable layout -->
 <div class="tb-menu-mobile">
   <header class="tb-menu-mobile-header">
-    {ctaAction === 'zenchef' ? (
-      <a href={zenchefPid ? `https://bookings.zenchef.com/results?rid=${zenchefRid}&pid=${zenchefPid}&lang=${locale}` : `https://bookings.zenchef.com/results?rid=${zenchefRid}&lang=${locale}`} target="_blank" rel="noopener noreferrer" class="tb-menu-mobile-cta">{ctaText}</a>
-    ) : ctaHref ? (
-      <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-menu-mobile-cta">{ctaText}</a>
-    ) : (
-      <a href="#" class="tb-menu-mobile-cta distributor-open">{ctaText}</a>
-    )}
+    <div class="tb-menu-header-ctas">
+      {ctaAction === 'zenchef' ? (
+        <a href={zenchefBookingUrl(zenchefRid, zenchefPid)} target="_blank" rel="noopener noreferrer" class="tb-menu-mobile-cta">{ctaText}</a>
+      ) : ctaHref ? (
+        <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="tb-menu-mobile-cta">{ctaText}</a>
+      ) : (
+        <a href="#" class="tb-menu-mobile-cta distributor-open">{ctaText}</a>
+      )}
+      {secondaryCtaText && secondaryZenchefUrl && (
+        secondaryCtaAction === 'zenchef' ? (
+          <a href={secondaryZenchefUrl} target="_blank" rel="noopener noreferrer" data-zc-action="open" class="tb-menu-mobile-cta">{secondaryCtaText}</a>
+        ) : (
+          <a href={secondaryZenchefUrl} target="_blank" rel="noopener noreferrer" class="tb-menu-mobile-cta">{secondaryCtaText}</a>
+        )
+      )}
+    </div>
     <button type="button" class="tb-menu-close js-menu-toggle" aria-label={t.nav.closeMenu}>×</button>
   </header>
 
