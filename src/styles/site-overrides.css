@@ -943,6 +943,19 @@ body.tb-menu-open .overlap-section-top {
     opacity: 0.6;
   }
 
+  .tb-menu-mobile-affil-slh-link {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .tb-menu-mobile-affil-slh-link:focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+
   .tb-menu-mobile-affiliations .tb-affil-cnt img {
     height: 48px !important;
     width: auto !important;
@@ -1327,10 +1340,18 @@ body.tb-menu-open .overlap-section-top {
   flex-shrink: 0;
   opacity: 0.85;
   transition: opacity 0.6s ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .tb-affil-slh:hover {
   opacity: 1;
+}
+
+.tb-affil-slh:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
 }
 
 .tb-affil-caption {
