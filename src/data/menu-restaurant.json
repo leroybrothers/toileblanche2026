@@ -2,8 +2,8 @@
   "meta": {
     "restaurant": "Le Restaurant de Toile Blanche",
     "season": {
-      "fr": "Saison Hivernale 2025/26",
-      "en": "Winter Season 2025/26"
+      "fr": "Saison Estivale 2026",
+      "en": "Summer Season 2026"
     },
     "chefs": ["Nicolas Leclair", "Melissa Giordano"],
     "philosophy": {
@@ -19,12 +19,12 @@
         "type": { "fr": "Entrée", "en": "Starter" },
         "options": [
           {
-            "fr": "Feuille à feuille de betteraves multicolores : Marinées au vinaigre kalamansi, ricotta, câpres frites, pamplemousse et pralin noisette.",
-            "en": "Multicoloured Beetroot: Leaf-by-leaf arrangement marinated in kalamansi vinegar, with ricotta, fried capers, grapefruit, and hazelnut praline."
+            "fr": "Feuille à feuille de betteraves multicolores marinées au vinaigre kalamansi, ricotta, câpres frites, pamplemousse et pralin noisette.",
+            "en": "A leaf-by-leaf arrangement of multicoloured beetroot marinated in kalamansi vinegar, with ricotta, fried capers, grapefruit and hazelnut praline."
           },
           {
-            "fr": "Gravlax de Sériole de Méditerranée : Avocat, vinaigrette « passion, citronnelle, Granny Smith », huile verte de capucine.",
-            "en": "Mediterranean Amberjack Gravlax: Served with avocado, \"passion fruit, lemongrass, and Granny Smith\" vinaigrette, and nasturtium oil."
+            "fr": "Carpaccio de maigre, cœur de bœuf, pesto rosso, tomates cerise grillées, pickles de concombre et basilic.",
+            "en": "Carpaccio of meagre, beefsteak tomatoes, red pesto, grilled cherry tomatoes, pickled cucumber and basil."
           }
         ]
       },
@@ -32,12 +32,12 @@
         "type": { "fr": "Plat", "en": "Main" },
         "options": [
           {
-            "fr": "Dos de bar rôti : Tomate cœur de bœuf, fenouil confit, venus, granola salé, sauce Maltaise.",
-            "en": "Roasted Sea Bass Fillet: Served with tomato, confit fennel, Venus clams, savoury granola, and Maltese sauce."
+            "fr": "Dos de flétan sauvage rôti aux épices trappeur, maïs grillé, pommes de terre mitraille, sauce grenobloise.",
+            "en": "Roasted wild halibut loin with \"Trappeur\" spices, grilled corn, baby potatoes, and Grenobloise sauce."
           },
           {
-            "fr": "Carré d'agneau des Alpilles : Fine ratatouille en cannelloni d'aubergine, pommes dauphine aux pignons de pins et jus de viande.",
-            "en": "Rack of Lamb from the Alpilles: Served with delicate ratatouille in aubergine cannelloni, dauphine potatoes with pine nuts, and gravy."
+            "fr": "Suprême de volaille fermière, conchiglioni farci en texture de sous-bois, condiment ail noir-cresson, jus de viande.",
+            "en": "Free-range chicken breast, conchiglioni stuffed with wild forest ingredients, black garlic and watercress sauce, gravy."
           }
         ]
       },
@@ -45,12 +45,12 @@
         "type": { "fr": "Dessert", "en": "Dessert" },
         "options": [
           {
-            "fr": "Chocolat Ocoa 70% : Crumble aux amandes, crème glacée mascarpone, fleur de sel et réduction de balsamique.",
-            "en": "Ocoa 70% Chocolate: With almond crumble, mascarpone ice cream, fleur de sel, and balsamic reduction."
+            "fr": "Chocolat Ocoa 70%, crumble aux amandes, crème glacée mascarpone, fleur de sel et réduction de balsamique.",
+            "en": "Ocoa 70% chocolate, crumble with almonds, mascarpone ice cream, fleur de sel, and balsamic reduction."
           },
           {
-            "fr": "Financiers aux éclats de pistache : Framboise au jus, écume froide au lait vanillé, riz soufflé.",
-            "en": "Pistachio Financiers: With raspberry juice, cold vanilla milk foam, and puffed rice."
+            "fr": "Tartare \"minute\" de nectarine et figues de Solliès, poivre timut, fine gavotte croustillante, sorbet pêche blanche.",
+            "en": "Nectarine and Solliès figs tartare, Timut pepper, thin crispy gavotte, white peach sorbet."
           }
         ]
       }
@@ -61,28 +61,28 @@
       "title": { "fr": "Nos Entrées", "en": "Starters" },
       "items": [
         {
-          "fr": "Tentacule de poulpe grillé au BBQ : Courgette du pays en écrasée, la trompette en salade, sumac, citron confit et aïoli provençal.",
-          "en": "BBQ-Grilled Octopus Tentacle: Mashed local zucchini, zucchini trumpet salad, sumac, candied lemon, and Provençal aïoli.",
-          "price": 28
+          "fr": "Encornet farci \"blette-chorizo-moules\", la courgette du pays en écrasé, sumac, citron confit et écume marinière.",
+          "en": "Stuffed squid with \"chard, chorizo and mussels\", local zucchini purée, sumac, candied lemon and seafood foam.",
+          "price": 29
         },
         {
           "fr": "6 escargots du Var à la bourguignonne.",
-          "en": "Snails from the Var (6 pieces): Prepared Burgundy-style.",
-          "price": 21
+          "en": "6 snails from the Var, Burgundy-style.",
+          "price": 23
         },
         {
-          "fr": "Feuille à feuille de betteraves multicolores marinées (V).",
-          "en": "Multicoloured Beetroot Arrangement: Marinated in kalamansi vinegar, ricotta, fried capers, and hazelnut praline.",
+          "fr": "Feuille à feuille de betteraves multicolores marinées au vinaigre kalamansi, ricotta, câpres frites, pamplemousse et pralin noisette.",
+          "en": "A leaf-by-leaf arrangement of multicoloured beetroot marinated in kalamansi vinegar, with ricotta, fried capers, grapefruit and hazelnut praline.",
           "price": 25
         },
         {
-          "fr": "Tartare de veau au couteau : Artichaut poivrade en barigoule, parmesan, cœur de sucrine grillée, sauce tonnato.",
-          "en": "Knife-cut Veal Tartare: Artichoke poivrade, Parmesan, grilled Sucrine, and tonnato sauce.",
+          "fr": "Tartare de veau au couteau, artichaut poivrade en barigoule, parmesan, cœur de sucrine grillée, sauce tonnato.",
+          "en": "Knife-cut veal tartare, artichoke poivrade, Parmesan, grilled Sucrine, tonnato sauce.",
           "price": 27
         },
         {
-          "fr": "Gravlax de Sériole de Méditerranée : Avocat, vinaigrette passion, citronnelle, Granny Smith.",
-          "en": "Mediterranean Amberjack Gravlax: Avocado, lemongrass and Granny Smith vinaigrette.",
+          "fr": "Carpaccio de maigre, cœur de bœuf, pesto rosso, tomates cerise grillées, pickles de concombre et basilic.",
+          "en": "Carpaccio of meagre, beefsteak tomatoes, red pesto, grilled cherry tomatoes, pickled cucumber and basil.",
           "price": 28
         }
       ]
@@ -92,8 +92,8 @@
         "title": { "fr": "Vegan", "en": "Vegan" },
         "items": [
           {
-            "fr": "Légumes de saison rôtis, déclinés en différentes textures, Pesto basilic et parmesan.",
-            "en": "Roasted Seasonal Vegetables: Various textures with basil and Parmesan pesto.",
+            "fr": "Légumes de saison rôtis, déclinés en différentes textures, pesto basilic.",
+            "en": "Roasted seasonal vegetables in different textures, basil pesto.",
             "price": 24
           }
         ]
@@ -102,18 +102,18 @@
         "title": { "fr": "La Mer", "en": "The Sea" },
         "items": [
           {
-            "fr": "Dos de bar rôti : Tomate cœur de bœuf, fenouil confit, Vénus, granola « salé », sauce Maltaise.",
-            "en": "Roasted Sea Bass Fillet: Tomato, confit fennel, Venus clams, and Maltese sauce.",
-            "price": 38
+            "fr": "Dos de flétan sauvage rôti aux épices trappeur, maïs grillé, pommes de terre mitraille, sauce grenobloise.",
+            "en": "Roasted wild halibut loin with \"Trappeur\" spices, grilled corn, baby potatoes, and Grenobloise sauce.",
+            "price": 41
           },
           {
-            "fr": "Linguine de Gragnano : Homard rôti au beurre de Salicorne, bisque de crustacés et citron confits.",
-            "en": "Gragnano Linguine with Lobster: Roasted with sea samphire butter, shellfish bisque, and candied lemon.",
-            "price": 49
+            "fr": "Maxi Spaghetti di Gragnano a la vongole, râpé de poutargue.",
+            "en": "Maxi Spaghetti di Gragnano, linguine with clams, topped with grated bottarga.",
+            "price": 39
           },
           {
             "fr": "Poisson du jour grillé, sauce vierge de saison, accompagnement au choix.",
-            "en": "Grilled Fish of the Day: Seasonal virgin sauce and choice of side.",
+            "en": "Grilled fish of the day, seasonal virgin sauce, choice of side dishes.",
             "price": 36
           }
         ]
@@ -122,19 +122,19 @@
         "title": { "fr": "La Terre", "en": "The Land" },
         "items": [
           {
-            "fr": "Pluma ibérique juste grillée au romarin : Petits pois/carottes à la française, sucrine, jus court au wasabi.",
-            "en": "Pluma Iberico: Lightly grilled with rosemary, French-style peas and carrots, and wasabi reduction.",
+            "fr": "Suprême de volaille fermière, conchiglioni farci en texture de sous-bois, condiment ail noir-cresson, jus de viande.",
+            "en": "Free-range chicken breast, conchiglioni stuffed with wild forest ingredients, black garlic and watercress sauce, gravy.",
             "price": 39
           },
           {
-            "fr": "Filet de Boeuf Simmental : Petite salade avec vinaigrette, frites maison au Parmesan et à l'huile de Truffe. Sauce poivre vert ou jus de veau.",
-            "en": "Simmental Beef Fillet: Homemade fries with Parmesan and truffle oil, served with green pepper sauce or veal gravy.",
+            "fr": "Filet de Bœuf Simmental, petite salade avec vinaigrette, frites maison au Parmesan et à l'huile de truffe. Sauce poivre vert ou jus de veau.",
+            "en": "Simmental beef fillet, small salad with vinaigrette, homemade fries with Parmesan and truffle oil. Green pepper sauce or veal gravy.",
             "price": 45
           },
           {
-            "fr": "Carré d'agneau des Alpilles : Fine ratatouille en cannelloni d'aubergine, pommes dauphine aux pignons de pins et jus de viande.",
-            "en": "Rack of Lamb from the Alpilles: Ratatouille in aubergine cannelloni and pine nut dauphine potatoes.",
-            "price": 37
+            "fr": "Carré d'agneau des Alpilles, aubergine ronde grillée au BBQ, caponata \"traditionnelle\", panisse croustillante sésame-basilic.",
+            "en": "Rack of lamb from the Alpilles, BBQ-grilled aubergine, traditional caponata, crispy panisse with sesame and basil.",
+            "price": 41
           }
         ]
       }
@@ -142,7 +142,7 @@
     "extras": {
       "title": { "fr": "Les Extras", "en": "Extras" },
       "items": [
-        { "fr": "Légumes de saison rôtis et Pesto", "en": "Roasted seasonal vegetables with pesto", "price": 8 },
+        { "fr": "Légumes de saison rôtis et pesto", "en": "Roasted seasonal vegetables with pesto", "price": 8 },
         { "fr": "Pâtes au beurre, Parmesan et poivre noir", "en": "Pasta with butter, Parmesan and black pepper", "price": 8 },
         { "fr": "Broccolinis au BBQ, citron", "en": "BBQ broccolinis, lemon", "price": 8 },
         { "fr": "Salade vinaigrette", "en": "Salad with dressing", "price": 8 },
@@ -154,28 +154,28 @@
       "title": { "fr": "Nos Desserts", "en": "Desserts" },
       "items": [
         {
-          "fr": "Sélection de fromages par la maison Mons (MOF)",
-          "en": "Selection by Mons (MOF): Comté (24 months), Langres, Goat cheese, and Fourme d'Ambert.",
+          "fr": "Sélection de fromages par la maison Mons (MOF) : Comté 24 mois, Langres, chèvre, Fourme d'Ambert.",
+          "en": "Selection of cheeses by Mons (MOF): Comté 24 months, Langres, goat cheese, Fourme d'Ambert.",
           "price": 17
         },
         {
-          "fr": "Chocolat Ocoa 70% : Crumble aux amandes, crème glacée mascarpone, fleur de sel et réduction de balsamique.",
-          "en": "Ocoa 70% Chocolate Crumble: Almonds, mascarpone ice cream, and balsamic reduction.",
+          "fr": "Chocolat Ocoa 70%, crumble aux amandes, crème glacée mascarpone, fleur de sel et réduction de balsamique.",
+          "en": "Ocoa 70% chocolate crumble with almonds, mascarpone ice cream, fleur de sel, and balsamic reduction.",
           "price": 15
         },
         {
-          "fr": "Financiers aux éclats de pistache : Framboise au jus, écume froide au lait vanillé, riz soufflé.",
-          "en": "Pistachio Financiers: Raspberry juice, cold vanilla milk foam, and puffed rice.",
+          "fr": "Tartare \"minute\" de nectarine et figues de Solliès, poivre timut, fine gavotte croustillante, sorbet pêche blanche.",
+          "en": "Nectarine and Solliès figs tartare, Timut pepper, thin crispy gavotte, white peach sorbet.",
           "price": 15
         },
         {
-          "fr": "Variation autour du pamplemousse : Écorce confite, Apérol en fine gelée, sorbet et segment de pamplemousse, meringue verveine.",
-          "en": "Grapefruit Variation: Candied bark, Aperol jelly, sorbet, and verbena meringue.",
+          "fr": "Variation autour du pamplemousse : l'écorce confite, Apérol en fine gelée, sorbet et segment de pamplemousse, meringue verveine.",
+          "en": "Variation on grapefruit: candied peel, Aperol in fine jelly, grapefruit sorbet and segments, verbena meringue.",
           "price": 15
         },
         {
-          "fr": "Millefeuille de pomme façon tarte Tatin : Caramel au beurre salé, crème végétale légèrement acidulée, Granny Smith au vinaigre de grenade.",
-          "en": "Apple Millefeuille (Tatin-style): Salted butter caramel and Granny Smith in pomegranate vinegar.",
+          "fr": "Millefeuille de pomme façon tarte Tatin, caramel au beurre salé, crème végétale légèrement acidulée, Granny Smith au vinaigre de grenade.",
+          "en": "Apple millefeuille, Tarte Tatin-style, with salted butter caramel, slightly tangy plant-based cream, and Granny Smith apples in pomegranate vinegar.",
           "price": 15
         }
       ]
@@ -183,12 +183,16 @@
   },
   "legal": {
     "meat_origins": {
-      "fr": "Porc, volaille, veau, canard : France / Bœuf : Allemagne",
-      "en": "Pork, poultry, veal, duck: France / Beef: Germany"
+      "fr": "Origines des viandes : Agneau, volaille, veau : France / Bœuf : Allemagne / Chorizo : Espagne",
+      "en": "Meat origins: Lamb, poultry, veal: France / Beef: Germany / Chorizo: Spain"
+    },
+    "fish_origins": {
+      "fr": "Origines des poissons : Flétan (sauvage) Zone FAO Atlantique Nord-Est, maigre (élevé) France, poisson du jour (élevé) France, palourdes (élevé) France, moules (élevé) Espagne, encornets (sauvage) Zone FAO Atlantique Nord-Est",
+      "en": "Fish origins: Halibut (wild) FAO Northeast Atlantic zone, meagre (farmed) France, fish of the day (farmed) France, clams (farmed) France, mussels (farmed) Spain, squid (wild) FAO Northeast Atlantic"
     },
     "allergy_note": {
-      "fr": "En cas d'allergies ou d'intolérances, merci de nous en informer.",
-      "en": "If you have any allergies or intolerances, please let us know."
+      "fr": "En cas d'allergies ou d'intolérances, merci de nous en informer. La liste complète des allergènes est disponible sur demande.",
+      "en": "If you have any allergies or intolerances, please let us know. The full list of allergens is available upon request."
     }
   }
 }
