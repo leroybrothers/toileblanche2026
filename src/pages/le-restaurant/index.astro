@@ -158,7 +158,16 @@ const t = useTranslations(lang);
         <div class="lrs-narrative-text">
           <h2>The Table</h2>
           <p>The menu by Chef Nicolas Leclair and Assistant Chef Melissa Giordano is built around the rhythm of the seasons. What arrived that morning, what is growing in the herb garden twenty metres from the kitchen, what the fishermen brought in at dawn.</p>
-          <p>The wine list reads like a declaration of love for the region. The focus is on producers within driving distance, estates in Bellet, Bandol, Cassis, and the hills above Vence. Some bottles are available nowhere else.</p>
+          <h2>The Cellar</h2>
+          <p>A gallery of another kind. Every bottle chosen the way we choose the work on the walls, for what it says.</p>
+          <p>The list speaks the language of the South first: Bellet in the hills above Nice, Cassis facing the Cap Canaille, the Var from Cotignac to Bormes. Growers we know by name. Then the classics, and a few older bottles kept back for the right evening.</p>
+          <p>Ask us. We enjoy the challenge.</p>
+          <a href="/carte-des-vins.pdf" target="_blank" rel="noopener" class="lrs-menu-expand">
+            <span class="lrs-menu-expand-text">View the wine list</span>
+            <svg class="lrs-menu-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </a>
           <h2>The Evening</h2>
           <p>When the weather allows, dinner is served on the terrace. The valley view joins the table like an extra ingredient. In winter, service moves inside, and the atmosphere becomes more intimate still.</p>
           <p>Relaxed, unfussy. Just good food in golden light.</p>
@@ -667,6 +676,16 @@ const t = useTranslations(lang);
     text-transform: uppercase;
     color: #9C9080;
     transition: color 0.2s;
+  }
+  a.lrs-menu-expand {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  a.lrs-menu-expand:hover {
+    color: #1C1917;
+  }
+  a.lrs-menu-expand:active {
+    color: #1C1917;
   }
   .lrs-menu-expand-icon {
     flex-shrink: 0;

@@ -159,7 +159,16 @@ const t = useTranslations(lang);
         <div class="lrs-narrative-text">
           <h2>La table</h2>
           <p>Le menu du Chef Nicolas Leclair et de la Chef adjointe Melissa Giordano suit le rythme des saisons. Ce qui est arrivé le matin, ce qui pousse dans le jardin d'herbes à vingt mètres de la cuisine, ce que les pêcheurs ont ramené à l'aube.</p>
-          <p>La carte des vins est une déclaration d'amour à la région. L'accent est mis sur les producteurs à portée de voiture, domaines de Bellet, Bandol, Cassis et des collines au-dessus de Vence. Certaines bouteilles sont introuvables ailleurs.</p>
+          <h2>La Cave</h2>
+          <p>Une galerie d'un autre genre. Chaque bouteille choisie comme on choisit une œuvre, pour ce qu'elle raconte.</p>
+          <p>La carte parle d'abord la langue du Sud : Bellet sur les collines au-dessus de Nice, Cassis face au Cap Canaille, le Var de Cotignac à Bormes. Des vignerons que nous connaissons par leur nom. Puis les classiques, et quelques vieux flacons gardés pour le bon soir.</p>
+          <p>Mettez-nous au défi. Nous aimons ça.</p>
+          <a href="/carte-des-vins.pdf" target="_blank" rel="noopener" class="lrs-menu-expand">
+            <span class="lrs-menu-expand-text">Voir la carte des vins</span>
+            <svg class="lrs-menu-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </a>
           <h2>Le soir</h2>
           <p>Dès que le temps le permet, le dîner se savoure en terrasse. La vue sur la vallée s'invite à table, comme un ingrédient en plus. En hiver, le service se tient en salle, dans une atmosphère plus intime.</p>
           <p>Ambiance décontractée, sans chichis. Juste une belle cuisine dans une lumière dorée.</p>
@@ -668,6 +677,16 @@ const t = useTranslations(lang);
     text-transform: uppercase;
     color: #9C9080;
     transition: color 0.2s;
+  }
+  a.lrs-menu-expand {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  a.lrs-menu-expand:hover {
+    color: #1C1917;
+  }
+  a.lrs-menu-expand:active {
+    color: #1C1917;
   }
   .lrs-menu-expand-icon {
     flex-shrink: 0;
