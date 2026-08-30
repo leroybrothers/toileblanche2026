@@ -76,6 +76,7 @@ const lhiverGallerySrc = (file: string) => `/assets/images/lhiver/${encodeURICom
 
       <section class="lhiver-offers" aria-labelledby="lhiver-offers-label">
         <p id="lhiver-offers-label" class="lhiver-label">{c.offersLabel}</p>
+        <p class="lhiver-offers-note">{c.offersNote}</p>
         {c.offers.map((offer, i) => (
           <div class:list={['lhiver-offer', { 'lhiver-offer--first': i === 0 }]}>
             {offer.body.map((line) => (
@@ -214,6 +215,15 @@ const lhiverGallerySrc = (file: string) => `/assets/images/lhiver/${encodeURICom
     text-transform: uppercase;
     color: var(--color-stone-muted, #9c9080);
     margin: 0 0 28px;
+  }
+
+  .lhiver-offers-note {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--color-stone, #6b6256);
+    margin: -16px 0 28px;
   }
 
   .lhiver-offers {

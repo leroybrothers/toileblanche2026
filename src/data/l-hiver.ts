@@ -8,6 +8,7 @@ export type LHiverCopy = {
   subtitle: string;
   opening: string[];
   offersLabel: string;
+  offersNote: string;
   offers: { body: string[] }[];
   includesBoxLabel: string;
   includesLines: string[];
@@ -32,6 +33,7 @@ const en: LHiverCopy = {
     'The longer you stay, the more the season makes sense.',
   ],
   offersLabel: 'Winter stays',
+  offersNote: '(Offer valid for all suites except Suite Pénard)',
   offers: [
     {
       body: [
@@ -77,6 +79,7 @@ const fr: LHiverCopy = {
     'Plus le séjour est long, plus la saison prend son sens.',
   ],
   offersLabel: 'Séjours hiver',
+  offersNote: '(Offre valable pour toutes les suites sauf la Suite Pénard)',
   offers: [
     {
       body: [
